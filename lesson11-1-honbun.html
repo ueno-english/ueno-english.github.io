@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 11-1 本文｜上野作 英語復習活用ホームページ</title>
+  <style>
+    :root {
+      --blue:   #b5006e;
+      --blue2:  #e91e8c;
+      --red:    #c0392b;
+      --green:  #1a7a1a;
+      --gold:   #d4700a;
+      --purple: #7b2d8b;
+      --bg:     #fff0f6;
+      --card:   #ffffff;
+      --border: #f5c6df;
+      --text:   #1a1a2e;
+      --sub:    #555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Sans", "Meiryo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ヘッダー */
+    header {
+      background: linear-gradient(135deg, #7b003d 0%, var(--blue2) 60%, #ff6bb5 100%);
+      color: white;
+      padding: 22px 20px 18px;
+      text-align: center;
+    }
+    header .lesson-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      opacity: 0.75;
+      margin-bottom: 4px;
+    }
+    header h1 { font-size: 20px; font-weight: bold; margin-bottom: 6px; }
+    header .subtitle {
+      font-size: 12px; opacity: 0.85;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px; padding: 4px 14px; display: inline-block;
+    }
+
+    /* 戻るボタン */
+    .back-btn {
+      display: inline-block;
+      margin: 14px 16px 0;
+      padding: 6px 14px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    main { max-width: 720px; margin: 0 auto; padding: 16px 16px 40px; }
+
+    /* セクション見出し */
+    .section-head {
+      background: var(--blue);
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 6px 14px;
+      border-radius: 8px;
+      margin: 20px 0 12px;
+    }
+
+    /* Scene説明 */
+    .scene-desc {
+      background: #e8f0fb;
+      border-left: 4px solid var(--blue2);
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+      margin-bottom: 16px;
+      color: var(--blue);
+    }
+
+    /* 本文カード（1発言ごと） */
+    .speech-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+    }
+    .speech-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: #f5f8fc;
+      border-bottom: 1px solid var(--border);
+    }
+    .speaker-badge {
+      font-size: 11px;
+      font-weight: bold;
+      color: white;
+      padding: 2px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+    .speaker-badge.carlos { background: #1a6db5; }
+    .speaker-badge.yumi   { background: #c0392b; }
+    .line-num { font-size: 11px; color: #aaa; }
+
+    .speech-body { padding: 12px 14px; }
+
+    /* 英文 */
+    .eng {
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 8px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    /* ハイライト */
+    .hl-blue   { color: var(--blue);   font-weight: bold; }
+    .hl-red    { color: var(--red);    font-weight: bold; }
+    .hl-green  { color: var(--green);  font-weight: bold; }
+    .hl-gold   { color: var(--gold);   font-weight: bold; }
+    .hl-purple { color: var(--purple); font-weight: bold; }
+
+    /* 和訳 */
+    .ja {
+      font-size: 13px;
+      color: #444;
+      background: #f8fafe;
+      border-radius: 6px;
+      padding: 7px 12px;
+      border-left: 3px solid #b0c8e8;
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+
+    /* 注意ポイント */
+    .point {
+      font-size: 12.5px;
+      background: #fff8e8;
+      border: 1px solid #f0d880;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-top: 6px;
+    }
+    .point-label {
+      font-size: 11px;
+      font-weight: bold;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .point-formula {
+      font-size: 12px;
+      background: white;
+      border: 1px solid #e8d070;
+      border-radius: 6px;
+      padding: 5px 10px;
+      margin: 5px 0;
+      font-family: monospace;
+      color: #333;
+    }
+    .point-ex {
+      font-size: 12px;
+      color: var(--green);
+      margin-top: 4px;
+    }
+    .point-warn {
+      font-size: 12px;
+      color: var(--red);
+      margin-top: 4px;
+    }
+
+    /* 表現まとめボックス */
+    .summary-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 20px;
+    }
+    .summary-box h3 {
+      font-size: 14px;
+      color: var(--blue);
+      border-bottom: 2px solid var(--blue);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+    .expr-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 13px;
+    }
+    .expr-row:last-child { border-bottom: none; }
+    .expr-eng { min-width: 160px; font-weight: bold; color: var(--blue); font-family: Georgia, serif; }
+    .expr-ja  { color: #444; }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: var(--sub);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="lesson-label">Lesson 11-1</div>
+  <h1>📖 本文（Scene）</h1>
+  <div class="subtitle">和訳 ＋ 注意ポイント</div>
+</header>
+
+<a class="back-btn" href="lesson11-1.html">← 文法解説ページへ</a>
+
+<main>
+
+  <div class="scene-desc">
+    📌 <strong>Scene：</strong>ユミとカルロスは、日本語と中国語について話しています。
+  </div>
+
+  <!-- ─── 発言1：Carlos ─── -->
+  <div class="speech-block">
+    <div class="speech-header">
+      <span class="speaker-badge carlos">Carlos</span>
+      <span class="line-num">l. 1</span>
+    </div>
+    <div class="speech-body">
+      <div class="eng">
+        Yumi, <span class="hl-blue">don't you</span> speak Chinese?
+      </div>
+      <div class="ja">「ユミ、中国語は話せないの？」</div>
+      <div class="point">
+        <span class="point-label">⚡ 注意ポイント：否定疑問文 Don't you ～?</span>
+        「〜じゃないの？」と<strong>確認・驚き・念押し</strong>をするときに使う。<br>
+        <div class="point-formula">Don't you ～? / Can't you ～? / Isn't it ～?</div>
+        <div class="point-ex">💡 例：Don't you like pizza? （ピザ好きじゃないの？）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 発言2：Yumi ─── -->
+  <div class="speech-block">
+    <div class="speech-header">
+      <span class="speaker-badge yumi">Yumi</span>
+      <span class="line-num">l. 2–4</span>
+    </div>
+    <div class="speech-body">
+      <div class="eng">
+        <span class="hl-red">No</span>, I don't.
+        <span class="hl-blue">It</span>'s difficult
+        <span class="hl-green">for me</span>
+        <span class="hl-gold">to speak Chinese</span>, but
+        I can understand written Chinese a little.
+        Japanese and Chinese use a lot of the same characters.
+      </div>
+      <div class="ja">
+        「ええ、話せないよ。<u>私には中国語を話すのは</u>難しいの。<br>
+        でも書き言葉の中国語なら少し理解できるよ。<br>
+        日本語と中国語は同じ文字をたくさん使うから。」
+      </div>
+      <div class="point">
+        <span class="point-label">⚡ 注意ポイント①：否定疑問文への答え方</span>
+        「話せないの？」→「<strong>No, I don't.</strong>（うん、話せない）」<br>
+        <div class="point-warn">⚠ 日本語の「うん（話せない）」＝ 英語では No！逆になる！</div>
+        <div class="point-ex">Don't you like sushi? → No, I don't.（うん、好きじゃない）</div>
+      </div>
+      <div class="point">
+        <span class="point-label">⚡ 注意ポイント②：It is ～ for 人 to V（形式主語）</span>
+        <div class="point-formula">
+          <span style="color:#0a5499">It</span> is difficult
+          <span style="color:#1a7a1a">for me</span>
+          <span style="color:#d4700a">to speak Chinese</span>.
+        </div>
+        <span style="color:#0a5499">It</span> ＝ 席取りのIt（本当の主語 = <span style="color:#d4700a">to speak Chinese</span>）<br>
+        <span style="color:#1a7a1a">for me</span> ＝ 「私にとって」（誰にとって？を付け加える）<br>
+        <div class="point-ex">💡 例：It's easy for him to play the guitar.（彼にとってギターを弾くのは簡単だ）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 発言3：Carlos ─── -->
+  <div class="speech-block">
+    <div class="speech-header">
+      <span class="speaker-badge carlos">Carlos</span>
+      <span class="line-num">l. 5</span>
+    </div>
+    <div class="speech-body">
+      <div class="eng">
+        <span class="hl-blue">Is it</span> hard
+        <span class="hl-gold">to remember</span> all those characters?
+      </div>
+      <div class="ja">「文字を全部覚えるのって大変なの？」</div>
+      <div class="point">
+        <span class="point-label">⚡ 注意ポイント：形式主語の疑問文</span>
+        <div class="point-formula">Is it ～ to V ？</div>
+        「〜するのは…ですか？」疑問文でも <strong>It</strong> を使う！<br>
+        <div class="point-ex">💡 例：Is it fun to play video games?（ゲームするのって楽しい？）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 発言4：Yumi ─── -->
+  <div class="speech-block">
+    <div class="speech-header">
+      <span class="speaker-badge yumi">Yumi</span>
+      <span class="line-num">l. 6–7</span>
+    </div>
+    <div class="speech-body">
+      <div class="eng">
+        Yes, it is. There are
+        <span class="hl-red">thousands of</span> characters.
+        We also use Japanese characters
+        <span class="hl-purple">called</span> hiragana and katakana.
+      </div>
+      <div class="ja">
+        「うん、大変よ。何千もの文字があるんだから。<br>
+        ひらがなとカタカナって<u>呼ばれる</u>日本語の文字も使うし。」
+      </div>
+      <div class="point">
+        <span class="point-label">⚡ 注意ポイント①：hundreds of / thousands of / millions of</span>
+        <div class="point-formula">
+          hundreds of ～ ＝ 何百もの～<br>
+          thousands of ～ ＝ 何千もの～<br>
+          millions of ～ ＝ 何百万もの～
+        </div>
+        <div class="point-ex">💡 例：There are thousands of manga in Japan!（日本には何千もの漫画がある！）</div>
+      </div>
+      <div class="point">
+        <span class="point-label">⚡ 注意ポイント②：called ～（〜と呼ばれる）</span>
+        <div class="point-formula">名詞 ＋ called ～ ＝ 〜という名前の…</div>
+        = "which are called ～" の省略形。後ろから名詞を説明する！<br>
+        <div class="point-ex">💡 例：a sport called baseball（ベースボールというスポーツ）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 発言5：Carlos ─── -->
+  <div class="speech-block">
+    <div class="speech-header">
+      <span class="speaker-badge carlos">Carlos</span>
+      <span class="line-num">l. 8–9</span>
+    </div>
+    <div class="speech-body">
+      <div class="eng">
+        That's interesting.
+        My teacher <span class="hl-blue">told</span> me
+        <span class="hl-gold">to do</span> a school project about other languages.
+        Can you help me?
+      </div>
+      <div class="ja">
+        「それは面白いね。先生に他の言語についての学校のプロジェクトを<u>やるよう言われた</u>んだ。<br>
+        手伝ってくれる？」
+      </div>
+      <div class="point">
+        <span class="point-label">⚡ 注意ポイント：tell ＋ 人 ＋ to V（〜するよう言う）</span>
+        <div class="point-formula">
+          My teacher <span style="color:#0a5499">told</span> me
+          <span style="color:#d4700a">to do</span> a school project.
+        </div>
+        <strong>told me to do</strong> ＝「私にやるよう言った」<br>
+        ここでは受け身的に「言われた」という意味！<br>
+        <div class="point-ex">💡 例：My mom told me to clean my room.（お母さんに部屋を片付けるよう言われた）</div>
+        <div class="point-warn">⚠ tell to だけではダメ！必ず 人（目的語）が間に必要！</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 発言6：Yumi ─── -->
+  <div class="speech-block">
+    <div class="speech-header">
+      <span class="speaker-badge yumi">Yumi</span>
+      <span class="line-num">l. 10</span>
+    </div>
+    <div class="speech-body">
+      <div class="eng">Sure.</div>
+      <div class="ja">「もちろん！ / いいよ！」</div>
+      <div class="point">
+        <span class="point-label">💬 表現メモ：Sure.</span>
+        日常会話でよく使う<strong>OK・もちろん</strong>の一言返事。<br>
+        <div class="point-ex">Of course. / No problem. / Sure thing. も同じような意味。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 重要表現まとめ ─── -->
+  <div class="summary-box">
+    <h3>📝 本文の重要表現まとめ</h3>
+    <div class="expr-row">
+      <span class="expr-eng">Don't you ～?</span>
+      <span class="expr-ja">〜じゃないの？（確認・驚き）</span>
+    </div>
+    <div class="expr-row">
+      <span class="expr-eng">It is ～ for 人 to V</span>
+      <span class="expr-ja">（人）にとって〜するのは…だ</span>
+    </div>
+    <div class="expr-row">
+      <span class="expr-eng">written Chinese</span>
+      <span class="expr-ja">書き言葉の中国語</span>
+    </div>
+    <div class="expr-row">
+      <span class="expr-eng">thousands of ～</span>
+      <span class="expr-ja">何千もの〜</span>
+    </div>
+    <div class="expr-row">
+      <span class="expr-eng">名詞 called ～</span>
+      <span class="expr-ja">〜という名前の…（後置修飾）</span>
+    </div>
+    <div class="expr-row">
+      <span class="expr-eng">tell 人 to V</span>
+      <span class="expr-ja">（人）に〜するよう言う</span>
+    </div>
+    <div class="expr-row">
+      <span class="expr-eng">Sure.</span>
+      <span class="expr-ja">もちろん。／いいよ。</span>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  中学3年英語 New Treasure 学習サイト
+  <div style="margin-top:8px;">
+    <a href="https://soccer-tactics.hatenablog.com" target="_blank"
+       style="color:#1a6db5; font-size:12px; text-decoration:none;">
+      ⚽ 先生のサッカーブログはこちら
+    </a>
+  </div>
+</footer>
+
+
+<script data-goatcounter="https://ueno-english.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
