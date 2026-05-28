@@ -49,7 +49,9 @@
     .ans-box .al { font-weight:bold; color:var(--gold); }
     .score-bar { background:white; border:2px solid var(--border); border-radius:12px; padding:10px 16px; text-align:center; margin-bottom:16px; }
     .snum { font-size:28px; font-weight:bold; color:var(--blue); }
-    .reset-btn { background:white; border:2px solid var(--border); border-radius:6px; padding:5px 14px; font-size:12px; cursor:pointer; margin-left:10px; font-family:inherit; }
+    .shuffle-btn { background:linear-gradient(135deg,var(--blue),var(--blue2)); color:white; border:none; border-radius:8px; padding:8px 18px; font-size:14px; cursor:pointer; font-family:inherit; font-weight:bold; letter-spacing:.05em; }
+    .shuffle-btn:hover { opacity:.88; }
+    .scenario-label { font-size:11px; background:var(--border); color:var(--blue); border-radius:10px; padding:2px 10px; display:inline-block; margin-bottom:8px; font-weight:bold; }
     .nav-btns { display:flex; gap:8px; margin-top:24px; flex-wrap:wrap; }
     .nav-btn { background:white; border:2px solid var(--border); border-radius:8px; padding:8px 16px; font-size:13px; text-decoration:none; color:var(--blue); font-weight:bold; }
     .nav-btn:hover { background:var(--bg); }
@@ -136,56 +138,18 @@
 
   </div>
 
-  <!-- テキスト練習 -->
+  <!-- テキスト練習（ランダム） -->
   <div class="section-hd" style="margin-top:28px;">▼ テキスト練習（英文を読んで問題を解こう）</div>
   <div class="section-bd">
     <div class="instr">実際のリスニング問題と同じ形式です。英文を声に出して読んでから，問いに答えましょう。</div>
 
-    <div class="score-bar">スコア：<span class="snum" id="snum">0</span> <span style="font-size:18px;color:var(--sub)">/3</span> <button class="reset-btn" onclick="resetAll()">リセット</button></div>
-
-    <!-- 練習1 -->
-    <div class="practice-wrap" id="p1wrap">
-      <div class="pq-label">練習① ｜ 問2タイプ（英文を読んで質問に答える）</div>
-      <div class="pq-instr">英文を読んで，質問(1)〜(2)に答えなさい。</div>
-      <div class="transcript">
-        Hi, my name is Emma. I started playing tennis when I was eight years old. My older sister gave me her old racket, and I practiced every day at a park near my house. At first, it was very difficult for me, but my sister helped me a lot. Now I play on my school team and we won the city tournament last month. In the future, I want to become a professional tennis player.
-      </div>
-
-      <p style="font-size:13.5px;margin-bottom:8px;">(1)　Who gave Emma a racket when she started playing tennis?</p>
-      <div class="choices" id="p1a">
-        <button class="cbtn" onclick="pa('p1a',this,false,'「父から」とは書かれていません。')">① Her father gave her a new racket.</button>
-        <button class="cbtn" onclick="pa('p1a',this,true,'✅ 正解！ "My older sister gave me her old racket" とあります。')">② Her older sister gave her an old racket.</button>
-        <button class="cbtn" onclick="pa('p1a',this,false,'友達からとは書かれていません。')">③ Her friend gave her a new racket.</button>
-        <button class="cbtn" onclick="pa('p1a',this,false,'先生からとは書かれていません。')">④ Her teacher gave her an old racket.</button>
-      </div>
-      <div class="feedback" id="p1a-fb"></div>
-
-      <p style="font-size:13.5px;margin-top:12px;margin-bottom:8px;">(2)　What does Emma want to do in the future?</p>
-      <div class="choices" id="p1b">
-        <button class="cbtn" onclick="pa('p1b',this,false,'テニスコーチになるとは書かれていません。')">① She wants to become a tennis coach.</button>
-        <button class="cbtn" onclick="pa('p1b',this,false,'先生になるとは書かれていません。')">② She wants to become an English teacher.</button>
-        <button class="cbtn" onclick="pa('p1b',this,true,'✅ 正解！ "I want to become a professional tennis player." とあります。')">③ She wants to become a professional tennis player.</button>
-        <button class="cbtn" onclick="pa('p1b',this,false,'公園で練習を続けるとは書かれていません。')">④ She wants to keep practicing at the park.</button>
-      </div>
-      <div class="feedback" id="p1b-fb"></div>
+    <div class="score-bar">
+      スコア：<span class="snum" id="snum">0</span> <span style="font-size:18px;color:var(--sub)">/2</span>
+      &nbsp;&nbsp;
+      <button class="shuffle-btn" onclick="initAll()">🔀 新しい問題</button>
     </div>
 
-    <!-- 練習2 -->
-    <div class="practice-wrap" id="p2wrap">
-      <div class="pq-label">練習② ｜ 問3タイプ（対話の空所に入る英語を書く）</div>
-      <div class="pq-instr">対話を読んで，空所に入る最も適切な英語を考えなさい。</div>
-      <div class="transcript">
-        <div><span class="speaker">Taro:</span> Hi, Jane. The soccer game starts at 3:00. Can you come?</div>
-        <div><span class="speaker">Jane:</span> Sure! I've just finished my homework. <span class="blank-s">（空所）</span></div>
-        <div><span class="speaker">Taro:</span> Great! See you at the stadium.</div>
-      </div>
-      <button class="show-btn" onclick="showAns(this)">模範解答を見る</button>
-      <div class="ans-box">
-        <span class="al">模範解答（例）：</span><br>
-        I'll be there soon. / I'm on my way. / I can go there right now.<br>
-        <span style="font-size:12px;color:var(--sub)">「もうすぐ行ける・すぐ行く」という内容の英文であれば正解です。</span>
-      </div>
-    </div>
+    <div id="practice-area"></div>
 
   </div>
 
@@ -197,33 +161,241 @@
 <footer>中学3年英語 New Treasure 学習サイト</footer>
 
 <script>
-let score = 0, done = {};
-function pa(gid, btn, ok, msg) {
+/* ===== 練習セット定義 ===== */
+const scenarios = [
+  {
+    label: 'セットA',
+    // 練習① 問2タイプ
+    p1label: '練習① ｜ 問2タイプ（英文を読んで質問に答える）',
+    p1instr: '英文を読んで，質問(1)〜(2)に答えなさい。',
+    transcript: 'Hi, my name is Emma. I started playing tennis when I was eight years old. My older sister gave me her old racket, and I practiced every day at a park near my house. At first, it was very difficult for me, but my sister helped me a lot. Now I play on my school team and we won the city tournament last month. In the future, I want to become a professional tennis player.',
+    q1text: '(1)　Who gave Emma a racket when she started playing tennis?',
+    q1choices: [
+      { t:'① Her father gave her a new racket.', ok:false, note:'「父から」とは書かれていません。' },
+      { t:'② Her older sister gave her an old racket.', ok:true,  note:'✅ 正解！ "My older sister gave me her old racket" とあります。' },
+      { t:'③ Her friend gave her a new racket.', ok:false, note:'友達からとは書かれていません。' },
+      { t:'④ Her teacher gave her an old racket.', ok:false, note:'先生からとは書かれていません。' }
+    ],
+    q2text: '(2)　What does Emma want to do in the future?',
+    q2choices: [
+      { t:'① She wants to become a tennis coach.', ok:false, note:'テニスコーチになるとは書かれていません。' },
+      { t:'② She wants to become an English teacher.', ok:false, note:'先生になるとは書かれていません。' },
+      { t:'③ She wants to become a professional tennis player.', ok:true,  note:'✅ 正解！ "I want to become a professional tennis player." とあります。' },
+      { t:'④ She wants to keep practicing at the park.', ok:false, note:'公園で練習を続けるとは書かれていません。' }
+    ],
+    // 練習② 問3タイプ
+    p2label: '練習② ｜ 問3タイプ（対話の空所に入る英語を書く）',
+    p2instr: '対話を読んで，空所に入る最も適切な英語を考えなさい。',
+    dialogLines: [
+      { speaker:'Taro', text:'Hi, Jane. The soccer game starts at 3:00. Can you come?' },
+      { speaker:'Jane', text:'Sure! I\'ve just finished my homework.', blank:true },
+      { speaker:'Taro', text:'Great! See you at the stadium.' }
+    ],
+    p2ans: 'I\'ll be there soon. / I\'m on my way. / I can go there right now.',
+    p2note: '「もうすぐ行ける・すぐ行く」という内容の英文であれば正解です。'
+  },
+  {
+    label: 'セットB',
+    // 練習① 問2タイプ
+    p1label: '練習① ｜ 問2タイプ（英文を読んで質問に答える）',
+    p1instr: '英文を読んで，質問(1)〜(2)に答えなさい。',
+    transcript: 'Hi, everyone. My name is Kenji. Last summer, I joined a volunteer program at the local library. Every weekend, I read picture books to young children. At first, I was nervous because I had never done anything like that before. But the children were always happy and smiled at me. I also learned how important it is to speak clearly and slowly. I want to join the program again next year.',
+    q1text: '(1)　What did Kenji do at the library every weekend?',
+    q1choices: [
+      { t:'① He borrowed books for the children.', ok:false, note:'本を借りたとは書かれていません。' },
+      { t:'② He read picture books to young children.', ok:true,  note:'✅ 正解！ "I read picture books to young children" とあります。' },
+      { t:'③ He taught English to young children.', ok:false, note:'英語を教えたとは書かれていません。' },
+      { t:'④ He cleaned the library every weekend.', ok:false, note:'掃除をしたとは書かれていません。' }
+    ],
+    q2text: '(2)　How did Kenji feel at first?',
+    q2choices: [
+      { t:'① He was excited because he loved children.', ok:false, note:'excited とは書かれていません。' },
+      { t:'② He was nervous because he had never done it before.', ok:true,  note:'✅ 正解！ "I was nervous because I had never done anything like that before" とあります。' },
+      { t:'③ He was bored because the library was quiet.', ok:false, note:'bored とは書かれていません。' },
+      { t:'④ He was tired because the program was long.', ok:false, note:'tired とは書かれていません。' }
+    ],
+    // 練習② 問3タイプ
+    p2label: '練習② ｜ 問3タイプ（対話の空所に入る英語を書く）',
+    p2instr: '対話を読んで，空所に入る最も適切な英語を考えなさい。',
+    dialogLines: [
+      { speaker:'Yuki', text:'Are you free this Saturday, Tom?' },
+      { speaker:'Tom', text:'Yes, I am. What\'s up?' },
+      { speaker:'Yuki', text:'I\'m going to the art museum. Would you like to come with me?' },
+      { speaker:'Tom', text:'', blank:true },
+      { speaker:'Yuki', text:'It\'s near the station. I\'ll send you the details.' }
+    ],
+    p2ans: 'Sure! / That sounds great! / I\'d love to! / Of course!',
+    p2note: '誘いに応じる表現（賛成・同意）の英文であれば正解です。'
+  }
+];
+
+/* ===== 状態 ===== */
+let score = 0, done = {}, currentS = null;
+
+/* ===== 初期化 ===== */
+function initAll() {
+  score = 0; done = {};
+  document.getElementById('snum').textContent = '0';
+
+  // 前回と違うセットを選ぶ
+  let nextS;
+  do { nextS = scenarios[Math.floor(Math.random() * scenarios.length)]; }
+  while (scenarios.length > 1 && nextS === currentS);
+  currentS = nextS;
+
+  renderPractice(currentS);
+}
+
+/* ===== 描画 ===== */
+function renderPractice(s) {
+  const area = document.getElementById('practice-area');
+  area.innerHTML = '';
+
+  /* --- 練習① --- */
+  const p1 = document.createElement('div');
+  p1.className = 'practice-wrap';
+
+  const sc = document.createElement('div');
+  sc.className = 'scenario-label';
+  sc.textContent = s.label;
+  p1.appendChild(sc);
+
+  const lbl1 = document.createElement('div');
+  lbl1.className = 'pq-label';
+  lbl1.textContent = s.p1label;
+  p1.appendChild(lbl1);
+
+  const ins1 = document.createElement('div');
+  ins1.className = 'pq-instr';
+  ins1.textContent = s.p1instr;
+  p1.appendChild(ins1);
+
+  const tr = document.createElement('div');
+  tr.className = 'transcript';
+  tr.textContent = s.transcript;
+  p1.appendChild(tr);
+
+  // Q1
+  const q1t = document.createElement('p');
+  q1t.style.cssText = 'font-size:13.5px;margin-bottom:8px;';
+  q1t.textContent = s.q1text;
+  p1.appendChild(q1t);
+
+  const c1 = document.createElement('div');
+  c1.className = 'choices';
+  c1.id = 'qa';
+  s.q1choices.forEach((ch, ci) => {
+    const btn = document.createElement('button');
+    btn.className = 'cbtn';
+    btn.textContent = ch.t;
+    btn._ok = ch.ok;
+    btn._note = ch.note;
+    btn.onclick = function(){ ansQ('qa', this); };
+    c1.appendChild(btn);
+  });
+  p1.appendChild(c1);
+
+  const fb1 = document.createElement('div');
+  fb1.className = 'feedback';
+  fb1.id = 'qa-fb';
+  p1.appendChild(fb1);
+
+  // Q2
+  const q2t = document.createElement('p');
+  q2t.style.cssText = 'font-size:13.5px;margin-top:12px;margin-bottom:8px;';
+  q2t.textContent = s.q2text;
+  p1.appendChild(q2t);
+
+  const c2 = document.createElement('div');
+  c2.className = 'choices';
+  c2.id = 'qb';
+  s.q2choices.forEach((ch, ci) => {
+    const btn = document.createElement('button');
+    btn.className = 'cbtn';
+    btn.textContent = ch.t;
+    btn._ok = ch.ok;
+    btn._note = ch.note;
+    btn.onclick = function(){ ansQ('qb', this); };
+    c2.appendChild(btn);
+  });
+  p1.appendChild(c2);
+
+  const fb2 = document.createElement('div');
+  fb2.className = 'feedback';
+  fb2.id = 'qb-fb';
+  p1.appendChild(fb2);
+
+  area.appendChild(p1);
+
+  /* --- 練習② --- */
+  const p2 = document.createElement('div');
+  p2.className = 'practice-wrap';
+
+  const lbl2 = document.createElement('div');
+  lbl2.className = 'pq-label';
+  lbl2.textContent = s.p2label;
+  p2.appendChild(lbl2);
+
+  const ins2 = document.createElement('div');
+  ins2.className = 'pq-instr';
+  ins2.textContent = s.p2instr;
+  p2.appendChild(ins2);
+
+  const dlg = document.createElement('div');
+  dlg.className = 'transcript';
+  s.dialogLines.forEach(line => {
+    const row = document.createElement('div');
+    if (line.blank) {
+      row.innerHTML = '<span class="speaker">' + line.speaker + ':</span> <span class="blank-s">（空所）</span>';
+    } else {
+      row.innerHTML = '<span class="speaker">' + line.speaker + ':</span> ' + line.text;
+    }
+    dlg.appendChild(row);
+  });
+  p2.appendChild(dlg);
+
+  const showBtn = document.createElement('button');
+  showBtn.className = 'show-btn';
+  showBtn.textContent = '模範解答を見る';
+  showBtn.onclick = function() {
+    this.style.display = 'none';
+    this.nextElementSibling.style.display = 'block';
+  };
+  p2.appendChild(showBtn);
+
+  const ansBox = document.createElement('div');
+  ansBox.className = 'ans-box';
+  ansBox.innerHTML = '<span class="al">模範解答（例）：</span><br>' +
+    s.p2ans + '<br><span style="font-size:12px;color:var(--sub)">' + s.p2note + '</span>';
+  p2.appendChild(ansBox);
+
+  area.appendChild(p2);
+}
+
+/* ===== 解答判定 ===== */
+function ansQ(gid, btn) {
   if (done[gid]) return;
   done[gid] = true;
-  document.querySelectorAll('#'+gid+' .cbtn').forEach(b => b.disabled = true);
-  const fb = document.getElementById(gid+'-fb');
-  if (ok) {
+  const group = document.getElementById(gid);
+  group.querySelectorAll('.cbtn').forEach(b => b.disabled = true);
+  const fb = document.getElementById(gid + '-fb');
+  if (btn._ok) {
     btn.classList.add('correct');
-    fb.textContent = msg;
+    fb.textContent = btn._note;
     fb.className = 'feedback ok';
     score++;
     document.getElementById('snum').textContent = score;
   } else {
     btn.classList.add('wrong');
-    document.querySelectorAll('#'+gid+' .cbtn').forEach(b => { if(b.getAttribute('onclick').includes(',true,')) b.classList.add('show-ok'); });
-    fb.textContent = '❌ ' + msg;
+    group.querySelectorAll('.cbtn').forEach(b => { if (b._ok) b.classList.add('show-ok'); });
+    fb.textContent = '❌ ' + btn._note;
     fb.className = 'feedback ng';
   }
   fb.style.display = 'block';
 }
-function showAns(btn) { btn.style.display='none'; btn.nextElementSibling.style.display='block'; }
-function resetAll() {
-  score = 0; done = {};
-  document.getElementById('snum').textContent = '0';
-  document.querySelectorAll('.cbtn').forEach(b => { b.classList.remove('correct','wrong','show-ok'); b.disabled = false; });
-  document.querySelectorAll('.feedback').forEach(f => f.style.display = 'none');
-}
+
+/* ===== 起動 ===== */
+initAll();
 </script>
 </body>
 </html>
