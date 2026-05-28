@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>単語テスト Lesson 11 第一弾</title>
+  <style>
+    :root {
+      --pink:   #b5006e;
+      --pink2:  #e91e8c;
+      --bg:     #fff0f6;
+      --card:   #ffffff;
+      --border: #f5c6df;
+      --text:   #1a1a2e;
+      --sub:    #666;
+      --green:  #1a7a1a;
+      --red:    #c0392b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Sans", "Meiryo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ─── ヘッダー ─── */
+    header {
+      background: linear-gradient(135deg, #7b003d 0%, #e91e8c 60%, #ff6bb5 100%);
+      color: white;
+      padding: 20px 20px 16px;
+      text-align: center;
+    }
+    header .back-link {
+      display: inline-block;
+      font-size: 12px;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      margin-bottom: 8px;
+      background: rgba(255,255,255,0.15);
+      padding: 3px 12px;
+      border-radius: 20px;
+    }
+    header h1 { font-size: 20px; font-weight: bold; line-height: 1.4; }
+    header .subtitle { font-size: 12px; opacity: 0.85; margin-top: 4px; }
+
+    /* ─── メイン ─── */
+    main { max-width: 640px; margin: 0 auto; padding: 20px 16px 40px; }
+
+    /* ─── モード選択 ─── */
+    #mode-screen { text-align: center; }
+    .mode-title {
+      font-size: 17px;
+      font-weight: bold;
+      color: var(--pink);
+      margin-bottom: 6px;
+    }
+    .mode-sub { font-size: 13px; color: var(--sub); margin-bottom: 24px; }
+    .mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+    .mode-btn {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 12px;
+      cursor: pointer;
+      transition: all 0.15s;
+      text-align: center;
+    }
+    .mode-btn:hover { border-color: var(--pink2); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .mode-btn.selected { border-color: var(--pink); background: #fff0f6; }
+    .mode-icon { font-size: 28px; margin-bottom: 6px; }
+    .mode-label { font-size: 13px; font-weight: bold; color: var(--pink); }
+    .mode-desc { font-size: 11px; color: var(--sub); margin-top: 3px; }
+    .start-btn {
+      background: linear-gradient(135deg, #7b003d, var(--pink2));
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 40px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.15s;
+      width: 100%;
+      max-width: 300px;
+    }
+    .start-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* ─── 進捗バー ─── */
+    .progress-wrap { margin-bottom: 16px; }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--sub);
+      margin-bottom: 5px;
+    }
+    .progress-bar {
+      height: 6px;
+      background: var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #7b003d, var(--pink2));
+      border-radius: 10px;
+      transition: width 0.3s ease;
+    }
+
+    /* ─── 問題カード ─── */
+    #quiz-screen { display: none; }
+    .question-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .section-badge {
+      display: inline-block;
+      font-size: 10px;
+      background: #fff0f6;
+      color: var(--pink);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2px 10px;
+      margin-bottom: 12px;
+      font-weight: bold;
+    }
+    .question-label { font-size: 12px; color: var(--sub); margin-bottom: 8px; }
+    .question-word {
+      font-size: 30px;
+      font-weight: bold;
+      color: var(--text);
+      text-align: center;
+      padding: 12px 0 8px;
+      letter-spacing: 1px;
+    }
+    .question-pos {
+      text-align: center;
+      font-size: 12px;
+      color: var(--sub);
+      margin-bottom: 4px;
+    }
+
+    /* ─── 選択肢 ─── */
+    .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .choice-btn {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 10px;
+      font-size: 14px;
+      font-family: "Hiragino Sans", "Meiryo", sans-serif;
+      cursor: pointer;
+      transition: all 0.15s;
+      text-align: center;
+      line-height: 1.4;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .choice-btn:hover:not(:disabled) {
+      border-color: var(--pink2);
+      background: #fff0f6;
+    }
+    .choice-btn.correct {
+      border-color: var(--green);
+      background: #f0faf0;
+      color: var(--green);
+      font-weight: bold;
+    }
+    .choice-btn.wrong {
+      border-color: var(--red);
+      background: #fdf0f0;
+      color: var(--red);
+    }
+    .choice-btn:disabled { cursor: default; }
+
+    /* ─── フィードバック ─── */
+    .feedback {
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-top: 14px;
+      font-size: 13.5px;
+      display: none;
+      align-items: center;
+      gap: 8px;
+    }
+    .feedback.show { display: flex; }
+    .feedback.ok { background: #f0faf0; color: var(--green); border: 1px solid #b8e0b8; }
+    .feedback.ng { background: #fdf0f0; color: var(--red); border: 1px solid #f0b8b8; }
+    .feedback-icon { font-size: 20px; }
+    .feedback-text { line-height: 1.5; }
+
+    /* ─── 次へボタン ─── */
+    .next-btn {
+      display: none;
+      width: 100%;
+      background: linear-gradient(135deg, #7b003d, var(--pink2));
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 14px;
+      transition: all 0.15s;
+    }
+    .next-btn:hover { opacity: 0.9; }
+    .next-btn.show { display: block; }
+
+    /* ─── 結果画面 ─── */
+    #result-screen {
+      display: none;
+      text-align: center;
+    }
+    .result-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+    .result-emoji { font-size: 60px; margin-bottom: 12px; }
+    .result-score {
+      font-size: 48px;
+      font-weight: bold;
+      color: var(--pink);
+      line-height: 1;
+    }
+    .result-denom { font-size: 20px; color: var(--sub); }
+    .result-percent {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+    .result-comment { font-size: 15px; color: var(--text); margin-bottom: 24px; }
+    .result-breakdown {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .breakdown-item { text-align: center; }
+    .breakdown-num { font-size: 24px; font-weight: bold; }
+    .breakdown-num.ok { color: var(--green); }
+    .breakdown-num.ng { color: var(--red); }
+    .breakdown-label { font-size: 11px; color: var(--sub); }
+    .retry-btn {
+      background: linear-gradient(135deg, #7b003d, var(--pink2));
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 40px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 6px;
+      transition: all 0.15s;
+    }
+    .retry-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+    .retry-btn.outline {
+      background: white;
+      color: var(--pink);
+      border: 2px solid var(--pink);
+    }
+    .wrong-list {
+      text-align: left;
+      background: #fdf0f0;
+      border: 1px solid #f0b8b8;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 16px;
+    }
+    .wrong-list h4 { color: var(--red); font-size: 13px; margin-bottom: 10px; }
+    .wrong-item { font-size: 13px; padding: 4px 0; border-bottom: 1px solid #f5c6df; }
+    .wrong-item:last-child { border-bottom: none; }
+    .wrong-en { font-weight: bold; color: var(--text); }
+    .wrong-ja { color: var(--sub); font-size: 12px; }
+
+    /* ─── 復習モード ─── */
+    #review-screen { display: none; }
+    .review-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 8px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .review-num { font-size: 11px; color: var(--sub); min-width: 24px; text-align: center; }
+    .review-en { font-weight: bold; font-size: 14px; flex: 1; }
+    .review-pos { font-size: 10px; color: var(--pink); background: #fff0f6; border-radius: 8px; padding: 1px 6px; }
+    .review-ja { font-size: 13px; color: var(--sub); flex: 1.2; }
+    .review-section {
+      font-size: 11px;
+      font-weight: bold;
+      color: var(--pink);
+      margin: 16px 0 6px;
+      padding: 4px 10px;
+      background: #fff0f6;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: var(--sub);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="back-link" href="index.html">← ホームに戻る</a>
+  <h1>📝 単語テスト　Lesson 11 第一弾</h1>
+  <div class="subtitle">11-1文法・11-1本文・11-2文法　全30語</div>
+</header>
+
+<main>
+
+  <!-- ─── モード選択 ─── -->
+  <div id="mode-screen">
+    <p class="mode-title" style="margin-top:16px;">モードを選んでスタート！</p>
+    <p class="mode-sub">英語 → 日本語で意味を当てよう</p>
+
+    <div class="mode-grid">
+      <div class="mode-btn selected" onclick="selectMode('all')" id="mode-all">
+        <div class="mode-icon">📚</div>
+        <div class="mode-label">全問チャレンジ</div>
+        <div class="mode-desc">30問すべてに挑戦</div>
+      </div>
+      <div class="mode-btn" onclick="selectMode('random10')" id="mode-random10">
+        <div class="mode-icon">🎲</div>
+        <div class="mode-label">ランダム 10問</div>
+        <div class="mode-desc">ランダムに10問ピック</div>
+      </div>
+      <div class="mode-btn" onclick="selectMode('grammar')" id="mode-grammar">
+        <div class="mode-icon">✏️</div>
+        <div class="mode-label">11-1 文法のみ</div>
+        <div class="mode-desc">No.1〜10の10問</div>
+      </div>
+      <div class="mode-btn" onclick="selectMode('honbun')" id="mode-honbun">
+        <div class="mode-icon">📖</div>
+        <div class="mode-label">11-1 本文のみ</div>
+        <div class="mode-desc">No.11〜20の10問</div>
+      </div>
+    </div>
+
+    <button class="start-btn" onclick="startQuiz()">スタート！</button>
+
+    <div style="margin-top:24px; text-align:center;">
+      <button class="retry-btn outline" onclick="showReview()" style="padding:10px 24px; font-size:13px;">
+        📋 単語一覧を見る
+      </button>
+    </div>
+  </div>
+
+  <!-- ─── クイズ ─── -->
+  <div id="quiz-screen">
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span id="q-num">問題 1 / 30</span>
+        <span id="q-score">✅ 0問正解</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+
+    <div class="question-card">
+      <div class="section-badge" id="q-section">11-1 文法</div>
+      <div class="question-label">次の英語の意味を選べ</div>
+      <div class="question-word" id="q-word">difficult</div>
+      <div class="question-pos" id="q-pos">（形容詞）</div>
+    </div>
+
+    <div class="choices" id="choices"></div>
+    <div class="feedback" id="feedback">
+      <span class="feedback-icon" id="fb-icon"></span>
+      <span class="feedback-text" id="fb-text"></span>
+    </div>
+    <button class="next-btn" id="next-btn" onclick="nextQuestion()">次の問題 →</button>
+  </div>
+
+  <!-- ─── 結果 ─── -->
+  <div id="result-screen">
+    <div class="result-card">
+      <div class="result-emoji" id="result-emoji">🎉</div>
+      <div class="result-score" id="result-score">27</div>
+      <div class="result-denom" id="result-denom">/ 30問</div>
+      <div class="result-percent" id="result-percent">90%</div>
+      <div class="result-comment" id="result-comment">すばらしい！</div>
+      <div class="result-breakdown">
+        <div class="breakdown-item">
+          <div class="breakdown-num ok" id="bd-correct">27</div>
+          <div class="breakdown-label">✅ 正解</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-num ng" id="bd-wrong">3</div>
+          <div class="breakdown-label">❌ 不正解</div>
+        </div>
+      </div>
+      <button class="retry-btn" onclick="retryAll()">🔁 もう一度（同じ問題）</button>
+      <button class="retry-btn outline" onclick="retryWrong()" id="retry-wrong-btn">❌ 間違えた問題だけ</button>
+    </div>
+    <div class="wrong-list" id="wrong-list" style="display:none">
+      <h4>❌ 間違えた単語</h4>
+      <div id="wrong-items"></div>
+    </div>
+    <div style="text-align:center; margin-top:16px;">
+      <button class="retry-btn outline" onclick="backToMode()" style="padding:10px 28px; font-size:13px;">← モード選択に戻る</button>
+    </div>
+  </div>
+
+  <!-- ─── 一覧 ─── -->
+  <div id="review-screen">
+    <div style="margin-bottom:14px; display:flex; align-items:center; gap:10px;">
+      <button onclick="backToMode()" style="background:none;border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:12px;cursor:pointer;color:var(--pink);">← 戻る</button>
+      <span style="font-size:14px; font-weight:bold; color:var(--pink);">📋 単語一覧（全30語）</span>
+    </div>
+    <div id="review-content"></div>
+  </div>
+
+</main>
+
+<footer>中学3年英語 New Treasure 学習サイト</footer>
+
+<script>
+const vocab = [
+  // 11-1 文法
+  {no:1,  en:"difficult",         pos:"形", ja:"難しい",                  sec:"11-1 文法"},
+  {no:2,  en:"important",         pos:"形", ja:"重要な",                  sec:"11-1 文法"},
+  {no:3,  en:"necessary",         pos:"形", ja:"必要な",                  sec:"11-1 文法"},
+  {no:4,  en:"explain",           pos:"動", ja:"説明する",                sec:"11-1 文法"},
+  {no:5,  en:"thought(s)",        pos:"名", ja:"考え・思い",              sec:"11-1 文法"},
+  {no:6,  en:"share",             pos:"動", ja:"分かち合う・共有する",    sec:"11-1 文法"},
+  {no:7,  en:"advise",            pos:"動", ja:"忠告する",                sec:"11-1 文法"},
+  {no:8,  en:"toothache",         pos:"名", ja:"歯痛",                    sec:"11-1 文法"},
+  {no:9,  en:"dentist",           pos:"名", ja:"歯医者",                  sec:"11-1 文法"},
+  {no:10, en:"earthquake",        pos:"名", ja:"地震",                    sec:"11-1 文法"},
+  // 11-1 本文
+  {no:11, en:"Chinese",           pos:"名", ja:"中国語；中国人",          sec:"11-1 本文"},
+  {no:12, en:"written Chinese",   pos:"",   ja:"書き言葉の中国語",        sec:"11-1 本文"},
+  {no:13, en:"character(s)",      pos:"名", ja:"文字；性格",              sec:"11-1 本文"},
+  {no:14, en:"thousands of ～",   pos:"",   ja:"何千もの～",              sec:"11-1 本文"},
+  {no:15, en:"interesting",       pos:"形", ja:"興味深い",                sec:"11-1 本文"},
+  {no:16, en:"language(s)",       pos:"名", ja:"言語",                    sec:"11-1 本文"},
+  {no:17, en:"project",           pos:"名", ja:"研究課題；プロジェクト",  sec:"11-1 本文"},
+  {no:18, en:"Sure.",             pos:"",   ja:"もちろん；いいよ",        sec:"11-1 本文"},
+  {no:19, en:"Don't you ～?",     pos:"",   ja:"〜じゃないの？（確認・驚き）", sec:"11-1 本文"},
+  {no:20, en:"名詞 ＋ called ～", pos:"",   ja:"〜と呼ばれる…",          sec:"11-1 本文"},
+  // 11-2 文法
+  {no:21, en:"spill",             pos:"動", ja:"（液体を）こぼす",        sec:"11-2 文法"},
+  {no:22, en:"stain",             pos:"名", ja:"汚れ・シミ",              sec:"11-2 文法"},
+  {no:23, en:"get rid of ～",     pos:"",   ja:"〜を取り除く",            sec:"11-2 文法"},
+  {no:24, en:"laundry",           pos:"名", ja:"洗濯物",                  sec:"11-2 文法"},
+  {no:25, en:"detergent",         pos:"名", ja:"洗剤",                    sec:"11-2 文法"},
+  {no:26, en:"temperature",       pos:"名", ja:"温度；気温",              sec:"11-2 文法"},
+  {no:27, en:"lid",               pos:"名", ja:"ふた",                    sec:"11-2 文法"},
+  {no:28, en:"dryer",             pos:"名", ja:"乾燥機",                  sec:"11-2 文法"},
+  {no:29, en:"decide",            pos:"動", ja:"決める",                  sec:"11-2 文法"},
+  {no:30, en:"how to ～",         pos:"",   ja:"〜のやり方；〜する方法",  sec:"11-2 文法"},
+];
+
+// ── 状態管理 ──────────────────────────────────────
+let questions = [];
+let currentIdx = 0;
+let correctCount = 0;
+let wrongItems = [];
+let answered = false;
+let selectedMode = 'all';
+
+// ── モード選択 ──────────────────────────────────────
+function selectMode(mode) {
+  selectedMode = mode;
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('selected'));
+  document.getElementById('mode-' + mode)?.classList.add('selected');
+}
+
+// ── クイズ開始 ──────────────────────────────────────
+function startQuiz() {
+  let pool = [...vocab];
+  if (selectedMode === 'grammar')   pool = vocab.slice(0, 10);
+  if (selectedMode === 'honbun')    pool = vocab.slice(10, 20);
+  if (selectedMode === 'random10')  pool = shuffle([...vocab]).slice(0, 10);
+
+  questions = shuffle(pool);
+  currentIdx = 0;
+  correctCount = 0;
+  wrongItems = [];
+
+  show('quiz-screen');
+  renderQuestion();
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ── 問題描画 ──────────────────────────────────────
+function renderQuestion() {
+  const q = questions[currentIdx];
+  const total = questions.length;
+
+  // 進捗
+  document.getElementById('q-num').textContent = `問題 ${currentIdx + 1} / ${total}`;
+  document.getElementById('q-score').textContent = `✅ ${correctCount}問正解`;
+  document.getElementById('progress-fill').style.width = `${(currentIdx / total) * 100}%`;
+
+  // 問題
+  document.getElementById('q-section').textContent = q.sec;
+  document.getElementById('q-word').textContent = q.en;
+  const posLabel = q.pos === '形' ? '（形容詞）'
+                 : q.pos === '動' ? '（動詞）'
+                 : q.pos === '名' ? '（名詞）'
+                 : q.pos === '副' ? '（副詞）'
+                 : q.pos === '熟' ? '（熟語）'
+                 : '（表現）';
+  document.getElementById('q-pos').textContent = q.pos ? posLabel : '（表現・フレーズ）';
+
+  // 選択肢を作る（正解 + 3つのダミー）
+  const distractors = shuffle(vocab.filter(v => v.ja !== q.ja)).slice(0, 3);
+  const choices = shuffle([q, ...distractors]);
+
+  const choicesEl = document.getElementById('choices');
+  choicesEl.innerHTML = '';
+  choices.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.textContent = c.ja;
+    btn.onclick = () => checkAnswer(btn, c.ja === q.ja, q);
+    choicesEl.appendChild(btn);
+  });
+
+  // フィードバック・次へボタンをリセット
+  answered = false;
+  const fb = document.getElementById('feedback');
+  fb.className = 'feedback';
+  fb.style.display = '';
+  document.getElementById('next-btn').className = 'next-btn';
+}
+
+// ── 回答チェック ──────────────────────────────────────
+function checkAnswer(btn, isCorrect, q) {
+  if (answered) return;
+  answered = true;
+
+  // 全ボタンを無効化
+  document.querySelectorAll('.choice-btn').forEach(b => {
+    b.disabled = true;
+    if (b.textContent === q.ja) b.classList.add('correct');
+  });
+
+  const fb = document.getElementById('feedback');
+  if (isCorrect) {
+    btn.classList.add('correct');
+    correctCount++;
+    fb.className = 'feedback show ok';
+    document.getElementById('fb-icon').textContent = '⭕';
+    document.getElementById('fb-text').innerHTML = `<strong>正解！</strong>　${q.en} ＝ ${q.ja}`;
+  } else {
+    btn.classList.add('wrong');
+    wrongItems.push(q);
+    fb.className = 'feedback show ng';
+    document.getElementById('fb-icon').textContent = '❌';
+    document.getElementById('fb-text').innerHTML = `<strong>不正解…</strong>　正しくは「${q.ja}」だよ！`;
+  }
+
+  document.getElementById('q-score').textContent = `✅ ${correctCount}問正解`;
+
+  const nextBtn = document.getElementById('next-btn');
+  const isLast = currentIdx === questions.length - 1;
+  nextBtn.textContent = isLast ? '結果を見る 🎉' : '次の問題 →';
+  nextBtn.className = 'next-btn show';
+}
+
+// ── 次の問題 ──────────────────────────────────────
+function nextQuestion() {
+  if (currentIdx < questions.length - 1) {
+    currentIdx++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+// ── 結果画面 ──────────────────────────────────────
+function showResult() {
+  const total = questions.length;
+  const pct = Math.round((correctCount / total) * 100);
+  const emoji = pct === 100 ? '🏆' : pct >= 80 ? '🎉' : pct >= 60 ? '😊' : pct >= 40 ? '😅' : '💪';
+  const comment = pct === 100 ? '満点！完璧だよ！'
+                : pct >= 80 ? 'すばらしい！あと少し！'
+                : pct >= 60 ? 'なかなか！復習して満点めざそう！'
+                : pct >= 40 ? 'もう少し！間違えた単語を確認しよう！'
+                : '単語一覧で復習してからもう一度！';
+
+  document.getElementById('result-emoji').textContent = emoji;
+  document.getElementById('result-score').textContent = correctCount;
+  document.getElementById('result-denom').textContent = `/ ${total}問`;
+  document.getElementById('result-percent').textContent = `正解率 ${pct}%`;
+  document.getElementById('result-comment').textContent = comment;
+  document.getElementById('bd-correct').textContent = correctCount;
+  document.getElementById('bd-wrong').textContent = total - correctCount;
+
+  // 間違えた単語一覧
+  const wrongList = document.getElementById('wrong-list');
+  const wrongBtn = document.getElementById('retry-wrong-btn');
+  if (wrongItems.length > 0) {
+    wrongList.style.display = 'block';
+    document.getElementById('wrong-items').innerHTML = wrongItems.map(w =>
+      `<div class="wrong-item"><span class="wrong-en">${w.en}</span>　<span class="wrong-ja">→ ${w.ja}</span></div>`
+    ).join('');
+    wrongBtn.style.display = '';
+  } else {
+    wrongList.style.display = 'none';
+    wrongBtn.style.display = 'none';
+  }
+
+  show('result-screen');
+}
+
+// ── リトライ ──────────────────────────────────────
+function retryAll() {
+  questions = shuffle([...questions]);
+  currentIdx = 0;
+  correctCount = 0;
+  wrongItems = [];
+  show('quiz-screen');
+  renderQuestion();
+}
+
+function retryWrong() {
+  if (wrongItems.length === 0) return;
+  questions = shuffle([...wrongItems]);
+  currentIdx = 0;
+  correctCount = 0;
+  wrongItems = [];
+  show('quiz-screen');
+  renderQuestion();
+}
+
+function backToMode() {
+  show('mode-screen');
+}
+
+// ── 一覧表示 ──────────────────────────────────────
+function showReview() {
+  const sections = ['11-1 文法', '11-1 本文', '11-2 文法'];
+  let html = '';
+  sections.forEach(sec => {
+    const items = vocab.filter(v => v.sec === sec);
+    html += `<div class="review-section">${sec}</div>`;
+    items.forEach(v => {
+      const posLabel = v.pos || '表現';
+      html += `
+        <div class="review-card">
+          <div class="review-num">No.${v.no}</div>
+          <div class="review-en">${v.en}</div>
+          <div class="review-pos">${posLabel}</div>
+          <div class="review-ja">${v.ja}</div>
+        </div>`;
+    });
+  });
+  document.getElementById('review-content').innerHTML = html;
+  show('review-screen');
+}
+
+// ── 画面切替ユーティリティ ──────────────────────────────────────
+function show(id) {
+  ['mode-screen','quiz-screen','result-screen','review-screen'].forEach(s => {
+    document.getElementById(s).style.display = (s === id) ? 'block' : 'none';
+  });
+  window.scrollTo(0, 0);
+}
+
+// 初期表示
+show('mode-screen');
+</script>
+
+
+<script data-goatcounter="https://ueno-english.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
