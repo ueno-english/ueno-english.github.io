@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>上野作　英語復習活用ホームページ</title>
+  <style>
+    :root {
+      --blue:   #b5006e;
+      --blue2:  #e91e8c;
+      --red:    #c0392b;
+      --green:  #1a7a1a;
+      --gold:   #d4700a;
+      --bg:     #fff0f6;
+      --card:   #ffffff;
+      --border: #f5c6df;
+      --text:   #1a1a2e;
+      --sub:    #555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Sans", "Meiryo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ─── ヘッダー ─── */
+    header {
+      background: linear-gradient(135deg, #7b003d 0%, var(--blue2) 60%, #ff6bb5 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      text-align: center;
+    }
+    header .school-label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+    header h1 {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    header .subtitle {
+      font-size: 13px;
+      opacity: 0.85;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 5px 16px;
+      display: inline-block;
+    }
+
+    /* ─── 検索バー ─── */
+    .search-wrap {
+      background: white;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 8px;
+    }
+    .search-wrap input {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 14px;
+      outline: none;
+    }
+    .search-wrap input:focus { border-color: var(--blue); }
+
+    /* ─── メイン ─── */
+    main { max-width: 720px; margin: 0 auto; padding: 20px 16px 40px; }
+
+    /* ─── お知らせ ─── */
+    .notice {
+      background: #fff8e8;
+      border: 1px solid #f0d080;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      font-size: 13.5px;
+    }
+    .notice strong { color: var(--gold); }
+
+    /* ─── 単元カード ─── */
+    .unit {
+      margin-bottom: 24px;
+    }
+    .unit-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .unit-badge {
+      background: var(--blue);
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 3px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .unit-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--blue);
+    }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 480px) {
+      .lesson-grid { grid-template-columns: 1fr; }
+    }
+
+    .lesson-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .lesson-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .lesson-card.coming-soon {
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: default;
+    }
+    .card-num {
+      font-size: 11px;
+      color: var(--sub);
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .card-title {
+      font-size: 13.5px;
+      font-weight: bold;
+      color: var(--blue);
+      line-height: 1.4;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+    .tag {
+      font-size: 10px;
+      background: #eef4fb;
+      color: var(--blue);
+      border-radius: 10px;
+      padding: 2px 8px;
+    }
+    .tag.red   { background: #fdf0f0; color: var(--red); }
+    .tag.green { background: #f0faf0; color: var(--green); }
+    .tag.gold  { background: #fff8e8; color: var(--gold); }
+    .badge-new {
+      font-size: 10px;
+      background: var(--red);
+      color: white;
+      border-radius: 10px;
+      padding: 1px 7px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .badge-soon {
+      font-size: 10px;
+      background: #bbb;
+      color: white;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+
+    /* ─── 使い方 ─── */
+    .how-to {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    .how-to h3 {
+      font-size: 14px;
+      color: var(--blue);
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--blue);
+      padding-bottom: 4px;
+    }
+    .how-to ol {
+      padding-left: 18px;
+      font-size: 13.5px;
+      line-height: 2;
+    }
+
+    /* ─── フッター ─── */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: var(--sub);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="school-label">中学3年生 英語 New Treasure</div>
+  <h1>📚 上野作　英語復習活用ホームページ</h1>
+  <div class="subtitle">いつでも・どこでも・スマホで復習できる！</div>
+</header>
+
+<div class="search-wrap">
+  <input type="text" id="searchInput" placeholder="🔍 文法を検索（例：仮定法、付加疑問文...）" oninput="filterCards()">
+</div>
+
+<main>
+
+  <div class="notice">
+    📢 <strong>使い方</strong>：読みたいページをタップ → 文法の説明と練習問題の答えが確認できます。テスト前の復習に活用しよう！
+  </div>
+
+  <!-- ═══════════════════════════════ -->
+  <!-- Lesson 11 -->
+  <!-- ═══════════════════════════════ -->
+  <div class="unit" data-unit="lesson11">
+    <div class="unit-header">
+      <span class="unit-badge">Lesson 11</span>
+      <span class="unit-title">不定詞の発展的な使い方</span>
+    </div>
+    <div class="lesson-grid">
+
+      <a class='lesson-card' data-keywords='形式主語 it for 人 want tell ask advise' href='lesson11-1.html'>
+        <div class="card-num">11-1 文法 &nbsp;<span class="badge-new">NEW</span></div>
+        <div class="card-title">形式主語 It<br>／ for ＋ 人 ＋ to V<br>／ want O to V</div>
+        <div class="card-tags">
+          <span class="tag">It is … to</span>
+          <span class="tag red">for 人</span>
+          <span class="tag green">want / tell</span>
+        </div>
+      </a>
+
+      <a class="lesson-card" href="lesson11-1-honbun.html" data-keywords="本文 scene 和訳 don't you thousands called tell">
+        <div class="card-num">11-1 本文 &nbsp;<span class="badge-new">NEW</span></div>
+        <div class="card-title">Scene：日本語と中国語<br>（和訳 ＋ 注意ポイント）</div>
+        <div class="card-tags">
+          <span class="tag">和訳</span>
+          <span class="tag red">否定疑問文</span>
+          <span class="tag green">called</span>
+        </div>
+      </a>
+
+      <a class="lesson-card" href="lesson11-vocab1.html" data-keywords="単語 vocabulary 4択 クイズ lesson11 単語テスト">
+        <div class="card-num">単語 L11 第一弾 &nbsp;<span class="badge-new">NEW</span></div>
+        <div class="card-title">単語テスト<br>Lesson 11 第一弾<br>（30語 4択クイズ）</div>
+        <div class="card-tags">
+          <span class="tag">4択クイズ</span>
+          <span class="tag red">30語</span>
+          <span class="tag green">11-1文法・本文／11-2文法</span>
+        </div>
+      </a>
+
+      <a class="lesson-card coming-soon" href="#" data-keywords="疑問詞 what to how to where to when to which to">
+        <div class="card-num">11-2 &nbsp;<span class="badge-soon">準備中</span></div>
+        <div class="card-title">疑問詞 ＋ to V<br>（what to / how to など）</div>
+        <div class="card-tags">
+          <span class="tag">what to do</span>
+          <span class="tag">how to use</span>
+        </div>
+      </a>
+
+      <a class="lesson-card coming-soon" href="#" data-keywords="too to enough so that">
+        <div class="card-num">11-3 &nbsp;<span class="badge-soon">準備中</span></div>
+        <div class="card-title">too … to V<br>／ enough to V<br>／ so … that</div>
+        <div class="card-tags">
+          <span class="tag red">too … to</span>
+          <span class="tag green">enough to</span>
+          <span class="tag gold">so … that</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ -->
+  <!-- Lesson 12 -->
+  <!-- ═══════════════════════════════ -->
+  <div class="unit" data-unit="lesson12">
+    <div class="unit-header">
+      <span class="unit-badge">Lesson 12</span>
+      <span class="unit-title">疑問文の発展・仮定法</span>
+    </div>
+    <div class="lesson-grid">
+
+      <a class="lesson-card coming-soon" href="#" data-keywords="間接疑問文 疑問詞 語順">
+        <div class="card-num">12-1 &nbsp;<span class="badge-soon">準備中</span></div>
+        <div class="card-title">間接疑問文<br>（疑問詞 ＋ S ＋ V）</div>
+        <div class="card-tags">
+          <span class="tag">I know where he lives</span>
+        </div>
+      </a>
+
+      <a class="lesson-card coming-soon" href="#" data-keywords="付加疑問文 isn't it don't you">
+        <div class="card-num">12-2 &nbsp;<span class="badge-soon">準備中</span></div>
+        <div class="card-title">付加疑問文<br>（〜ですよね？）</div>
+        <div class="card-tags">
+          <span class="tag">isn't it?</span>
+          <span class="tag">don't you?</span>
+        </div>
+      </a>
+
+      <a class="lesson-card coming-soon" href="#" data-keywords="仮定法 if 過去形 would could wish">
+        <div class="card-num">12-3 &nbsp;<span class="badge-soon">準備中</span></div>
+        <div class="card-title">仮定法過去<br>（If ＋ 過去形, would …）</div>
+        <div class="card-tags">
+          <span class="tag red">If I were …</span>
+          <span class="tag gold">I wish …</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ─── 使い方 ─── -->
+  <div class="how-to">
+    <h3>📖 このサイトの使い方</h3>
+    <ol>
+      <li>学習したいLessonのカードをタップ</li>
+      <li>文法の説明をじっくり読む</li>
+      <li>「答えを見る」ボタンで練習問題の答えを確認</li>
+      <li>テスト前に何度でも復習しよう！</li>
+    </ol>
+  </div>
+
+</main>
+
+<footer>
+  中学3年英語 New Treasure 学習サイト
+  <div style="margin-top:8px;">
+    <a href="https://soccer-tactics.hatenablog.com" target="_blank"
+       style="color:#1a6db5; font-size:12px; text-decoration:none;">
+      ⚽ 先生のサッカーブログはこちら
+    </a>
+  </div>
+</footer>
+
+<script>
+  function filterCards() {
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    document.querySelectorAll('.lesson-card').forEach(card => {
+      const keywords = (card.dataset.keywords || '') + ' ' + card.innerText;
+      card.style.display = (!q || keywords.toLowerCase().includes(q)) ? '' : 'none';
+    });
+  }
+</script>
+
+
+<script data-goatcounter="https://ueno-english.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
