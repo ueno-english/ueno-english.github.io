@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>実力テスト対策 大問3：チャット読解</title>
+  <style>
+    :root { --blue:#b5006e; --blue2:#e91e8c; --red:#c0392b; --green:#1a7a1a; --gold:#d4700a; --bg:#fff0f6; --card:#ffffff; --border:#f5c6df; --text:#1a1a2e; --sub:#555; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Hiragino Sans","Meiryo",sans-serif; background:var(--bg); color:var(--text); font-size:15px; line-height:1.7; }
+    header { background:linear-gradient(135deg,#7b003d 0%,var(--blue2) 60%,#ff6bb5 100%); color:white; padding:20px 20px 16px; text-align:center; }
+    header .back-link { display:block; font-size:12px; color:rgba(255,255,255,.8); text-decoration:none; margin-bottom:8px; }
+    header h1 { font-size:20px; font-weight:bold; margin-bottom:4px; }
+    header .subtitle { font-size:12px; opacity:.85; background:rgba(255,255,255,.15); border-radius:20px; padding:3px 14px; display:inline-block; }
+    main { max-width:720px; margin:0 auto; padding:20px 16px 40px; }
+    .notice { background:#fff8e8; border:1px solid #f0d080; border-radius:10px; padding:12px 16px; margin-bottom:16px; font-size:13px; }
+    .section-hd { background:var(--blue); color:white; padding:8px 14px; border-radius:8px 8px 0 0; font-weight:bold; font-size:14px; margin-top:24px; }
+    .section-bd { background:white; border:1px solid var(--border); border-top:none; border-radius:0 0 8px 8px; padding:16px; }
+    .instr { font-size:13px; color:var(--sub); margin-bottom:12px; border-left:3px solid var(--border); padding-left:10px; }
+    /* チャット */
+    .chat-wrap { background:#f8f0f5; border:1px solid var(--border); border-radius:10px; padding:16px; margin-bottom:4px; font-size:13.5px; }
+    .note-line { font-size:12px; color:var(--sub); border-top:1px solid var(--border); margin-top:12px; padding-top:8px; }
+    .bubble-row { display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; }
+    .bubble-row.you { flex-direction:row-reverse; }
+    .speaker { font-size:11px; font-weight:bold; color:white; background:var(--blue); border-radius:20px; padding:2px 10px; white-space:nowrap; align-self:flex-start; margin-top:2px; }
+    .bubble-row.you .speaker { background:#555; }
+    .bubble { background:white; border:1px solid var(--border); border-radius:10px; padding:8px 12px; font-size:13.5px; max-width:85%; line-height:1.6; }
+    .bubble-row.you .bubble { background:#fdf0f6; border-color:var(--border); }
+    .bubble .blank-slot { border-bottom:2px solid var(--blue); display:inline-block; min-width:60px; color:var(--blue); font-weight:bold; }
+    /* 設問 */
+    .q-block { background:#fdf6fb; border:1px solid var(--border); border-radius:8px; padding:14px; margin-bottom:12px; }
+    .q-title { font-weight:bold; color:var(--blue); margin-bottom:8px; font-size:14px; }
+    .q-text { font-size:13.5px; margin-bottom:10px; line-height:1.6; }
+    /* 4択 */
+    .choices { display:flex; flex-direction:column; gap:6px; }
+    .cbtn { background:white; border:2px solid var(--border); border-radius:8px; padding:8px 12px; font-size:13px; cursor:pointer; text-align:left; font-family:inherit; transition:all .15s; }
+    .cbtn:hover:not(:disabled) { border-color:var(--blue); background:var(--bg); }
+    .cbtn.correct { background:#e8f8e8; border-color:var(--green); color:var(--green); font-weight:bold; }
+    .cbtn.wrong { background:#fde8e8; border-color:var(--red); color:var(--red); }
+    .cbtn.show-ok { background:#e8f8e8; border-color:var(--green); color:var(--green); }
+    .feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .feedback.ok { background:#e8f8e8; color:var(--green); }
+    .feedback.ng { background:#fde8e8; color:var(--red); }
+    .show-btn { background:var(--blue); color:white; border:none; border-radius:6px; padding:6px 16px; font-size:13px; cursor:pointer; font-family:inherit; }
+    .show-btn:hover { background:var(--blue2); }
+    .ans-box { display:none; margin-top:8px; background:#fff8e8; border:1px solid #f0d080; border-radius:6px; padding:10px 14px; font-size:13px; }
+    .ans-box .al { font-weight:bold; color:var(--gold); }
+    .nav-btns { display:flex; gap:8px; margin-top:24px; flex-wrap:wrap; }
+    .nav-btn { background:white; border:2px solid var(--border); border-radius:8px; padding:8px 16px; font-size:13px; text-decoration:none; color:var(--blue); font-weight:bold; }
+    .nav-btn:hover { background:var(--bg); }
+    footer { text-align:center; padding:20px; font-size:12px; color:var(--sub); border-top:1px solid var(--border); margin-top:40px; }
+  </style>
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+<header>
+  <a class="back-link" href="index.html">← ホームに戻る</a>
+  <h1>実力テスト対策 ｜ 大問３</h1>
+  <div class="subtitle">チャット読解 ＋ 英文記述</div>
+</header>
+<main>
+
+  <div class="notice">📝 チャットを読んで，設問に答えましょう。英文記述は模範解答で確認できます。</div>
+
+  <!-- チャット本文 -->
+  <div class="section-hd">▼ チャット本文を読みなさい</div>
+  <div class="section-bd">
+    <div class="instr">あなたは所属する英語部で，みどり小学校の1〜2年生に英語を教える「英語出前授業」の計画をチャットで話し合っています。英語部顧問のスミス先生（Ms. Smith）と部員のケンタ（Kenta），ハナ（Hana）のチャットをもとに，あとの各問いに答えなさい。</div>
+
+    <div class="chat-wrap">
+      <div class="bubble-row">
+        <span class="speaker">Smith</span>
+        <div class="bubble">Our English club will visit Midori Elementary School next month. We will teach English to the first- and second-grade students. Please think about what activities we should do.</div>
+      </div>
+      <div class="bubble-row">
+        <span class="speaker">Kenta</span>
+        <div class="bubble">That sounds exciting! How about playing word games? I think young children love games.</div>
+      </div>
+      <div class="bubble-row">
+        <span class="speaker">Hana</span>
+        <div class="bubble">Good idea! We could also make picture cards with simple English words. The kids can play a matching game with them.</div>
+      </div>
+      <div class="bubble-row you">
+        <span class="speaker">あなた</span>
+        <div class="bubble">How about singing English songs, too? Children can remember words easily through music.</div>
+      </div>
+      <div class="bubble-row">
+        <span class="speaker">Smith</span>
+        <div class="bubble">Those are all great ideas. But we only have about 40 minutes with them. We need to choose carefully.</div>
+      </div>
+      <div class="bubble-row">
+        <span class="speaker">Kenta</span>
+        <div class="bubble">Then let's do two activities. I think we should sing a song <em>first</em> to help the kids relax.</div>
+      </div>
+      <div class="bubble-row">
+        <span class="speaker">Hana</span>
+        <div class="bubble">I agree. After the song, we can play the card game. <span class="blank-slot">（&ensp;A&ensp;）</span></div>
+      </div>
+      <div class="bubble-row you">
+        <span class="speaker">あなた</span>
+        <div class="bubble">Yes! And we should choose a song with easy movements so the kids can have fun moving their bodies.</div>
+      </div>
+      <div class="bubble-row">
+        <span class="speaker">Smith</span>
+        <div class="bubble">Perfect. How many cards should we make?</div>
+      </div>
+      <div class="bubble-row">
+        <span class="speaker">Kenta</span>
+        <div class="bubble">About 20 cards will be enough for the game.</div>
+      </div>
+      <div class="bubble-row">
+        <span class="speaker">Hana</span>
+        <div class="bubble">Let's use very simple words — like "cat," "dog," "apple," and "ball." <span class="blank-slot">（&ensp;B&ensp;）</span></div>
+      </div>
+      <div class="bubble-row you">
+        <span class="speaker">あなた</span>
+        <div class="bubble">Good idea. Let's practice the song together before the visit, too.</div>
+      </div>
+      <div class="bubble-row">
+        <span class="speaker">Smith</span>
+        <div class="bubble">Great plan! Let's meet again next week to finalize everything.</div>
+      </div>
+
+      <div class="note-line">（注）*elementary school 小学校　*matching game 神経衰弱・マッチングゲーム　*grade 学年　*relax リラックスする</div>
+    </div>
+  </div>
+
+  <!-- 設問 -->
+  <div class="section-hd" style="margin-top:28px;">設問</div>
+  <div class="section-bd">
+
+    <!-- 問1 -->
+    <div class="q-block">
+      <div class="q-title">問１　空所に入る英語を書きなさい</div>
+      <div class="q-text">
+        チャットの内容に合うように，空所（A）にふさわしい<strong>3語以上</strong>の英語と，空所（B）にふさわしい英語を書きなさい。
+      </div>
+      <p style="font-size:13px;margin-bottom:6px;">（A）　Hana の発言の空所（ゲームへの期待を表す1文）</p>
+      <button class="show-btn" onclick="showAns(this)">（A）の答えを見る</button>
+      <div class="ans-box"><span class="al">模範解答（例）：</span>The kids will love it. / It will be a lot of fun. / I'm sure they will enjoy it.<br><span style="font-size:12px;color:var(--sub)">ゲームをすることへの期待・楽しさを表す文であれば正解です。</span></div>
+
+      <p style="font-size:13px;margin-top:12px;margin-bottom:6px;">（B）　Hana の発言の空所（簡単な単語を使う理由）</p>
+      <button class="show-btn" onclick="showAns(this)">（B）の答えを見る</button>
+      <div class="ans-box"><span class="al">模範解答（例）：</span>Simple words are easier for young children to understand. / Easy words are important for first and second graders.<br><span style="font-size:12px;color:var(--sub)">「低学年には難しい単語は分からない」という内容であれば正解です。</span></div>
+    </div>
+
+    <!-- 問2 順番 -->
+    <div class="q-block" id="q2">
+      <div class="q-title">問２　活動の順番として最も適切なものを①〜④から選びなさい</div>
+      <div class="q-text">チャットの内容から分かる当日の活動の順番を選びなさい。</div>
+      <div class="choices">
+        <button class="cbtn" onclick="ans2(this,false)">① カードゲーム → 英語の歌</button>
+        <button class="cbtn" onclick="ans2(this,true)">② 英語の歌 → カードゲーム</button>
+        <button class="cbtn" onclick="ans2(this,false)">③ カード作り → 英語の歌 → カードゲーム</button>
+        <button class="cbtn" onclick="ans2(this,false)">④ 英語の歌 → カード作り → カードゲーム</button>
+      </div>
+      <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- 問3 英語1文で答える -->
+    <div class="q-block">
+      <div class="q-title">問３　次の質問に3語以上の英語1文で答えなさい</div>
+      <div class="q-text" style="font-family:Georgia,serif;">Question: How many picture cards will they make for the game?</div>
+      <button class="show-btn" onclick="showAns(this)">答えを見る</button>
+      <div class="ans-box"><span class="al">模範解答：</span>They will make about twenty cards. / About 20 cards.<br><span style="font-size:12px;color:var(--sub)">数字はアルファベットで書いても数字でも可。主語・動詞を含む1文で答えましょう。</span></div>
+    </div>
+
+  </div>
+
+  <div class="nav-btns">
+    <a class="nav-btn" href="jitsuryoku-2.html">← 大問2</a>
+    <a class="nav-btn" href="index.html">ホーム</a>
+    <a class="nav-btn" href="jitsuryoku-4.html">大問4 長文読解 →</a>
+  </div>
+</main>
+<footer>中学3年英語 New Treasure 学習サイト</footer>
+
+<script>
+function showAns(btn) { btn.style.display='none'; btn.nextElementSibling.style.display='block'; }
+let q2done = false;
+function ans2(btn, ok) {
+  if (q2done) return;
+  q2done = true;
+  const fb = document.getElementById('q2-fb');
+  document.querySelectorAll('#q2 .cbtn').forEach(b => b.disabled = true);
+  if (ok) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ 正解！ Kenta が「まず歌を歌って緊張をほぐす」と提案し，Hana が「歌の後にカードゲーム」と賛成しています。';
+    fb.className = 'feedback ok';
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('#q2 .cbtn').forEach(b => { if(b.getAttribute('onclick').includes('true')) b.classList.add('show-ok'); });
+    fb.textContent = '❌ 不正解。チャットでKentaが「まず歌」と提案し、Hanaが「歌の後にカードゲーム」と賛成しています。';
+    fb.className = 'feedback ng';
+  }
+  fb.style.display = 'block';
+}
+</script>
+</body>
+</html>
