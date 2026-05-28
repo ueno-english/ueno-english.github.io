@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 11-1 解説｜上野作 英語復習活用ホームページ</title>
+  <style>
+    :root {
+      --blue:  #b5006e;
+      --red:   #c0392b;
+      --green: #1a7a1a;
+      --gold:  #d4700a;
+      --bg:    #fff0f6;
+      --card:  #ffffff;
+      --border:#f5c6df;
+      --text:  #222;
+      --sub:   #555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Sans", "Meiryo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ヘッダー */
+    header {
+      background: linear-gradient(135deg, #7b003d 0%, #e91e8c 100%);
+      color: white;
+      padding: 20px 16px 16px;
+      text-align: center;
+    }
+    header .lesson-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      opacity: 0.85;
+      margin-bottom: 4px;
+    }
+    header h1 { font-size: 20px; font-weight: bold; margin-bottom: 6px; }
+    header .topics {
+      font-size: 12px;
+      opacity: 0.9;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 4px 14px;
+      display: inline-block;
+    }
+
+    /* ナビ（目次） */
+    nav {
+      display: flex;
+      overflow-x: auto;
+      gap: 8px;
+      padding: 12px 16px;
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+    nav a {
+      white-space: nowrap;
+      text-decoration: none;
+      background: var(--blue);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+    nav a:hover { opacity: 0.85; }
+
+    /* メインコンテンツ */
+    main { padding: 16px; max-width: 720px; margin: 0 auto; }
+
+    /* セクションカード */
+    .section {
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .section-header {
+      background: var(--blue);
+      color: white;
+      padding: 12px 16px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .section-body { padding: 16px; }
+
+    /* ポイントボックス */
+    .point-box {
+      background: #eef4fb;
+      border-left: 4px solid var(--blue);
+      border-radius: 0 8px 8px 0;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }
+    .point-box .emoji-title {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    /* 変換図 */
+    .transform {
+      background: #fff8e8;
+      border: 1px solid #f0d080;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+    .transform .before {
+      color: var(--sub);
+      margin-bottom: 4px;
+    }
+    .transform .arrow {
+      text-align: center;
+      font-size: 18px;
+      color: var(--gold);
+      margin: 4px 0;
+    }
+    .transform .after { font-weight: bold; }
+    .transform .label {
+      font-size: 11px;
+      color: var(--sub);
+      margin-top: 6px;
+    }
+    .r { color: var(--red); font-weight: bold; }
+    .g { color: var(--green); font-weight: bold; }
+    .b { color: var(--blue); font-weight: bold; }
+
+    /* 注意ボックス */
+    .warn {
+      background: #fff0f0;
+      border: 1px solid #f5b8b8;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13.5px;
+      margin: 10px 0;
+    }
+    .warn strong { color: var(--red); }
+
+    /* 動詞テーブル */
+    .verb-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin: 12px 0;
+    }
+    .verb-table th {
+      background: var(--blue);
+      color: white;
+      padding: 6px 10px;
+      text-align: left;
+    }
+    .verb-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .verb-table tr:nth-child(even) td { background: #f2f7fd; }
+    .verb-table .verb-cell { font-weight: bold; font-style: italic; color: var(--blue); }
+
+    /* 代名詞テーブル */
+    .pronoun-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin: 10px 0;
+      font-size: 13px;
+    }
+    .pronoun-card {
+      background: #eef4fb;
+      border-radius: 6px;
+      padding: 6px 4px;
+      text-align: center;
+    }
+    .pronoun-card .subject { color: var(--sub); font-size: 12px; }
+    .pronoun-card .object { color: var(--red); font-weight: bold; font-size: 14px; }
+
+    /* 練習問題 */
+    .exercises { margin-top: 14px; }
+    .ex-title {
+      font-weight: bold;
+      font-size: 14px;
+      color: var(--blue);
+      border-bottom: 2px solid var(--blue);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+    .ex-item {
+      margin-bottom: 14px;
+      background: #f9fbfd;
+      border-radius: 8px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+    }
+    .ex-num {
+      font-weight: bold;
+      color: var(--blue);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .ex-jp {
+      color: var(--sub);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    /* 答え（最初は隠す） */
+    .answer-toggle {
+      background: none;
+      border: 1px solid var(--red);
+      color: var(--red);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+    .answer-toggle:hover { background: #fff0f0; }
+    .answer-box {
+      display: none;
+      margin-top: 8px;
+      background: #fff8f8;
+      border-left: 3px solid var(--red);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+    }
+    .answer-box .ans-en { color: var(--red); font-weight: bold; margin-bottom: 4px; }
+    .answer-box .ans-note { font-size: 12px; color: var(--sub); }
+    .answer-box.open { display: block; }
+
+    /* 全部表示ボタン */
+    .show-all-btn {
+      display: block;
+      width: 100%;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-bottom: 14px;
+    }
+    .show-all-btn:hover { opacity: 0.88; }
+
+    /* フッター */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: var(--sub);
+      border-top: 1px solid var(--border);
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="lesson-label">中学3年生 英語 New Treasure</div>
+  <h1>Lesson 11-1 文法解説</h1>
+  <div class="topics">形式主語 It　／　for＋人＋to V　／　want O to V</div>
+</header>
+
+<nav>
+  <a href="#kp1">📌 形式主語 It</a>
+  <a href="#kp2">👤 for＋人＋to</a>
+  <a href="#kp3">💬 want O to V</a>
+  <a href="#ex">✏️ 練習の答え</a>
+</nav>
+
+<main>
+
+<!-- ════════════════════════════════ -->
+<!-- KEY POINT 1 -->
+<!-- ════════════════════════════════ -->
+<div class="section" id="kp1">
+  <div class="section-header">📌 Key Point 1　It is ＋ 形容詞 ＋ to ＋ 動詞の原形</div>
+  <div class="section-body">
+
+    <div class="point-box">
+      <div class="emoji-title">🤔 なぜ It を使うの？</div>
+      <p>英語は<strong>「結論を先に言いたい言語」</strong>です。<br>
+      主語が長くなると、大事なことにたどり着くまでが遠すぎる！</p>
+      <div class="transform">
+        <div class="before">❌ 長い：<span class="g">To get up early every morning</span>　is difficult.</div>
+        <div class="arrow">↓　長い主語を後ろへ！</div>
+        <div class="after">✅ すっきり：<span class="r">It</span> is difficult <span class="g">to get up early every morning</span>.</div>
+        <div class="label">
+          <span class="r">It = 形式主語（仮の主語・席取り役）</span><br>
+          <span class="g">to get up … = 真主語（本当の主語）</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn">
+      ⚠️ この <strong>It</strong> は「それ」とは<strong>訳しません！</strong><br>
+      形式的に置いているだけなので、日本語訳には出てこない。
+    </div>
+
+    <div class="point-box">
+      <div class="emoji-title">📋 よく使う形容詞</div>
+      <p style="font-size:13.5px; line-height:2;">
+        <b>difficult</b>（難しい）　<b>important</b>（大切な）　<b>easy</b>（簡単な）<br>
+        <b>fun</b>（楽しい）　<b>interesting</b>（面白い）　<b>necessary</b>（必要な）<br>
+        <b>hard</b>（大変な）　<b>possible</b>（可能な）　<b>dangerous</b>（危険な）
+      </p>
+    </div>
+
+    <div class="point-box">
+      <div class="emoji-title">💡 まとめ公式</div>
+      <p style="font-size:14px; text-align:center; padding: 6px 0;">
+        <span class="r">It</span> is ＋ <span class="b">形容詞</span> ＋ <span class="g">to ＋ 動詞の原形 〜</span>
+      </p>
+      <p style="font-size:13px; text-align:center; color: var(--sub);">「〜することは ＿＿（形容詞）だ」</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- KEY POINT 2 -->
+<!-- ════════════════════════════════ -->
+<div class="section" id="kp2">
+  <div class="section-header">👤 Key Point 2　for ＋ 人 ＋ to V（「誰が」するかを追加）</div>
+  <div class="section-body">
+
+    <div class="point-box">
+      <div class="emoji-title">🤔 「誰がやるの？」を言いたいとき</div>
+      <p>to の前に <span class="r"><b>for ＋ 人</b></span> を追加するだけ！</p>
+      <div class="transform">
+        <div class="before">It is difficult <span class="g">to explain</span>.　→「説明するのは難しい」</div>
+        <div class="arrow">↓　「誰が」を追加</div>
+        <div class="after">It is difficult <span class="r">for me</span> <span class="g">to explain</span>.　→「<span class="r">私が</span>説明するのは難しい」</div>
+      </div>
+    </div>
+
+    <div class="warn">
+      ⚠️ <strong>for の後は「目的格」！</strong><br>
+      I → me　／　he → him　／　she → her　／　we → us　／　they → them
+    </div>
+
+    <div class="pronoun-grid">
+      <div class="pronoun-card"><div class="subject">I</div><div class="object">me</div></div>
+      <div class="pronoun-card"><div class="subject">he</div><div class="object">him</div></div>
+      <div class="pronoun-card"><div class="subject">she</div><div class="object">her</div></div>
+      <div class="pronoun-card"><div class="subject">we</div><div class="object">us</div></div>
+      <div class="pronoun-card"><div class="subject">they</div><div class="object">them</div></div>
+    </div>
+
+    <div class="point-box">
+      <div class="emoji-title">💡 まとめ公式</div>
+      <p style="font-size:14px; text-align:center; padding: 6px 0;">
+        <span class="r">It</span> is ＋ <span class="b">形容詞</span> ＋ <span class="r">for ＋ 人</span> ＋ <span class="g">to ＋ 動詞の原形</span>
+      </p>
+      <p style="font-size:13px; text-align:center; color: var(--sub);">「（人）が〜することは ＿＿（形容詞）だ」</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- KEY POINT 3 -->
+<!-- ════════════════════════════════ -->
+<div class="section" id="kp3">
+  <div class="section-header">💬 Key Point 3　S ＋ V ＋ 人 ＋ to ＋ 動詞の原形</div>
+  <div class="section-body">
+
+    <div class="point-box">
+      <div class="emoji-title">🤔 「人に〜してほしい・するよう言う」</div>
+      <p>動詞の後ろに <span class="r"><b>人</b></span> ＋ <span class="g"><b>to ＋ 動詞の原形</b></span> を続けるだけ！</p>
+      <div class="transform">
+        <div class="after">I <span class="r">want</span> <span class="b">you</span> <span class="g">to clean</span> the living room.　→「リビングを<span class="g">掃除して</span>ほしい」</div>
+      </div>
+    </div>
+
+    <table class="verb-table">
+      <thead>
+        <tr><th>動詞</th><th>意味</th><th>動詞</th><th>意味</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="verb-cell">tell</td><td>〜するよう言う</td>
+          <td class="verb-cell">advise</td><td>〜するよう忠告する</td>
+        </tr>
+        <tr>
+          <td class="verb-cell">ask</td><td>〜するよう頼む</td>
+          <td class="verb-cell">order</td><td>〜するよう命令する</td>
+        </tr>
+        <tr>
+          <td class="verb-cell">want</td><td>〜してほしい</td>
+          <td class="verb-cell">allow</td><td>〜することを許す</td>
+        </tr>
+        <tr>
+          <td class="verb-cell">would like</td><td>〜してほしい（丁寧）</td>
+          <td></td><td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warn">
+      ⚠️ <strong>to を絶対忘れずに！</strong><br>
+      ✅ I want you <strong>to clean</strong>.　（正しい）<br>
+      ❌ I want you clean.　（×　to がない！）
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- 練習の答え -->
+<!-- ════════════════════════════════ -->
+<div class="section" id="ex">
+  <div class="section-header">✏️ 練習問題の答え</div>
+  <div class="section-body">
+
+    <button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+    <div class="ex-title">Key Point 1 （①〜③）</div>
+
+    <div class="ex-item">
+      <div class="ex-num">① 毎朝早起きすることは難しい。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">It is <b>difficult</b> to get up <b>early</b> every morning.</div>
+        <div class="ans-note">▶ It = 形式主語　／　to get up early every morning = 真主語（本当の主語）</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">② 英語を話すことは大切だ。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">It is <b>important</b> to speak <b>English</b>.</div>
+        <div class="ans-note">▶ important（大切な）を使う。</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">③ 明日ジェットコースターに乗るのはすごく楽しいだろう！</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">It <b>will</b> be a lot of fun to ride the roller coaster <b>tomorrow</b>.</div>
+        <div class="ans-note">▶ 「〜だろう」= will be。fun は形容詞なので It is fun ～ の形になる。</div>
+      </div>
+    </div>
+
+    <div class="ex-title" style="margin-top:16px">Key Point 2 （④〜⑥）</div>
+
+    <div class="ex-item">
+      <div class="ex-num">④ 私が英語で自分の考えを説明するのは難しい。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">It is difficult for me to <b>explain</b> my thoughts in <b>English</b>.</div>
+        <div class="ans-note">▶ 「私が」= for me　／　explain（説明する）</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑤ 今すぐレポートを書く必要は君にはない。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">It <b>isn't</b> necessary for you to <b>write</b> the book report <b>now</b>.</div>
+        <div class="ans-note">▶ 「必要はない」= It isn't necessary〜　／　write（書く）</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑥ 写真を撮るのは私には楽しい。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">It is <b>fun</b> for me to take <b>pictures</b>.</div>
+        <div class="ans-note">▶ fun（楽しい）、take pictures（写真を撮る）</div>
+      </div>
+    </div>
+
+    <div class="ex-title" style="margin-top:16px">Key Point 3 （⑦〜⑩）</div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑦ 外出中にリビングを掃除してほしい。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">I <b>want</b> you to <b>clean</b> the living room while <b>I'm out</b>.</div>
+        <div class="ans-note">▶ want（〜してほしい）、clean（掃除する）</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑧ 母は弟とケーキを分けるよう私に言った。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">My <b>mother</b> <b>told</b> me to <b>share</b> the cake with my <b>brother</b>.</div>
+        <div class="ans-note">▶ told（tell の過去形）= 〜するよう言った</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑨ 先生は学校のプロジェクトをするよう私に言った。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">My <b>teacher</b> <b>told</b> me to do a school <b>project</b>.</div>
+        <div class="ans-note">▶ told me to do〜 = 私に〜するよう言った</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑩ 母は歯医者に診てもらうよう私に忠告した。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">My <b>mother</b> <b>advised</b> me to see the <b>dentist</b>.</div>
+        <div class="ans-note">▶ advised（advise の過去形）= 忠告した　／　dentist = 歯医者</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer>
+  上野作　英語復習活用ホームページ｜Lesson 11-1
+</footer>
+
+<script>
+  function toggle(btn) {
+    const box = btn.nextElementSibling;
+    box.classList.toggle('open');
+    btn.textContent = box.classList.contains('open') ? '答えを隠す' : '答えを見る';
+  }
+  function showAll() {
+    document.querySelectorAll('.answer-box').forEach(b => b.classList.add('open'));
+    document.querySelectorAll('.answer-toggle').forEach(b => b.textContent = '答えを隠す');
+  }
+
+  // ── クイズ ──────────────────────────────
+  const quizData = [
+    {
+      q: '「毎朝早起きすることは難しい。」の英語として正しいのは？',
+      options: [
+        'Important is to get up early every morning.',
+        'It is important get up early every morning.',
+        'It is difficult to get up early every morning.',
+        'To get up early every morning difficult is.'
+      ],
+      answer: 2,
+      hint: '形式主語 It → It is 形容詞 to V の形！「難しい」= difficult'
+    },
+    {
+      q: '形式主語の「It」を日本語に訳すと？',
+      options: ['それは', 'このことは', '訳さない', 'そのことは'],
+      answer: 2,
+      hint: '形式主語の It はダミー。「席取り役」なので日本語には出てこない！'
+    },
+    {
+      q: '空欄に入る正しい語は？\n「It is fun ___ me to take pictures.」',
+      options: ['of', 'by', 'to', 'for'],
+      answer: 3,
+      hint: '「誰が」するかを表すのは for ＋ 人。for me = 私が'
+    },
+    {
+      q: '「for」の後ろに来る正しい形は？',
+      options: ['I → I', 'he → him', 'she → she', 'we → our'],
+      answer: 1,
+      hint: 'for の後は目的格！　he → him　/ she → her　/ we → us'
+    },
+    {
+      q: '「It isn\'t necessary for you ___ write the report now.」の空欄は？',
+      options: ['writing', 'wrote', 'to', 'for'],
+      answer: 2,
+      hint: 'for ＋ 人 の後は to ＋ 動詞の原形！'
+    },
+    {
+      q: '「母は私に部屋を掃除するよう言った。」の英語は？',
+      options: [
+        'My mother wanted me clean my room.',
+        'My mother told me to clean my room.',
+        'My mother asked me cleaning my room.',
+        'My mother said me to clean my room.'
+      ],
+      answer: 1,
+      hint: 'tell ＋ 人 ＋ to V = 人に〜するよう言う。told は tell の過去形！'
+    },
+    {
+      q: '「I ___ you to help me.」の空欄に入る語は？',
+      options: ['said', 'told', 'want', 'speak'],
+      answer: 2,
+      hint: 'want ＋ 人 ＋ to V = 人に〜してほしい'
+    },
+    {
+      q: '次のうち間違っている文はどれ？',
+      options: [
+        'I want you to clean the room.',
+        'She told me to study harder.',
+        'He asked me to close the window.',
+        'My mom wants me study English.'
+      ],
+      answer: 3,
+      hint: 'want ＋ 人 ＋ to V の「to」が抜けてる！ study → to study が正解'
+    }
+  ];
+
+  let current = 0;
+  let score = 0;
+  let answered = false;
+
+  function startQuiz() {
+    current = 0; score = 0; answered = false;
+    document.getElementById('quiz-start').style.display = 'none';
+    document.getElementById('quiz-body').style.display = 'block';
+    document.getElementById('quiz-result').style.display = 'none';
+    showQuestion();
+  }
+
+  function showQuestion() {
+    answered = false;
+    const q = quizData[current];
+    document.getElementById('q-num').textContent = `Q${current + 1} / ${quizData.length}`;
+    document.getElementById('q-progress').style.width = `${(current / quizData.length) * 100}%`;
+    document.getElementById('q-text').textContent = q.q;
+    const opts = document.getElementById('q-options');
+    opts.innerHTML = '';
+    q.options.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'q-opt';
+      btn.textContent = opt;
+      btn.onclick = () => selectAnswer(i);
+      opts.appendChild(btn);
+    });
+    document.getElementById('q-hint').textContent = '';
+    document.getElementById('q-hint').style.display = 'none';
+    document.getElementById('q-next').style.display = 'none';
+  }
+
+  function selectAnswer(i) {
+    if (answered) return;
+    answered = true;
+    const q = quizData[current];
+    const btns = document.querySelectorAll('.q-opt');
+    btns.forEach((btn, idx) => {
+      btn.disabled = true;
+      if (idx === q.answer) btn.classList.add('correct');
+      else if (idx === i) btn.classList.add('wrong');
+    });
+    if (i === q.answer) score++;
+    const hint = document.getElementById('q-hint');
+    hint.textContent = '💡 ' + q.hint;
+    hint.style.display = 'block';
+    hint.className = 'q-hint ' + (i === q.answer ? 'correct-hint' : 'wrong-hint');
+    document.getElementById('q-next').style.display = 'block';
+  }
+
+  function nextQuestion() {
+    current++;
+    if (current >= quizData.length) showResult();
+    else showQuestion();
+  }
+
+  function showResult() {
+    document.getElementById('quiz-body').style.display = 'none';
+    document.getElementById('quiz-result').style.display = 'block';
+    const pct = Math.round((score / quizData.length) * 100);
+    const msg = pct === 100 ? '🏆 満点！完璧です！' :
+                pct >= 75  ? '🎉 よくできました！' :
+                pct >= 50  ? '📖 もう一度解説を読もう！' :
+                             '💪 復習してから再チャレンジ！';
+    document.getElementById('result-score').textContent = `${score} / ${quizData.length}`;
+    document.getElementById('result-pct').textContent = `${pct}点`;
+    document.getElementById('result-msg').textContent = msg;
+  }
+</script>
+
+<!-- ── クイズ セクション ──────────────────── -->
+<style>
+  .quiz-section {
+    background: var(--card);
+    border: 2px solid var(--blue);
+    border-radius: 12px;
+    margin: 20px 0 30px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  }
+  .quiz-section-header {
+    background: linear-gradient(135deg, var(--blue) 0%, #1a6db5 100%);
+    color: white;
+    padding: 14px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .quiz-section-body { padding: 16px; }
+
+  /* スタートボタン */
+  #quiz-start { text-align: center; padding: 10px 0 6px; }
+  .start-btn {
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1px;
+  }
+  .start-btn:hover { opacity: 0.88; }
+
+  /* 問題エリア */
+  #quiz-body { display: none; }
+  .q-progress-wrap {
+    background: #e8edf2;
+    border-radius: 10px;
+    height: 6px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  #q-progress {
+    height: 100%;
+    background: var(--blue);
+    border-radius: 10px;
+    transition: width 0.4s;
+    width: 0%;
+  }
+  #q-num {
+    font-size: 12px;
+    color: var(--sub);
+    text-align: right;
+    margin-bottom: 8px;
+  }
+  #q-text {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 14px;
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+  #q-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+  .q-opt {
+    background: #f4f7fa;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    line-height: 1.5;
+  }
+  .q-opt:hover:not(:disabled) { background: #e8f0fb; border-color: var(--blue); }
+  .q-opt.correct { background: #e8f8e8; border-color: var(--green); color: var(--green); font-weight: bold; }
+  .q-opt.wrong   { background: #fdecea; border-color: var(--red);   color: var(--red);   font-weight: bold; }
+  .q-opt:disabled { cursor: default; }
+
+  .q-hint {
+    font-size: 13px;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    display: none;
+    line-height: 1.6;
+  }
+  .correct-hint { background: #e8f8e8; color: var(--green); border-left: 3px solid var(--green); }
+  .wrong-hint   { background: #fdecea; color: var(--red);   border-left: 3px solid var(--red);   }
+
+  #q-next {
+    display: none;
+    width: 100%;
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  #q-next:hover { opacity: 0.88; }
+
+  /* 結果 */
+  #quiz-result { display: none; text-align: center; padding: 10px 0 6px; }
+  .result-circle {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), #1a8fd1);
+    margin: 0 auto 12px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    color: white;
+  }
+  #result-score { font-size: 22px; font-weight: bold; }
+  #result-pct   { font-size: 13px; opacity: 0.85; }
+  #result-msg   { font-size: 16px; font-weight: bold; margin: 10px 0 16px; }
+  .retry-btn {
+    background: none;
+    border: 2px solid var(--blue);
+    color: var(--blue);
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .retry-btn:hover { background: #eef4fb; }
+</style>
+
+<div class="quiz-section" id="quiz">
+  <div class="quiz-section-header">✏️ 確認クイズ　Lesson 11-1（全8問）</div>
+  <div class="quiz-section-body">
+
+    <div id="quiz-start">
+      <p style="font-size:13.5px; color:var(--sub); margin-bottom:14px;">
+        解説を読んだら腕試し！全8問、即採点します 🎯
+      </p>
+      <button class="start-btn" onclick="startQuiz()">🚀 クイズをスタート！</button>
+    </div>
+
+    <div id="quiz-body">
+      <div id="q-num"></div>
+      <div class="q-progress-wrap"><div id="q-progress"></div></div>
+      <div id="q-text"></div>
+      <div id="q-options"></div>
+      <div id="q-hint" class="q-hint"></div>
+      <button id="q-next" onclick="nextQuestion()">次の問題へ →</button>
+    </div>
+
+    <div id="quiz-result">
+      <div class="result-circle">
+        <div id="result-score"></div>
+        <div id="result-pct"></div>
+      </div>
+      <div id="result-msg"></div>
+      <button class="retry-btn" onclick="startQuiz()">🔄 もう一度チャレンジ</button>
+    </div>
+
+  </div>
+</div>
+
+
+<script data-goatcounter="https://ueno-english.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
