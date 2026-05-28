@@ -17,16 +17,14 @@
     .section-hd { background:var(--blue); color:white; padding:8px 14px; border-radius:8px 8px 0 0; font-weight:bold; font-size:14px; margin-top:24px; }
     .section-bd { background:white; border:1px solid var(--border); border-top:none; border-radius:0 0 8px 8px; padding:16px; }
     .instr { font-size:13px; color:var(--sub); margin-bottom:12px; border-left:3px solid var(--border); padding-left:10px; }
-    /* 本文 */
-    .passage { font-family:Georgia,"Times New Roman",serif; font-size:14px; line-height:2; background:#fffafd; border:1px solid var(--border); border-radius:8px; padding:16px 18px; margin-bottom:4px; }
+    .passage { font-family:Georgia,"Times New Roman",serif; font-size:14px; line-height:2; background:#fffafd; border:1px solid var(--border); border-radius:8px; padding:16px 18px; }
     .passage p { margin-bottom:12px; }
-    .passage .blank-n { font-weight:bold; color:var(--blue); }
-    .passage .underline { border-bottom:2px solid var(--text); }
+    .bn { font-weight:bold; color:var(--blue); }
+    .ul { border-bottom:2px solid var(--text); }
     .note-col { font-size:12px; color:var(--sub); margin-top:10px; border-top:1px solid var(--border); padding-top:8px; }
-    /* 設問 */
     .q-block { background:#fdf6fb; border:1px solid var(--border); border-radius:8px; padding:14px; margin-bottom:12px; }
     .q-title { font-weight:bold; color:var(--blue); margin-bottom:8px; font-size:14px; }
-    .q-sub { font-size:13.5px; margin-bottom:10px; line-height:1.7; }
+    .q-sub { font-size:13.5px; margin-bottom:8px; line-height:1.7; }
     .choices { display:flex; flex-direction:column; gap:6px; }
     .cbtn { background:white; border:2px solid var(--border); border-radius:8px; padding:8px 12px; font-size:13px; cursor:pointer; text-align:left; font-family:inherit; transition:all .15s; }
     .cbtn:hover:not(:disabled) { border-color:var(--blue); background:var(--bg); }
@@ -41,8 +39,10 @@
     .ans-box { display:none; margin-top:8px; background:#fff8e8; border:1px solid #f0d080; border-radius:6px; padding:10px 14px; font-size:13px; }
     .ans-box .al { font-weight:bold; color:var(--gold); }
     .score-bar { background:white; border:2px solid var(--border); border-radius:12px; padding:10px 16px; text-align:center; margin-bottom:16px; }
-    .score-bar .snum { font-size:28px; font-weight:bold; color:var(--blue); }
-    .reset-btn { background:white; border:2px solid var(--border); border-radius:6px; padding:5px 14px; font-size:12px; cursor:pointer; margin-left:10px; font-family:inherit; }
+    .snum { font-size:28px; font-weight:bold; color:var(--blue); }
+    .reset-btn { background:var(--blue); color:white; border:none; border-radius:8px; padding:7px 18px; font-size:13px; cursor:pointer; margin-left:12px; font-family:inherit; }
+    .reset-btn:hover { background:var(--blue2); }
+    .insert-sent { font-family:Georgia,serif; font-size:14px; background:#f8f0f5; padding:10px 14px; border-radius:6px; margin-bottom:10px; }
     .nav-btns { display:flex; gap:8px; margin-top:24px; flex-wrap:wrap; }
     .nav-btn { background:white; border:2px solid var(--border); border-radius:8px; padding:8px 16px; font-size:13px; text-decoration:none; color:var(--blue); font-weight:bold; }
     .nav-btn:hover { background:var(--bg); }
@@ -58,158 +58,242 @@
 <header>
   <a class="back-link" href="index.html">← ホームに戻る</a>
   <h1>実力テスト対策 ｜ 大問４</h1>
-  <div class="subtitle">長文読解（英文スピーチ）</div>
+  <div class="subtitle">長文読解（毎回ランダム切り替え）</div>
 </header>
 <main>
-
-  <div class="notice">📝 中学生の書いたスピーチを読んで，設問に答えましょう。英文をしっかり読んでから問題に進もう！</div>
+  <div class="notice">🎲 「新しい英文」を押すと別のスピーチに切り替わります！</div>
 
   <div class="score-bar">
-    問1・問2 スコア：<span class="snum" id="snum">0</span> <span style="font-size:18px;color:var(--sub)">/4</span>
-    <button class="reset-btn" onclick="resetAll()">リセット</button>
+    スコア：<span class="snum" id="snum">0</span><span style="font-size:18px;color:var(--sub)">/4</span>
+    <button class="reset-btn" onclick="initPassage()">🔀 新しい英文</button>
   </div>
 
-  <!-- 本文 -->
-  <div class="section-hd">▼ 次の英文を読み，あとの各問い（問１〜問４）に答えなさい</div>
-  <div class="section-bd">
-    <div class="instr">次の文章は中学生のミア（Mia）が，「エネルギー」について英語の授業で書いたスピーチです。英文を読んで，あとの各問いに答えなさい。</div>
-    <div class="passage">
-      <p>
-        My name is Mia. I am a student at Sakura Junior High School. Last year, my school installed *solar panels on the roof. This made me very interested in solar energy.
-      </p>
-      <p>
-        Before that, I didn't know much about energy. One day, our science teacher, Ms. Kimura, explained how solar panels work. She said, "Solar panels can turn sunlight into *electricity. <span class="blank-n">（&thinsp;１&thinsp;）</span> They are good for the environment because they don't produce any *harmful gases." I was surprised to learn this.
-      </p>
-      <p>
-        After the lesson, I wanted to learn more, so I did some research on the Internet. I found out that Japan gets a lot of sunlight, so solar energy can be very useful here. However, I also learned that solar panels are still expensive to install. <span class="blank-n">（&thinsp;２&thinsp;）</span> I began to wonder how we can make solar energy available for more people.
-      </p>
-      <p>
-        I decided to write a report about solar energy. I interviewed Ms. Kimura, and she told me more about the future of energy. She said, "Many countries are now trying to use more *renewable energy. <span class="blank-n">（&thinsp;３&thinsp;）</span> Wind power and water power are good examples. These energy sources will become more and more important in the future."
-      </p>
-      <p>
-        When I finished my report, I *presented it to my class. My classmates were very interested. Some of them said they wanted to try using solar energy at home. <span class="blank-n">（&thinsp;４&thinsp;）</span> I was happy that my report could inspire them to think about the environment.
-      </p>
-      <p>
-        Now I am more interested in energy and the environment. I think it is important for young people to think about <span class="underline">these problems</span>. If we all make small changes in our daily lives, we can help protect our planet for the future.
-      </p>
-      <div class="note-col">（注）*solar panels ソーラーパネル　*electricity 電気　*harmful 有害な　*renewable 再生可能な　*presented 発表した</div>
-    </div>
-  </div>
+  <div class="section-hd" id="passage-hd">▼ 英文を読みなさい</div>
+  <div class="section-bd" id="passage-bd"></div>
 
-  <!-- 設問 -->
   <div class="section-hd" style="margin-top:28px;">設問</div>
-  <div class="section-bd">
-
-    <!-- 問1 内容一致3択 -->
-    <div class="q-block" id="q1">
-      <div class="q-title">問１　内容一致（3問）　本文の内容と合うように空所に入る最も適切なものを①〜④から選びなさい</div>
-
-      <div class="q-sub">(1)　What did Ms. Kimura tell Mia about solar panels?</div>
-      <div class="choices" id="q1a">
-        <button class="cbtn" onclick="ans('q1a',this,false,'本文に「有害なガスを出さない」とあり，生産するとは書いていません。')">① Solar panels produce harmful gases.</button>
-        <button class="cbtn" onclick="ans('q1a',this,true,'✅ 正解！ "Solar panels can turn sunlight into electricity" とあります。')">② Solar panels can change sunlight into electricity.</button>
-        <button class="cbtn" onclick="ans('q1a',this,false,'本文には安価とは書かれていません。むしろ高価とあります。')">③ Solar panels are cheap to make and install.</button>
-        <button class="cbtn" onclick="ans('q1a',this,false,'本文には日本は日照量が多いと書かれています。')">④ Solar panels do not work well in Japan.</button>
-      </div>
-      <div class="feedback" id="q1a-fb"></div>
-
-      <div class="q-sub" style="margin-top:14px;">(2)　Why did Mia write a report about solar energy?</div>
-      <div class="choices" id="q1b">
-        <button class="cbtn" onclick="ans('q1b',this,false,'先生に頼まれたとは書かれていません。')">① Because her teacher asked her to write one.</button>
-        <button class="cbtn" onclick="ans('q1b',this,false,'成績のためとは書かれていません。')">② Because she wanted to get a good grade.</button>
-        <button class="cbtn" onclick="ans('q1b',this,true,'✅ 正解！ 授業を受けて興味を持ち，自分でさらに調べ，レポートを書く決意をしています。')">③ Because she became interested in it after learning about solar panels.</button>
-        <button class="cbtn" onclick="ans('q1b',this,false,'設置したのは去年。ずっと前ではありません。')">④ Because her school had been using solar energy for a long time.</button>
-      </div>
-      <div class="feedback" id="q1b-fb"></div>
-
-      <div class="q-sub" style="margin-top:14px;">(3)　After Mia's presentation, her classmates ( ).</div>
-      <div class="choices" id="q1c">
-        <button class="cbtn" onclick="ans('q1c',this,false,'本文では classmates were very interested とあります。')">① were not interested in the topic at all.</button>
-        <button class="cbtn" onclick="ans('q1c',this,false,'学校をすぐに変えるとは書かれていません。')">② decided to change their school immediately.</button>
-        <button class="cbtn" onclick="ans('q1c',this,true,'✅ 正解！ "Some of them said they wanted to try using solar energy at home."')">③ were interested, and some wanted to use solar energy at home.</button>
-        <button class="cbtn" onclick="ans('q1c',this,false,'難しすぎたとは書かれていません。')">④ thought Mia\'s report was too difficult to understand.</button>
-      </div>
-      <div class="feedback" id="q1c-fb"></div>
-    </div>
-
-    <!-- 問2 文挿入 -->
-    <div class="q-block" id="q2">
-      <div class="q-title">問２　文挿入　次の英文を（１）〜（４）のどこに入れるのが最も適切か，番号で選びなさい</div>
-      <div class="q-sub" style="font-family:Georgia,serif;font-size:14px;background:#f8f0f5;padding:10px 14px;border-radius:6px;">
-        "But now the prices are slowly becoming lower, so more people may be able to use them in the future."
-      </div>
-      <div class="choices" id="q2c">
-        <button class="cbtn" onclick="ans('q2c',this,false,'（１）の前はsolar panelsが電気を生み出すという説明。この文はコストの話なのでここには合いません。')">① （１）の位置に入れる</button>
-        <button class="cbtn" onclick="ans('q2c',this,true,'✅ 正解！ （２）の直前に「まだ高価だ」とあり，それを受けて「でも値段は下がってきている」と続くと自然です。')">② （２）の位置に入れる</button>
-        <button class="cbtn" onclick="ans('q2c',this,false,'（３）は再生可能エネルギーの話題。コスト低下の話とはつながりません。')">③ （３）の位置に入れる</button>
-        <button class="cbtn" onclick="ans('q2c',this,false,'（４）はクラスの反応の話。コスト低下の話とはつながりません。')">④ （４）の位置に入れる</button>
-      </div>
-      <div class="feedback" id="q2c-fb"></div>
-    </div>
-
-    <!-- 問3 日本語で答える -->
-    <div class="q-block">
-      <div class="q-title">問３　日本語で答えなさい（15字程度）</div>
-      <div class="q-sub">
-        本文中の下線部「these problems」とは，どのような問題のことですか。本文の内容をふまえて，<strong>日本語で15字程度</strong>で書きなさい。
-      </div>
-      <button class="show-btn" onclick="showAns(this)">答えを見る</button>
-      <div class="ans-box"><span class="al">模範解答：</span>エネルギーと環境に関する問題。（13字）<br><span style="font-size:12px;color:var(--sub)">「エネルギー」「環境」のどちらかだけでも可。本文最終段落の内容から読み取りましょう。</span></div>
-    </div>
-
-    <!-- 問4 A B C 1語 -->
-    <div class="q-block">
-      <div class="q-title">問４　空所A〜Cに入る最も適切な英語を1語ずつ書きなさい</div>
-      <div class="q-sub" style="font-family:Georgia,serif;font-size:13.5px;background:#f8f0f5;padding:12px 14px;border-radius:6px;line-height:2;">
-        Mia goes to Sakura Junior High School. Last year, her school started using ( A ) panels on the roof. She learned about them from her science teacher and became very interested. She wrote a ( B ) about solar energy and presented it to her class. After that, her classmates wanted to think more about the ( C ).
-      </div>
-      <button class="show-btn" onclick="showAns(this)">答えを見る</button>
-      <div class="ans-box">
-        <span class="al">答え：</span><br>
-        （A）&emsp;<strong>solar</strong>　→　solar panels（ソーラーパネル）<br>
-        （B）&emsp;<strong>report</strong>　→　レポートを書いた<br>
-        （C）&emsp;<strong>environment</strong>　→　環境について考えるよう促された
-      </div>
-    </div>
-
-  </div>
+  <div class="section-bd" id="questions-bd"></div>
 
   <div class="nav-btns">
     <a class="nav-btn" href="jitsuryoku-3.html">← 大問3</a>
     <a class="nav-btn" href="index.html">ホーム</a>
-    <a class="nav-btn" href="jitsuryoku-5.html">大問5 英作文 →</a>
+    <a class="nav-btn" href="jitsuryoku-5.html">大問5 →</a>
   </div>
 </main>
 <footer>中学3年英語 New Treasure 学習サイト</footer>
 
 <script>
-let score = 0, done = {};
-function ans(gid, btn, ok, msg) {
-  if (done[gid]) return;
-  done[gid] = true;
-  document.querySelectorAll('#'+gid+' .cbtn').forEach(b => b.disabled = true);
-  const fb = document.getElementById(gid+'-fb');
-  if (ok) {
+const passages = [
+  {
+    label: "英文Ａ：ミア（Mia）のスピーチ",
+    instr: "次の文章は中学生のミア（Mia）が「エネルギー」について書いたスピーチです。英文を読んで，あとの各問いに答えなさい。",
+    body: `<p>My name is Mia. I am a student at Sakura Junior High School. Last year, my school installed *solar panels on the roof. This made me very interested in solar energy.</p>
+<p>Before that, I didn't know much about energy. One day, our science teacher, Ms. Kimura, explained how solar panels work. She said, "Solar panels can turn sunlight into *electricity. <span class='bn'>（&thinsp;１&thinsp;）</span> They are good for the environment because they don't produce any *harmful gases." I was surprised to learn this.</p>
+<p>After the lesson, I wanted to learn more, so I did some research on the Internet. I found out that Japan gets a lot of sunlight, so solar energy can be very useful here. However, I also learned that solar panels are still expensive to install. <span class='bn'>（&thinsp;２&thinsp;）</span> I began to wonder how we can make solar energy available for more people.</p>
+<p>I decided to write a report about solar energy. I interviewed Ms. Kimura, and she told me more about the future of energy. She said, "Many countries are now trying to use more *renewable energy. <span class='bn'>（&thinsp;３&thinsp;）</span> Wind power and water power are good examples. These energy sources will become more and more important in the future."</p>
+<p>When I finished my report, I *presented it to my class. My classmates were very interested. Some of them said they wanted to try using solar energy at home. <span class='bn'>（&thinsp;４&thinsp;）</span> I was happy that my report could inspire them to think about the environment.</p>
+<p>Now I am more interested in energy and the <span class='ul'>environment</span>. I think it is important for young people to think about these problems.</p>`,
+    notes: "（注）*solar panels ソーラーパネル　*electricity 電気　*harmful 有害な　*renewable 再生可能な　*presented 発表した",
+    q1: [
+      {
+        q: "(1)　What did Ms. Kimura tell Mia about solar panels?",
+        choices: [
+          { t:"① Solar panels produce harmful gases.", ok:false, note:"本文に「有害なガスを出さない」とあります。" },
+          { t:"② Solar panels can change sunlight into electricity.", ok:true, note:'✅ "Solar panels can turn sunlight into electricity" とあります。' },
+          { t:"③ Solar panels are cheap to make and install.", ok:false, note:"本文には高価とあります。" },
+          { t:"④ Solar panels do not work well in Japan.", ok:false, note:"日本は日照量が多いと書かれています。" },
+        ]
+      },
+      {
+        q: "(2)　Why did Mia write a report about solar energy?",
+        choices: [
+          { t:"① Because her teacher asked her to write one.", ok:false, note:"先生に頼まれたとは書かれていません。" },
+          { t:"② Because she wanted to get a good grade.", ok:false, note:"成績のためとは書かれていません。" },
+          { t:"③ Because she became interested in it after learning about solar panels.", ok:true, note:"✅ 授業で興味を持ち，自分でさらに調べ，レポートを書くことにしました。" },
+          { t:"④ Because her school had been using solar energy for a long time.", ok:false, note:"設置したのは去年。ずっと前ではありません。" },
+        ]
+      },
+      {
+        q: "(3)　After Mia's presentation, her classmates ( ).",
+        choices: [
+          { t:"① were not interested in the topic at all.", ok:false, note:'本文では "classmates were very interested" とあります。' },
+          { t:"② decided to change their school immediately.", ok:false, note:"学校をすぐ変えるとは書かれていません。" },
+          { t:"③ were interested, and some wanted to use solar energy at home.", ok:true, note:'✅ "Some of them said they wanted to try using solar energy at home."' },
+          { t:"④ thought Mia's report was too difficult to understand.", ok:false, note:"難しすぎたとは書かれていません。" },
+        ]
+      },
+    ],
+    q2: {
+      insert: '"But now the prices are slowly becoming lower, so more people may be able to use them in the future."',
+      choices: [
+        { t:"① （１）の位置に入れる", ok:false, note:"（１）の前後はsolar panelsが電気を生み出すという説明。コストの話とは合いません。" },
+        { t:"② （２）の位置に入れる", ok:true,  note:"✅ 直前に「まだ高価だ」とあり，「でも値段は下がってきている」と続くと自然です。" },
+        { t:"③ （３）の位置に入れる", ok:false, note:"（３）は再生可能エネルギーの話題。コスト低下の話とはつながりません。" },
+        { t:"④ （４）の位置に入れる", ok:false, note:"（４）はクラスの反応の話。コスト低下の話とはつながりません。" },
+      ]
+    },
+    q3: { q:"本文中の下線部「environment」を含む文の意味を，日本語で書きなさい。", a:"（今私は，）エネルギーと環境にとても興味を持っています。<br><span style='font-size:12px;color:var(--sub)'>参考：energy and the environment ＝ エネルギーと環境</span>" },
+    q4: { text:'Mia goes to Sakura Junior High School. Last year, her school started using ( A ) panels. She learned about them and wrote a ( B ) about solar energy. After her presentation, her classmates wanted to think more about the ( C ).', a:'（A）<strong>solar</strong>　（B）<strong>report</strong>　（C）<strong>environment</strong>' }
+  },
+  {
+    label: "英文Ｂ：タロウ（Taro）のスピーチ",
+    instr: "次の文章は中学生のタロウ（Taro）が「ボランティア活動」について書いたスピーチです。英文を読んで，あとの各問いに答えなさい。",
+    body: `<p>My name is Taro. Last spring, I started doing *volunteer work at the *local library. I want to tell you about my experience.</p>
+<p>It began when my teacher, Mr. Nakamura, told our class about a new volunteer program. The library needed students to help young children learn to read. I decided to join because I like books and I wanted to help others. <span class='bn'>（&thinsp;１&thinsp;）</span></p>
+<p>Every Saturday morning, I go to the library and read picture books to children who are about three to five years old. At first, I wasn't sure how to talk to them. <span class='bn'>（&thinsp;２&thinsp;）</span> But I quickly found that if I used simple words and showed them the pictures, they enjoyed listening very much.</p>
+<p>The children's *reactions always make me happy. When I read an exciting part of the story, they look very interested. When I read a funny part, they *burst into laughter. <span class='bn'>（&thinsp;３&thinsp;）</span></p>
+<p>I also learned something important from this experience. Before I started, I <span class='ul'>thought that volunteer work was only for adults</span>. But now I know that young people can also make a *difference. If you work hard and do your best, you can help others, no matter how old you are. <span class='bn'>（&thinsp;４&thinsp;）</span></p>
+<p>Now I look forward to going to the library every Saturday. I hope more students will join the volunteer program in the future.</p>`,
+    notes: "（注）*volunteer ボランティア　*local 地元の　*reactions 反応　*burst into laughter 笑い出す　*difference 変化・影響",
+    q1: [
+      {
+        q: "(1)　Why did Taro decide to join the volunteer program?",
+        choices: [
+          { t:"① Because his teacher told him that he had to do it.", ok:false, note:"先生に「やらなければならない」と言われたとは書かれていません。" },
+          { t:"② Because he likes books and wanted to help others.", ok:true, note:"✅ 「本が好きで，人の役に立ちたかったから」と書かれています。" },
+          { t:"③ Because he wanted to earn money for himself.", ok:false, note:"お金のためとは書かれていません。" },
+          { t:"④ Because the library was very close to his house.", ok:false, note:"図書館の場所については書かれていません。" },
+        ]
+      },
+      {
+        q: "(2)　What did Taro do to help young children enjoy the stories?",
+        choices: [
+          { t:"① He sang English songs with the children.", ok:false, note:"歌を歌ったとは書かれていません。" },
+          { t:"② He used difficult words to challenge them.", ok:false, note:"難しい言葉を使ったとは書かれていません。むしろ逆です。" },
+          { t:"③ He showed them pictures and used simple words.", ok:true, note:"✅ 「絵を見せ，簡単な言葉を使うと，子どもたちはとても楽しんで聞いてくれた」とあります。" },
+          { t:"④ He let the children choose their favorite books.", ok:false, note:"子どもたちが本を選ぶとは書かれていません。" },
+        ]
+      },
+      {
+        q: "(3)　What does Taro look forward to every week?",
+        choices: [
+          { t:"① Playing card games with children at the library.", ok:false, note:"カードゲームについては書かれていません。" },
+          { t:"② Going to the library to read picture books to children.", ok:true, note:"✅ 「毎土曜日に図書館に行くことを楽しみにしている」と書かれています。" },
+          { t:"③ Teaching children how to write their names.", ok:false, note:"文字の書き方を教えるとは書かれていません。" },
+          { t:"④ Meeting his school friends at the public library.", ok:false, note:"学校の友達と会うとは書かれていません。" },
+        ]
+      },
+    ],
+    q2: {
+      insert: '"It was a little difficult for young children to sit still and listen for a long time."',
+      choices: [
+        { t:"① （１）の位置に入れる", ok:false, note:"（１）はプログラムに参加した理由の後。この文の話題とはつながりません。" },
+        { t:"② （２）の位置に入れる", ok:true,  note:'✅ 直後の "But I quickly found that if I used simple words…" と逆接でつながります。' },
+        { t:"③ （３）の位置に入れる", ok:false, note:"（３）は子どもたちが笑う場面。この文の内容とは合いません。" },
+        { t:"④ （４）の位置に入れる", ok:false, note:"（４）は「若者でも役に立てる」という気づきの部分。話題が違います。" },
+      ]
+    },
+    q3: { q:"本文中の下線部「thought that volunteer work was only for adults」とは，タロウがボランティアについてどう思っていたということですか。日本語で書きなさい。", a:"ボランティア活動は大人だけのものだと思っていた。<br><span style='font-size:12px;color:var(--sub)'>「大人だけのもの」「子どもにはできない」などの内容であれば正解です。</span>" },
+    q4: { text:'Taro does volunteer ( A ) at the local library every Saturday. He reads picture ( B ) to children who are about three to five years old. He hopes that more students will ( C ) the volunteer program in the future.', a:'（A）<strong>work</strong>　（B）<strong>books</strong>　（C）<strong>join</strong>' }
+  },
+];
+
+let score = 0, done = {}, currentP = null;
+
+function shuffle(arr) {
+  const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a;
+}
+
+function initPassage() {
+  score = 0; done = {};
+  document.getElementById('snum').textContent = '0';
+  // Pick a different passage if possible
+  const other = passages.filter(p => p !== currentP);
+  currentP = other[Math.floor(Math.random() * other.length)];
+  render();
+}
+
+function render() {
+  const p = currentP;
+  document.getElementById('passage-hd').textContent = '▼ 次の英文を読み，あとの各問い（問１〜問４）に答えなさい　【' + p.label + '】';
+  document.getElementById('passage-bd').innerHTML = `
+    <div class="instr">${p.instr}</div>
+    <div class="passage">${p.body}<div class="note-col">${p.notes}</div></div>`;
+
+  const qb = document.getElementById('questions-bd');
+  qb.innerHTML = '';
+
+  // 問1
+  const q1div = document.createElement('div');
+  q1div.className = 'q-block';
+  q1div.innerHTML = '<div class="q-title">問１　内容一致（3問）　最も適切なものを①〜④から選びなさい</div>';
+  p.q1.forEach((q, qi) => {
+    const sid = 'q1_'+qi;
+    const shuffled = shuffle(q.choices.map((c,i)=>({...c})));
+    const cdiv = document.createElement('div');
+    cdiv.innerHTML = `
+      <div class="q-sub" style="margin-top:${qi>0?'14px':'0'}">${q.q}</div>
+      <div class="choices" id="${sid}">
+        ${shuffled.map((c,ci)=>`<button class="cbtn" onclick="ansQ('${sid}',${ci})">${c.t}</button>`).join('')}
+      </div>
+      <div class="feedback" id="${sid}-fb"></div>`;
+    // store shuffled choices for lookup
+    cdiv.querySelectorAll('.cbtn').forEach((btn,ci) => { btn._ok = shuffled[ci].ok; btn._note = shuffled[ci].note; });
+    q1div.appendChild(cdiv);
+  });
+  qb.appendChild(q1div);
+
+  // 問2
+  const q2div = document.createElement('div');
+  q2div.className = 'q-block';
+  const q2shuffled = shuffle(p.q2.choices.map(c=>({...c})));
+  q2div.innerHTML = `
+    <div class="q-title">問２　文挿入　次の英文を（１）〜（４）のどこに入れるのが最も適切か選びなさい</div>
+    <div class="insert-sent">${p.q2.insert}</div>
+    <div class="choices" id="q2c">
+      ${q2shuffled.map((c,ci)=>`<button class="cbtn" onclick="ansQ('q2c',${ci})">${c.t}</button>`).join('')}
+    </div>
+    <div class="feedback" id="q2c-fb"></div>`;
+  qb.appendChild(q2div);
+  q2div.querySelectorAll('.cbtn').forEach((btn,ci) => { btn._ok = q2shuffled[ci].ok; btn._note = q2shuffled[ci].note; });
+
+  // 問3
+  const q3div = document.createElement('div');
+  q3div.className = 'q-block';
+  q3div.innerHTML = `
+    <div class="q-title">問３　日本語で答えなさい（15字程度）</div>
+    <div class="q-sub">${p.q3.q}</div>
+    <button class="show-btn" onclick="this.style.display='none';this.nextElementSibling.style.display='block'">答えを見る</button>
+    <div class="ans-box"><span class="al">模範解答：</span>${p.q3.a}</div>`;
+  qb.appendChild(q3div);
+
+  // 問4
+  const q4div = document.createElement('div');
+  q4div.className = 'q-block';
+  q4div.innerHTML = `
+    <div class="q-title">問４　空所（A）〜（C）に最も適切な英語を1語ずつ書きなさい</div>
+    <div class="q-sub" style="font-family:Georgia,serif;background:#f8f0f5;padding:12px;border-radius:6px;">${p.q4.text}</div>
+    <button class="show-btn" onclick="this.style.display='none';this.nextElementSibling.style.display='block'" style="margin-top:8px">答えを見る</button>
+    <div class="ans-box"><span class="al">答え：</span>${p.q4.a}</div>`;
+  qb.appendChild(q4div);
+}
+
+function ansQ(sid, ci) {
+  if (done[sid]) return;
+  done[sid] = true;
+  const container = document.getElementById(sid);
+  const fb = document.getElementById(sid+'-fb');
+  const btns = container.querySelectorAll('.cbtn');
+  btns.forEach(b => b.disabled = true);
+  const btn = btns[ci];
+  if (btn._ok) {
     btn.classList.add('correct');
-    fb.textContent = msg;
+    fb.textContent = btn._note;
     fb.className = 'feedback ok';
     score++;
     document.getElementById('snum').textContent = score;
   } else {
     btn.classList.add('wrong');
-    document.querySelectorAll('#'+gid+' .cbtn').forEach(b => { if(b.getAttribute('onclick').includes(',true,')) b.classList.add('show-ok'); });
-    fb.textContent = '❌ ' + msg;
+    btns.forEach(b => { if (b._ok) b.classList.add('show-ok'); });
+    fb.textContent = '❌ ' + btn._note;
     fb.className = 'feedback ng';
   }
   fb.style.display = 'block';
 }
-function showAns(btn) { btn.style.display='none'; btn.nextElementSibling.style.display='block'; }
-function resetAll() {
-  score = 0; done = {};
-  document.getElementById('snum').textContent = '0';
-  document.querySelectorAll('.cbtn').forEach(b => { b.classList.remove('correct','wrong','show-ok'); b.disabled = false; });
-  document.querySelectorAll('.feedback').forEach(f => f.style.display = 'none');
-}
+
+// Init
+currentP = passages[Math.floor(Math.random() * passages.length)];
+render();
 </script>
 </body>
 </html>
