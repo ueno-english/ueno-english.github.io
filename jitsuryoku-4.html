@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>実力テスト対策 大問4：長文読解</title>
+  <style>
+    :root { --blue:#b5006e; --blue2:#e91e8c; --red:#c0392b; --green:#1a7a1a; --gold:#d4700a; --bg:#fff0f6; --card:#ffffff; --border:#f5c6df; --text:#1a1a2e; --sub:#555; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Hiragino Sans","Meiryo",sans-serif; background:var(--bg); color:var(--text); font-size:15px; line-height:1.7; }
+    header { background:linear-gradient(135deg,#7b003d 0%,var(--blue2) 60%,#ff6bb5 100%); color:white; padding:20px 20px 16px; text-align:center; }
+    header .back-link { display:block; font-size:12px; color:rgba(255,255,255,.8); text-decoration:none; margin-bottom:8px; }
+    header h1 { font-size:20px; font-weight:bold; margin-bottom:4px; }
+    header .subtitle { font-size:12px; opacity:.85; background:rgba(255,255,255,.15); border-radius:20px; padding:3px 14px; display:inline-block; }
+    main { max-width:720px; margin:0 auto; padding:20px 16px 40px; }
+    .notice { background:#fff8e8; border:1px solid #f0d080; border-radius:10px; padding:12px 16px; margin-bottom:16px; font-size:13px; }
+    .section-hd { background:var(--blue); color:white; padding:8px 14px; border-radius:8px 8px 0 0; font-weight:bold; font-size:14px; margin-top:24px; }
+    .section-bd { background:white; border:1px solid var(--border); border-top:none; border-radius:0 0 8px 8px; padding:16px; }
+    .instr { font-size:13px; color:var(--sub); margin-bottom:12px; border-left:3px solid var(--border); padding-left:10px; }
+    /* 本文 */
+    .passage { font-family:Georgia,"Times New Roman",serif; font-size:14px; line-height:2; background:#fffafd; border:1px solid var(--border); border-radius:8px; padding:16px 18px; margin-bottom:4px; }
+    .passage p { margin-bottom:12px; }
+    .passage .blank-n { font-weight:bold; color:var(--blue); }
+    .passage .underline { border-bottom:2px solid var(--text); }
+    .note-col { font-size:12px; color:var(--sub); margin-top:10px; border-top:1px solid var(--border); padding-top:8px; }
+    /* 設問 */
+    .q-block { background:#fdf6fb; border:1px solid var(--border); border-radius:8px; padding:14px; margin-bottom:12px; }
+    .q-title { font-weight:bold; color:var(--blue); margin-bottom:8px; font-size:14px; }
+    .q-sub { font-size:13.5px; margin-bottom:10px; line-height:1.7; }
+    .choices { display:flex; flex-direction:column; gap:6px; }
+    .cbtn { background:white; border:2px solid var(--border); border-radius:8px; padding:8px 12px; font-size:13px; cursor:pointer; text-align:left; font-family:inherit; transition:all .15s; }
+    .cbtn:hover:not(:disabled) { border-color:var(--blue); background:var(--bg); }
+    .cbtn.correct { background:#e8f8e8; border-color:var(--green); color:var(--green); font-weight:bold; }
+    .cbtn.wrong { background:#fde8e8; border-color:var(--red); color:var(--red); }
+    .cbtn.show-ok { background:#e8f8e8; border-color:var(--green); color:var(--green); }
+    .feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .feedback.ok { background:#e8f8e8; color:var(--green); }
+    .feedback.ng { background:#fde8e8; color:var(--red); }
+    .show-btn { background:var(--blue); color:white; border:none; border-radius:6px; padding:6px 16px; font-size:13px; cursor:pointer; font-family:inherit; }
+    .show-btn:hover { background:var(--blue2); }
+    .ans-box { display:none; margin-top:8px; background:#fff8e8; border:1px solid #f0d080; border-radius:6px; padding:10px 14px; font-size:13px; }
+    .ans-box .al { font-weight:bold; color:var(--gold); }
+    .score-bar { background:white; border:2px solid var(--border); border-radius:12px; padding:10px 16px; text-align:center; margin-bottom:16px; }
+    .score-bar .snum { font-size:28px; font-weight:bold; color:var(--blue); }
+    .reset-btn { background:white; border:2px solid var(--border); border-radius:6px; padding:5px 14px; font-size:12px; cursor:pointer; margin-left:10px; font-family:inherit; }
+    .nav-btns { display:flex; gap:8px; margin-top:24px; flex-wrap:wrap; }
+    .nav-btn { background:white; border:2px solid var(--border); border-radius:8px; padding:8px 16px; font-size:13px; text-decoration:none; color:var(--blue); font-weight:bold; }
+    .nav-btn:hover { background:var(--bg); }
+    footer { text-align:center; padding:20px; font-size:12px; color:var(--sub); border-top:1px solid var(--border); margin-top:40px; }
+  </style>
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+<header>
+  <a class="back-link" href="index.html">← ホームに戻る</a>
+  <h1>実力テスト対策 ｜ 大問４</h1>
+  <div class="subtitle">長文読解（英文スピーチ）</div>
+</header>
+<main>
+
+  <div class="notice">📝 中学生の書いたスピーチを読んで，設問に答えましょう。英文をしっかり読んでから問題に進もう！</div>
+
+  <div class="score-bar">
+    問1・問2 スコア：<span class="snum" id="snum">0</span> <span style="font-size:18px;color:var(--sub)">/4</span>
+    <button class="reset-btn" onclick="resetAll()">リセット</button>
+  </div>
+
+  <!-- 本文 -->
+  <div class="section-hd">▼ 次の英文を読み，あとの各問い（問１〜問４）に答えなさい</div>
+  <div class="section-bd">
+    <div class="instr">次の文章は中学生のミア（Mia）が，「エネルギー」について英語の授業で書いたスピーチです。英文を読んで，あとの各問いに答えなさい。</div>
+    <div class="passage">
+      <p>
+        My name is Mia. I am a student at Sakura Junior High School. Last year, my school installed *solar panels on the roof. This made me very interested in solar energy.
+      </p>
+      <p>
+        Before that, I didn't know much about energy. One day, our science teacher, Ms. Kimura, explained how solar panels work. She said, "Solar panels can turn sunlight into *electricity. <span class="blank-n">（&thinsp;１&thinsp;）</span> They are good for the environment because they don't produce any *harmful gases." I was surprised to learn this.
+      </p>
+      <p>
+        After the lesson, I wanted to learn more, so I did some research on the Internet. I found out that Japan gets a lot of sunlight, so solar energy can be very useful here. However, I also learned that solar panels are still expensive to install. <span class="blank-n">（&thinsp;２&thinsp;）</span> I began to wonder how we can make solar energy available for more people.
+      </p>
+      <p>
+        I decided to write a report about solar energy. I interviewed Ms. Kimura, and she told me more about the future of energy. She said, "Many countries are now trying to use more *renewable energy. <span class="blank-n">（&thinsp;３&thinsp;）</span> Wind power and water power are good examples. These energy sources will become more and more important in the future."
+      </p>
+      <p>
+        When I finished my report, I *presented it to my class. My classmates were very interested. Some of them said they wanted to try using solar energy at home. <span class="blank-n">（&thinsp;４&thinsp;）</span> I was happy that my report could inspire them to think about the environment.
+      </p>
+      <p>
+        Now I am more interested in energy and the environment. I think it is important for young people to think about <span class="underline">these problems</span>. If we all make small changes in our daily lives, we can help protect our planet for the future.
+      </p>
+      <div class="note-col">（注）*solar panels ソーラーパネル　*electricity 電気　*harmful 有害な　*renewable 再生可能な　*presented 発表した</div>
+    </div>
+  </div>
+
+  <!-- 設問 -->
+  <div class="section-hd" style="margin-top:28px;">設問</div>
+  <div class="section-bd">
+
+    <!-- 問1 内容一致3択 -->
+    <div class="q-block" id="q1">
+      <div class="q-title">問１　内容一致（3問）　本文の内容と合うように空所に入る最も適切なものを①〜④から選びなさい</div>
+
+      <div class="q-sub">(1)　What did Ms. Kimura tell Mia about solar panels?</div>
+      <div class="choices" id="q1a">
+        <button class="cbtn" onclick="ans('q1a',this,false,'本文に「有害なガスを出さない」とあり，生産するとは書いていません。')">① Solar panels produce harmful gases.</button>
+        <button class="cbtn" onclick="ans('q1a',this,true,'✅ 正解！ "Solar panels can turn sunlight into electricity" とあります。')">② Solar panels can change sunlight into electricity.</button>
+        <button class="cbtn" onclick="ans('q1a',this,false,'本文には安価とは書かれていません。むしろ高価とあります。')">③ Solar panels are cheap to make and install.</button>
+        <button class="cbtn" onclick="ans('q1a',this,false,'本文には日本は日照量が多いと書かれています。')">④ Solar panels do not work well in Japan.</button>
+      </div>
+      <div class="feedback" id="q1a-fb"></div>
+
+      <div class="q-sub" style="margin-top:14px;">(2)　Why did Mia write a report about solar energy?</div>
+      <div class="choices" id="q1b">
+        <button class="cbtn" onclick="ans('q1b',this,false,'先生に頼まれたとは書かれていません。')">① Because her teacher asked her to write one.</button>
+        <button class="cbtn" onclick="ans('q1b',this,false,'成績のためとは書かれていません。')">② Because she wanted to get a good grade.</button>
+        <button class="cbtn" onclick="ans('q1b',this,true,'✅ 正解！ 授業を受けて興味を持ち，自分でさらに調べ，レポートを書く決意をしています。')">③ Because she became interested in it after learning about solar panels.</button>
+        <button class="cbtn" onclick="ans('q1b',this,false,'設置したのは去年。ずっと前ではありません。')">④ Because her school had been using solar energy for a long time.</button>
+      </div>
+      <div class="feedback" id="q1b-fb"></div>
+
+      <div class="q-sub" style="margin-top:14px;">(3)　After Mia's presentation, her classmates ( ).</div>
+      <div class="choices" id="q1c">
+        <button class="cbtn" onclick="ans('q1c',this,false,'本文では classmates were very interested とあります。')">① were not interested in the topic at all.</button>
+        <button class="cbtn" onclick="ans('q1c',this,false,'学校をすぐに変えるとは書かれていません。')">② decided to change their school immediately.</button>
+        <button class="cbtn" onclick="ans('q1c',this,true,'✅ 正解！ "Some of them said they wanted to try using solar energy at home."')">③ were interested, and some wanted to use solar energy at home.</button>
+        <button class="cbtn" onclick="ans('q1c',this,false,'難しすぎたとは書かれていません。')">④ thought Mia\'s report was too difficult to understand.</button>
+      </div>
+      <div class="feedback" id="q1c-fb"></div>
+    </div>
+
+    <!-- 問2 文挿入 -->
+    <div class="q-block" id="q2">
+      <div class="q-title">問２　文挿入　次の英文を（１）〜（４）のどこに入れるのが最も適切か，番号で選びなさい</div>
+      <div class="q-sub" style="font-family:Georgia,serif;font-size:14px;background:#f8f0f5;padding:10px 14px;border-radius:6px;">
+        "But now the prices are slowly becoming lower, so more people may be able to use them in the future."
+      </div>
+      <div class="choices" id="q2c">
+        <button class="cbtn" onclick="ans('q2c',this,false,'（１）の前はsolar panelsが電気を生み出すという説明。この文はコストの話なのでここには合いません。')">① （１）の位置に入れる</button>
+        <button class="cbtn" onclick="ans('q2c',this,true,'✅ 正解！ （２）の直前に「まだ高価だ」とあり，それを受けて「でも値段は下がってきている」と続くと自然です。')">② （２）の位置に入れる</button>
+        <button class="cbtn" onclick="ans('q2c',this,false,'（３）は再生可能エネルギーの話題。コスト低下の話とはつながりません。')">③ （３）の位置に入れる</button>
+        <button class="cbtn" onclick="ans('q2c',this,false,'（４）はクラスの反応の話。コスト低下の話とはつながりません。')">④ （４）の位置に入れる</button>
+      </div>
+      <div class="feedback" id="q2c-fb"></div>
+    </div>
+
+    <!-- 問3 日本語で答える -->
+    <div class="q-block">
+      <div class="q-title">問３　日本語で答えなさい（15字程度）</div>
+      <div class="q-sub">
+        本文中の下線部「these problems」とは，どのような問題のことですか。本文の内容をふまえて，<strong>日本語で15字程度</strong>で書きなさい。
+      </div>
+      <button class="show-btn" onclick="showAns(this)">答えを見る</button>
+      <div class="ans-box"><span class="al">模範解答：</span>エネルギーと環境に関する問題。（13字）<br><span style="font-size:12px;color:var(--sub)">「エネルギー」「環境」のどちらかだけでも可。本文最終段落の内容から読み取りましょう。</span></div>
+    </div>
+
+    <!-- 問4 A B C 1語 -->
+    <div class="q-block">
+      <div class="q-title">問４　空所A〜Cに入る最も適切な英語を1語ずつ書きなさい</div>
+      <div class="q-sub" style="font-family:Georgia,serif;font-size:13.5px;background:#f8f0f5;padding:12px 14px;border-radius:6px;line-height:2;">
+        Mia goes to Sakura Junior High School. Last year, her school started using ( A ) panels on the roof. She learned about them from her science teacher and became very interested. She wrote a ( B ) about solar energy and presented it to her class. After that, her classmates wanted to think more about the ( C ).
+      </div>
+      <button class="show-btn" onclick="showAns(this)">答えを見る</button>
+      <div class="ans-box">
+        <span class="al">答え：</span><br>
+        （A）&emsp;<strong>solar</strong>　→　solar panels（ソーラーパネル）<br>
+        （B）&emsp;<strong>report</strong>　→　レポートを書いた<br>
+        （C）&emsp;<strong>environment</strong>　→　環境について考えるよう促された
+      </div>
+    </div>
+
+  </div>
+
+  <div class="nav-btns">
+    <a class="nav-btn" href="jitsuryoku-3.html">← 大問3</a>
+    <a class="nav-btn" href="index.html">ホーム</a>
+    <a class="nav-btn" href="jitsuryoku-5.html">大問5 英作文 →</a>
+  </div>
+</main>
+<footer>中学3年英語 New Treasure 学習サイト</footer>
+
+<script>
+let score = 0, done = {};
+function ans(gid, btn, ok, msg) {
+  if (done[gid]) return;
+  done[gid] = true;
+  document.querySelectorAll('#'+gid+' .cbtn').forEach(b => b.disabled = true);
+  const fb = document.getElementById(gid+'-fb');
+  if (ok) {
+    btn.classList.add('correct');
+    fb.textContent = msg;
+    fb.className = 'feedback ok';
+    score++;
+    document.getElementById('snum').textContent = score;
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('#'+gid+' .cbtn').forEach(b => { if(b.getAttribute('onclick').includes(',true,')) b.classList.add('show-ok'); });
+    fb.textContent = '❌ ' + msg;
+    fb.className = 'feedback ng';
+  }
+  fb.style.display = 'block';
+}
+function showAns(btn) { btn.style.display='none'; btn.nextElementSibling.style.display='block'; }
+function resetAll() {
+  score = 0; done = {};
+  document.getElementById('snum').textContent = '0';
+  document.querySelectorAll('.cbtn').forEach(b => { b.classList.remove('correct','wrong','show-ok'); b.disabled = false; });
+  document.querySelectorAll('.feedback').forEach(f => f.style.display = 'none');
+}
+</script>
+</body>
+</html>
