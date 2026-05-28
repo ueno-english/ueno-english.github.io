@@ -17,21 +17,18 @@
     .section-hd { background:var(--blue); color:white; padding:8px 14px; border-radius:8px 8px 0 0; font-weight:bold; font-size:14px; margin-top:24px; }
     .section-bd { background:white; border:1px solid var(--border); border-top:none; border-radius:0 0 8px 8px; padding:16px; }
     .instr { font-size:13px; color:var(--sub); margin-bottom:12px; border-left:3px solid var(--border); padding-left:10px; }
-    /* チャット */
-    .chat-wrap { background:#f8f0f5; border:1px solid var(--border); border-radius:10px; padding:16px; margin-bottom:4px; font-size:13.5px; }
+    .chat-wrap { background:#f8f0f5; border:1px solid var(--border); border-radius:10px; padding:16px; font-size:13.5px; }
     .note-line { font-size:12px; color:var(--sub); border-top:1px solid var(--border); margin-top:12px; padding-top:8px; }
     .bubble-row { display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; }
     .bubble-row.you { flex-direction:row-reverse; }
     .speaker { font-size:11px; font-weight:bold; color:white; background:var(--blue); border-radius:20px; padding:2px 10px; white-space:nowrap; align-self:flex-start; margin-top:2px; }
     .bubble-row.you .speaker { background:#555; }
     .bubble { background:white; border:1px solid var(--border); border-radius:10px; padding:8px 12px; font-size:13.5px; max-width:85%; line-height:1.6; }
-    .bubble-row.you .bubble { background:#fdf0f6; border-color:var(--border); }
-    .bubble .blank-slot { border-bottom:2px solid var(--blue); display:inline-block; min-width:60px; color:var(--blue); font-weight:bold; }
-    /* 設問 */
+    .bubble-row.you .bubble { background:#fdf0f6; }
+    .bslot { border-bottom:2px solid var(--blue); display:inline-block; min-width:60px; color:var(--blue); font-weight:bold; }
     .q-block { background:#fdf6fb; border:1px solid var(--border); border-radius:8px; padding:14px; margin-bottom:12px; }
     .q-title { font-weight:bold; color:var(--blue); margin-bottom:8px; font-size:14px; }
-    .q-text { font-size:13.5px; margin-bottom:10px; line-height:1.6; }
-    /* 4択 */
+    .q-sub { font-size:13.5px; margin-bottom:10px; line-height:1.6; }
     .choices { display:flex; flex-direction:column; gap:6px; }
     .cbtn { background:white; border:2px solid var(--border); border-radius:8px; padding:8px 12px; font-size:13px; cursor:pointer; text-align:left; font-family:inherit; transition:all .15s; }
     .cbtn:hover:not(:disabled) { border-color:var(--blue); background:var(--bg); }
@@ -45,6 +42,8 @@
     .show-btn:hover { background:var(--blue2); }
     .ans-box { display:none; margin-top:8px; background:#fff8e8; border:1px solid #f0d080; border-radius:6px; padding:10px 14px; font-size:13px; }
     .ans-box .al { font-weight:bold; color:var(--gold); }
+    .reset-btn { background:var(--blue); color:white; border:none; border-radius:8px; padding:7px 18px; font-size:13px; cursor:pointer; font-family:inherit; margin-bottom:16px; }
+    .reset-btn:hover { background:var(--blue2); }
     .nav-btns { display:flex; gap:8px; margin-top:24px; flex-wrap:wrap; }
     .nav-btn { background:white; border:2px solid var(--border); border-radius:8px; padding:8px 16px; font-size:13px; text-decoration:none; color:var(--blue); font-weight:bold; }
     .nav-btn:hover { background:var(--bg); }
@@ -60,145 +59,184 @@
 <header>
   <a class="back-link" href="index.html">← ホームに戻る</a>
   <h1>実力テスト対策 ｜ 大問３</h1>
-  <div class="subtitle">チャット読解 ＋ 英文記述</div>
+  <div class="subtitle">チャット読解（毎回ランダム切り替え）</div>
 </header>
 <main>
+  <div class="notice">🎲 「新しいチャット」を押すと別のシナリオに切り替わります！</div>
+  <button class="reset-btn" onclick="initScenario()">🔀 新しいチャット</button>
 
-  <div class="notice">📝 チャットを読んで，設問に答えましょう。英文記述は模範解答で確認できます。</div>
+  <div class="section-hd" id="chat-hd">▼ チャット本文</div>
+  <div class="section-bd" id="chat-bd"></div>
 
-  <!-- チャット本文 -->
-  <div class="section-hd">▼ チャット本文を読みなさい</div>
-  <div class="section-bd">
-    <div class="instr">あなたは所属する英語部で，みどり小学校の1〜2年生に英語を教える「英語出前授業」の計画をチャットで話し合っています。英語部顧問のスミス先生（Ms. Smith）と部員のケンタ（Kenta），ハナ（Hana）のチャットをもとに，あとの各問いに答えなさい。</div>
-
-    <div class="chat-wrap">
-      <div class="bubble-row">
-        <span class="speaker">Smith</span>
-        <div class="bubble">Our English club will visit Midori Elementary School next month. We will teach English to the first- and second-grade students. Please think about what activities we should do.</div>
-      </div>
-      <div class="bubble-row">
-        <span class="speaker">Kenta</span>
-        <div class="bubble">That sounds exciting! How about playing word games? I think young children love games.</div>
-      </div>
-      <div class="bubble-row">
-        <span class="speaker">Hana</span>
-        <div class="bubble">Good idea! We could also make picture cards with simple English words. The kids can play a matching game with them.</div>
-      </div>
-      <div class="bubble-row you">
-        <span class="speaker">あなた</span>
-        <div class="bubble">How about singing English songs, too? Children can remember words easily through music.</div>
-      </div>
-      <div class="bubble-row">
-        <span class="speaker">Smith</span>
-        <div class="bubble">Those are all great ideas. But we only have about 40 minutes with them. We need to choose carefully.</div>
-      </div>
-      <div class="bubble-row">
-        <span class="speaker">Kenta</span>
-        <div class="bubble">Then let's do two activities. I think we should sing a song <em>first</em> to help the kids relax.</div>
-      </div>
-      <div class="bubble-row">
-        <span class="speaker">Hana</span>
-        <div class="bubble">I agree. After the song, we can play the card game. <span class="blank-slot">（&ensp;A&ensp;）</span></div>
-      </div>
-      <div class="bubble-row you">
-        <span class="speaker">あなた</span>
-        <div class="bubble">Yes! And we should choose a song with easy movements so the kids can have fun moving their bodies.</div>
-      </div>
-      <div class="bubble-row">
-        <span class="speaker">Smith</span>
-        <div class="bubble">Perfect. How many cards should we make?</div>
-      </div>
-      <div class="bubble-row">
-        <span class="speaker">Kenta</span>
-        <div class="bubble">About 20 cards will be enough for the game.</div>
-      </div>
-      <div class="bubble-row">
-        <span class="speaker">Hana</span>
-        <div class="bubble">Let's use very simple words — like "cat," "dog," "apple," and "ball." <span class="blank-slot">（&ensp;B&ensp;）</span></div>
-      </div>
-      <div class="bubble-row you">
-        <span class="speaker">あなた</span>
-        <div class="bubble">Good idea. Let's practice the song together before the visit, too.</div>
-      </div>
-      <div class="bubble-row">
-        <span class="speaker">Smith</span>
-        <div class="bubble">Great plan! Let's meet again next week to finalize everything.</div>
-      </div>
-
-      <div class="note-line">（注）*elementary school 小学校　*matching game 神経衰弱・マッチングゲーム　*grade 学年　*relax リラックスする</div>
-    </div>
-  </div>
-
-  <!-- 設問 -->
   <div class="section-hd" style="margin-top:28px;">設問</div>
-  <div class="section-bd">
-
-    <!-- 問1 -->
-    <div class="q-block">
-      <div class="q-title">問１　空所に入る英語を書きなさい</div>
-      <div class="q-text">
-        チャットの内容に合うように，空所（A）にふさわしい<strong>3語以上</strong>の英語と，空所（B）にふさわしい英語を書きなさい。
-      </div>
-      <p style="font-size:13px;margin-bottom:6px;">（A）　Hana の発言の空所（ゲームへの期待を表す1文）</p>
-      <button class="show-btn" onclick="showAns(this)">（A）の答えを見る</button>
-      <div class="ans-box"><span class="al">模範解答（例）：</span>The kids will love it. / It will be a lot of fun. / I'm sure they will enjoy it.<br><span style="font-size:12px;color:var(--sub)">ゲームをすることへの期待・楽しさを表す文であれば正解です。</span></div>
-
-      <p style="font-size:13px;margin-top:12px;margin-bottom:6px;">（B）　Hana の発言の空所（簡単な単語を使う理由）</p>
-      <button class="show-btn" onclick="showAns(this)">（B）の答えを見る</button>
-      <div class="ans-box"><span class="al">模範解答（例）：</span>Simple words are easier for young children to understand. / Easy words are important for first and second graders.<br><span style="font-size:12px;color:var(--sub)">「低学年には難しい単語は分からない」という内容であれば正解です。</span></div>
-    </div>
-
-    <!-- 問2 順番 -->
-    <div class="q-block" id="q2">
-      <div class="q-title">問２　活動の順番として最も適切なものを①〜④から選びなさい</div>
-      <div class="q-text">チャットの内容から分かる当日の活動の順番を選びなさい。</div>
-      <div class="choices">
-        <button class="cbtn" onclick="ans2(this,false)">① カードゲーム → 英語の歌</button>
-        <button class="cbtn" onclick="ans2(this,true)">② 英語の歌 → カードゲーム</button>
-        <button class="cbtn" onclick="ans2(this,false)">③ カード作り → 英語の歌 → カードゲーム</button>
-        <button class="cbtn" onclick="ans2(this,false)">④ 英語の歌 → カード作り → カードゲーム</button>
-      </div>
-      <div class="feedback" id="q2-fb"></div>
-    </div>
-
-    <!-- 問3 英語1文で答える -->
-    <div class="q-block">
-      <div class="q-title">問３　次の質問に3語以上の英語1文で答えなさい</div>
-      <div class="q-text" style="font-family:Georgia,serif;">Question: How many picture cards will they make for the game?</div>
-      <button class="show-btn" onclick="showAns(this)">答えを見る</button>
-      <div class="ans-box"><span class="al">模範解答：</span>They will make about twenty cards. / About 20 cards.<br><span style="font-size:12px;color:var(--sub)">数字はアルファベットで書いても数字でも可。主語・動詞を含む1文で答えましょう。</span></div>
-    </div>
-
-  </div>
+  <div class="section-bd" id="q-bd"></div>
 
   <div class="nav-btns">
     <a class="nav-btn" href="jitsuryoku-2.html">← 大問2</a>
     <a class="nav-btn" href="index.html">ホーム</a>
-    <a class="nav-btn" href="jitsuryoku-4.html">大問4 長文読解 →</a>
+    <a class="nav-btn" href="jitsuryoku-4.html">大問4 →</a>
   </div>
 </main>
 <footer>中学3年英語 New Treasure 学習サイト</footer>
 
 <script>
-function showAns(btn) { btn.style.display='none'; btn.nextElementSibling.style.display='block'; }
-let q2done = false;
-function ans2(btn, ok) {
+const scenarios = [
+  {
+    label: "シナリオＡ：英語出前授業の計画",
+    instr: "あなたは所属する英語部で，みどり小学校の1〜2年生に英語を教える「英語出前授業」の計画をチャットで話し合っています。英語部顧問のスミス先生（Ms. Smith）と部員のケンタ（Kenta），ハナ（Hana）のチャットをもとに，あとの各問いに答えなさい。",
+    bubbles: [
+      { spk:"Smith", you:false, text:"Our English club will visit Midori Elementary School next month. We will teach English to the first- and second-grade students. Please think about what activities we should do." },
+      { spk:"Kenta", you:false, text:"That sounds exciting! How about playing word games? I think young children love games." },
+      { spk:"Hana",  you:false, text:"Good idea! We could also make picture cards with simple English words. The kids can play a matching game with them." },
+      { spk:"あなた", you:true, text:"How about singing English songs, too? Children can remember words easily through music." },
+      { spk:"Smith", you:false, text:"Those are all great ideas. But we only have about 40 minutes with them. We need to choose carefully." },
+      { spk:"Kenta", you:false, text:"Then let's do two activities. I think we should sing a song <em>first</em> to help the kids relax." },
+      { spk:"Hana",  you:false, text:"I agree. After the song, we can play the card game. <span class='bslot'>（&ensp;A&ensp;）</span>" },
+      { spk:"あなた", you:true, text:"Yes! And we should choose a song with easy movements so the kids can have fun moving their bodies." },
+      { spk:"Smith", you:false, text:"Perfect. How many cards should we make?" },
+      { spk:"Kenta", you:false, text:"About 20 cards will be enough for the game." },
+      { spk:"Hana",  you:false, text:"Let's use very simple words — like \"cat,\" \"dog,\" \"apple,\" and \"ball.\" <span class='bslot'>（&ensp;B&ensp;）</span>" },
+      { spk:"あなた", you:true, text:"Good idea. Let's practice the song together before the visit, too." },
+      { spk:"Smith", you:false, text:"Great plan! Let's meet again next week to finalize everything." },
+    ],
+    notes: "（注）*elementary school 小学校　*matching game マッチングゲーム　*relax リラックスする",
+    q1a: { label:"（A）　Hana の発言の空所（カードゲームへの期待）", hint:"The kids will love it. / It will be a lot of fun. など", note:"ゲームが楽しいという内容の英文（3語以上）であれば正解です。" },
+    q1b: { label:"（B）　Hana の発言の空所（簡単な単語を使う理由）", hint:"Simple words are easier for young children to understand. など", note:"「低学年には難しい単語は分からない・やさしい単語が大切」という内容であれば正解です。" },
+    q2: {
+      q: "当日の活動の順番として最も適切なものを①〜④から選びなさい。",
+      choices: [
+        { t:"① カードゲーム → 英語の歌", ok:false, note:"Kenta が「まず歌を歌う」と提案しています。" },
+        { t:"② 英語の歌 → カードゲーム", ok:true, note:"✅ Kenta が「まず歌」→ Hana が「歌の後にカードゲーム」と賛成しています。" },
+        { t:"③ カード作り → 英語の歌 → カードゲーム", ok:false, note:"カード作りは当日ではなく事前の準備です。" },
+        { t:"④ 英語の歌 → カード作り → カードゲーム", ok:false, note:"カード作りは事前準備です。当日は歌 → カードゲームの順です。" },
+      ]
+    },
+    q3: { q:"How many picture cards will they make for the game?", hint:"They will make about twenty cards.", note:"数字はアルファベットで書いても数字でも可。主語・動詞を含む1文で答えましょう。" },
+  },
+  {
+    label: "シナリオＢ：国際食フェスティバルの計画",
+    instr: "あなたは所属する英語部で，学校の文化祭に「国際食フェスティバル」を開催する計画をチャットで話し合っています。英語部顧問のブラウン先生（Ms. Brown）と部員のアキ（Aki），ショウ（Sho）のチャットをもとに，あとの各問いに答えなさい。",
+    bubbles: [
+      { spk:"Brown", you:false, text:"Our English club has been asked to plan an International Food Festival for the school cultural festival. Let's talk about what countries' food we should introduce." },
+      { spk:"Aki",   you:false, text:"How about introducing food from America, Italy, and Japan? They are all popular countries in Japan." },
+      { spk:"Sho",   you:false, text:"Good idea! I think we should also add one more country. How about India? Indian food is very interesting." },
+      { spk:"あなた", you:true, text:"I agree. Also, we should make information cards in English for each dish. Visitors can learn both English and food culture." },
+      { spk:"Brown", you:false, text:"Excellent idea! How much time do we have to prepare?" },
+      { spk:"Aki",   you:false, text:"We have three weeks before the festival. I think we should start making the information cards first." },
+      { spk:"Sho",   you:false, text:"Yes, and we should also practice explaining the dishes in English. <span class='bslot'>（&ensp;A&ensp;）</span>" },
+      { spk:"あなた", you:true, text:"That's a good point. We could practice in pairs during club meetings." },
+      { spk:"Brown", you:false, text:"Great. How many dishes should we introduce at each country's *booth?" },
+      { spk:"Aki",   you:false, text:"I think two or three dishes per country would be enough. We don't want to make it too complicated." },
+      { spk:"Sho",   you:false, text:"I agree. Let's also make a short quiz about food for visitors. <span class='bslot'>（&ensp;B&ensp;）</span>" },
+      { spk:"あなた", you:true, text:"Perfect! That will make the festival even more fun and educational." },
+      { spk:"Brown", you:false, text:"I love this plan. Let's get started right away!" },
+    ],
+    notes: "（注）*cultural festival 文化祭　*dish 料理　*booth ブース・店　*educational 教育的な",
+    q1a: { label:"（A）　Sho の発言の空所（英語での説明練習の大切さ）", hint:"Visitors will ask us questions about the food. / It is important to explain well in English. など", note:"「訪問者から質問されるかもしれない・英語で上手に説明することが大切」という内容であれば正解です。" },
+    q1b: { label:"（B）　Sho の発言の空所（クイズを作る目的・効果）", hint:"It will make the festival more exciting for everyone. / Visitors can enjoy learning about food through the quiz. など", note:"「クイズを作ることで楽しくなる・訪問者が食文化を楽しく学べる」という内容であれば正解です。" },
+    q2: {
+      q: "準備の順番として最も適切なものを①〜④から選びなさい。",
+      choices: [
+        { t:"① 英語で説明を練習 → 情報カード作り", ok:false, note:"Aki は「まず情報カードを作る」と提案しています。" },
+        { t:"② 情報カード作り → 英語で説明を練習", ok:true, note:"✅ Aki が「まず情報カードを作る」→ Sho が「英語での説明も練習する」と続けています。" },
+        { t:"③ クイズ作り → 情報カード作り → 英語で説明を練習", ok:false, note:"クイズの話は後半です。まず情報カード作りから始めます。" },
+        { t:"④ 料理を選ぶ → クイズ作り → 情報カード作り", ok:false, note:"この順番はチャットの内容と一致しません。" },
+      ]
+    },
+    q3: { q:"How many dishes will they introduce at each country's booth?", hint:"They will introduce two or three dishes (per country).", note:"「2〜3品」という内容が伝わる英文1文であれば正解です。" },
+  },
+];
+
+let currentS = null, q2done = false;
+
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+function initScenario() {
+  q2done = false;
+  const other = scenarios.filter(s => s !== currentS);
+  currentS = other[Math.floor(Math.random() * other.length)];
+  render();
+}
+
+function render() {
+  const s = currentS;
+  document.getElementById('chat-hd').textContent = '▼ チャット本文を読みなさい　【' + s.label + '】';
+  document.getElementById('chat-bd').innerHTML = `
+    <div class="instr">${s.instr}</div>
+    <div class="chat-wrap">
+      ${s.bubbles.map(b=>`
+        <div class="bubble-row${b.you?' you':''}">
+          <span class="speaker">${b.spk}</span>
+          <div class="bubble">${b.text}</div>
+        </div>`).join('')}
+      <div class="note-line">${s.notes}</div>
+    </div>`;
+
+  const qb = document.getElementById('q-bd');
+  qb.innerHTML = '';
+
+  // 問1
+  const q1d = document.createElement('div');
+  q1d.className = 'q-block';
+  q1d.innerHTML = `
+    <div class="q-title">問１　空所に入る英語を書きなさい</div>
+    <div class="q-sub">チャットの内容に合うように，空所（A）・（B）にふさわしい英語（3語以上）を書きなさい。</div>
+    <p style="font-size:13px;margin-bottom:6px;">${s.q1a.label}</p>
+    <button class="show-btn" onclick="this.style.display='none';this.nextElementSibling.style.display='block'">（A）の答えを見る</button>
+    <div class="ans-box"><span class="al">模範解答（例）：</span>${s.q1a.hint}<br><span style="font-size:12px;color:var(--sub)">${s.q1a.note}</span></div>
+    <p style="font-size:13px;margin-top:12px;margin-bottom:6px;">${s.q1b.label}</p>
+    <button class="show-btn" onclick="this.style.display='none';this.nextElementSibling.style.display='block'">（B）の答えを見る</button>
+    <div class="ans-box"><span class="al">模範解答（例）：</span>${s.q1b.hint}<br><span style="font-size:12px;color:var(--sub)">${s.q1b.note}</span></div>`;
+  qb.appendChild(q1d);
+
+  // 問2 (4択)
+  const q2d = document.createElement('div');
+  q2d.className = 'q-block';
+  q2d.id = 'q2block';
+  const shuffled2 = shuffle([...s.q2.choices]);
+  q2d.innerHTML = `
+    <div class="q-title">問２　最も適切なものを①〜④から選びなさい</div>
+    <div class="q-sub">${s.q2.q}</div>
+    <div class="choices" id="q2choices">
+      ${shuffled2.map((c,ci)=>`<button class="cbtn" onclick="ansQ2(${ci})">${c.t}</button>`).join('')}
+    </div>
+    <div class="feedback" id="q2fb"></div>`;
+  qb.appendChild(q2d);
+  // store for answer lookup
+  document.querySelectorAll('#q2choices .cbtn').forEach((btn,ci) => { btn._ok=shuffled2[ci].ok; btn._note=shuffled2[ci].note; });
+
+  // 問3
+  const q3d = document.createElement('div');
+  q3d.className = 'q-block';
+  q3d.innerHTML = `
+    <div class="q-title">問３　次の質問に3語以上の英語1文で答えなさい</div>
+    <div class="q-sub" style="font-family:Georgia,serif;">Question: ${s.q3.q}</div>
+    <button class="show-btn" onclick="this.style.display='none';this.nextElementSibling.style.display='block'">答えを見る</button>
+    <div class="ans-box"><span class="al">模範解答：</span>${s.q3.hint}<br><span style="font-size:12px;color:var(--sub)">${s.q3.note}</span></div>`;
+  qb.appendChild(q3d);
+}
+
+function ansQ2(ci) {
   if (q2done) return;
   q2done = true;
-  const fb = document.getElementById('q2-fb');
-  document.querySelectorAll('#q2 .cbtn').forEach(b => b.disabled = true);
-  if (ok) {
-    btn.classList.add('correct');
-    fb.textContent = '✅ 正解！ Kenta が「まず歌を歌って緊張をほぐす」と提案し，Hana が「歌の後にカードゲーム」と賛成しています。';
+  const btns = document.querySelectorAll('#q2choices .cbtn');
+  const fb = document.getElementById('q2fb');
+  btns.forEach(b => b.disabled = true);
+  if (btns[ci]._ok) {
+    btns[ci].classList.add('correct');
+    fb.textContent = btns[ci]._note;
     fb.className = 'feedback ok';
   } else {
-    btn.classList.add('wrong');
-    document.querySelectorAll('#q2 .cbtn').forEach(b => { if(b.getAttribute('onclick').includes('true')) b.classList.add('show-ok'); });
-    fb.textContent = '❌ 不正解。チャットでKentaが「まず歌」と提案し、Hanaが「歌の後にカードゲーム」と賛成しています。';
+    btns[ci].classList.add('wrong');
+    btns.forEach(b => { if(b._ok) b.classList.add('show-ok'); });
+    fb.textContent = '❌ ' + btns[ci]._note;
     fb.className = 'feedback ng';
   }
   fb.style.display = 'block';
 }
+
+currentS = scenarios[Math.floor(Math.random() * scenarios.length)];
+render();
 </script>
 </body>
 </html>
