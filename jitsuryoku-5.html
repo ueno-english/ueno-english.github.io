@@ -17,14 +17,11 @@
     .section-hd { background:var(--blue); color:white; padding:8px 14px; border-radius:8px 8px 0 0; font-weight:bold; font-size:14px; margin-top:24px; }
     .section-bd { background:white; border:1px solid var(--border); border-top:none; border-radius:0 0 8px 8px; padding:16px; }
     .instr { font-size:13px; color:var(--sub); margin-bottom:12px; border-left:3px solid var(--border); padding-left:10px; }
-    /* 対話文 */
     .dialogue { background:#fdf6fb; border:1px solid var(--border); border-radius:8px; padding:14px 16px; margin-bottom:14px; font-family:Georgia,serif; font-size:14px; line-height:2.2; }
     .spk { font-weight:bold; font-style:normal; color:var(--blue); min-width:60px; display:inline-block; }
-    .underline-q { border-bottom:2px solid var(--text); font-style:normal; }
-    /* 設問ブロック */
+    .ul { border-bottom:2px solid var(--text); font-style:normal; }
     .q-block { background:#fdf6fb; border:1px solid var(--border); border-radius:8px; padding:14px; margin-bottom:12px; }
     .q-label { font-weight:bold; color:var(--blue); font-size:13px; margin-bottom:6px; }
-    .jp-prompt { font-size:13px; background:white; border:1px solid var(--border); border-radius:6px; padding:8px 12px; margin-bottom:8px; line-height:1.7; }
     .input-hint { font-size:12px; color:var(--sub); margin-bottom:6px; }
     .show-btn { background:var(--blue); color:white; border:none; border-radius:6px; padding:6px 16px; font-size:13px; cursor:pointer; font-family:inherit; }
     .show-btn:hover { background:var(--blue2); }
@@ -32,15 +29,15 @@
     .ans-box .al { font-weight:bold; color:var(--gold); }
     .ans-box .model { font-family:Georgia,serif; font-size:14px; color:#222; margin:4px 0 6px; }
     .ans-box .note { font-size:12px; color:var(--sub); }
-    /* 絵の描写 */
     .scene-box { background:white; border:2px dashed var(--border); border-radius:8px; padding:16px; margin-bottom:12px; text-align:center; }
-    .scene-desc { font-size:13px; color:var(--sub); margin-top:8px; }
     .scene-icon { font-size:48px; }
-    /* 採点のコツ */
+    .scene-desc { font-size:13px; color:var(--sub); margin-top:8px; }
     .tips-box { background:#f0faf0; border:1px solid #a0d8a0; border-radius:8px; padding:14px; margin-top:12px; font-size:13px; }
     .tips-box h4 { color:var(--green); margin-bottom:8px; }
     .tips-box ul { padding-left:16px; }
     .tips-box li { margin-bottom:4px; }
+    .reset-btn { background:var(--blue); color:white; border:none; border-radius:8px; padding:7px 18px; font-size:13px; cursor:pointer; font-family:inherit; margin-bottom:16px; }
+    .reset-btn:hover { background:var(--blue2); }
     .nav-btns { display:flex; gap:8px; margin-top:24px; flex-wrap:wrap; }
     .nav-btn { background:white; border:2px solid var(--border); border-radius:8px; padding:8px 16px; font-size:13px; text-decoration:none; color:var(--blue); font-weight:bold; }
     .nav-btn:hover { background:var(--bg); }
@@ -56,129 +53,17 @@
 <header>
   <a class="back-link" href="index.html">← ホームに戻る</a>
   <h1>実力テスト対策 ｜ 大問５</h1>
-  <div class="subtitle">英作文・対話完成</div>
+  <div class="subtitle">英作文・対話完成（毎回ランダム切り替え）</div>
 </header>
 <main>
+  <div class="notice">📝 自分で英文を書いてから「模範解答を見る」で確認しましょう。🎲「新しい問題」で別の対話に切り替わります！</div>
+  <button class="reset-btn" onclick="initScenario()">🔀 新しい問題</button>
 
-  <div class="notice">📝 自分で英文を書いてから，「模範解答を見る」で確認しましょう。完全一致でなくても OK！意味が通じていれば正解です。</div>
+  <div class="section-hd" id="q1-hd">問１　対話文中の下線部（ア）〜（ウ）の日本文に合う，適切な英文を書きなさい</div>
+  <div class="section-bd" id="q1-bd"></div>
 
-  <!-- 問1 -->
-  <div class="section-hd">問１　対話文中の下線部（ア）〜（ウ）の日本文に合う，適切な英文を書きなさい</div>
-  <div class="section-bd">
-    <div class="instr">下線部（ア）〜（ウ）のそれぞれの日本文を英語に直しなさい。</div>
-
-    <div class="dialogue">
-      <div><span class="spk">ケイ：</span>明日は放課後に部活の練習試合があるんだ。<br>
-      &emsp;&emsp;&emsp;<span class="underline-q">（ア）<em>ぼくはとても楽しみにしているよ。</em></span></div>
-      <div><span class="spk">リカ：</span>そうなんだ。<span class="underline-q">（イ）<em>あなたはどのポジションをプレーしているの？</em></span></div>
-      <div><span class="spk">ケイ：</span>フォワードだよ。<br>
-      &emsp;&emsp;&emsp;<span class="underline-q">（ウ）<em>ぼくたちのチームが勝てたらいいな。</em></span></div>
-      <div><span class="spk">リカ：</span>頑張ってね！</div>
-    </div>
-
-    <!-- ア -->
-    <div class="q-block">
-      <div class="q-label">（ア）ぼくはとても楽しみにしているよ。</div>
-      <div class="input-hint">まず自分で英文を考えてみよう ↓</div>
-      <button class="show-btn" onclick="showAns(this)">模範解答を見る</button>
-      <div class="ans-box">
-        <span class="al">模範解答：</span>
-        <div class="model">I'm really looking forward to it.</div>
-        <div class="note">
-          ・look forward to ~ing / it 「〜を楽しみにしている」<br>
-          ・I can't wait for tomorrow's game! なども正解。<br>
-          ・I'm very excited about it! も可。
-        </div>
-      </div>
-    </div>
-
-    <!-- イ -->
-    <div class="q-block">
-      <div class="q-label">（イ）あなたはどのポジションをプレーしているの？</div>
-      <div class="input-hint">まず自分で英文を考えてみよう ↓</div>
-      <button class="show-btn" onclick="showAns(this)">模範解答を見る</button>
-      <div class="ans-box">
-        <span class="al">模範解答：</span>
-        <div class="model">What position do you play?</div>
-        <div class="note">
-          ・What position do you play (in)? が基本形。<br>
-          ・Which position are you playing? も可。<br>
-          ・語順に注意：What do you play position? は ✗
-        </div>
-      </div>
-    </div>
-
-    <!-- ウ -->
-    <div class="q-block">
-      <div class="q-label">（ウ）ぼくたちのチームが勝てたらいいな。</div>
-      <div class="input-hint">まず自分で英文を考えてみよう ↓</div>
-      <button class="show-btn" onclick="showAns(this)">模範解答を見る</button>
-      <div class="ans-box">
-        <span class="al">模範解答：</span>
-        <div class="model">I hope our team can win.</div>
-        <div class="note">
-          ・I hope (that) SV 「〜したらいいな・〜であればいい」<br>
-          ・I hope our team will win (the game). も正解。<br>
-          ・I wish we could win. （仮定法）も可。
-        </div>
-      </div>
-    </div>
-
-    <div class="tips-box">
-      <h4>✏️ 英作文のポイント（問1）</h4>
-      <ul>
-        <li>日本語の意味をそのまま訳す必要はありません。自然な英語で意味が伝わればOK！</li>
-        <li>「楽しみにする」→ look forward to / be excited about / can't wait</li>
-        <li>「〜したらいいな」→ I hope (that) SV / I wish SV（仮定法）</li>
-        <li>文末のピリオドを忘れずに。</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- 問2 -->
-  <div class="section-hd" style="margin-top:28px;">問２　絵の内容をふまえて，空所にふさわしい英文1文を書き，対話文を完成させなさい</div>
-  <div class="section-bd">
-    <div class="instr">絵の状況を読み取り，空所に入る英文1文を自分で考えなさい。</div>
-
-    <div class="scene-box">
-      <div class="scene-icon">📚</div>
-      <div class="scene-desc">
-        【場面】ミク（Miku）がケン（Ken）の家にいます。<br>
-        ミクは本をたくさん持っています。ミクはケンに何か頼もうとしています。<br>
-        ケンはミクの荷物（本）を運ぶのを手伝っています。
-      </div>
-    </div>
-
-    <div class="dialogue" style="margin-bottom:14px;">
-      <div><span class="spk">Miku：</span>（　　　　　　　　　　　　　　　　　　　）?</div>
-      <div><span class="spk">Ken：</span>Of course. Where should I put them?</div>
-      <div><span class="spk">Miku：</span>Please put them on that desk.</div>
-    </div>
-
-    <button class="show-btn" onclick="showAns(this)">模範解答を見る</button>
-    <div class="ans-box">
-      <span class="al">模範解答（例）：</span>
-      <div class="model">Could you help me carry these books?</div>
-      <div class="note">
-        ・Could you ~? / Can you ~? / Would you ~? で依頼を表せます。<br>
-        ・Could you carry these books for me? も正解。<br>
-        ・Will you help me with these books? なども可。<br>
-        ・ポイント：「本を運ぶのを手伝って」という内容 ＋ 疑問文の形
-      </div>
-    </div>
-
-    <div class="tips-box" style="margin-top:14px;">
-      <h4>✏️ 英作文のポイント（問2）</h4>
-      <ul>
-        <li>絵の状況を正確に読む：誰が・何をしているか？何を頼もうとしているか？</li>
-        <li>依頼表現：Could you ~? / Can you ~? / Would you ~? （Could が最も丁寧）</li>
-        <li>「〜するのを手伝う」→ help me (to) V / help me with ~</li>
-        <li>次のセリフ（Of course. Where should I put them?）から，「本を運ぶ」or「持つ」依頼だと分かります。</li>
-        <li>必ず疑問文の形（?）にすること！</li>
-      </ul>
-    </div>
-
-  </div>
+  <div class="section-hd" id="q2-hd" style="margin-top:28px;">問２　絵の内容をふまえて，空所にふさわしい英文1文を書きなさい</div>
+  <div class="section-bd" id="q2-bd"></div>
 
   <div class="nav-btns">
     <a class="nav-btn" href="jitsuryoku-4.html">← 大問4</a>
@@ -188,7 +73,118 @@
 <footer>中学3年英語 New Treasure 学習サイト</footer>
 
 <script>
-function showAns(btn) { btn.style.display='none'; btn.nextElementSibling.style.display='block'; }
+const scenarios = [
+  {
+    label: "シナリオＡ：部活の試合",
+    q1: {
+      dialogue: `<div><span class='spk'>ケイ：</span>明日は放課後に部活の練習試合があるんだ。<br>&emsp;&emsp;&emsp;<span class='ul'>（ア）<em>ぼくはとても楽しみにしているよ。</em></span></div>
+<div><span class='spk'>リカ：</span>そうなんだ。<span class='ul'>（イ）<em>あなたはどのポジションをプレーしているの？</em></span></div>
+<div><span class='spk'>ケイ：</span>フォワードだよ。<br>&emsp;&emsp;&emsp;<span class='ul'>（ウ）<em>ぼくたちのチームが勝てたらいいな。</em></span></div>
+<div><span class='spk'>リカ：</span>頑張ってね！</div>`,
+      items: [
+        { label:"（ア）ぼくはとても楽しみにしているよ。", model:"I'm really looking forward to it.", note:"・look forward to ~ing / it 「〜を楽しみにしている」<br>・I'm very excited about it! も可。<br>・I can't wait for the game! も正解。" },
+        { label:"（イ）あなたはどのポジションをプレーしているの？", model:"What position do you play?", note:"・What position do you play (in)? が基本形。<br>・語順に注意：What do you play position? は ✗" },
+        { label:"（ウ）ぼくたちのチームが勝てたらいいな。", model:"I hope our team can win.", note:"・I hope (that) SV 「〜したらいいな」<br>・I hope our team will win (the game). も正解。<br>・I wish we could win. （仮定法）も可。" },
+      ]
+    },
+    q2: {
+      scene: { icon:"📚", desc:"【場面】ミク（Miku）がケン（Ken）の家にいます。<br>ミクは本をたくさん持っています。ミクはケンに荷物を運ぶのを手伝ってほしそうにしています。" },
+      dialogue: `<div><span class='spk'>Miku：</span>（　　　　　　　　　　　　　　　　　　　）?</div>
+<div><span class='spk'>Ken：</span>Of course. Where should I put them?</div>
+<div><span class='spk'>Miku：</span>Please put them on that desk.</div>`,
+      model: "Could you help me carry these books?",
+      note: "・Could you ~? / Can you ~? / Would you ~? で依頼を表せます。<br>・Could you carry these books for me? も正解。<br>・ポイント：「本を運ぶのを手伝って」という内容 ＋ 疑問文の形"
+    }
+  },
+  {
+    label: "シナリオＢ：週末の予定",
+    q1: {
+      dialogue: `<div><span class='spk'>サラ：</span>今週末，暇？<span class='ul'>（ア）<em>私と一緒に買い物に行かない？</em></span></div>
+<div><span class='spk'>ユウ：</span>いいね！<span class='ul'>（イ）<em>何時に駅で待ち合わせしようか？</em></span></div>
+<div><span class='spk'>サラ：</span>11時はどうかな。<br>&emsp;&emsp;&emsp;<span class='ul'>（ウ）<em>新しくオープンしたお店に行ってみたいんだ。</em></span></div>
+<div><span class='spk'>ユウ：</span>楽しそう！じゃあ，そこで会おう。</div>`,
+      items: [
+        { label:"（ア）私と一緒に買い物に行かない？", model:"Why don't we go shopping together?", note:"・Why don't we ~? 「〜しない？」（誘い表現）<br>・How about going shopping with me? も可。<br>・Would you like to go shopping with me? も正解。" },
+        { label:"（イ）何時に駅で待ち合わせしようか？", model:"What time shall we meet at the station?", note:"・What time shall we ~? 「何時に〜しましょうか？」<br>・What time should we meet at the station? も可。" },
+        { label:"（ウ）新しくオープンしたお店に行ってみたいんだ。", model:"I want to visit the new store that just opened.", note:"・I want to visit / I'd like to go to 「〜に行ってみたい」<br>・that just opened（関係代名詞）で「最近オープンした」を表現できます。<br>・a new shop that opened recently も可。" },
+      ]
+    },
+    q2: {
+      scene: { icon:"🌧️", desc:"【場面】ハルカ（Haruka）とカイ（Kai）が学校の外にいます。<br>雨が降り出しました。カイは傘を持っていますが，ハルカは持っていません。ハルカはカイに何か頼もうとしています。" },
+      dialogue: `<div><span class='spk'>Haruka：</span>（　　　　　　　　　　　　　　　　　　　）?</div>
+<div><span class='spk'>Kai：</span>Sure, no problem! Let's walk together.</div>`,
+      model: "Can I share your umbrella?",
+      note: "・Can I ~? / Could I ~? 「〜してもいいですか？」（許可・お願い）<br>・share your umbrella「傘を一緒に使わせてもらう」<br>・Could you share your umbrella with me? も正解。<br>・次のセリフ（Let's walk together.）から「一緒に傘に入れて」という依頼だと分かります。"
+    }
+  },
+];
+
+let currentS = null;
+
+function initScenario() {
+  const other = scenarios.filter(s => s !== currentS);
+  currentS = other[Math.floor(Math.random() * other.length)];
+  render();
+}
+
+function render() {
+  const s = currentS;
+  // 問1
+  document.getElementById('q1-hd').textContent = '問１　【' + s.label + '】　対話文中の下線部（ア）〜（ウ）の日本文に合う，適切な英文を書きなさい';
+  document.getElementById('q1-bd').innerHTML = `
+    <div class="instr">下線部（ア）〜（ウ）のそれぞれの日本文を英語に直しなさい。まず自分で考えてから「模範解答を見る」で確認しよう！</div>
+    <div class="dialogue">${s.q1.dialogue}</div>
+    ${s.q1.items.map(item => `
+      <div class="q-block">
+        <div class="q-label">${item.label}</div>
+        <div class="input-hint">まず自分で英文を考えてみよう ↓</div>
+        <button class="show-btn" onclick="this.style.display='none';this.nextElementSibling.style.display='block'">模範解答を見る</button>
+        <div class="ans-box">
+          <span class="al">模範解答：</span>
+          <div class="model">${item.model}</div>
+          <div class="note">${item.note}</div>
+        </div>
+      </div>`).join('')}
+    <div class="tips-box">
+      <h4>✏️ 英作文のポイント（問1）</h4>
+      <ul>
+        <li>日本語の意味をそのまま直訳しなくてOK。自然な英語で意味が伝わればOK！</li>
+        <li>「楽しみにする」→ look forward to / be excited about / can't wait</li>
+        <li>「〜したらいいな」→ I hope (that) SV / I wish SV（仮定法）</li>
+        <li>「〜しない？（誘い）」→ Why don't we ~? / How about ~ing? / Would you like to ~?</li>
+        <li>文末のピリオド・クエスチョンマークを忘れずに！</li>
+      </ul>
+    </div>`;
+
+  // 問2
+  document.getElementById('q2-hd').textContent = '問２　【' + s.label + '】　絵の内容をふまえて，空所にふさわしい英文1文を書きなさい';
+  document.getElementById('q2-bd').innerHTML = `
+    <div class="instr">絵の状況を読み取り，空所に入る英文1文を自分で考えなさい。</div>
+    <div class="scene-box">
+      <div class="scene-icon">${s.q2.scene.icon}</div>
+      <div class="scene-desc">${s.q2.scene.desc}</div>
+    </div>
+    <div class="dialogue" style="margin-bottom:14px;">${s.q2.dialogue}</div>
+    <button class="show-btn" onclick="this.style.display='none';this.nextElementSibling.style.display='block'">模範解答を見る</button>
+    <div class="ans-box">
+      <span class="al">模範解答（例）：</span>
+      <div class="model">${s.q2.model}</div>
+      <div class="note">${s.q2.note}</div>
+    </div>
+    <div class="tips-box" style="margin-top:14px;">
+      <h4>✏️ 英作文のポイント（問2）</h4>
+      <ul>
+        <li>絵の状況を正確に読む：誰が・何をしているか？何を頼もうとしているか？</li>
+        <li>依頼表現：Could you ~? / Can you ~? / Would you ~? （Could が最も丁寧）</li>
+        <li>許可を求める：Can I ~? / May I ~? / Could I ~?</li>
+        <li>次のセリフから，何を聞いているか逆算するのがコツ！</li>
+        <li>必ず疑問文の形（?）にすること！</li>
+      </ul>
+    </div>`;
+}
+
+currentS = scenarios[Math.floor(Math.random() * scenarios.length)];
+render();
 </script>
 </body>
 </html>
