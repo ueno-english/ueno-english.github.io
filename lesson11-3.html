@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 11-3 解説｜上野作 英語復習活用ホームページ</title>
+  <style>
+    :root {
+      --blue:  #b5006e;
+      --red:   #c0392b;
+      --green: #1a7a1a;
+      --gold:  #d4700a;
+      --bg:    #fff0f6;
+      --card:  #ffffff;
+      --border:#f5c6df;
+      --text:  #222;
+      --sub:   #555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Sans", "Meiryo", sans-serif;
+      background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7;
+    }
+    header {
+      background: linear-gradient(135deg, #7b003d 0%, #e91e8c 100%);
+      color: white; padding: 20px 16px 16px; text-align: center;
+    }
+    header .lesson-label { font-size: 12px; letter-spacing: 2px; opacity: 0.85; margin-bottom: 4px; }
+    header h1 { font-size: 20px; font-weight: bold; margin-bottom: 6px; }
+    header .topics {
+      font-size: 12px; opacity: 0.9;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px; padding: 4px 14px; display: inline-block;
+    }
+    nav {
+      display: flex; overflow-x: auto; gap: 8px;
+      padding: 12px 16px; background: white; border-bottom: 1px solid var(--border);
+    }
+    nav a {
+      white-space: nowrap; text-decoration: none;
+      background: var(--blue); color: white;
+      padding: 6px 14px; border-radius: 20px; font-size: 13px;
+    }
+    nav a:hover { opacity: 0.85; }
+    main { padding: 16px; max-width: 720px; margin: 0 auto; }
+    .section {
+      background: var(--card); border-radius: 12px;
+      border: 1px solid var(--border); margin-bottom: 20px;
+      overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .section-header { background: var(--blue); color: white; padding: 12px 16px; font-weight: bold; font-size: 15px; }
+    .section-body { padding: 16px; }
+    .point-box {
+      background: #eef4fb; border-left: 4px solid var(--blue);
+      border-radius: 0 8px 8px 0; padding: 12px 14px; margin-bottom: 14px;
+    }
+    .point-box .emoji-title { font-weight: bold; font-size: 14px; margin-bottom: 6px; }
+    .transform {
+      background: #fff8e8; border: 1px solid #f0d080;
+      border-radius: 8px; padding: 12px 14px; margin: 12px 0; font-size: 14px;
+    }
+    .transform .before { color: var(--sub); margin-bottom: 4px; }
+    .transform .arrow { text-align: center; font-size: 18px; color: var(--gold); margin: 4px 0; }
+    .transform .after { font-weight: bold; }
+    .transform .label { font-size: 11px; color: var(--sub); margin-top: 6px; }
+    .r { color: var(--red);   font-weight: bold; }
+    .g { color: var(--green); font-weight: bold; }
+    .b { color: var(--blue);  font-weight: bold; }
+    .warn {
+      background: #fff0f0; border: 1px solid #f5b8b8;
+      border-radius: 8px; padding: 10px 14px; font-size: 13.5px; margin: 10px 0;
+    }
+    .warn strong { color: var(--red); }
+    .compare-box {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0;
+    }
+    .compare-left, .compare-right {
+      border-radius: 8px; padding: 10px 12px; font-size: 13px;
+    }
+    .compare-left  { background: #fff0f0; border: 1px solid #f5b8b8; }
+    .compare-right { background: #f0fff0; border: 1px solid #b8e8b8; }
+    .compare-label { font-size: 11px; font-weight: bold; margin-bottom: 4px; }
+    .compare-left  .compare-label { color: var(--red); }
+    .compare-right .compare-label { color: var(--green); }
+    .ex-grid {
+      display: grid; gap: 10px; margin: 12px 0;
+    }
+    .kp-ex {
+      background: #f5f8fc; border-radius: 8px;
+      padding: 10px 14px; border-left: 3px solid var(--blue); font-size: 13.5px;
+    }
+    .kp-ex .en { font-family: Georgia, serif; margin-bottom: 3px; }
+    .kp-ex .ja { color: var(--sub); font-size: 12px; }
+    .exercises { margin-top: 14px; }
+    .ex-title {
+      font-weight: bold; font-size: 14px; color: var(--blue);
+      border-bottom: 2px solid var(--blue); padding-bottom: 4px; margin-bottom: 12px;
+    }
+    .ex-item {
+      margin-bottom: 14px; background: #f9fbfd;
+      border-radius: 8px; padding: 12px 14px; border: 1px solid var(--border);
+    }
+    .ex-num { font-weight: bold; color: var(--blue); font-size: 13px; margin-bottom: 4px; }
+    .answer-toggle {
+      background: none; border: 1px solid var(--red); color: var(--red);
+      border-radius: 20px; padding: 4px 14px; font-size: 12px; cursor: pointer; margin-top: 4px;
+    }
+    .answer-toggle:hover { background: #fff0f0; }
+    .answer-box {
+      display: none; margin-top: 8px; background: #fff8f8;
+      border-left: 3px solid var(--red); padding: 8px 12px;
+      border-radius: 0 6px 6px 0; font-size: 14px;
+    }
+    .answer-box .ans-en   { color: var(--red); font-weight: bold; margin-bottom: 4px; }
+    .answer-box .ans-note { font-size: 12px; color: var(--sub); }
+    .answer-box.open { display: block; }
+    .show-all-btn {
+      display: block; width: 100%; background: var(--blue); color: white;
+      border: none; border-radius: 8px; padding: 10px; font-size: 14px;
+      cursor: pointer; margin-bottom: 14px;
+    }
+    .show-all-btn:hover { opacity: 0.88; }
+    footer {
+      text-align: center; padding: 20px; font-size: 12px;
+      color: var(--sub); border-top: 1px solid var(--border); margin-top: 10px;
+    }
+    .quiz-section {
+      background: var(--card); border: 2px solid var(--blue);
+      border-radius: 12px; margin: 20px 0 30px; overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+    .quiz-section-header {
+      background: linear-gradient(135deg, var(--blue) 0%, #d4006e 100%);
+      color: white; padding: 14px 16px; font-size: 16px; font-weight: bold; text-align: center;
+    }
+    .quiz-section-body { padding: 16px; }
+    #quiz-start { text-align: center; padding: 10px 0 6px; }
+    .start-btn {
+      background: var(--blue); color: white; border: none;
+      border-radius: 30px; padding: 14px 40px; font-size: 16px; font-weight: bold; cursor: pointer;
+    }
+    .start-btn:hover { opacity: 0.88; }
+    #quiz-body { display: none; }
+    .q-progress-wrap { background: #e8edf2; border-radius: 10px; height: 6px; margin-bottom: 12px; overflow: hidden; }
+    #q-progress { height: 100%; background: var(--blue); border-radius: 10px; transition: width 0.4s; width: 0%; }
+    #q-num  { font-size: 12px; color: var(--sub); text-align: right; margin-bottom: 8px; }
+    #q-text { font-size: 15px; font-weight: bold; margin-bottom: 14px; line-height: 1.6; white-space: pre-line; }
+    #q-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+    .q-opt {
+      background: #f4f7fa; border: 2px solid var(--border); border-radius: 10px;
+      padding: 11px 14px; font-size: 14px; text-align: left; cursor: pointer;
+      transition: background 0.15s, border-color 0.15s; line-height: 1.5;
+    }
+    .q-opt:hover:not(:disabled) { background: #e8f0fb; border-color: var(--blue); }
+    .q-opt.correct { background: #e8f8e8; border-color: var(--green); color: var(--green); font-weight: bold; }
+    .q-opt.wrong   { background: #fdecea; border-color: var(--red);   color: var(--red);   font-weight: bold; }
+    .q-opt:disabled { cursor: default; }
+    .q-hint { font-size: 13px; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; display: none; line-height: 1.6; }
+    .correct-hint { background: #e8f8e8; color: var(--green); border-left: 3px solid var(--green); }
+    .wrong-hint   { background: #fdecea; color: var(--red);   border-left: 3px solid var(--red); }
+    #q-next {
+      display: none; width: 100%; background: var(--blue); color: white;
+      border: none; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: bold; cursor: pointer;
+    }
+    #q-next:hover { opacity: 0.88; }
+    #quiz-result { display: none; text-align: center; padding: 10px 0 6px; }
+    .result-circle {
+      width: 110px; height: 110px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), #e91e8c);
+      margin: 0 auto 12px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; color: white;
+    }
+    #result-score { font-size: 22px; font-weight: bold; }
+    #result-pct   { font-size: 13px; opacity: 0.85; }
+    #result-msg   { font-size: 16px; font-weight: bold; margin: 10px 0 16px; }
+    .retry-btn {
+      background: none; border: 2px solid var(--blue); color: var(--blue);
+      border-radius: 30px; padding: 10px 30px; font-size: 14px; font-weight: bold; cursor: pointer;
+    }
+    .retry-btn:hover { background: #fff0f6; }
+  </style>
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+  <div class="lesson-label">中学3年生 英語 New Treasure</div>
+  <h1>Lesson 11-3 文法解説</h1>
+  <div class="topics">too ～ to V ／ so ～ that ／ 形容詞・副詞 ＋ enough to V</div>
+</header>
+
+<nav>
+  <a href="#kp1">🚫 too ～ to V</a>
+  <a href="#kp2">🔁 so ～ that</a>
+  <a href="#kp3">✅ enough to V</a>
+  <a href="#ex">✏️ 練習の答え</a>
+  <a href="#quiz">🎯 確認クイズ</a>
+</nav>
+
+<main>
+
+<!-- ════════════════════════════════ -->
+<!-- KEY POINT 1 -->
+<!-- ════════════════════════════════ -->
+<div class="section" id="kp1">
+  <div class="section-header">🚫 Key Point 1　too ～ to V（〜すぎて…できない）</div>
+  <div class="section-body">
+
+    <div class="point-box">
+      <div class="emoji-title">🤔 「too ～ to V」って何？</div>
+      <p><span class="r"><b>too</b></span> ＋ <span class="g"><b>形容詞／副詞</b></span> ＋ <span class="b"><b>to V</b></span> で、「〜すぎて（V）できない」という<strong>否定的</strong>な意味を表す！</p>
+      <div class="transform">
+        <div class="before">This tea is very hot.（ただ「熱い」）</div>
+        <div class="arrow">↓　「熱すぎて飲めない！」に変換</div>
+        <div class="after">This tea is <span class="r">too hot</span> <span class="b">to drink</span>.　→「このお茶は<span class="r">熱すぎて</span><span class="b">飲めません。</span>」</div>
+        <div class="label"><span class="r">too hot</span> = 熱すぎる　／　<span class="b">to drink</span> = 飲むことが（できない）</div>
+      </div>
+    </div>
+
+    <div class="point-box">
+      <div class="emoji-title">👤 「誰にとって」を入れるには？ → for ＋ 人</div>
+      <p style="margin-bottom:8px;">「私には重すぎて持てない」のように<strong>誰にとって</strong>かを言いたいときは <span class="r"><b>for ＋ 人</b></span> を追加！</p>
+      <div class="transform">
+        <div class="after">The homework was <span class="r">too difficult</span> <b>for her</b> <span class="b">to finish</span>.
+        </div>
+        <div class="label">→「その宿題は<span class="r">難しすぎて</span>彼女には<span class="b">終わらせられなかった。</span>」</div>
+      </div>
+      <p style="font-size:13px; margin-top:8px; color:var(--sub);">
+        公式：too ＋ 形容詞 ＋ <b>for 人</b> ＋ to V
+      </p>
+    </div>
+
+    <div class="ex-grid">
+      <div class="kp-ex">
+        <div class="en">Betty was <b class="r">too shy</b> <b class="b">to talk</b> to the teacher.</div>
+        <div class="ja">ベティは恥ずかしすぎて先生に話しかけられなかった。</div>
+      </div>
+      <div class="kp-ex">
+        <div class="en">The teacher spoke <b class="r">too fast</b> <b>for me</b> <b class="b">to understand</b>.</div>
+        <div class="ja">先生が話すのが速すぎて私には理解できなかった。</div>
+      </div>
+      <div class="kp-ex">
+        <div class="en">This is <b class="r">too large</b> <b>for me</b> <b class="b">to carry</b> on my back.</div>
+        <div class="ja">これは私には背負って持ち運ぶには大きすぎます。</div>
+      </div>
+    </div>
+
+    <div class="warn">
+      ⚠️ <strong>to V の後の目的語に注意！</strong><br>
+      This tea is too hot <b>to drink</b> <s>it</s>.　← "it" は不要！<br>
+      The tea is the subject AND the object of "drink" in meaning.
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- KEY POINT 2 -->
+<!-- ════════════════════════════════ -->
+<div class="section" id="kp2">
+  <div class="section-header">🔁 Key Point 2　so ～ that …（とても〜なので…できない）</div>
+  <div class="section-body">
+
+    <div class="point-box">
+      <div class="emoji-title">🔄 「too ～ to V」と「so ～ that S can't」は言い換えられる！</div>
+      <p>「〜すぎて…できない」は <b>too ～ to V</b> と <b>so ～ that S can't/couldn't V</b> どちらでも表現できる。</p>
+      <div class="transform">
+        <div class="before">This tea is <b class="r">too hot</b> <b class="b">to drink</b>.</div>
+        <div class="arrow">↕ 言い換え</div>
+        <div class="after">This tea is <b class="r">so hot</b> <b class="b">that I can't drink it</b>.</div>
+        <div class="label">→「このお茶はとても熱いので、（私は）飲めません。」</div>
+      </div>
+    </div>
+
+    <div class="compare-box">
+      <div class="compare-left">
+        <div class="compare-label">❌ too ～ to V（否定ニュアンス内包）</div>
+        too busy <b>to study</b><br>
+        → 忙しすぎて勉強できない
+      </div>
+      <div class="compare-right">
+        <div class="compare-label">✅ so ～ that S can't V（明示的な否定）</div>
+        so busy <b>that I can't study</b><br>
+        → とても忙しくて勉強できない
+      </div>
+    </div>
+
+    <div class="kp-ex" style="margin-top:12px;">
+      <div class="en">The traffic was <b class="r">so busy</b> <b class="b">that I couldn't be in time</b> for the class.</div>
+      <div class="ja">交通がとても混んでいたので、授業に間に合えなかった。</div>
+    </div>
+
+    <div class="warn">
+      ⚠️ <strong>言い換えポイント：that 節に主語が必要！</strong><br>
+      too ～ to V → 主語なし（シンプル）<br>
+      so ～ that <b>S</b> can't V → that の後に主語 ＋ can't が必要！
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- KEY POINT 3 -->
+<!-- ════════════════════════════════ -->
+<div class="section" id="kp3">
+  <div class="section-header">✅ Key Point 3　形容詞・副詞 ＋ enough to V（十分〜して…できる）</div>
+  <div class="section-body">
+
+    <div class="point-box">
+      <div class="emoji-title">🤔 「enough to V」って何？</div>
+      <p><span class="g"><b>形容詞・副詞</b></span> ＋ <span class="r"><b>enough</b></span> ＋ <span class="b"><b>to V</b></span> で、「（V）できるほど十分〜だ」という<strong>肯定的</strong>な意味を表す！</p>
+      <div class="transform">
+        <div class="before">too ～ to V ＝「〜すぎて…できない」（否定）</div>
+        <div class="arrow">↕ 逆の意味</div>
+        <div class="after">形容詞 ＋ <span class="r">enough</span> <span class="b">to V</span> ＝「〜するのに十分…だ」（肯定）</div>
+      </div>
+      <div class="transform" style="margin-top:8px;">
+        <div class="after">It is big <span class="r">enough</span> <span class="b">to put</span> my textbooks in.</div>
+        <div class="label">→「教科書を入れられるくらい十分大きい。（十分大きいので教科書を入れられる）」</div>
+      </div>
+    </div>
+
+    <div class="point-box">
+      <div class="emoji-title">👤 「誰にとって」を入れるには？ → for ＋ 人</div>
+      <div class="transform">
+        <div class="after">This bag isn't big <span class="r">enough</span> <b>for me</b> <span class="b">to pack</span> all the clothes.</div>
+        <div class="label">→「このかばんは私が服を全部詰め込めるほど大きくない。」</div>
+      </div>
+      <p style="font-size:13px; margin-top:8px; color:var(--sub);">
+        公式：形容詞 ＋ enough ＋ <b>for 人</b> ＋ to V
+      </p>
+    </div>
+
+    <div class="ex-grid">
+      <div class="kp-ex">
+        <div class="en">My little brother is <b class="g">old enough</b> <b class="b">to walk</b> to our grandparents' house.</div>
+        <div class="ja">弟は祖父母の家まで歩いていけるくらい大きくなった。</div>
+      </div>
+      <div class="kp-ex">
+        <div class="en">I left home <b class="g">early enough</b> <b class="b">to be in time</b> for school.</div>
+        <div class="ja">学校に間に合う十分早い時間に家を出た。</div>
+      </div>
+      <div class="kp-ex">
+        <div class="en">I don't think it's <b class="g">strong enough</b> <b class="b">to protect</b> my things.</div>
+        <div class="ja">私の荷物を守るほど丈夫だとは思わない。</div>
+      </div>
+    </div>
+
+    <div class="warn">
+      ⚠️ <strong>enough の位置に注意！</strong><br>
+      <b class="g">形容詞・副詞の後ろ</b>に enough を置く！<br>
+      ✅ old <b>enough</b> to ～　　❌ <s>enough old</s> to ～
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- 練習の答え -->
+<!-- ════════════════════════════════ -->
+<div class="section" id="ex">
+  <div class="section-body">
+
+    <button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+    <div class="ex-title">Key Point 1 ＋ 2　too ～ to V（①〜⑤）</div>
+
+    <div class="ex-item">
+      <div class="ex-num">① ベティは恥ずかしすぎて先生に話しかけられませんでした。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en"><b>Betty</b> was <b>too</b> <b>shy</b> <b>to</b> <b>talk</b> to the <b>teacher</b>.</div>
+        <div class="ans-note">▶ too shy to talk = 恥ずかしすぎて話しかけられない</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">② 先生の話し方は速すぎて私には理解できませんでした。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">The teacher spoke <b>too</b> <b>fast</b> <b>for</b> <b>me</b> <b>to</b> <b>understand</b>.</div>
+        <div class="ans-note">▶ too fast for me to understand = 速すぎて私には理解できない</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">③ その宿題は彼女には難しすぎて1日では終わらせられませんでした。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">The homework was <b>too</b> <b>difficult</b> <b>for</b> <b>her</b> <b>to</b> <b>finish</b> in a day.</div>
+        <div class="ans-note">▶ too difficult for her to finish = 難しすぎて彼女には終わらせられない</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">④ これは私が背負って運ぶには大きすぎます。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">This is <b>too</b> <b>large</b> <b>for</b> <b>me</b> <b>to</b> <b>carry</b> on my back.</div>
+        <div class="ans-note">▶ too large for me to carry = 大きすぎて私には運べない（本文より）</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑤ そのかばんは彼には重すぎて持ち上げられませんでした。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">The bag was <b>too</b> <b>heavy</b> <b>for</b> <b>him</b> <b>to</b> <b>lift</b>.</div>
+        <div class="ans-note">▶ too heavy for him to lift = 重すぎて彼には持ち上げられない</div>
+      </div>
+    </div>
+
+    <div class="ex-title" style="margin-top:16px">Key Point 3　enough to V（⑥〜⑩）</div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑥ 弟は祖父母の家まで歩いていけるくらいの年になりました。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">My little brother is <b>old</b> <b>enough</b> <b>to</b> <b>walk</b> to our <b>grandparents'</b> <b>house</b>.</div>
+        <div class="ans-note">▶ old enough to walk = 歩いていけるくらい十分な年齢だ</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑦ これは私の荷物を守るほど丈夫だとは思いません。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">I don't think it's <b>strong</b> <b>enough</b> <b>to</b> <b>protect</b> <b>my</b> <b>things</b>.</div>
+        <div class="ans-note">▶ strong enough to protect = 守れるほど十分丈夫だ（本文より）</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑧ 私は始発電車に乗れるくらい十分早く起きました。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">I got up <b>early</b> <b>enough</b> <b>to</b> <b>catch</b> the <b>first</b> <b>train</b>.</div>
+        <div class="ans-note">▶ early enough to catch = 乗れるくらい十分早く</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑨ このかばんは私が服を全部詰め込めるほど大きくありません。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">This bag isn't <b>big</b> <b>enough</b> <b>for</b> <b>me</b> <b>to</b> <b>pack</b> all the clothes.</div>
+        <div class="ans-note">▶ big enough for me to pack = 私が詰め込めるほど十分大きい（本文より）</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑩ 彼女は私に駅への道を教えてくれるくらい親切でした。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">She was <b>kind</b> <b>enough</b> <b>to</b> <b>show</b> <b>me</b> the way to the <b>station</b>.</div>
+        <div class="ans-note">▶ kind enough to show me = 私に教えてくれるほど十分親切だ</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer>
+  上野作　英語復習活用ホームページ｜Lesson 11-3
+</footer>
+
+<!-- ════════════════════════════════ -->
+<!-- 確認クイズ -->
+<!-- ════════════════════════════════ -->
+<div style="max-width:720px; margin:0 auto; padding:0 16px;">
+<div class="quiz-section" id="quiz">
+  <div class="quiz-section-header">🎯 確認クイズ　Lesson 11-3（全8問）</div>
+  <div class="quiz-section-body">
+    <div id="quiz-start">
+      <p style="font-size:13.5px; color:var(--sub); margin-bottom:14px;">
+        解説を読んだら腕試し！全8問、即採点します 🎯
+      </p>
+      <button class="start-btn" onclick="startQuiz()">🚀 クイズをスタート！</button>
+    </div>
+    <div id="quiz-body">
+      <div id="q-num"></div>
+      <div class="q-progress-wrap"><div id="q-progress"></div></div>
+      <div id="q-text"></div>
+      <div id="q-options"></div>
+      <div id="q-hint" class="q-hint"></div>
+      <button id="q-next" onclick="nextQuestion()">次の問題へ →</button>
+    </div>
+    <div id="quiz-result">
+      <div class="result-circle">
+        <div id="result-score"></div>
+        <div id="result-pct"></div>
+      </div>
+      <div id="result-msg"></div>
+      <button class="retry-btn" onclick="startQuiz()">🔄 もう一度チャレンジ</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+function toggle(btn) {
+  const box = btn.nextElementSibling;
+  box.classList.toggle('open');
+  btn.textContent = box.classList.contains('open') ? '答えを隠す' : '答えを見る';
+}
+function showAll() {
+  document.querySelectorAll('.answer-box').forEach(b => b.classList.add('open'));
+  document.querySelectorAll('.answer-toggle').forEach(b => b.textContent = '答えを隠す');
+}
+
+const quizData = [
+  {
+    q: '「ベティは恥ずかしすぎて先生に話しかけられなかった。」\nBetty was ___ shy to talk to the teacher.',
+    options: ['so', 'very', 'too', 'enough'],
+    answer: 2,
+    hint: 'too ～ to V = 〜すぎて…できない。「できない」という否定を表すのは too！'
+  },
+  {
+    q: '「先生の話が速すぎて私には理解できなかった。」\nThe teacher spoke too fast ___ me to understand.',
+    options: ['of', 'for', 'to', 'by'],
+    answer: 1,
+    hint: '"誰にとって"を表すには for ＋ 人。too ～ for 人 to V の形！'
+  },
+  {
+    q: '「弟は祖父母の家まで歩いていける年になった。」\nMy little brother is old ___ to walk there.',
+    options: ['too', 'so', 'very', 'enough'],
+    answer: 3,
+    hint: '形容詞 ＋ enough ＋ to V = 〜するのに十分…だ。enough は形容詞の後ろ！'
+  },
+  {
+    q: '「このかばんは私が服を詰め込めるほど大きくない。」\nThis bag isn\'t big enough ___ me to pack all the clothes.',
+    options: ['of', 'to', 'for', 'by'],
+    answer: 2,
+    hint: '"誰にとって"を表すには for。enough ＋ for 人 ＋ to V の形！'
+  },
+  {
+    q: '次のうち "too ～ to V" の文として正しいのは？',
+    options: [
+      'She is too tired that she can\'t run.',
+      'She is too tired to run.',
+      'She is enough tired to run.',
+      'She is so tired to run.'
+    ],
+    answer: 1,
+    hint: 'too ～ to V の形は「too ＋ 形容詞 ＋ to ＋ 動詞の原形」。that は不要！'
+  },
+  {
+    q: '「too ～ to V」と同じ意味になるように空欄に入る語は？\nThe box is too heavy for me to carry.\n= The box is ___ heavy that I can\'t carry it.',
+    options: ['too', 'very', 'such', 'so'],
+    answer: 3,
+    hint: 'too ～ to V ↔ so ～ that S can\'t V は言い換え可能！so が正解。'
+  },
+  {
+    q: '次のうち、正しい英文はどれ？',
+    options: [
+      'He is enough old to drive a car.',
+      'He is old enough to drive a car.',
+      'He is too old enough to drive.',
+      'He is old too to drive a car.'
+    ],
+    answer: 1,
+    hint: 'enough は形容詞・副詞の後ろ！old enough to V が正しい語順。'
+  },
+  {
+    q: '次のうち、間違っている英文はどれ？',
+    options: [
+      'This tea is too hot to drink.',
+      'She was kind enough to help me.',
+      'The bag was too heavy for him to lift.',
+      'I got up early enough to catching the train.'
+    ],
+    answer: 3,
+    hint: 'enough to V の to の後は動詞の原形！"catching" ではなく "catch" が正しい。'
+  }
+];
+
+let current = 0, score = 0, answered = false;
+
+function startQuiz() {
+  current = 0; score = 0; answered = false;
+  document.getElementById('quiz-start').style.display  = 'none';
+  document.getElementById('quiz-body').style.display   = 'block';
+  document.getElementById('quiz-result').style.display = 'none';
+  showQuestion();
+}
+
+function showQuestion() {
+  answered = false;
+  const d = quizData[current];
+  document.getElementById('q-num').textContent     = `問題 ${current + 1} / ${quizData.length}`;
+  document.getElementById('q-progress').style.width = `${(current / quizData.length) * 100}%`;
+  document.getElementById('q-text').textContent    = d.q;
+  document.getElementById('q-hint').style.display  = 'none';
+  document.getElementById('q-hint').className      = 'q-hint';
+  document.getElementById('q-next').style.display  = 'none';
+  const opts = document.getElementById('q-options');
+  opts.innerHTML = '';
+  d.options.forEach((o, i) => {
+    const btn = document.createElement('button');
+    btn.className   = 'q-opt';
+    btn.textContent = o;
+    btn.onclick     = () => answer(i);
+    opts.appendChild(btn);
+  });
+}
+
+function answer(idx) {
+  if (answered) return;
+  answered = true;
+  const d    = quizData[current];
+  const btns = document.querySelectorAll('.q-opt');
+  btns.forEach(b => b.disabled = true);
+  const hint = document.getElementById('q-hint');
+  if (idx === d.answer) {
+    btns[idx].classList.add('correct');
+    score++;
+    hint.className   = 'q-hint correct-hint';
+    hint.textContent = '✅ 正解！ ' + d.hint;
+  } else {
+    btns[idx].classList.add('wrong');
+    btns[d.answer].classList.add('correct');
+    hint.className   = 'q-hint wrong-hint';
+    hint.textContent = '❌ 不正解。' + d.hint;
+  }
+  hint.style.display = 'block';
+  document.getElementById('q-next').style.display = 'block';
+}
+
+function nextQuestion() {
+  current++;
+  if (current < quizData.length) {
+    showQuestion();
+  } else {
+    document.getElementById('quiz-body').style.display   = 'none';
+    document.getElementById('quiz-result').style.display = 'block';
+    document.getElementById('q-progress').style.width    = '100%';
+    const pct = Math.round((score / quizData.length) * 100);
+    document.getElementById('result-score').textContent = `${score}/${quizData.length}`;
+    document.getElementById('result-pct').textContent   = `${pct}%`;
+    const msgs = ['もう少し！復習しよう💪', 'いい調子！あと少し！', 'よくできました！✨', '満点！完璧です🎉'];
+    document.getElementById('result-msg').textContent =
+      pct >= 90 ? msgs[3] : pct >= 70 ? msgs[2] : pct >= 50 ? msgs[1] : msgs[0];
+  }
+}
+</script>
+
+</body>
+</html>
