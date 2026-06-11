@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本文穴あき問題｜上野作 英語復習活用ホームページ</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;
+      background:#f0f2f6;
+      color:#333;
+      min-height:100vh;
+    }
+
+    /* ── Header ── */
+    .page-header{
+      background:linear-gradient(135deg,#0046a0 0%,#2a7ac8 100%);
+      color:#fff;
+      padding:14px 16px 12px;
+      text-align:center;
+    }
+    .back-link{
+      display:inline-block;
+      color:rgba(255,255,255,.75);
+      font-size:.78rem;
+      text-decoration:none;
+      margin-bottom:6px;
+    }
+    .back-link:hover{color:#fff}
+    .page-header h1{font-size:1.25rem;font-weight:700;margin-bottom:3px}
+    .page-header p{font-size:.8rem;opacity:.85}
+
+    /* ── Lesson tabs ── */
+    .lesson-nav{
+      background:#fff;
+      border-bottom:2px solid #dde2ea;
+      padding:10px 14px;
+      display:flex;
+      gap:7px;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .lesson-nav::-webkit-scrollbar{display:none}
+    .lesson-btn{
+      flex-shrink:0;
+      padding:7px 13px;
+      border:2px solid #ccd0d8;
+      border-radius:18px;
+      background:#fff;
+      color:#555;
+      font-size:.82rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:all .18s;
+      white-space:nowrap;
+    }
+    .lesson-btn.active{
+      background:#0046a0;
+      border-color:#0046a0;
+      color:#fff;
+    }
+    .lesson-btn:hover:not(.active){
+      border-color:#0046a0;
+      color:#0046a0;
+    }
+
+    /* ── Main ── */
+    .main{
+      max-width:760px;
+      margin:0 auto;
+      padding:16px 14px 32px;
+    }
+
+    /* ── Tip bar ── */
+    .tip-bar{
+      background:#e8f0fe;
+      border-radius:8px;
+      padding:9px 13px;
+      font-size:.8rem;
+      color:#1a4080;
+      margin-bottom:12px;
+      display:flex;
+      align-items:center;
+      gap:7px;
+    }
+
+    /* ── Score bar ── */
+    .score-bar{
+      background:#fff;
+      border-radius:8px;
+      padding:10px 14px;
+      margin-bottom:14px;
+      box-shadow:0 1px 4px rgba(0,0,0,.07);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .score-label{font-size:.82rem;color:#666}
+    .score-num{font-size:1.05rem;font-weight:700;color:#0046a0}
+    .reveal-all-btn,.reset-btn{
+      margin-left:auto;
+      padding:6px 14px;
+      border-radius:6px;
+      font-size:.8rem;
+      cursor:pointer;
+      border:1px solid #ccc;
+    }
+    .reveal-all-btn{background:#0046a0;color:#fff;border-color:#0046a0;margin-left:auto}
+    .reveal-all-btn:hover{background:#003080}
+    .reset-btn{background:#f4f4f4;color:#555;margin-left:6px}
+    .reset-btn:hover{background:#e8e8e8}
+
+    /* ── Scene description ── */
+    .scene-desc{
+      background:#fff8e6;
+      border-left:4px solid #e09a00;
+      padding:9px 13px;
+      border-radius:0 8px 8px 0;
+      font-size:.87rem;
+      color:#5a4000;
+      margin-bottom:16px;
+      font-style:italic;
+    }
+    .scene-desc::before{content:'📖 場面：'}
+
+    /* ── Dialogue line card ── */
+    .dialogue-line{
+      background:#fff;
+      border-radius:10px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);
+      margin-bottom:10px;
+      overflow:hidden;
+    }
+    .line-header{
+      display:flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 13px;
+      border-bottom:1px solid #f0f0f0;
+    }
+    .speaker-dot{
+      width:9px;height:9px;
+      border-radius:50%;
+      flex-shrink:0;
+    }
+    .speaker-name{
+      font-size:.78rem;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+    .line-body{padding:10px 13px 9px}
+    .line-en{
+      font-size:.98rem;
+      line-height:1.75;
+      color:#1a1a1a;
+      font-family:Georgia,serif;
+      margin-bottom:7px;
+    }
+    .line-jp{
+      font-size:.78rem;
+      color:#777;
+      line-height:1.5;
+      border-top:1px dashed #eee;
+      padding-top:6px;
+    }
+
+    /* ── Blank span ── */
+    .blank{
+      display:inline-block;
+      border-bottom:2.5px dashed #aaa;
+      color:transparent;
+      background:#f0f0f0;
+      border-radius:3px;
+      padding:0 3px;
+      cursor:pointer;
+      font-family:Georgia,serif;
+      font-size:.98rem;
+      letter-spacing:.04em;
+      transition:background .15s,border-color .15s,color .15s;
+      vertical-align:bottom;
+      user-select:none;
+      min-width:1.5em;
+      white-space:nowrap;
+    }
+    .blank:hover{
+      background:#ffe5e5;
+      border-bottom-color:#cc3333;
+    }
+    .blank.revealed{
+      color:#cc2222;
+      background:#fff0f0;
+      border-bottom:2.5px solid #cc2222;
+    }
+
+    /* ── Responsive ── */
+    @media(max-width:480px){
+      .line-en{font-size:.92rem}
+      .page-header h1{font-size:1.1rem}
+    }
+  </style>
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header class="page-header">
+  <a href="index.html" class="back-link">← ホームに戻る</a>
+  <h1>📖 本文穴あき問題</h1>
+  <p>Lesson 11-1 〜 12-3　SCENE 本文</p>
+</header>
+
+<nav class="lesson-nav" id="lessonNav"></nav>
+
+<main class="main">
+  <div class="tip-bar">
+    💡 <span>灰色の下線部分をタップ・クリックすると答えが表示されます。もう一度タップで隠れます。</span>
+  </div>
+
+  <div class="score-bar">
+    <span class="score-label">確認した答え：</span>
+    <span class="score-num" id="revealCount">0</span>
+    <span class="score-label">／</span>
+    <span class="score-num" id="totalCount">0</span>
+    <button class="reveal-all-btn" onclick="revealAll()">👁 全部見る</button>
+    <button class="reset-btn" onclick="resetAll()">🔄 全部隠す</button>
+  </div>
+
+  <div class="scene-desc" id="sceneDesc"></div>
+  <div id="dialogueArea"></div>
+</main>
+
+<script>
+// ════════════════════════════════════════════════════════════
+//  DATA  ── {word} marks a blank
+// ════════════════════════════════════════════════════════════
+const LESSONS = [
+  {
+    id:"11-1", title:"Lesson 11-1",
+    scene:"ユミとカルロスは、日本語と中国語について話しています。",
+    lines:[
+      { speaker:"Carlos",
+        en:"Yumi, don't you {speak} Chinese?",
+        jp:"ユミ、中国語を話さないの？" },
+      { speaker:"Yumi",
+        en:"No, I don't. It's {difficult} for me to speak Chinese, but I can {understand} written Chinese a little. Japanese and Chinese use {a lot of} the same characters.",
+        jp:"いいえ、話しません。中国語を話すのは私には難しいですが、書き言葉の中国語は少し理解できます。日本語と中国語はたくさんの同じ漢字を使います。" },
+      { speaker:"Carlos",
+        en:"Is it {hard} to {remember} all those characters?",
+        jp:"あの文字を全部覚えるのは大変ですか？" },
+      { speaker:"Yumi",
+        en:"Yes, it is. There are {thousands} of characters. We also use Japanese characters {called} hiragana and katakana.",
+        jp:"はい、大変です。何千もの文字があります。ひらがなやかたかなと呼ばれる日本語の文字も使います。" },
+      { speaker:"Carlos",
+        en:"That's interesting. My teacher {told} me to do a school project about other languages. Can you {help} me?",
+        jp:"それは面白いですね。先生に他の言語についての学校のプロジェクトをするよう言われました。手伝ってくれますか？" },
+      { speaker:"Yumi",
+        en:"Sure.",
+        jp:"もちろんです。" }
+    ]
+  },
+  {
+    id:"11-2", title:"Lesson 11-2",
+    scene:"ユミは毛布にお茶をこぼして困っています。",
+    lines:[
+      { speaker:"Yumi",
+        en:"I {spilled} tea on your blanket. I tried to clean it, but I can't get rid of the {stain}. I don't know {what to do}. I'm sorry.",
+        jp:"あなたの毛布にお茶をこぼしてしまいました。きれいにしようとしましたが、シミを取ることができません。どうしたらいいかわかりません。ごめんなさい。" },
+      { speaker:"Mrs. Baker",
+        en:"Never mind. Let's put it in the washing machine. I'll show you {how to use} it. I usually put in the {laundry detergent} first. Now, put in the blanket. Then, choose the {temperature} and water level. Next, set the wash cycle here. Finally, close the {lid} and push this button to start the machine.",
+        jp:"気にしないで。洗濯機に入れましょう。使い方を教えてあげるわね。普段はまず洗剤を入れるの。さあ、毛布を入れて。次に温度と水量を選んで。その次にここで洗いコースを設定して。最後にふたを閉めてこのボタンを押して機械を起動させて。" },
+      { speaker:"Yumi",
+        en:"Thank you, Mrs. Baker.",
+        jp:"ありがとうございます、ベイカーさん。" },
+      { speaker:"Mrs. Baker",
+        en:"No problem. Now, I'll teach you how to use the {dryer}.",
+        jp:"どういたしまして。さあ、乾燥機の使い方を教えてあげるわ。" }
+    ]
+  },
+  {
+    id:"11-3", title:"Lesson 11-3",
+    scene:"ユミは新しいかばんを買いに来ました。",
+    lines:[
+      { speaker:"Clark",
+        en:"Hello, can I help you?",
+        jp:"いらっしゃいませ。ご用件はございますか？" },
+      { speaker:"Yumi",
+        en:"Hi, I'm looking for a {backpack}.",
+        jp:"こんにちは、リュックサックを探しています。" },
+      { speaker:"Clark",
+        en:"This white bag with the {flower pattern} is very {popular} among young girls.",
+        jp:"この花柄の白いかばんは若い女性の間でとても人気ですよ。" },
+      { speaker:"Yumi",
+        en:"I don't think it's {strong} enough to {protect} my things. And I {prefer} a simpler design.",
+        jp:"私の荷物を守るほど丈夫ではないと思います。それに、もっとシンプルなデザインが好みです。" },
+      { speaker:"Clark",
+        en:"How about this black one?",
+        jp:"この黒いものはいかがですか？" },
+      { speaker:"Yumi",
+        en:"It's simple and {stylish}. Can I {try} it on?",
+        jp:"シンプルでおしゃれですね。試してみてもいいですか？" },
+      { speaker:"Clark",
+        en:"Sure. It's the {largest} bag we have.",
+        jp:"もちろんです。それは私どもで一番大きいかばんです。" },
+      { speaker:"Yumi",
+        en:"Hmm, this is too {large} for me to {carry} on my back.",
+        jp:"うーん、これは私が背負うには大きすぎます。" },
+      { speaker:"Clark",
+        en:"How about this blue one with the large {pocket}?",
+        jp:"大きなポケットのついたこの青いものはいかがですか？" },
+      { speaker:"Yumi",
+        en:"Oh, this is {just right}. It is big enough to put my {textbooks} in.",
+        jp:"ああ、これはちょうどいいですね。教科書を入れるのに十分な大きさです。" }
+    ]
+  },
+  {
+    id:"11-4", title:"Lesson 11-4",
+    scene:"ある朝、ユミは体調がよくないようです。",
+    lines:[
+      { speaker:"Yumi",
+        en:"I'm sorry, but I don't want any {breakfast} this morning. May I have a {glass} of water?",
+        jp:"すみません、今朝は朝食を食べたくありません。水を一杯いただけますか？" },
+      { speaker:"Mrs. Baker",
+        en:"What's wrong? Are you feeling OK?",
+        jp:"どうしたの？大丈夫？" },
+      { speaker:"Yumi",
+        en:"I have a {headache} — and maybe a little {chill}.",
+        jp:"頭痛がして、少し悪寒もするかもしれません。" },
+      { speaker:"Mrs. Baker",
+        en:"Oh, no. I think you've {caught} a cold.",
+        jp:"あら、まあ。風邪をひいたようね。" },
+      { speaker:"Mrs. Baker",
+        en:"Do you want some {medicine}?",
+        jp:"お薬はいりますか？" },
+      { speaker:"Yumi",
+        en:"No, thank you. I think I just need to {stay} in my room and {rest} for a while.",
+        jp:"いいえ、結構です。部屋にいてしばらく休んだ方がいいだけだと思います。" },
+      { speaker:"Mrs. Baker",
+        en:"OK. {Let me know} if you need anything else. I'll make you {chicken soup}.",
+        jp:"わかりました。何か他に必要なものがあれば教えてね。チキンスープを作ってあげるわ。" },
+      { speaker:"Kevin",
+        en:"Mom's soup will {make} you feel better, Yumi. I'll {help} you cook, Mom.",
+        jp:"お母さんのスープで良くなるよ、ユミ。お母さん、料理を手伝うね。" }
+    ]
+  },
+  {
+    id:"12-1", title:"Lesson 12-1",
+    scene:"ユミとケビンは、まもなく帰国するカルロスへのプレゼントについて話しています。",
+    lines:[
+      { speaker:"Kevin",
+        en:"Oh, Carlos's face looks {strange}. Yes! I don't know {what was wrong} with him. Maybe he ate something {spicy}.",
+        jp:"ああ、カルロスの顔が変だよ。そうだ！彼に何があったのかわからないよ。何か辛いものを食べたのかも。" },
+      { speaker:"Kevin",
+        en:"And he had some good times {together}.",
+        jp:"そして彼はみんなと楽しい時間を過ごしたよね。" },
+      { speaker:"Yumi",
+        en:"Yeah. I have to go back home {soon}. I want to get a {farewell} gift for Carlos, but I don't know {what to get} for him.",
+        jp:"そうだね。もうすぐ家に帰らないといけない。カルロスにお別れのプレゼントをあげたいけど、何をあげたらいいかわからないんだ。" },
+      { speaker:"Kevin",
+        en:"Hmm... Why don't you give him a {photo album} of your time in New York? If you write funny {captions} under the pictures, it will be a special present that {lasts}.",
+        jp:"うーん…ニューヨークでの時間をまとめたフォトアルバムをあげたらどう？写真の下に面白い説明文を書けば、ずっと残る特別なプレゼントになるよ。" }
+    ]
+  },
+  {
+    id:"12-2", title:"Lesson 12-2",
+    scene:"ユミはカルロスにフォトアルバムをプレゼントしました。",
+    lines:[
+      { speaker:"Yumi",
+        en:"Here, Carlos, this is for you.",
+        jp:"どうぞ、カルロス、これはあなたへのプレゼントよ。" },
+      { speaker:"Carlos",
+        en:"Thank you, Yumi. Wow, this photo album is {fantastic}! Did you make it {yourself}?",
+        jp:"ありがとう、ユミ。わあ、このフォトアルバムは素晴らしい！自分で作ったの？" },
+      { speaker:"Yumi",
+        en:"Yes, I did. We had a lot of fun together, {didn't we}?",
+        jp:"うん、そうよ。一緒にたくさん楽しんだよね？" },
+      { speaker:"Carlos",
+        en:"Yes, we surely did. I remember this picture! We were in {Chinatown}, {weren't we}?",
+        jp:"うん、確かにそうだね。この写真覚えてる！チャイナタウンにいたよね？" },
+      { speaker:"Yumi",
+        en:"Yes, we were. Carlos, we'll keep in {touch}, {won't we}?",
+        jp:"そうだよ。カルロス、連絡を取り合い続けるよね？" },
+      { speaker:"Carlos",
+        en:"Of course we will. And I {hope} I can {visit} you in San Francisco next summer.",
+        jp:"もちろんそうするよ。来年の夏にサンフランシスコに会いに行けたらいいな。" },
+      { speaker:"Yumi",
+        en:"I hope so, too! All of my family will {welcome} you at any time.",
+        jp:"私もそう願ってるよ！家族みんないつでもあなたを歓迎するよ。" }
+    ]
+  },
+  {
+    id:"12-3", title:"Lesson 12-3",
+    scene:"ユミがサンフランシスコに帰る日がやってきました。",
+    lines:[
+      { speaker:"Yumi",
+        en:"I can't believe it's time to say {goodbye}. Thank you for {everything}, Mr. and Mrs. Baker. And you too, Kevin. I've had a great time in New York.",
+        jp:"もうお別れの時だなんて信じられません。ベイカーさんご夫妻、本当に何もかもありがとうございました。ケビンも。ニューヨークで素晴らしい時間を過ごしました。" },
+      { speaker:"Mrs. Baker",
+        en:"You're very welcome, Yumi. We {wish} you could stay {longer}.",
+        jp:"こちらこそ、ユミ。もっと長く滞在できたらよかったのにと思うわ。" },
+      { speaker:"Yumi",
+        en:"If I {had} enough time, I {would} stay for another month. But it will be nice to see my parents.",
+        jp:"もし十分な時間があったら、もう一ヶ月滞在するのに。でも、両親に会えるのが楽しみです。" },
+      { speaker:"Mr. Baker",
+        en:"I'm sure they have {missed} you. We'll miss you, too. Dad says we can take a trip to San Francisco next year. We'll be able to see you then.",
+        jp:"きっとあなたのことがとても恋しかったことでしょう。私たちもあなたのことが恋しくなるよ。来年サンフランシスコに旅行できると父さんが言ってるよ。そのときまた会えるね。" },
+      { speaker:"Yumi",
+        en:"Oh, that sounds great! If you {came} in summer, Carlos {might} be there, too. Let's all {get together} again next summer!",
+        jp:"まあ、素晴らしい！夏に来てくれたら、カルロスもそこにいるかもしれないね。来年の夏にみんなでまた集まりましょう！" }
+    ]
+  }
+];
+
+// ── Speaker colors ──
+const SPEAKERS = {
+  "Carlos":    {color:"#1a6b3a", bg:"#e8f5ee"},
+  "Yumi":      {color:"#0046a0", bg:"#e8f0fe"},
+  "Mrs. Baker":{color:"#6b1a6b", bg:"#f5e8f5"},
+  "Mr. Baker": {color:"#1a3a6b", bg:"#e8ecf5"},
+  "Kevin":     {color:"#8b4500", bg:"#fdf0e8"},
+  "Clark":     {color:"#1a6b6b", bg:"#e8f5f5"},
+};
+
+// ── State ──
+let currentIdx = 0;
+let revealed = 0;
+
+// ── Helpers ──
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') }
+
+function parseEn(text){
+  const parts=[];
+  const re=/\{([^}]+)\}/g;
+  let last=0, m;
+  while((m=re.exec(text))!==null){
+    if(m.index>last) parts.push({t:text.slice(last,m.index),b:false});
+    parts.push({t:m[1],b:true});
+    last=re.lastIndex;
+  }
+  if(last<text.length) parts.push({t:text.slice(last),b:false});
+  return parts;
+}
+
+// ── Render lesson ──
+function renderLesson(idx){
+  currentIdx=idx; revealed=0;
+  const lesson=LESSONS[idx];
+
+  // Nav active
+  document.querySelectorAll('.lesson-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
+
+  // Scene
+  document.getElementById('sceneDesc').textContent=lesson.scene;
+
+  // Count blanks
+  let total=0;
+  lesson.lines.forEach(l=>{ total+=parseEn(l.en).filter(s=>s.b).length; });
+  document.getElementById('totalCount').textContent=total;
+  document.getElementById('revealCount').textContent='0';
+
+  // Build cards
+  const area=document.getElementById('dialogueArea');
+  area.innerHTML='';
+
+  lesson.lines.forEach((line,li)=>{
+    const sp=SPEAKERS[line.speaker]||{color:'#444',bg:'#f8f8f8'};
+    const segs=parseEn(line.en);
+
+    let enHtml='';
+    segs.forEach((seg,si)=>{
+      if(seg.b){
+        const id=`b-${idx}-${li}-${si}`;
+        const dashes='_'.repeat(Math.max(seg.t.length,3));
+        enHtml+=`<span class="blank" id="${id}" data-word="${esc(seg.t)}" onclick="toggleBlank('${id}')">${dashes}</span>`;
+      } else {
+        enHtml+=esc(seg.t);
+      }
+    });
+
+    const card=document.createElement('div');
+    card.className='dialogue-line';
+    card.innerHTML=`
+      <div class="line-header" style="background:${sp.bg}">
+        <div class="speaker-dot" style="background:${sp.color}"></div>
+        <span class="speaker-name" style="color:${sp.color}">${esc(line.speaker)}</span>
+      </div>
+      <div class="line-body">
+        <div class="line-en">${enHtml}</div>
+        <div class="line-jp">${esc(line.jp)}</div>
+      </div>`;
+    area.appendChild(card);
+  });
+}
+
+// ── Toggle blank ──
+function toggleBlank(id){
+  const el=document.getElementById(id);
+  if(!el) return;
+  const wasRev=el.classList.contains('revealed');
+  if(!wasRev){
+    el.textContent=el.dataset.word;
+    el.classList.add('revealed');
+    revealed++;
+  } else {
+    el.textContent='_'.repeat(Math.max(el.dataset.word.length,3));
+    el.classList.remove('revealed');
+    revealed--;
+  }
+  document.getElementById('revealCount').textContent=revealed;
+}
+
+// ── Reveal all ──
+function revealAll(){
+  document.querySelectorAll('.blank:not(.revealed)').forEach(el=>{
+    el.textContent=el.dataset.word;
+    el.classList.add('revealed');
+    revealed++;
+  });
+  document.getElementById('revealCount').textContent=revealed;
+}
+
+// ── Reset all ──
+function resetAll(){
+  document.querySelectorAll('.blank.revealed').forEach(el=>{
+    el.textContent='_'.repeat(Math.max(el.dataset.word.length,3));
+    el.classList.remove('revealed');
+  });
+  revealed=0;
+  document.getElementById('revealCount').textContent='0';
+}
+
+// ── Init nav ──
+(function(){
+  const nav=document.getElementById('lessonNav');
+  LESSONS.forEach((l,i)=>{
+    const btn=document.createElement('button');
+    btn.className='lesson-btn'+(i===0?' active':'');
+    btn.textContent=l.title;
+    btn.onclick=()=>renderLesson(i);
+    nav.appendChild(btn);
+  });
+  renderLesson(0);
+})();
+</script>
+</body>
+</html>
