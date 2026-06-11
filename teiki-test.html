@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>定期テスト対策｜上野作 英語復習活用ホームページ</title>
+<style>
+:root{
+  --pink:#b01050; --pink-l:#fbe8f2; --pink-d:#800838;
+  --blue:#1a3a6b; --green:#2e7d32; --red:#c62828;
+  --gold:#c47800;
+  --bg:#f8f0f5; --card:#fff; --text:#1a1a2e; --sub:#778;
+  --border:#e0d0dc;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Hiragino Sans","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;min-height:100vh;}
+
+header{background:linear-gradient(135deg,var(--pink-d) 0%,var(--pink) 100%);color:#fff;padding:14px 20px 12px;text-align:center;}
+header h1{font-size:20px;font-weight:bold;margin-bottom:3px;}
+header .sub{font-size:11px;opacity:.8;}
+
+.container{max-width:720px;margin:0 auto;padding:16px 14px 40px;}
+
+/* ── セットアップ ── */
+.sec-label{font-size:11px;font-weight:bold;color:var(--sub);letter-spacing:.06em;text-transform:uppercase;margin:18px 0 8px;}
+.sec-label:first-child{margin-top:4px;}
+
+.lesson-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.lesson-btn{
+  background:var(--card);border:2px solid var(--border);border-radius:10px;
+  padding:8px 4px 6px;text-align:center;cursor:pointer;transition:.15s;
+}
+.lesson-btn b{font-size:13px;display:block;}
+.lesson-btn .kp{font-size:9px;color:var(--sub);margin-top:3px;line-height:1.3;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+.lesson-btn:hover{border-color:var(--pink);}
+.lesson-btn.sel{background:var(--pink-l);border-color:var(--pink);color:var(--pink);}
+
+.mode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.mode-btn{
+  background:var(--card);border:2px solid var(--border);border-radius:10px;
+  padding:10px 6px;text-align:center;cursor:pointer;transition:.15s;
+}
+.mode-btn .m-name{font-size:13px;font-weight:bold;}
+.mode-btn .m-desc{font-size:10px;color:var(--sub);margin-top:4px;line-height:1.4;}
+.mode-btn:hover{border-color:var(--pink);}
+.mode-btn.sel{background:var(--pink-l);border-color:var(--pink);color:var(--pink);}
+
+.count-row{display:flex;gap:8px;flex-wrap:wrap;}
+.count-btn{
+  background:var(--card);border:2px solid var(--border);border-radius:8px;
+  padding:7px 16px;font-size:13px;cursor:pointer;transition:.15s;
+}
+.count-btn:hover{border-color:var(--pink);}
+.count-btn.sel{background:var(--pink-l);border-color:var(--pink);color:var(--pink);font-weight:bold;}
+
+.start-btn{
+  display:block;width:100%;margin-top:22px;background:var(--pink);color:#fff;
+  border:none;border-radius:12px;padding:15px;font-size:16px;font-weight:bold;
+  cursor:pointer;transition:.15s;
+}
+.start-btn:hover:not(:disabled){background:var(--pink-d);}
+.start-btn:disabled{background:#ccc;cursor:default;}
+
+/* ── クイズ画面 ── */
+#quiz-screen{display:none;}
+
+.prog-wrap{margin-bottom:12px;}
+.prog-top{display:flex;justify-content:space-between;font-size:12px;color:var(--sub);margin-bottom:5px;}
+.prog-bar{height:6px;background:#e0d0dc;border-radius:3px;}
+.prog-fill{height:100%;background:var(--pink);border-radius:3px;transition:width .35s;}
+
+.q-card{background:var(--card);border-radius:14px;padding:18px 18px 14px;box-shadow:0 2px 8px rgba(0,0,0,.07);margin-bottom:10px;}
+.badges{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;}
+.badge{font-size:10px;font-weight:bold;padding:2px 9px;border-radius:10px;}
+.badge.mode{background:var(--pink-l);color:var(--pink);}
+.badge.lesson{background:#e8f0fe;color:var(--blue);}
+
+.q-ja{font-size:18px;font-weight:bold;color:var(--blue);line-height:1.65;margin-bottom:16px;}
+
+/* 並び替え */
+.sort-hint{font-size:11px;color:var(--sub);margin-bottom:6px;}
+.word-bank{display:flex;flex-wrap:wrap;gap:6px;min-height:44px;background:#f5f0f5;border-radius:8px;padding:8px;margin-bottom:6px;}
+.word-tile{
+  background:var(--card);border:2px solid #ccc;border-radius:8px;
+  padding:5px 10px;font-size:14px;cursor:pointer;transition:.12s;user-select:none;
+}
+.word-tile:hover{border-color:var(--pink);background:var(--pink-l);}
+.placed-tile{
+  background:var(--blue);color:#fff;border:2px solid var(--blue);border-radius:8px;
+  padding:5px 10px;font-size:14px;cursor:pointer;user-select:none;transition:.12s;
+}
+.placed-tile:hover{background:#0f2a50;}
+.answer-area{
+  min-height:44px;background:#eef2fb;border:2px dashed #b0c4de;border-radius:8px;
+  padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+}
+.ans-placeholder{color:#aaa;font-size:12px;}
+.sort-clear{
+  background:none;border:1px solid #ccc;border-radius:6px;
+  font-size:11px;color:var(--sub);padding:3px 10px;cursor:pointer;margin-top:6px;
+}
+.sort-clear:hover{border-color:var(--red);color:var(--red);}
+
+/* 空欄補充 */
+.blank-sentence{font-size:15px;line-height:2.4;}
+.blank-input{
+  display:inline-block;border:none;border-bottom:2px solid var(--pink);
+  outline:none;font-size:14px;font-family:inherit;
+  background:transparent;text-align:center;padding:0 3px;color:var(--blue);
+  transition:border-color .2s;
+}
+.blank-input:focus{border-bottom-color:var(--gold);}
+.blank-input.ok{border-bottom-color:var(--green);color:var(--green);}
+.blank-input.ng{border-bottom-color:var(--red);color:var(--red);}
+
+/* 全文書き出し */
+.write-hint{font-size:11px;color:var(--sub);margin-bottom:8px;}
+.write-input{
+  width:100%;border:2px solid var(--border);border-radius:8px;
+  padding:10px 12px;font-size:14px;font-family:inherit;
+  resize:vertical;min-height:70px;outline:none;transition:border-color .2s;
+}
+.write-input:focus{border-color:var(--pink);}
+
+/* フィードバック */
+.feedback{margin-top:12px;padding:10px 14px;border-radius:8px;font-size:14px;line-height:1.6;}
+.feedback.ok{background:#e8f5e9;color:#1b5e20;border-left:4px solid var(--green);}
+.feedback.ng{background:#ffebee;color:#b71c1c;border-left:4px solid var(--red);}
+.feedback .correct-en{margin-top:6px;font-size:13px;color:var(--text);}
+
+.action-btn{
+  display:block;width:100%;margin-top:10px;background:var(--blue);color:#fff;
+  border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:bold;
+  cursor:pointer;transition:.15s;
+}
+.action-btn:hover{background:#0f2a50;}
+.action-btn.next{background:var(--pink);}
+.action-btn.next:hover{background:var(--pink-d);}
+
+/* ── 結果画面 ── */
+#result-screen{display:none;}
+.result-card{background:var(--card);border-radius:14px;padding:24px 20px;box-shadow:0 2px 8px rgba(0,0,0,.07);text-align:center;}
+.result-score{font-size:52px;font-weight:bold;color:var(--pink);margin:6px 0;}
+.result-sub{font-size:14px;color:var(--sub);}
+.result-pct{font-size:20px;font-weight:bold;color:var(--blue);margin-top:4px;}
+
+.review-wrap{margin-top:18px;text-align:left;}
+.review-title{font-size:11px;color:var(--sub);margin-bottom:8px;font-weight:bold;text-transform:uppercase;letter-spacing:.05em;}
+.r-item{border-radius:8px;padding:10px 12px;margin-bottom:6px;font-size:13px;}
+.r-item.ok{background:#f1f8f2;border-left:3px solid var(--green);}
+.r-item.ng{background:#fff5f5;border-left:3px solid var(--red);}
+.r-ja{color:var(--sub);font-size:12px;margin-bottom:3px;}
+.r-en{font-weight:bold;color:var(--blue);}
+.r-item.ng .r-en{color:var(--green);}
+.r-yours{color:var(--red);font-size:12px;margin-top:2px;}
+
+.retry-btn{
+  display:inline-block;margin-top:18px;background:var(--pink);color:#fff;
+  border:none;border-radius:10px;padding:12px 32px;font-size:15px;
+  font-weight:bold;cursor:pointer;
+}
+.retry-btn:hover{background:var(--pink-d);}
+</style>
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+<header>
+  <h1>📝 定期テスト対策</h1>
+  <div class="sub">Key Point 文章で英作文練習 ／ Lesson 11〜12</div>
+</header>
+
+<div class="container">
+
+<!-- ① セットアップ画面 -->
+<div id="setup-screen">
+  <div class="sec-label">📚 Lesson を選ぶ（複数選択OK）</div>
+  <div class="lesson-grid" id="lesson-grid"></div>
+
+  <div class="sec-label">✏️ 問題の種類</div>
+  <div class="mode-grid">
+    <div class="mode-btn sel" data-mode="sort">
+      <div class="m-name">並び替え</div>
+      <div class="m-desc">英単語を正しい順番に並べる</div>
+    </div>
+    <div class="mode-btn" data-mode="blank">
+      <div class="m-name">空欄補充</div>
+      <div class="m-desc">英文の（　）に語句を入れる</div>
+    </div>
+    <div class="mode-btn" data-mode="write">
+      <div class="m-name">全文書き出し</div>
+      <div class="m-desc">日本語を見て英文を書く</div>
+    </div>
+  </div>
+
+  <div class="sec-label">🔢 問題数</div>
+  <div class="count-row">
+    <div class="count-btn" data-cnt="5">5問</div>
+    <div class="count-btn sel" data-cnt="10">10問</div>
+    <div class="count-btn" data-cnt="20">20問</div>
+    <div class="count-btn" data-cnt="0">全問</div>
+  </div>
+
+  <button class="start-btn" id="start-btn" onclick="startQuiz()" disabled>
+    ← Lesson を選んでください
+  </button>
+</div>
+
+<!-- ② クイズ画面 -->
+<div id="quiz-screen">
+  <div class="prog-wrap">
+    <div class="prog-top">
+      <span id="prog-txt">1 / 10</span>
+      <span id="score-txt">✅ 0 問正解</span>
+    </div>
+    <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+  </div>
+
+  <div class="q-card" id="q-card">
+    <div class="badges">
+      <span class="badge mode" id="badge-mode">並び替え</span>
+      <span class="badge lesson" id="badge-lesson">Lesson 11-1</span>
+    </div>
+    <div class="q-ja" id="q-ja"></div>
+
+    <!-- 並び替え -->
+    <div id="area-sort" style="display:none">
+      <div class="sort-hint">単語をクリックして下の欄に並べてください</div>
+      <div class="word-bank" id="word-bank"></div>
+      <div style="font-size:11px;color:var(--sub);margin-bottom:4px;">↓ ここに並べる（クリックで戻す）</div>
+      <div class="answer-area" id="answer-area"></div>
+      <button class="sort-clear" onclick="clearSort()">クリア</button>
+    </div>
+
+    <!-- 空欄補充 -->
+    <div id="area-blank" style="display:none">
+      <div class="blank-sentence" id="blank-sentence"></div>
+    </div>
+
+    <!-- 全文書き出し -->
+    <div id="area-write" style="display:none">
+      <div class="write-hint">上の日本語を英語にしてください（句読点も正確に）</div>
+      <textarea class="write-input" id="write-input" placeholder="英文をここに入力…"></textarea>
+    </div>
+
+    <div id="feedback" style="display:none"></div>
+  </div>
+
+  <button class="action-btn" id="action-btn" onclick="handleAction()">確認する</button>
+</div>
+
+<!-- ③ 結果画面 -->
+<div id="result-screen">
+  <div class="result-card">
+    <div class="result-sub">結果</div>
+    <div class="result-score" id="result-score">0 / 0</div>
+    <div class="result-pct" id="result-pct">正解率 0%</div>
+    <div class="review-wrap">
+      <div class="review-title">振り返り</div>
+      <div id="review-list"></div>
+    </div>
+    <button class="retry-btn" onclick="goSetup()">もう一度</button>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<script>
+// ═══════════════════════════════════════════════════════════════════
+// KEY POINT データ（教科書右ページより抜粋・Key Pointのみ）
+// ═══════════════════════════════════════════════════════════════════
+const LESSONS = {
+  "11-1": {
+    title: "Lesson 11-1",
+    kp: "It is〜to V ／ want+O+to V",
+    sentences: [
+      { en: "It is difficult to get up early every morning.",
+        ja: "毎朝早起きするのは難しい。",
+        t:  "It is [difficult] [to] get up early every morning." },
+      { en: "It is important to prepare for an earthquake.",
+        ja: "地震に備えることは大切だ。",
+        t:  "It is [important] [to] prepare for an earthquake." },
+      { en: "It will be a lot of fun to ride the roller coaster tomorrow.",
+        ja: "明日ジェットコースターに乗るのはとても楽しいだろう。",
+        t:  "It will be a lot of fun [to] ride the roller coaster tomorrow." },
+      { en: "It is difficult for me to explain my thoughts in English.",
+        ja: "私にとって英語で自分の考えを説明するのは難しい。",
+        t:  "It is difficult [for] [me] [to] explain my thoughts in English." },
+      { en: "It isn't necessary for you to write the book report now.",
+        ja: "あなたが今レポートを書く必要はない。",
+        t:  "It isn't necessary [for] [you] [to] write the book report now." },
+      { en: "I want you to clean the living room while I'm out.",
+        ja: "外出している間に居間を掃除してほしい。",
+        t:  "I [want] you [to] clean the living room while I'm out." },
+      { en: "My mother told me to share the cake with my brother.",
+        ja: "母は私にケーキを弟と分けるよう言った。",
+        t:  "My mother [told] me [to] share the cake with my brother." },
+      { en: "My mother advised me to see the dentist.",
+        ja: "母は私に歯医者に行くよう勧めた。",
+        t:  "My mother [advised] me [to] see the dentist." },
+    ]
+  },
+  "11-2": {
+    title: "Lesson 11-2",
+    kp: "疑問詞+to V ／ 間接疑問",
+    sentences: [
+      { en: "Have you decided what to do during the summer vacation?",
+        ja: "夏休みに何をするか決めましたか？",
+        t:  "Have you decided [what] [to] do during the summer vacation?" },
+      { en: "I'm not sure who to ask about the hotels in London.",
+        ja: "ロンドンのホテルについて誰に聞けばいいかわからない。",
+        t:  "I'm not sure [who] [to] ask about the hotels in London." },
+      { en: "We discussed where to go on our vacation.",
+        ja: "私たちは休暇でどこへ行くかについて話し合った。",
+        t:  "We discussed [where] [to] go on our vacation." },
+      { en: "I don't know how to pronounce this word.",
+        ja: "この単語をどう発音すればよいかわからない。",
+        t:  "I don't know [how] [to] pronounce this word." },
+      { en: "She is thinking about which museums to visit in England.",
+        ja: "彼女はイギリスのどの美術館を訪れるか考えている。",
+        t:  "She is thinking about [which] museums [to] visit in England." },
+      { en: "I'm lost. Could you tell me how to get to the hotel?",
+        ja: "道に迷いました。ホテルへの行き方を教えていただけますか？",
+        t:  "I'm lost. Could you tell me [how] [to] get to the hotel?" },
+      { en: "I asked Mr. Jones what to do in London.",
+        ja: "私はジョーンズ先生にロンドンで何をすべきか尋ねた。",
+        t:  "I asked Mr. Jones [what] [to] do in London." },
+    ]
+  },
+  "11-3": {
+    title: "Lesson 11-3",
+    kp: "too〜to V ／ so〜that ／ enough to V",
+    sentences: [
+      { en: "Betty was too shy to talk to the teacher.",
+        ja: "ベティは恥ずかしすぎて先生に話しかけられなかった。",
+        t:  "Betty was [too] [shy] [to] talk to the teacher." },
+      { en: "She was too nervous to ask a question.",
+        ja: "彼女は緊張しすぎて質問できなかった。",
+        t:  "She was [too] [nervous] [to] ask a question." },
+      { en: "The teacher spoke too fast for her to understand.",
+        ja: "先生は彼女が理解するには話すのが速すぎた。",
+        t:  "The teacher spoke [too] [fast] for her [to] understand." },
+      { en: "The homework was too difficult for her to finish in a day.",
+        ja: "その宿題は彼女が1日で終わらせるには難しすぎた。",
+        t:  "The homework was [too] [difficult] for her [to] finish in a day." },
+      { en: "This tea is so hot that I can't drink it.",
+        ja: "このお茶はとても熱くて私には飲めない。",
+        t:  "This tea is [so] [hot] [that] I can't drink it." },
+      { en: "The traffic was so busy that I couldn't be in time for the class.",
+        ja: "道路がとても混んでいて授業に間に合えなかった。",
+        t:  "The traffic was [so] [busy] [that] I couldn't be in time for the class." },
+      { en: "My little brother is old enough to walk to our grandparents' house.",
+        ja: "弟は祖父母の家まで歩いていけるくらい大きくなった。",
+        t:  "My little brother is [old] [enough] [to] walk to our grandparents' house." },
+      { en: "I left home early enough to be in time for school.",
+        ja: "学校に間に合うくらい早く家を出た。",
+        t:  "I left home [early] [enough] [to] be in time for school." },
+      { en: "This bag isn't big enough for me to pack all the clothes I need for travel.",
+        ja: "このバッグは私が旅行に必要な服を全部詰められるほど大きくない。",
+        t:  "This bag isn't [big] [enough] for me [to] pack all the clothes I need for travel." },
+    ]
+  },
+  "11-4": {
+    title: "Lesson 11-4",
+    kp: "make/let/have+O+原形 ／ help+O+(to)原形",
+    sentences: [
+      { en: "My mother makes me eat fresh yogurt every morning.",
+        ja: "お母さんは毎朝私に新鮮なヨーグルトを食べさせます。",
+        t:  "My mother [makes] me [eat] fresh yogurt every morning." },
+      { en: "My brother's joke made everyone laugh.",
+        ja: "兄のジョークはみんなを笑わせました。",
+        t:  "My brother's joke [made] everyone [laugh]." },
+      { en: "Our father sometimes lets us stay up late.",
+        ja: "お父さんはときどき私たちに夜更かしをさせてくれます。",
+        t:  "Our father sometimes [lets] us [stay] up late." },
+      { en: "Please let me know when you need any help.",
+        ja: "何か助けが必要なときは知らせてください。",
+        t:  "Please [let] me [know] when you need any help." },
+      { en: "My sister had the server bring another glass of water.",
+        ja: "姉はウェイターにもう一杯の水を持ってこさせました。",
+        t:  "My sister [had] the server [bring] another glass of water." },
+      { en: "I helped an elderly lady carry her baggage.",
+        ja: "私はお年寄りの女性が荷物を運ぶのを手伝いました。",
+        t:  "I [helped] an elderly lady [carry] her baggage." },
+    ]
+  },
+  "12-1": {
+    title: "Lesson 12-1",
+    kp: "間接疑問文（疑問詞節）",
+    sentences: [
+      { en: "I don't know when the party will start.",
+        ja: "パーティーがいつ始まるのか知らない。",
+        t:  "I don't know [when] the party [will] start." },
+      { en: "I cannot imagine what Karen wants for her birthday.",
+        ja: "カレンが誕生日に何をほしがっているか想像できない。",
+        t:  "I cannot imagine [what] Karen wants for her birthday." },
+      { en: "I have to tell the guests where they should hang their coats.",
+        ja: "ゲストにコートをどこにかけるべきか教えなければならない。",
+        t:  "I have to tell the guests [where] they should hang their coats." },
+      { en: "Can you tell me why Sam refused my invitation?",
+        ja: "サムがなぜ私の招待を断ったか教えてくれる？",
+        t:  "Can you tell me [why] Sam refused my invitation?" },
+      { en: "Do you know who made this birthday cake?",
+        ja: "このバースデーケーキを誰が作ったか知っていますか？",
+        t:  "Do you know [who] made this birthday cake?" },
+      { en: "I wonder how many guests will come to the party.",
+        ja: "何人のゲストがパーティーに来るか気になる。",
+        t:  "I wonder [how many] guests will come to the party." },
+      { en: "Takashi didn't know where Nancy was going last night.",
+        ja: "タカシは昨夜ナンシーがどこへ行くのかを知らなかった。",
+        t:  "Takashi didn't know [where] Nancy [was] going last night." },
+      { en: "He asked me when she would come home.",
+        ja: "彼は私に彼女がいつ帰宅するか尋ねた。",
+        t:  "He asked me [when] she [would] come home." },
+      { en: "I wanted to know how I could contact you while you were out.",
+        ja: "あなたが外出している間どうすれば連絡できるか知りたかった。",
+        t:  "I wanted to know [how] I [could] contact you while you were out." },
+    ]
+  },
+  "12-2": {
+    title: "Lesson 12-2",
+    kp: "付加疑問文",
+    sentences: [
+      { en: "This is a great restaurant, isn't it?",
+        ja: "ここは素晴らしいレストランですよね？",
+        t:  "This is a great restaurant, [isn't] [it]?" },
+      { en: "Jim ate a whole pizza, didn't he?",
+        ja: "ジムはピザを1枚全部食べましたよね？",
+        t:  "Jim ate a whole pizza, [didn't] [he]?" },
+      { en: "We can share this steak, can't we?",
+        ja: "このステーキを一緒に食べましょうよ？",
+        t:  "We can share this steak, [can't] [we]?" },
+      { en: "Bob doesn't like tomatoes, does he?",
+        ja: "ボブはトマトが好きではないですよね？",
+        t:  "Bob doesn't like tomatoes, [does] [he]?" },
+      { en: "You have met my cousin, haven't you?",
+        ja: "私のいとこに会ったことがありますよね？",
+        t:  "You have met my cousin, [haven't] [you]?" },
+      { en: "Let's go to the beach after lunch, shall we?",
+        ja: "昼食後に浜辺に行きましょうよ？",
+        t:  "Let's go to the beach after lunch, [shall] [we]?" },
+      { en: "Pass me a cold drink, will you?",
+        ja: "冷たい飲み物を回してくれない？",
+        t:  "Pass me a cold drink, [will] [you]?" },
+      { en: "There are a lot of people on this beach today, aren't there?",
+        ja: "今日この浜辺にはたくさんの人がいますよね？",
+        t:  "There are a lot of people on this beach today, [aren't] [there]?" },
+    ]
+  },
+  "12-3": {
+    title: "Lesson 12-3",
+    kp: "仮定法過去 ／ wish / as if＋仮定法",
+    sentences: [
+      { en: "If it rains tomorrow, I will go to school by bus.",
+        ja: "もし明日雨が降ったら、バスで学校に行きます。",
+        t:  "If it [rains] tomorrow, I [will] go to school by bus." },
+      { en: "If I had wings, I would fly to school.",
+        ja: "もし翼があったら、学校まで飛んでいくのに。",
+        t:  "If I [had] wings, I [would] fly to school." },
+      { en: "If I were not busy, I would help you.",
+        ja: "もし忙しくなければ、あなたを助けるのに。",
+        t:  "If I [were] not busy, I [would] help you." },
+      { en: "If John were on the team, we could win the tournament.",
+        ja: "もしジョンがチームにいれば、私たちはトーナメントで優勝できるのに。",
+        t:  "If John [were] on the team, we [could] win the tournament." },
+      { en: "If I had my smartphone with me, I could send text messages to my parents.",
+        ja: "もし手元にスマートフォンがあれば、両親にテキストメッセージを送れるのに。",
+        t:  "If I [had] my smartphone with me, I [could] send text messages to my parents." },
+      { en: "What would you like to do if you were ten years older?",
+        ja: "もし10歳年上だったら、何をしたいですか？",
+        t:  "What [would] you like to do if you [were] ten years older?" },
+      { en: "The musical was amazing! I wish I could sing like the star!",
+        ja: "あのミュージカルは素晴らしかった！あのスターのように歌えたらいいのに！",
+        t:  "The musical was amazing! I [wish] I [could] sing like the star!" },
+      { en: "Mary's brother behaves as if he were a movie star.",
+        ja: "メアリーの兄はまるで映画スターのようにふるまっている。",
+        t:  "Mary's brother behaves [as if] he [were] a movie star." },
+    ]
+  },
+};
+
+// ═══════════════════════════════════════════════════════════════════
+// 状態
+// ═══════════════════════════════════════════════════════════════════
+const S = {
+  lessons: [], mode: 'sort', count: 10,
+  questions: [], qi: 0, score: 0, results: [],
+  checked: false,
+  bankWords: [], answerWords: [],
+};
+
+// ═══════════════════════════════════════════════════════════════════
+// セットアップ
+// ═══════════════════════════════════════════════════════════════════
+function initSetup() {
+  const grid = document.getElementById('lesson-grid');
+  grid.innerHTML = '';
+  Object.entries(LESSONS).forEach(([id, l]) => {
+    const d = document.createElement('div');
+    d.className = 'lesson-btn';
+    d.dataset.id = id;
+    d.innerHTML = `<b>${id}</b><div class="kp">${l.kp}</div>`;
+    d.onclick = () => {
+      const i = S.lessons.indexOf(id);
+      if (i === -1) { S.lessons.push(id); d.classList.add('sel'); }
+      else { S.lessons.splice(i, 1); d.classList.remove('sel'); }
+      updateStart();
+    };
+    grid.appendChild(d);
+  });
+  document.querySelectorAll('.mode-btn').forEach(b => {
+    b.onclick = () => {
+      document.querySelectorAll('.mode-btn').forEach(x => x.classList.remove('sel'));
+      b.classList.add('sel');
+      S.mode = b.dataset.mode;
+    };
+  });
+  document.querySelectorAll('.count-btn').forEach(b => {
+    b.onclick = () => {
+      document.querySelectorAll('.count-btn').forEach(x => x.classList.remove('sel'));
+      b.classList.add('sel');
+      S.count = parseInt(b.dataset.cnt) || 0;
+    };
+  });
+}
+
+function updateStart() {
+  const btn = document.getElementById('start-btn');
+  if (!S.lessons.length) { btn.disabled = true; btn.textContent = '← Lesson を選んでください'; return; }
+  const total = S.lessons.reduce((s, id) => s + LESSONS[id].sentences.length, 0);
+  const n = S.count === 0 ? total : Math.min(S.count, total);
+  btn.disabled = false;
+  btn.textContent = `スタート → ${n}問 出題`;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// クイズ開始
+// ═══════════════════════════════════════════════════════════════════
+function startQuiz() {
+  let pool = [];
+  S.lessons.forEach(id => LESSONS[id].sentences.forEach(s => pool.push({...s, lid: id, lt: LESSONS[id].title})));
+  shuffle(pool);
+  const n = S.count === 0 ? pool.length : Math.min(S.count, pool.length);
+  S.questions = pool.slice(0, n);
+  S.qi = 0; S.score = 0; S.results = [];
+  show('setup-screen', false); show('quiz-screen', true); show('result-screen', false);
+  renderQ();
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// 問題描画
+// ═══════════════════════════════════════════════════════════════════
+function renderQ() {
+  const q = S.questions[S.qi];
+  const tot = S.questions.length;
+  S.checked = false;
+
+  document.getElementById('prog-txt').textContent = `${S.qi + 1} / ${tot}`;
+  document.getElementById('score-txt').textContent = `✅ ${S.score} 問正解`;
+  document.getElementById('prog-fill').style.width = `${S.qi / tot * 100}%`;
+  document.getElementById('badge-mode').textContent = {sort:'並び替え',blank:'空欄補充',write:'全文書き出し'}[S.mode];
+  document.getElementById('badge-lesson').textContent = q.lt;
+  document.getElementById('q-ja').textContent = q.ja;
+  document.getElementById('feedback').style.display = 'none';
+
+  show('area-sort', false); show('area-blank', false); show('area-write', false);
+  if (S.mode === 'sort')  setupSort(q);
+  if (S.mode === 'blank') setupBlank(q);
+  if (S.mode === 'write') setupWrite();
+
+  const btn = document.getElementById('action-btn');
+  btn.textContent = '確認する';
+  btn.className = 'action-btn';
+  btn.onclick = handleAction;
+}
+
+// ─── 並び替え ────────────────────────────────────────────────────
+function setupSort(q) {
+  show('area-sort', true);
+  const words = q.en.split(' ');
+  const sh = [...words]; shuffle(sh);
+  S.bankWords = sh.map((w, i) => ({w, id: i}));
+  S.answerWords = [];
+  renderSort();
+}
+function renderSort() {
+  const bank = document.getElementById('word-bank');
+  const ans  = document.getElementById('answer-area');
+  bank.innerHTML = ''; ans.innerHTML = '';
+  S.bankWords.forEach((item, i) => {
+    const t = el('div', 'word-tile', item.w);
+    t.onclick = () => { S.answerWords.push(S.bankWords.splice(i,1)[0]); renderSort(); };
+    bank.appendChild(t);
+  });
+  if (!S.answerWords.length) {
+    ans.appendChild(el('span','ans-placeholder','ここに並べる…'));
+  } else {
+    S.answerWords.forEach((item, i) => {
+      const t = el('div', 'placed-tile', item.w);
+      t.onclick = () => { S.bankWords.push(S.answerWords.splice(i,1)[0]); renderSort(); };
+      ans.appendChild(t);
+    });
+  }
+}
+function clearSort() { S.bankWords = [...S.bankWords, ...S.answerWords]; S.answerWords = []; renderSort(); }
+
+// ─── 空欄補充 ────────────────────────────────────────────────────
+function setupBlank(q) {
+  show('area-blank', true);
+  const wrap = document.getElementById('blank-sentence');
+  wrap.innerHTML = '';
+  const parts = q.t.split(/\[([^\]]+)\]/);
+  parts.forEach((p, i) => {
+    if (i % 2 === 0) {
+      if (p) wrap.appendChild(document.createTextNode(p));
+    } else {
+      const inp = document.createElement('input');
+      inp.type = 'text'; inp.className = 'blank-input';
+      inp.dataset.ans = p.toLowerCase().replace(/['']/g,"'");
+      inp.style.width = Math.max(p.length * 13 + 16, 52) + 'px';
+      inp.setAttribute('autocomplete','off'); inp.setAttribute('autocorrect','off');
+      inp.setAttribute('autocapitalize','none'); inp.setAttribute('spellcheck','false');
+      wrap.appendChild(inp);
+    }
+  });
+}
+
+// ─── 全文書き出し ────────────────────────────────────────────────
+function setupWrite() {
+  show('area-write', true);
+  document.getElementById('write-input').value = '';
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// 確認 / 次へ
+// ═══════════════════════════════════════════════════════════════════
+function handleAction() {
+  if (S.checked) {
+    S.qi++;
+    S.qi >= S.questions.length ? showResult() : renderQ();
+    return;
+  }
+  const q = S.questions[S.qi];
+  let correct = false, userAns = '';
+
+  if (S.mode === 'sort') {
+    userAns = S.answerWords.map(w => w.w).join(' ');
+    correct  = norm(userAns) === norm(q.en);
+  } else if (S.mode === 'blank') {
+    const inputs = [...document.querySelectorAll('#blank-sentence .blank-input')];
+    let ok = true;
+    inputs.forEach(inp => {
+      const v = inp.value.trim().toLowerCase().replace(/['']/g,"'");
+      const a = inp.dataset.ans;
+      if (v === a) inp.classList.add('ok'); else { inp.classList.add('ng'); ok = false; }
+    });
+    correct = ok;
+    let ui = 0;
+    userAns = q.t.replace(/\[([^\]]+)\]/g, () => inputs[ui++]?.value || '___');
+  } else {
+    userAns = document.getElementById('write-input').value.trim();
+    correct  = normWrite(userAns) === normWrite(q.en);
+  }
+
+  if (correct) S.score++;
+  S.results.push({q, userAns, correct});
+  S.checked = true;
+
+  const fb = document.getElementById('feedback');
+  fb.style.display = 'block';
+  fb.className = 'feedback ' + (correct ? 'ok' : 'ng');
+  fb.innerHTML = correct
+    ? `✅ 正解！ <b>${q.en}</b>`
+    : `❌ 不正解<div class="correct-en">正解: <b>${q.en}</b></div>`;
+
+  document.getElementById('score-txt').textContent = `✅ ${S.score} 問正解`;
+  const btn = document.getElementById('action-btn');
+  btn.className = 'action-btn next';
+  btn.textContent = S.qi + 1 < S.questions.length ? '次の問題 →' : '結果を見る';
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// 結果
+// ═══════════════════════════════════════════════════════════════════
+function showResult() {
+  show('quiz-screen', false); show('result-screen', true);
+  const tot = S.questions.length;
+  const pct = Math.round(S.score / tot * 100);
+  document.getElementById('result-score').textContent = `${S.score} / ${tot}`;
+  document.getElementById('result-pct').textContent   = `正解率 ${pct}%`;
+  const list = document.getElementById('review-list');
+  list.innerHTML = '';
+  S.results.forEach(r => {
+    const d = document.createElement('div');
+    d.className = 'r-item ' + (r.correct ? 'ok' : 'ng');
+    d.innerHTML = `<div class="r-ja">${r.q.ja}</div>
+      <div class="r-en">${r.q.en}</div>
+      ${!r.correct ? `<div class="r-yours">あなたの回答: ${r.userAns||'(未回答)'}</div>` : ''}`;
+    list.appendChild(d);
+  });
+}
+
+function goSetup() {
+  S.lessons = [];
+  document.querySelectorAll('.lesson-btn').forEach(b => b.classList.remove('sel'));
+  updateStart();
+  show('result-screen', false); show('setup-screen', true);
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// ユーティリティ
+// ═══════════════════════════════════════════════════════════════════
+function show(id, v) { document.getElementById(id).style.display = v ? 'block' : 'none'; }
+function el(tag, cls, txt) { const d = document.createElement(tag); d.className = cls; d.textContent = txt; return d; }
+function shuffle(a) { for (let i = a.length-1; i > 0; i--) { const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } }
+function norm(s) { return s.trim().replace(/['']/g,"'"); }
+function normWrite(s) {
+  return s.toLowerCase().replace(/[''`]/g,"'").replace(/[.,!?]/g,'').replace(/\s+/g,' ').trim();
+}
+
+initSetup();
+</script>
+</body>
+</html>
