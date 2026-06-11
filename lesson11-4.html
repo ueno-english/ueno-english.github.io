@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 11-4 解説｜上野作 英語復習活用ホームページ</title>
+  <style>
+    :root {
+      --blue:  #b5006e;
+      --red:   #c0392b;
+      --green: #1a7a1a;
+      --gold:  #d4700a;
+      --bg:    #fff0f6;
+      --card:  #ffffff;
+      --border:#f5c6df;
+      --text:  #222;
+      --sub:   #555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Sans", "Meiryo", sans-serif;
+      background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7;
+    }
+    header {
+      background: linear-gradient(135deg, #7b003d 0%, #e91e8c 100%);
+      color: white; padding: 20px 16px 16px; text-align: center;
+    }
+    header .lesson-label { font-size: 12px; letter-spacing: 2px; opacity: 0.85; margin-bottom: 4px; }
+    header h1 { font-size: 20px; font-weight: bold; margin-bottom: 6px; }
+    header .topics {
+      font-size: 12px; opacity: 0.9;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px; padding: 4px 14px; display: inline-block;
+    }
+    nav {
+      display: flex; overflow-x: auto; gap: 8px;
+      padding: 12px 16px; background: white; border-bottom: 1px solid var(--border);
+      scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    nav a {
+      white-space: nowrap; text-decoration: none;
+      background: var(--blue); color: white;
+      padding: 6px 14px; border-radius: 20px; font-size: 13px;
+    }
+    nav a:hover { opacity: 0.85; }
+    main { padding: 16px; max-width: 720px; margin: 0 auto; }
+    .section {
+      background: var(--card); border-radius: 12px;
+      border: 1px solid var(--border); margin-bottom: 20px;
+      overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .section-header { background: var(--blue); color: white; padding: 12px 16px; font-weight: bold; font-size: 15px; }
+    .section-body { padding: 16px; }
+    .point-box {
+      background: #fce8f4; border-left: 4px solid var(--blue);
+      border-radius: 0 8px 8px 0; padding: 12px 14px; margin-bottom: 14px;
+    }
+    .point-box .emoji-title { font-weight: bold; font-size: 14px; margin-bottom: 6px; }
+    .transform {
+      background: #fff8e8; border: 1px solid #f0d080;
+      border-radius: 8px; padding: 12px 14px; margin: 12px 0; font-size: 14px;
+    }
+    .transform .before { color: var(--sub); margin-bottom: 4px; }
+    .transform .arrow { text-align: center; font-size: 18px; color: var(--gold); margin: 4px 0; }
+    .transform .after { font-weight: bold; }
+    .transform .label { font-size: 11px; color: var(--sub); margin-top: 6px; }
+    .verb-table {
+      width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13.5px;
+    }
+    .verb-table th {
+      background: var(--blue); color: white; padding: 8px 12px; text-align: left;
+    }
+    .verb-table td {
+      padding: 8px 12px; border-bottom: 1px solid var(--border);
+    }
+    .verb-table tr:last-child td { border-bottom: none; }
+    .verb-table tr:nth-child(even) td { background: #fff0f6; }
+    .r { color: var(--red);   font-weight: bold; }
+    .g { color: var(--green); font-weight: bold; }
+    .b { color: var(--blue);  font-weight: bold; }
+    .warn {
+      background: #fff0f0; border: 1px solid #f5b8b8;
+      border-radius: 8px; padding: 10px 14px; font-size: 13.5px; margin: 10px 0;
+    }
+    .warn strong { color: var(--red); }
+    .compare-box {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0;
+    }
+    .compare-left, .compare-right {
+      border-radius: 8px; padding: 10px 12px; font-size: 13px;
+    }
+    .compare-left  { background: #fff0f0; border: 1px solid #f5b8b8; }
+    .compare-right { background: #f0fff0; border: 1px solid #b8e8b8; }
+    .compare-label { font-size: 11px; font-weight: bold; margin-bottom: 4px; }
+    .compare-left  .compare-label { color: var(--red); }
+    .compare-right .compare-label { color: var(--green); }
+    .ex-grid { display: grid; gap: 10px; margin: 12px 0; }
+    .kp-ex {
+      background: #fff5fb; border-radius: 8px;
+      padding: 10px 14px; border-left: 3px solid var(--blue); font-size: 13.5px;
+    }
+    .kp-ex .en { font-family: Georgia, serif; margin-bottom: 3px; }
+    .kp-ex .ja { color: var(--sub); font-size: 12px; }
+    .exercises { margin-top: 14px; }
+    .ex-title {
+      font-weight: bold; font-size: 14px; color: var(--blue);
+      border-bottom: 2px solid var(--border); padding-bottom: 4px; margin-bottom: 12px;
+    }
+    .ex-item {
+      margin-bottom: 14px; background: #f9fbfd;
+      border-radius: 8px; padding: 12px 14px; border: 1px solid var(--border);
+    }
+    .ex-num { font-weight: bold; color: var(--blue); font-size: 13px; margin-bottom: 4px; }
+    .answer-toggle {
+      background: none; border: 1px solid var(--red); color: var(--red);
+      border-radius: 20px; padding: 4px 14px; font-size: 12px; cursor: pointer; margin-top: 4px;
+    }
+    .answer-toggle:hover { background: #fff0f0; }
+    .answer-box {
+      display: none; margin-top: 8px; background: #fff8f8;
+      border-left: 3px solid var(--red); padding: 8px 12px;
+      border-radius: 0 6px 6px 0; font-size: 14px;
+    }
+    .answer-box .ans-en   { color: var(--red); font-weight: bold; margin-bottom: 4px; }
+    .answer-box .ans-note { font-size: 12px; color: var(--sub); }
+    .answer-box.open { display: block; }
+    .show-all-btn {
+      display: block; width: 100%; background: var(--blue); color: white;
+      border: none; border-radius: 8px; padding: 10px; font-size: 14px;
+      cursor: pointer; margin-bottom: 14px;
+    }
+    .show-all-btn:hover { opacity: 0.88; }
+    footer {
+      text-align: center; padding: 20px; font-size: 12px;
+      color: var(--sub); border-top: 1px solid var(--border); margin-top: 10px;
+    }
+    .quiz-section {
+      background: var(--card); border: 2px solid var(--blue);
+      border-radius: 12px; margin: 20px 0 30px; overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+    .quiz-section-header {
+      background: linear-gradient(135deg, var(--blue) 0%, #d4006e 100%);
+      color: white; padding: 14px 16px; font-size: 16px; font-weight: bold; text-align: center;
+    }
+    .quiz-section-body { padding: 16px; }
+    #quiz-start { text-align: center; padding: 10px 0 6px; }
+    .start-btn {
+      background: var(--blue); color: white; border: none;
+      border-radius: 30px; padding: 14px 40px; font-size: 16px; font-weight: bold; cursor: pointer;
+    }
+    .start-btn:hover { opacity: 0.88; }
+    #quiz-body { display: none; }
+    .q-progress-wrap { background: #e8edf2; border-radius: 10px; height: 6px; margin-bottom: 12px; overflow: hidden; }
+    #q-progress { height: 100%; background: var(--blue); border-radius: 10px; transition: width 0.4s; width: 0%; }
+    #q-num  { font-size: 12px; color: var(--sub); text-align: right; margin-bottom: 8px; }
+    #q-text { font-size: 15px; font-weight: bold; margin-bottom: 14px; line-height: 1.6; white-space: pre-line; }
+    #q-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+    .q-opt {
+      background: #f4f7fa; border: 2px solid var(--border); border-radius: 10px;
+      padding: 11px 14px; font-size: 14px; text-align: left; cursor: pointer;
+      transition: background 0.15s, border-color 0.15s; line-height: 1.5;
+    }
+    .q-opt:hover:not(:disabled) { background: #fce8f4; border-color: var(--blue); }
+    .q-opt.correct { background: #e8f8e8; border-color: var(--green); color: var(--green); font-weight: bold; }
+    .q-opt.wrong   { background: #fdecea; border-color: var(--red);   color: var(--red);   font-weight: bold; }
+    .q-opt:disabled { cursor: default; }
+    .q-hint { font-size: 13px; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; display: none; line-height: 1.6; }
+    .correct-hint { background: #e8f8e8; color: var(--green); border-left: 3px solid var(--green); }
+    .wrong-hint   { background: #fdecea; color: var(--red);   border-left: 3px solid var(--red); }
+    #q-next {
+      display: none; width: 100%; background: var(--blue); color: white;
+      border: none; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: bold; cursor: pointer;
+    }
+    #q-next:hover { opacity: 0.88; }
+    #quiz-result { display: none; text-align: center; padding: 10px 0 6px; }
+    .result-circle {
+      width: 110px; height: 110px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), #e91e8c);
+      margin: 0 auto 12px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; color: white;
+    }
+    #result-score { font-size: 22px; font-weight: bold; }
+    #result-pct   { font-size: 13px; opacity: 0.85; }
+    #result-msg   { font-size: 16px; font-weight: bold; margin: 10px 0 16px; }
+    .retry-btn {
+      background: none; border: 2px solid var(--blue); color: var(--blue);
+      border-radius: 30px; padding: 10px 30px; font-size: 14px; font-weight: bold; cursor: pointer;
+    }
+    .retry-btn:hover { background: #fff0f6; }
+  </style>
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+  <div class="lesson-label">中学3年生 英語 New Treasure</div>
+  <h1>Lesson 11-4 文法解説</h1>
+  <div class="topics">make / let / have ＋ O ＋ 動詞原形 ／ help ＋ O ＋ (to) 動詞原形</div>
+</header>
+
+<nav>
+  <a href="#kp1">💪 make/let/have</a>
+  <a href="#kp2">🤝 help</a>
+  <a href="#compare">🔍 使い分け</a>
+  <a href="#ex">✏️ 練習の答え</a>
+  <a href="#quiz">🎯 確認クイズ</a>
+</nav>
+
+<main>
+
+<!-- ════════════════════════════════ -->
+<!-- KEY POINT 1 -->
+<!-- ════════════════════════════════ -->
+<div class="section" id="kp1">
+  <div class="section-header">💪 Key Point 1　make / let / have ＋ O ＋ 動詞原形（〜させる）</div>
+  <div class="section-body">
+
+    <div class="point-box">
+      <div class="emoji-title">🤔 「使役動詞」って何？</div>
+      <p>人や物に「〜させる」「〜してもらう」「〜することを許す」という意味を表す動詞を<strong>使役動詞</strong>という。<b>make / let / have</b> の3つが代表的。</p>
+      <div class="transform">
+        <div class="after">使役動詞 ＋ <span class="r">O（目的語）</span> ＋ <span class="g">動詞の原形</span>（to をつけない！）</div>
+        <div class="label">⚠️ to V ではなく、原形（to なし）がポイント！</div>
+      </div>
+    </div>
+
+    <table class="verb-table">
+      <tr><th>動詞</th><th>意味・ニュアンス</th><th>例</th></tr>
+      <tr>
+        <td><b class="r">make</b></td>
+        <td>O に（むりやり）〜させる</td>
+        <td>make me <b>eat</b> / made everyone <b>laugh</b></td>
+      </tr>
+      <tr>
+        <td><b class="g">let</b></td>
+        <td>O が〜するのを許す（〜させてあげる）</td>
+        <td>let us <b>stay</b> up / let me <b>know</b></td>
+      </tr>
+      <tr>
+        <td><b class="b">have</b></td>
+        <td>O に〜してもらう（立場上の人への指示）</td>
+        <td>had the server <b>bring</b></td>
+      </tr>
+    </table>
+
+    <div class="ex-grid">
+      <div class="kp-ex">
+        <div class="en">My mother <b class="r">makes</b> me <b class="g">eat</b> fresh yogurt every morning.</div>
+        <div class="ja">お母さんは毎朝私に新鮮なヨーグルトを食べさせます。</div>
+      </div>
+      <div class="kp-ex">
+        <div class="en">My brother's joke <b class="r">made</b> everyone <b class="g">laugh</b>.</div>
+        <div class="ja">兄のジョークはみんなを笑わせました。</div>
+      </div>
+      <div class="kp-ex">
+        <div class="en">Our father sometimes <b class="g">lets</b> us <b class="g">stay</b> up late.</div>
+        <div class="ja">お父さんはときどき私たちに夜更かしをさせてくれます。</div>
+      </div>
+      <div class="kp-ex">
+        <div class="en">Please <b class="g">let</b> me <b class="g">know</b> when you need any help.</div>
+        <div class="ja">何か助けが必要なときは知らせてください。</div>
+      </div>
+      <div class="kp-ex">
+        <div class="en">My sister <b class="b">had</b> the server <b class="g">bring</b> another glass of water.</div>
+        <div class="ja">姉はウェイターにもう一杯の水を持ってこさせました。</div>
+      </div>
+    </div>
+
+    <div class="warn">
+      ⚠️ <strong>to をつけてはダメ！</strong><br>
+      ✅ My mother makes me <b>eat</b> yogurt.<br>
+      ❌ My mother makes me <s>to eat</s> yogurt.<br>
+      <span style="font-size:12px; color:var(--sub);">make / let / have の後は必ず <b>動詞の原形</b>（to なし）！</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- KEY POINT 2 -->
+<!-- ════════════════════════════════ -->
+<div class="section" id="kp2">
+  <div class="section-header">🤝 Key Point 2　help ＋ O ＋ (to) 動詞原形（〜するのを手伝う）</div>
+  <div class="section-body">
+
+    <div class="point-box">
+      <div class="emoji-title">💡 help は to があってもなくてもOK！</div>
+      <p><b class="b">help</b> ＋ O ＋ <b>(to) 動詞原形</b> で「O が〜するのを手伝う」。<br>
+      <b>to</b> は省略できる（どちらも正解）。</p>
+      <div class="transform">
+        <div class="after">She <b class="b">helped</b> me <b class="g">carry</b> the heavy bags.</div>
+        <div class="label">→「彼女は私が重いかばんを運ぶのを手伝ってくれました。」</div>
+      </div>
+      <div class="transform" style="margin-top:8px;">
+        <div class="after">She <b class="b">helped</b> me <b class="g">to carry</b> the heavy bags.</div>
+        <div class="label">→ to あり でも正解！（意味は同じ）</div>
+      </div>
+    </div>
+
+    <div class="ex-grid">
+      <div class="kp-ex">
+        <div class="en">I <b class="b">helped</b> an elderly lady <b class="g">(to) carry</b> her baggage.</div>
+        <div class="ja">私はお年寄りの女性が荷物を運ぶのを手伝いました。</div>
+      </div>
+      <div class="kp-ex">
+        <div class="en">My friend <b class="b">helped</b> me <b class="g">(to) finish</b> my homework.</div>
+        <div class="ja">友だちは私が宿題を終わらせるのを手伝ってくれました。</div>
+      </div>
+      <div class="kp-ex">
+        <div class="en">Kevin says he'll <b class="b">help</b> Mom <b class="g">cook</b>.</div>
+        <div class="ja">ケビンはお母さんが料理するのを手伝うと言っています。</div>
+      </div>
+    </div>
+
+    <div class="warn">
+      ⚠️ <strong>make / let / have との違いに注意！</strong><br>
+      help だけは <b>to あり・なし両方OK</b>。<br>
+      make / let / have は <b>to なし（原形のみ）</b>！
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- 使い分け -->
+<!-- ════════════════════════════════ -->
+<div class="section" id="compare">
+  <div class="section-header">🔍 使い分けまとめ</div>
+  <div class="section-body">
+
+    <div class="compare-box">
+      <div class="compare-left">
+        <div class="compare-label">❌ to をつけない</div>
+        make / let / have<br>
+        ＋ O ＋ <b>動詞原形</b><br>
+        <span style="font-size:11px;">（to は絶対NG）</span>
+      </div>
+      <div class="compare-right">
+        <div class="compare-label">✅ to はあってもなくてもOK</div>
+        help<br>
+        ＋ O ＋ <b>(to) 動詞原形</b><br>
+        <span style="font-size:11px;">（どちらも正解）</span>
+      </div>
+    </div>
+
+    <table class="verb-table" style="margin-top:14px;">
+      <tr><th>動詞</th><th>意味</th><th>強制度</th></tr>
+      <tr><td><b class="r">make</b></td><td>強制的にさせる</td><td>🔴 強制・強め</td></tr>
+      <tr><td><b class="g">let</b></td><td>許可してさせてあげる</td><td>🟢 許可</td></tr>
+      <tr><td><b class="b">have</b></td><td>指示して〜してもらう</td><td>🟡 依頼・指示</td></tr>
+      <tr><td><b>help</b></td><td>一緒に手伝う</td><td>🤝 協力</td></tr>
+    </table>
+
+    <div class="point-box" style="margin-top:14px;">
+      <div class="emoji-title">📝 Scene 本文との対応</div>
+      <div class="kp-ex" style="margin-top:8px;">
+        <div class="en">Mom's soup will <b class="r">make</b> you <b class="g">feel</b> better.</div>
+        <div class="ja">お母さんのスープで良くなるよ。（make = 強制・引き起こす）</div>
+      </div>
+      <div class="kp-ex" style="margin-top:8px;">
+        <div class="en">I'll <b class="b">help</b> you <b class="g">cook</b>, Mom.</div>
+        <div class="ja">お母さん、料理を手伝うね。（help = 協力）</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- 練習の答え -->
+<!-- ════════════════════════════════ -->
+<div class="section" id="ex">
+  <div class="section-header">✏️ 練習の答え</div>
+  <div class="section-body">
+
+    <button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+    <div class="ex-title">練習１　Key Point 文の穴埋め（①〜⑤）</div>
+
+    <div class="ex-item">
+      <div class="ex-num">① お母さんは毎朝私に新鮮なヨーグルトを食べさせます。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">My mother <b>makes</b> me <b>eat</b> fresh yogurt every morning.</div>
+        <div class="ans-note">▶ make ＋ O ＋ 動詞原形　「強制的に食べさせる」</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">② 兄のジョークはみんなを笑わせました。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">My brother's joke <b>made</b> everyone <b>laugh</b>.</div>
+        <div class="ans-note">▶ made（make の過去形）＋ O ＋ 動詞原形　to laugh ではない！</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">③ お父さんはときどき私たちに夜更かしをさせてくれます。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">Our father sometimes <b>lets</b> us <b>stay</b> up late.</div>
+        <div class="ans-note">▶ let ＋ O ＋ 動詞原形　「許可してさせてあげる」ニュアンス</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">④ 何か助けが必要なときは知らせてください。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">Please <b>let</b> me <b>know</b> when you need any help.</div>
+        <div class="ans-note">▶ let me know は「知らせてください」という定番表現！</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑤ 姉はウェイターにもう一杯の水を持ってこさせました。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">My sister <b>had</b> the server <b>bring</b> another glass of water.</div>
+        <div class="ans-note">▶ have ＋ O ＋ 動詞原形　「（立場上）指示して持ってこさせた」</div>
+      </div>
+    </div>
+
+    <div class="ex-title" style="margin-top:16px;">練習２　日本語→英語の穴埋め（⑥〜⑩）</div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑥ 先生は私たちに教室の掃除をさせました。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">The teacher <b>made</b> <b>us</b> <b>clean</b> the classroom.</div>
+        <div class="ans-note">▶ made us clean　O は us（目的格）、clean は原形</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑦ お父さんは私たちに公園で遊ばせてくれます。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">Our father <b>lets</b> <b>us</b> <b>play</b> in the park.</div>
+        <div class="ans-note">▶ let us play　「許可してくれる」→ let を使う</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑧ 彼女は私が重いかばんを運ぶのを手伝ってくれました。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">She <b>helped</b> <b>me</b> <b>carry</b> the heavy bags.</div>
+        <div class="ans-note">▶ helped me carry（または to carry）どちらも正解！</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑨ 彼のスピーチはみんなを泣かせました。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">His speech <b>made</b> <b>everyone</b> <b>cry</b>.</div>
+        <div class="ans-note">▶ made everyone cry　主語はスピーチ（物）でも make が使える</div>
+      </div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">⑩ 友だちは私が宿題を終わらせるのを手伝ってくれました。</div>
+      <button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+      <div class="answer-box">
+        <div class="ans-en">My friend <b>helped</b> <b>me</b> <b>finish</b> my homework.</div>
+        <div class="ans-note">▶ helped me finish（または to finish）どちらも正解！</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer>
+  上野作　英語復習活用ホームページ｜Lesson 11-4
+</footer>
+
+<!-- ════════════════════════════════ -->
+<!-- 確認クイズ -->
+<!-- ════════════════════════════════ -->
+<div style="max-width:720px; margin:0 auto; padding:0 16px;">
+<div class="quiz-section" id="quiz">
+  <div class="quiz-section-header">🎯 確認クイズ　Lesson 11-4（全8問）</div>
+  <div class="quiz-section-body">
+    <div id="quiz-start">
+      <p style="font-size:13.5px; color:var(--sub); margin-bottom:14px;">
+        解説を読んだら腕試し！全8問、即採点します 🎯
+      </p>
+      <button class="start-btn" onclick="startQuiz()">🚀 クイズをスタート！</button>
+    </div>
+
+    <div id="quiz-body">
+      <div class="q-progress-wrap"><div id="q-progress"></div></div>
+      <div id="q-num"></div>
+      <div id="q-text"></div>
+      <div id="q-options"></div>
+      <div id="q-hint" class="q-hint"></div>
+      <button id="q-next" onclick="nextQ()">次の問題 →</button>
+    </div>
+
+    <div id="quiz-result">
+      <div class="result-circle">
+        <div id="result-score">0/8</div>
+        <div id="result-pct">0%</div>
+      </div>
+      <div id="result-msg"></div>
+      <button class="retry-btn" onclick="retryQuiz()">🔄 もう一度挑戦</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+function toggle(btn) {
+  const box = btn.nextElementSibling;
+  box.classList.toggle('open');
+  btn.textContent = box.classList.contains('open') ? '隠す' : '答えを見る';
+}
+function showAll() {
+  document.querySelectorAll('.answer-box').forEach(b => b.classList.add('open'));
+  document.querySelectorAll('.answer-toggle').forEach(b => b.textContent = '隠す');
+}
+
+// ── Quiz ──────────────────────────────────────────────
+const QUESTIONS = [
+  {
+    q: "次の日本語を英語にしたとき、（　）に入る動詞はどれ？\n\n先生は私たちに掃除をさせました。\nThe teacher （　） us clean the classroom.",
+    opts: ["made", "let", "had", "helped"],
+    ans: 0,
+    hint: "「強制的にやらせた」→ make を使う。過去形は made。"
+  },
+  {
+    q: "（　）に入る動詞の原形はどれ？\n\nPlease let me （　） when you need help.",
+    opts: ["know", "to know", "knowing", "knows"],
+    ans: 0,
+    hint: "let me know は「知らせてください」という定番表現。let の後は動詞原形（to なし）！"
+  },
+  {
+    q: "次のうち、正しい英文はどれ？",
+    opts: [
+      "My mother makes me eat yogurt.",
+      "My mother makes me to eat yogurt.",
+      "My mother makes me eating yogurt.",
+      "My mother makes me eats yogurt."
+    ],
+    ans: 0,
+    hint: "make / let / have の後の動詞は必ず原形（to なし）！"
+  },
+  {
+    q: "「父は私たちに公園で遊ばせてくれます。」\nOur father （　） us play in the park.\n（　）に入るのは？",
+    opts: ["lets", "makes", "has", "helps"],
+    ans: 0,
+    hint: "「許可してあげる」ニュアンス → let を使う。lets は三人称単数現在形。"
+  },
+  {
+    q: "help を使う文として正しいのはどれ？",
+    opts: [
+      "She helped me carry the bags.",
+      "She helped me carries the bags.",
+      "She helped me carried the bags.",
+      "She helped me to carried the bags."
+    ],
+    ans: 0,
+    hint: "help ＋ O ＋ 動詞原形（または to ＋ 動詞原形）。helped me carry が正解！"
+  },
+  {
+    q: "次の日本語を英語にしたとき、（　）に入る語はどれ？\n\n彼のスピーチはみんなを泣かせました。\nHis speech made everyone （　）.",
+    opts: ["cry", "cried", "to cry", "crying"],
+    ans: 0,
+    hint: "made ＋ O ＋ 動詞原形。cry が正解。to cry ではない！"
+  },
+  {
+    q: "make と let の違いとして正しいものはどれ？",
+    opts: [
+      "make は強制、let は許可のニュアンス",
+      "make は許可、let は強制のニュアンス",
+      "make も let も同じ意味",
+      "make は現在形のみ、let は過去形のみ使う"
+    ],
+    ans: 0,
+    hint: "make = むりやりさせる（強制）／ let = 〜することを許す（許可）"
+  },
+  {
+    q: "「彼女は私が宿題を終わらせるのを手伝ってくれました。」\nの正しい英文はどれ？",
+    opts: [
+      "She helped me finish my homework.",
+      "She let me finish my homework.",
+      "She made me finish my homework.",
+      "She had me finish my homework."
+    ],
+    ans: 0,
+    hint: "「手伝う」→ help。She helped me finish my homework. が正解！"
+  }
+];
+
+let qIdx = 0, score = 0;
+
+function startQuiz() {
+  qIdx = 0; score = 0;
+  document.getElementById('quiz-start').style.display = 'none';
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('quiz-body').style.display = 'block';
+  showQ();
+}
+
+function showQ() {
+  const q = QUESTIONS[qIdx];
+  document.getElementById('q-progress').style.width = (qIdx / QUESTIONS.length * 100) + '%';
+  document.getElementById('q-num').textContent = `問題 ${qIdx + 1} / ${QUESTIONS.length}`;
+  document.getElementById('q-text').textContent = q.q;
+  const hint = document.getElementById('q-hint');
+  hint.style.display = 'none'; hint.textContent = '';
+  document.getElementById('q-next').style.display = 'none';
+  const opts = document.getElementById('q-options');
+  opts.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'q-opt';
+    btn.textContent = o;
+    btn.onclick = () => answer(i);
+    opts.appendChild(btn);
+  });
+}
+
+function answer(i) {
+  const q = QUESTIONS[qIdx];
+  const btns = document.querySelectorAll('.q-opt');
+  btns.forEach(b => b.disabled = true);
+  const hint = document.getElementById('q-hint');
+  if (i === q.ans) {
+    btns[i].classList.add('correct');
+    hint.className = 'q-hint correct-hint';
+    hint.textContent = '✅ 正解！　' + q.hint;
+    score++;
+  } else {
+    btns[i].classList.add('wrong');
+    btns[q.ans].classList.add('correct');
+    hint.className = 'q-hint wrong-hint';
+    hint.textContent = '❌ 不正解　' + q.hint;
+  }
+  hint.style.display = 'block';
+  document.getElementById('q-next').style.display = 'block';
+}
+
+function nextQ() {
+  qIdx++;
+  if (qIdx < QUESTIONS.length) {
+    showQ();
+  } else {
+    document.getElementById('quiz-body').style.display = 'none';
+    document.getElementById('quiz-result').style.display = 'block';
+    document.getElementById('q-progress').style.width = '100%';
+    document.getElementById('result-score').textContent = `${score}/${QUESTIONS.length}`;
+    document.getElementById('result-pct').textContent = Math.round(score / QUESTIONS.length * 100) + '%';
+    const msgs = ['もう少し復習しよう💪', 'いいね！あと一息！', 'よくできました👏', 'パーフェクト！🎉'];
+    document.getElementById('result-msg').textContent = msgs[Math.min(Math.floor(score / QUESTIONS.length * 3.99), 3)];
+  }
+}
+
+function retryQuiz() {
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('quiz-start').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
