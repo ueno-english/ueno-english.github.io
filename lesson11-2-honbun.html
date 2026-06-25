@@ -177,6 +177,65 @@
       color: var(--sub);
       border-top: 1px solid var(--border);
     }
+  
+    /* ─── 英問英答 ─── */
+    .qanda-section { margin-top: 28px; }
+    .qa-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+    }
+    .qa-question {
+      padding: 12px 14px 10px;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--blue);
+      font-family: Georgia, "Times New Roman", serif;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .qa-qnum {
+      background: var(--blue);
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 3px 9px;
+      border-radius: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .qa-toggle-btn {
+      display: block;
+      width: calc(100% - 28px);
+      margin: 0 14px 12px;
+      padding: 8px;
+      background: #f5f0ff;
+      border: 1px dashed #c4a0dc;
+      border-radius: 8px;
+      font-size: 12.5px;
+      color: #6a1a7a;
+      cursor: pointer;
+      text-align: center;
+      font-family: "Hiragino Sans", "Meiryo", sans-serif;
+      transition: background 0.2s;
+    }
+    .qa-toggle-btn:hover { background: #ece0ff; }
+    .qa-answer {
+      display: none;
+      padding: 10px 16px 14px;
+      font-size: 14px;
+      color: #1a5a1a;
+      background: #f0fff4;
+      border-top: 1px solid #b8e0c0;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.8;
+    }
+    .qa-answer.open { display: block; }
   </style>
   <!-- Security Headers -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
