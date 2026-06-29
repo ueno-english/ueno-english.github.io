@@ -465,5 +465,19 @@
   </div>
 </footer>
 
+
+<script>
+function toggleQA(btn) {
+  var ans = btn.nextElementSibling;
+  if (ans.classList.contains('open')) {
+    ans.classList.remove('open');
+    btn.textContent = '▶ 答えを見る';
+  } else {
+    ans.classList.add('open');
+    btn.textContent = '▲ 答えを閉じる';
+  }
+}
+</script>
+
 </body>
 </html>
