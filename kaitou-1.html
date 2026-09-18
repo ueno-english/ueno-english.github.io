@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解答解説① 現在・過去・未来｜上野作 英語復習活用ホームページ</title>
+<style>
+:root{--blue:#b5006e;--red:#c0392b;--green:#1a7a1a;--gold:#d4700a;--bg:#fff0f6;--card:#fff;--border:#f5c6df;--text:#222;--sub:#555;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Hiragino Sans","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;}
+header{background:linear-gradient(135deg,#7b003d 0%,#e91e8c 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
+header .lesson-label{font-size:12px;letter-spacing:2px;opacity:.85;margin-bottom:4px;}
+header h1{font-size:20px;font-weight:bold;margin-bottom:6px;}
+header .topics{font-size:12px;opacity:.9;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;display:inline-block;}
+nav{display:flex;overflow-x:auto;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--border);}
+nav a{white-space:nowrap;text-decoration:none;background:var(--blue);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;}
+main{padding:16px;max-width:720px;margin:0 auto;}
+.section{background:var(--card);border-radius:12px;border:1px solid var(--border);margin-bottom:20px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+.section-header{background:var(--blue);color:#fff;padding:12px 16px;font-weight:bold;font-size:15px;}
+.section-body{padding:16px;}
+.grp{background:#f9fbfd;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;}
+.grp-title{font-weight:bold;color:var(--blue);font-size:13.5px;margin-bottom:8px;}
+.prob-list{padding-left:20px;font-size:13.5px;margin-bottom:8px;}
+.prob-list li{margin-bottom:5px;font-family:Georgia,"Times New Roman",serif;}
+.prob-jp{font-size:12.5px;color:var(--sub);margin-bottom:6px;}
+.answer-toggle{background:none;border:1px solid var(--red);color:var(--red);border-radius:20px;padding:4px 14px;font-size:12px;cursor:pointer;}
+.answer-toggle:hover{background:#fff0f0;}
+.answer-box{display:none;margin-top:8px;background:#fff8f8;border-left:3px solid var(--red);padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;}
+.answer-box.open{display:block;}
+.ans-list{padding-left:20px;}
+.ans-list li{margin-bottom:4px;color:var(--red);font-weight:bold;font-family:Georgia,serif;}
+.ans-list li .jp{color:var(--sub);font-weight:normal;font-family:"Hiragino Sans","Meiryo",sans-serif;font-size:12px;}
+.note{font-size:12px;color:var(--sub);margin-top:6px;background:#fff8e8;border:1px solid #f0d080;border-radius:6px;padding:6px 10px;}
+.show-all-btn{display:block;width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;cursor:pointer;margin-bottom:14px;}
+.show-all-btn:hover{opacity:.88;}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);margin-top:10px;}
+</style>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+<div class="lesson-label">中学英語 総復習 Unit 1</div>
+<h1>解答解説① 現在・過去・未来</h1>
+<div class="topics">確認問題・練成問題の解答＋一言解説</div>
+</header>
+
+<nav>
+<a href="sofukushu-1.html">📖 文法解説ページへ</a>
+<a href="#kakunin">確認問題</a>
+<a href="#rensei">練成問題</a>
+</nav>
+
+<main>
+
+<div class="section" id="kakunin">
+<div class="section-header">確認問題（教科書 p.6-7）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　●be動詞の現在形●　is, am, are のうち適する語を書きなさい</div>
+<ol class="prob-list">
+<li>Hello. My name ___ Yuji. I ___ from Tokyo, Japan.</li>
+<li>We ___ fifteen years old.</li>
+<li>Ms. Green ___ a very kind teacher.</li>
+<li>There ___ thirty students in my class.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>is, am</li><li>are</li><li>is</li><li>are</li>
+</ol><div class="note">💡 I→am／3人称単数→is／you・複数→are。There is/are も主語（あとの名詞）の数で決まる。</div></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　●一般動詞の現在形●　「 」内の日本語の意味を表すように</div>
+<ol class="prob-list">
+<li>My grandmother ___ a computer.「コンピュータをほしがっています」</li>
+<li>The earth ___ around the sun.「太陽の周りをまわります」</li>
+<li>My brother usually ___ TV after dinner.「テレビを見ます」</li>
+<li>Aki ___ English and ___ it every day.「英語が好きで、毎日勉強します」</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>wants</li><li>goes [moves]</li><li>watches</li><li>likes, studies</li>
+</ol><div class="note">💡 主語が3人称単数（My grandmother, The earth, My brother, Aki）なので動詞に -s / -es。</div></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　●be動詞の過去形●　was, were のうち適する語を書き、日本語に直す</div>
+<ol class="prob-list">
+<li>I ___ late for school this morning.</li>
+<li>Mr. and Mrs. Brown ___ in Okinawa from 1996 to 2004.</li>
+<li>There ___ a cup on the table then.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>was <span class="jp">わたしはけさ、学校に遅れました。</span></li>
+<li>were <span class="jp">ブラウン夫妻は1996年から2004年まで沖縄にいました。</span></li>
+<li>was <span class="jp">そのとき、テーブルの上にカップがありました。</span></li>
+</ol><div class="note">💡 I・3人称単数（Mr. and Mrs. Brown は複数扱い）で was/were を使い分ける。There was/were も後ろの名詞の数で決まる。</div></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　●一般動詞の過去形●　日本文に合う英文に</div>
+<ol class="prob-list">
+<li>わたしたちはきのう、公園でテニスをしました。 We ___ tennis in the park ___.</li>
+<li>その映画は1時間前に始まりました。 The movie ___ an hour ___.</li>
+<li>彼女は先月3冊の本を読みました。 She ___ three books ___.</li>
+<li>わたしは昨夜、祖父に手紙を書きました。 I ___ a letter to my grandfather ___.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>played, yesterday</li><li>started [began], ago</li><li>read, last month</li><li>wrote, last night</li>
+</ol><div class="note">💡 過去を表す語句（yesterday, 〜 ago, last month, last night）とセットで動詞を過去形にする。read の過去形はつづりは同じでも発音が変わる（レッド）。</div></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　●否定文●　次の文を否定文に</div>
+<ol class="prob-list">
+<li>I am a high school student.</li>
+<li>My mother speaks English.</li>
+<li>Bob had breakfast this morning.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>I am [I'm] not a high school student.</li>
+<li>My mother does not [doesn't] speak English.</li>
+<li>Bob did not [didn't] have breakfast this morning.</li>
+</ol><div class="note">💡 一般動詞の否定文は do/does/did＋not＋動詞の原形。have は didn't have（原形に戻す）。</div></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">6　●疑問文●　疑問文に書きかえ、（　）の語を使って答える</div>
+<ol class="prob-list">
+<li>She was busy yesterday.（yes）</li>
+<li>There is a Chinese restaurant near here.（yes）</li>
+<li>They watched the baseball game on TV last night.（no）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>Was she busy yesterday? — Yes, she was.</li>
+<li>Is there a Chinese restaurant near here? — Yes, there is.</li>
+<li>Did they watch the baseball game on TV last night? — No, they did not [didn't].</li>
+</ol><div class="note">💡 be動詞の疑問文はbe動詞を主語の前に出すだけ。一般動詞の疑問文はDo/Does/Didを文頭に置き、動詞は原形に戻す。</div></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">7　●進行形●　①現在進行形（now）②過去進行形（then）に書きかえ</div>
+<ol class="prob-list">
+<li>My sister uses my computer.</li>
+<li>I don't listen to the radio.</li>
+<li>Do they swim in the river?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>① My sister is using my computer now. ② My sister was using my computer then.</li>
+<li>① I am [I'm] not listening to the radio now. ② I was not [wasn't] listening to the radio then.</li>
+<li>① Are they swimming in the river now? ② Were they swimming in the river then?</li>
+</ol><div class="note">💡 進行形はbe動詞＋〜ing。否定・疑問はbe動詞の文と同じ形（be動詞にnot、be動詞を主語の前に）。一般動詞の元の文の否定・疑問は関係なくなる。</div></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">8　●未来の文●　日本文に合う英文になるように語句を並べかえ</div>
+<ol class="prob-list">
+<li>わたしは来月で15歳になります。（be / I / fifteen / will）next month.</li>
+<li>父はフレンチ・レストランへは行かないでしょう。（go / will / my father / not）to a French restaurant.</li>
+<li>彼は山へカメラを持っていくでしょうか。（he / his camera / take / will）to the mountains?</li>
+<li>雨が降りそうです。（going / is / it / rain / to）.</li>
+<li>①わたしは新しいラケットを買うつもりはありません。（am / buy / going / I / not / to）a new racket.　②あなたは新しいのを買うつもりですか。（to / are / buy / going / you）a new one?</li>
+<li>彼らは来週、引っ越します。（are / they / next / moving / week）.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>I will be fifteen next month.</li>
+<li>My father will not go to a French restaurant.</li>
+<li>Will he take his camera to the mountains?</li>
+<li>It is going to rain.</li>
+<li>① I am not going to buy a new racket. ② Are you going to buy a new one?</li>
+<li>They are moving next week.</li>
+</ol><div class="note">💡 will＋動詞の原形と be going to＋動詞の原形は、どちらも未来を表す。疑問文は will／be動詞を主語の前に、否定文は will not（won't）／be動詞+not。「引っ越す」のような決まっている予定は現在進行形でも表せる。</div></div>
+</div>
+
+</div>
+</div>
+
+<div class="section" id="rensei">
+<div class="section-header">練成問題（教科書 p.8-9）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　英文が「 」内の日本語の意味を表すように</div>
+<ol class="prob-list">
+<li>①My father ___ busy today.「忙しい」　②My father ___ busy yesterday.「忙しかった」　③My father ___ busy tomorrow.「忙しいでしょう」</li>
+<li>①Yumi usually ___ home at seven.「7時に家を出ます」　②Yumi ___ home at seven this morning.「7時に家を出ました」　③Yumi ___ home at seven tomorrow.「7時に家を出るでしょう」　④Yumi ___ home now.「今、家を出るところです」　⑤Yumi ___ home then.「そのとき、家を出るところでした」</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>① is　② was　③ will be</li>
+<li>① leaves　② left　③ will leave　④ is leaving　⑤ was leaving</li>
+</ol><div class="note">💡 today→現在形、yesterday→過去形、tomorrow→未来形、now→現在進行形、then→過去進行形。手がかりの語で時制を判断する。</div></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　〔　〕内の指示に従って書きかえ</div>
+<ol class="prob-list">
+<li>Tom lives in America.〔否定文に〕</li>
+<li>I ate breakfast this morning.〔否定文に〕</li>
+<li>Mike was absent from school yesterday.〔疑問文に〕</li>
+<li>You did your homework.〔疑問文に〕</li>
+<li>Do you study English every day?〔下線部を now にかえて現在進行形の文に〕</li>
+<li>He read an English book last week.〔下線部を then にかえて過去進行形の文に〕</li>
+<li>He goes to the movies every month.〔下線部を tomorrow にかえて9語の文に〕</li>
+<li>It is not sunny now.〔下線部を next Sunday にかえて6語の文に〕</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>Tom does not [doesn't] live in America.</li>
+<li>I did not [didn't] eat breakfast this morning.</li>
+<li>Was Mike absent from school yesterday?</li>
+<li>Did you do your homework?</li>
+<li>Are you studying English now?</li>
+<li>He was reading an English book then.</li>
+<li>He is going to go to the movies tomorrow.</li>
+<li>It'll not [It won't] be sunny next Sunday.</li>
+</ol><div class="note">💡 まずbe動詞の文か一般動詞の文かを見極める。進行形への書きかえはbe動詞＋~ing、未来への書きかえはwill／be going toを使う。</div></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　（　）内の語を必要に応じて文中での適する形に直す。過去・未来を表す語句が無ければ現在の文</div>
+<ol class="prob-list">
+<li>We ___ the party last Sunday.（enjoy）</li>
+<li>Kenta ___ a brother and a sister.（have）</li>
+<li>Yumi and Kumi ___ junior high school students.（be）</li>
+<li>He will ___ to the party tomorrow.（come）</li>
+<li>My father is ___ a chair.（make）</li>
+<li>She ___ in the library two hours ago.（be）</li>
+<li>We were ___ in the sea then.（swim）</li>
+<li>I ___ math yesterday.（study）</li>
+<li>When are you going to ___ your grandmother?（visit）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>enjoyed</li><li>has</li><li>are</li><li>come</li><li>making</li><li>was</li><li>swimming</li><li>studied</li><li>visit</li>
+</ol><div class="note">💡 文中に過去・未来を表す語句（last Sunday, ago, tomorrow など）がなければ現在形にする。will のあとの動詞、be動詞のあとの~ingは原形・ing形のまま。</div></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　AとBの対話になるように</div>
+<ol class="prob-list">
+<li>A: ___ your mother at home now? B: No, she ___. But she ___ be back soon.</li>
+<li>A: ___ you going to see the new movie next Saturday? B: No, I ___. I ___ it last Friday.</li>
+<li>A: How ___ your father usually go to work? B: He ___ to work by train. But he ___ there by car yesterday.</li>
+<li>A: When ___ you take these pictures? B: I ___ them last summer. I ___ staying in Okinawa then.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>Is / isn't, will</li>
+<li>Are / am not, saw</li>
+<li>does / goes, went</li>
+<li>did / took, was</li>
+</ol><div class="note">💡 応答（B）の主語・時制に合わせて、疑問文（A）のbe動詞・助動詞・Do/Does/Didを選ぶ。過去の対話ではDidや過去形が続く。</div></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　日本文に合う英文に（　）内の語句を並べかえ。1語ずつ不足あり</div>
+<ol class="prob-list">
+<li>スミス先生はわたしたちにとても親切です。（us / kind / Mr. Smith / to / very）.</li>
+<li>わたしは今、自分の部屋をそうじしているところです。（room / I / my / am / now）.</li>
+<li>彼はその日、皿洗いをしませんでした。（he / that day / the dishes / wash）.</li>
+<li>彼はわたしの宿題を手伝ってくれるでしょうか。（he / me / help / my homework / with）?</li>
+<li>あなたはカナダにどれくらいいましたか。（in / how / you / long / Canada）?</li>
+<li>あなたのお姉さんは毎日、英語を勉強していますか。（study / day / your / English / sister / every）?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>Mr. Smith is very kind to us.</li>
+<li>I am cleaning my room now.</li>
+<li>He didn't wash the dishes that day.</li>
+<li>Will he help me with my homework?</li>
+<li>How long were you in Canada?</li>
+<li>Does your sister study English every day?</li>
+</ol><div class="note">💡 タイトルどおり（　）内には1語足りない。is, was, do などbe動詞・助動詞が抜けていることが多いので、文法的に必要な語を補いながら並べる。</div></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">6　日本文を英語に直す</div>
+<ol class="prob-list">
+<li>わたしたちの学校は8時30分に始まります。</li>
+<li>あなたは昨夜、早く寝ましたか。</li>
+<li>①あなたはわたしの話を聞いていませんでした。②何を考えていたのですか。</li>
+<li>今はくもりですが、今夜は雨でしょう。</li>
+<li>あなたは次の日曜日に何をするつもりですか。— 公園で友だちとテニスをするつもりです。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li>Our school starts [begins] at eight thirty.</li>
+<li>Did you go to bed early last night?</li>
+<li>① You were not [weren't] listening to me [my story]. ② What were you thinking (about [of])?</li>
+<li>It is [It's] cloudy now, but it will [it'll] be rainy tonight. または It is [It's] cloudy now, but it will [it'll] rain this evening.</li>
+<li>What are you going to do next Sunday? または What will you do next Sunday? — I am [I'm] going to play tennis with my friend(s) in the park. または I will [I'll] play tennis with my friend(s) in the park.</li>
+</ol><div class="note">💡 日本語の時制（過去・現在・未来）をまず見極め、それに合う形（過去形／進行形／will・be going to）で英作文する。「〜でしょう」は未来、「〜していた」は過去進行形の合図。</div></div>
+</div>
+
+</div>
+</div>
+
+</main>
+
+<footer>上野作　英語復習活用ホームページ｜解答解説① 現在・過去・未来</footer>
+
+<script>
+function toggle(btn){var box=btn.nextElementSibling;box.classList.toggle('open');btn.textContent=box.classList.contains('open')?'答えを隠す':'答えを見る';}
+function showAll(){document.querySelectorAll('.answer-box').forEach(function(b){b.classList.add('open');});document.querySelectorAll('.answer-toggle').forEach(function(b){b.textContent='答えを隠す';});}
+</script>
+<script data-goatcounter="https://ueno-english.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

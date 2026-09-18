@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>総復習④ 形容詞・副詞｜上野作 英語復習活用ホームページ</title>
+  <style>
+    :root {
+      --blue:  #b5006e;
+      --red:   #c0392b;
+      --green: #1a7a1a;
+      --gold:  #d4700a;
+      --bg:    #fff0f6;
+      --card:  #ffffff;
+      --border:#f5c6df;
+      --text:  #222;
+      --sub:   #555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Hiragino Sans", "Meiryo", sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; }
+    header { background: linear-gradient(135deg, #7b003d 0%, #e91e8c 100%); color: white; padding: 20px 16px 16px; text-align: center; }
+    header .lesson-label { font-size: 12px; letter-spacing: 2px; opacity: 0.85; margin-bottom: 4px; }
+    header h1 { font-size: 20px; font-weight: bold; margin-bottom: 6px; }
+    header .topics { font-size: 12px; opacity: 0.9; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 4px 14px; display: inline-block; }
+    nav { display: flex; overflow-x: auto; gap: 8px; padding: 12px 16px; background: white; border-bottom: 1px solid var(--border); }
+    nav a { white-space: nowrap; text-decoration: none; background: var(--blue); color: white; padding: 6px 14px; border-radius: 20px; font-size: 13px; }
+    nav a:hover { opacity: 0.85; }
+    main { padding: 16px; max-width: 720px; margin: 0 auto; }
+    .section { background: var(--card); border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    .section-header { background: var(--blue); color: white; padding: 12px 16px; font-weight: bold; font-size: 15px; }
+    .section-body { padding: 16px; }
+    .point-box { background: #eef4fb; border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0; padding: 12px 14px; margin-bottom: 14px; }
+    .point-box .emoji-title { font-weight: bold; font-size: 14px; margin-bottom: 6px; }
+    .r { color: var(--red); font-weight: bold; }
+    .g { color: var(--green); font-weight: bold; }
+    .b { color: var(--blue); font-weight: bold; }
+    .warn { background: #fff0f0; border: 1px solid #f5b8b8; border-radius: 8px; padding: 10px 14px; font-size: 13.5px; margin: 10px 0; }
+    .warn strong { color: var(--red); }
+    .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+    .comp-table th { background: var(--blue); color: white; padding: 8px 10px; text-align: center; }
+    .comp-table td { padding: 8px 10px; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+    .comp-table tr:nth-child(even) td { background: #f9f4f8; }
+    .kp-box { background: #fff0f6; border: 2px solid var(--blue); border-radius: 10px; padding: 14px 16px; margin: 12px 0; font-size: 13.5px; }
+    .kp-box .kp-title { font-weight: bold; color: var(--blue); font-size: 14px; margin-bottom: 10px; }
+    .formula-box { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-family: monospace; font-size: 13.5px; line-height: 2; }
+    .ex-line { font-family: Georgia, "Times New Roman", serif; font-size: 14px; margin: 8px 0 3px; }
+    .ex-jp { font-size: 12.5px; color: var(--sub); margin-bottom: 6px; }
+    .ex-title { font-weight: bold; font-size: 14px; color: var(--blue); border-bottom: 2px solid var(--blue); padding-bottom: 4px; margin-bottom: 12px; }
+    footer { text-align: center; padding: 20px; font-size: 12px; color: var(--sub); border-top: 1px solid var(--border); margin-top: 10px; }
+    /* クイズ */
+    .quiz-section { background: var(--card); border: 2px solid var(--blue); border-radius: 12px; margin: 20px 0 30px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.08); }
+    .quiz-section-header { background: linear-gradient(135deg, #7b003d 0%, #e91e8c 100%); color: white; padding: 14px 16px; font-size: 16px; font-weight: bold; text-align: center; }
+    .quiz-section-body { padding: 16px; }
+    #quiz-start { text-align: center; padding: 10px 0 6px; }
+    .start-btn { background: var(--blue); color: white; border: none; border-radius: 30px; padding: 14px 40px; font-size: 16px; font-weight: bold; cursor: pointer; letter-spacing: 1px; }
+    .start-btn:hover { opacity: 0.88; }
+    #quiz-body { display: none; }
+    .q-progress-wrap { background: #e8edf2; border-radius: 10px; height: 6px; margin-bottom: 12px; overflow: hidden; }
+    #q-progress { height: 100%; background: var(--blue); border-radius: 10px; transition: width 0.4s; width: 0%; }
+    #q-num { font-size: 12px; color: var(--sub); text-align: right; margin-bottom: 8px; }
+    #q-text { font-size: 15px; font-weight: bold; margin-bottom: 14px; line-height: 1.6; white-space: pre-line; }
+    #q-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+    .q-opt { background: #f4f7fa; border: 2px solid var(--border); border-radius: 10px; padding: 11px 14px; font-size: 14px; text-align: left; cursor: pointer; transition: background 0.15s, border-color 0.15s; line-height: 1.5; }
+    .q-opt:hover:not(:disabled) { background: #fff0f6; border-color: var(--blue); }
+    .q-opt.correct { background: #e8f8e8; border-color: var(--green); color: var(--green); font-weight: bold; }
+    .q-opt.wrong   { background: #fdecea; border-color: var(--red); color: var(--red); font-weight: bold; }
+    .q-opt:disabled { cursor: default; }
+    .q-hint { font-size: 13px; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; display: none; line-height: 1.6; }
+    .correct-hint { background: #e8f8e8; color: var(--green); border-left: 3px solid var(--green); }
+    .wrong-hint   { background: #fdecea; color: var(--red); border-left: 3px solid var(--red); }
+    #q-next { display: none; width: 100%; background: var(--blue); color: white; border: none; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: bold; cursor: pointer; }
+    #q-next:hover { opacity: 0.88; }
+    #quiz-result { display: none; text-align: center; padding: 10px 0 6px; }
+    .result-circle { width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), #e91e8c); margin: 0 auto 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; }
+    #result-score { font-size: 22px; font-weight: bold; }
+    #result-pct   { font-size: 13px; opacity: 0.85; }
+    #result-msg   { font-size: 16px; font-weight: bold; margin: 10px 0 16px; }
+    .retry-btn { background: none; border: 2px solid var(--blue); color: var(--blue); border-radius: 30px; padding: 10px 30px; font-size: 14px; font-weight: bold; cursor: pointer; }
+    .retry-btn:hover { background: #fff0f6; }
+  </style>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+  <div class="lesson-label">中学英語 総復習 Unit 4</div>
+  <h1>総復習④ 形容詞・副詞</h1>
+  <div class="topics">形容詞の用法／many・much・a few・a little／副詞のはたらき・連語</div>
+</header>
+
+<nav>
+  <a href="#kp1">&#127775; 形容詞の用法</a>
+  <a href="#kp2">&#128290; 数・量を表す形容詞</a>
+  <a href="#kp3">&#127939; 副詞のはたらき</a>
+  <a href="#quiz">&#9999; 確認クイズ</a>
+</nav>
+
+<main>
+
+<!-- KP1 形容詞の用法 -->
+<div class="section" id="kp1">
+  <div class="section-header">&#127775; Key Point 1　形容詞の用法</div>
+  <div class="section-body">
+
+    <div class="kp-box">
+      <div class="kp-title">&#9312; 名詞を修飾する（限定用法）　〈a, an, the ＋ 形容詞 ＋ 名詞〉</div>
+      <div class="ex-line"><i>Tom has a <span class="b">small black</span> dog.</i></div>
+      <div class="ex-jp">トムは小さな黒い犬を飼っています。</div>
+    </div>
+
+    <div class="warn">
+      &#9888;&#65039; <strong>something のような -thing で終わる語は、形容詞をあとに置く</strong><br>
+      <i>I saw <span class="b">something white</span>.</i>（何か白いものを見た）
+    </div>
+
+    <div class="kp-box">
+      <div class="kp-title">&#9313; 補語として主語を説明する（叙述用法）　〈主語 ＋ 動詞 ＋ 形容詞〉</div>
+      <div class="ex-line"><i>His new movie <span class="b">is</span> <span class="r">wonderful</span>.</i></div>
+      <div class="ex-jp">彼の新しい映画はすばらしい。（his new movie ＝ wonderful）</div>
+      <div class="ex-line"><i>This car <span class="b">looks</span> <span class="r">old</span>.</i></div>
+      <div class="ex-jp">この車は古そうに見える。（look, sound, feel なども同じ形）</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- KP2 数・量を表す形容詞 -->
+<div class="section" id="kp2">
+  <div class="section-header">&#128290; Key Point 2　数・量を表す形容詞</div>
+  <div class="section-body">
+
+    <table class="comp-table">
+      <tr><th></th><th>数えられる名詞</th><th>数えられない名詞</th></tr>
+      <tr><td>たくさんの</td><td>many</td><td>much</td></tr>
+      <tr><td></td><td colspan="2" style="text-align:center;">a lot of（どちらにも使える）</td></tr>
+      <tr><td>いくらかの</td><td colspan="2" style="text-align:center;">some, any</td></tr>
+      <tr><td>少しの</td><td>a few</td><td>a little</td></tr>
+      <tr><td>ほとんどない</td><td>few</td><td>little</td></tr>
+      <tr><td>まったくない</td><td colspan="2" style="text-align:center;">no</td></tr>
+    </table>
+
+    <div class="ex-line"><i>I drink <span class="b">a lot of</span> tea.</i>　〔肯定文〕</div>
+    <div class="ex-line"><i>I don&#39;t drink <span class="b">much</span> coffee.</i>　〔否定文〕</div>
+    <div class="ex-line"><i>Do you drink <span class="b">much</span> tea?</i>　〔疑問文〕</div>
+
+    <div class="warn">
+      &#9888;&#65039; <strong>some と any の使い分け</strong><br>
+      <i>He has <b>some</b> music CDs.</i>（何枚かのCD＝肯定文）<br>
+      <i>Do you have <b>any</b> CDs?</i>（何枚かのCD＝疑問文）<br>
+      <i>I don&#39;t have <b>any</b> CDs.</i>（1枚のCDも〈ない〉＝否定文）<br>
+      <i><b>Any</b> music is fine with her.</i>（どんな音楽でも＝肯定文でも使える用法）
+    </div>
+
+  </div>
+</div>
+
+<!-- KP3 副詞のはたらき -->
+<div class="section" id="kp3">
+  <div class="section-header">&#127939; Key Point 3　副詞のはたらき</div>
+  <div class="section-body">
+
+    <div class="kp-box">
+      <div class="kp-title">&#9312; 動詞を修飾する</div>
+      <div class="ex-line"><i>My father <span class="b">always</span> comes home late at night.</i></div>
+      <div class="ex-jp">父はいつも夜遅くに帰ってきます。</div>
+      <table class="comp-table" style="margin-top:8px;">
+        <tr><th>頻度を表す副詞</th><th>意味</th></tr>
+        <tr><td>always</td><td>いつも</td></tr>
+        <tr><td>usually</td><td>たいてい</td></tr>
+        <tr><td>often</td><td>しばしば、よく</td></tr>
+        <tr><td>sometimes</td><td>ときどき</td></tr>
+      </table>
+    </div>
+
+    <div class="kp-box">
+      <div class="kp-title">&#9313; 形容詞を修飾する／&#9314; 副詞を修飾する</div>
+      <div class="ex-line"><i>Your idea is <span class="b">very</span> interesting.</i></div>
+      <div class="ex-jp">very が形容詞 interesting を修飾。</div>
+      <div class="ex-line"><i>You play video games <span class="b">too</span> much.</i></div>
+      <div class="ex-jp">too が副詞 much を修飾。</div>
+    </div>
+
+    <div class="kp-box">
+      <div class="kp-title">&#9315;〈動詞＋副詞〉の連語（セットで意味が変わる）</div>
+      <table class="comp-table">
+        <tr><th>連語</th><th>意味</th></tr>
+        <tr><td>come back</td><td>もどってくる</td></tr>
+        <tr><td>bring 〜 back</td><td>〜を持ちもどる</td></tr>
+        <tr><td>call 〜 back</td><td>〜に折り返し電話する</td></tr>
+        <tr><td>get on / off</td><td>（乗り物に）乗る／降りる</td></tr>
+        <tr><td>take off</td><td>（服・靴を）脱ぐ</td></tr>
+        <tr><td>turn on / off</td><td>（電源を）つける／消す</td></tr>
+      </table>
+      <div class="ex-line"><i>He <span class="b">came back</span> at seven.</i></div>
+      <div class="ex-line"><i>I often forget to <span class="b">bring</span> my umbrella <span class="b">back</span>.</i></div>
+      <div class="ex-line"><i>I got <span class="b">on</span> at Ueno and got <span class="b">off</span> at Akihabara.</i></div>
+      <div class="ex-jp">上野で乗って秋葉原で降りた。</div>
+      <div class="ex-line"><i>Please <span class="b">take off</span> your shoes when you enter a Japanese house.</i></div>
+      <div class="ex-line"><i>Will you <span class="b">turn off</span> the air conditioner?</i></div>
+    </div>
+
+    <div class="warn">
+      &#9888;&#65039; <strong>代名詞をはさむときは〈動詞＋代名詞＋副詞〉の語順になることが多い</strong><br>
+      &#10003; Please take <b>them</b> off.（× take off them とは言わない）
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<!-- クイズ -->
+<div style="max-width:720px; margin:0 auto; padding:0 16px;">
+<div class="quiz-section" id="quiz">
+  <div class="quiz-section-header">&#9999;&#65047; 確認クイズ　総復習④ 形容詞・副詞（全10問）</div>
+  <div class="quiz-section-body">
+    <div id="quiz-start">
+      <p style="font-size:13.5px; color:var(--sub); margin-bottom:14px;">解説を読んだら腕試し！形容詞と副詞を使い分けよう &#127919;</p>
+      <button class="start-btn" onclick="startQuiz()">&#128640; クイズをスタート！</button>
+    </div>
+    <div id="quiz-body">
+      <div id="q-num"></div>
+      <div class="q-progress-wrap"><div id="q-progress"></div></div>
+      <div id="q-text"></div>
+      <div id="q-options"></div>
+      <div id="q-hint" class="q-hint"></div>
+      <button id="q-next" onclick="nextQuestion()">次の問題へ →</button>
+    </div>
+    <div id="quiz-result">
+      <div class="result-circle">
+        <div id="result-score"></div>
+        <div id="result-pct"></div>
+      </div>
+      <div id="result-msg"></div>
+      <button class="retry-btn" onclick="startQuiz()">&#128260; もう一度チャレンジ</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>
+  上野作　英語復習活用ホームページ｜総復習④ 形容詞・副詞
+</footer>
+
+<script>
+  const quizData = [
+    {
+      q: "「何か白いものを見た。」を正しい語順にすると？",
+      options: ["I saw white something.", "I saw something white.", "I saw a white something.", "I saw something a white."],
+      answer: 1,
+      hint: "-thing で終わる語を修飾する形容詞は後ろに置く。"
+    },
+    {
+      q: "His new movie ___ wonderful.（叙述用法）",
+      options: ["look", "is", "very", "wonderfully"],
+      answer: 1,
+      hint: "〈主語＋動詞＋形容詞〉。be動詞のあとに形容詞がくる。"
+    },
+    {
+      q: "Do you have ___ CDs?（何枚かCDを持っていますか）",
+      options: ["some", "any", "much", "no"],
+      answer: 1,
+      hint: "疑問文では any を使う（肯定文なら some）。"
+    },
+    {
+      q: "I don't have ___ CDs.（1枚も持っていません）",
+      options: ["some", "any", "many", "a few"],
+      answer: 1,
+      hint: "否定文では any を使う（＝1つも〜ない）。"
+    },
+    {
+      q: "I drink ___ tea.（お茶をたくさん飲みます・肯定文）",
+      options: ["much", "a lot of", "any", "little"],
+      answer: 1,
+      hint: "肯定文の「たくさんの」は a lot of（数えられる／数えられない、どちらにも使える）。much は主に否定文・疑問文。"
+    },
+    {
+      q: "We need ___ hours to finish this.（数時間必要だ）",
+      options: ["a few", "a little", "much", "little"],
+      answer: 0,
+      hint: "hours は数えられる名詞。「少しの」は a few。"
+    },
+    {
+      q: "My father ___ comes home late at night.（いつも）",
+      options: ["always", "sometimes", "never come", "usual"],
+      answer: 0,
+      hint: "「いつも」を表す頻度の副詞は always。"
+    },
+    {
+      q: "Your idea is ___ interesting.（とても）",
+      options: ["very much", "too", "very", "much too"],
+      answer: 2,
+      hint: "形容詞 interesting を修飾する副詞は very。"
+    },
+    {
+      q: "「上野で乗って秋葉原で降りた。」\nI got ___ at Ueno and got ___ at Akihabara.",
+      options: ["on / off", "in / out", "up / down", "off / on"],
+      answer: 0,
+      hint: "乗り物に乗る＝get on、降りる＝get off。"
+    },
+    {
+      q: "「エアコンを消してくれますか。」\nWill you turn ___ the air conditioner?",
+      options: ["on", "off", "up", "away"],
+      answer: 1,
+      hint: "turn off で「（電源を）消す」。"
+    }
+  ];
+
+  let current = 0, score = 0, answered = false;
+  function startQuiz() {
+    current = 0; score = 0; answered = false;
+    document.getElementById('quiz-start').style.display = 'none';
+    document.getElementById('quiz-body').style.display = 'block';
+    document.getElementById('quiz-result').style.display = 'none';
+    showQuestion();
+  }
+  function showQuestion() {
+    answered = false;
+    const q = quizData[current];
+    document.getElementById('q-num').textContent = 'Q' + (current + 1) + ' / ' + quizData.length;
+    document.getElementById('q-progress').style.width = ((current / quizData.length) * 100) + '%';
+    document.getElementById('q-text').textContent = q.q;
+    const opts = document.getElementById('q-options');
+    opts.innerHTML = '';
+    q.options.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'q-opt';
+      btn.textContent = opt;
+      btn.onclick = () => selectAnswer(i);
+      opts.appendChild(btn);
+    });
+    document.getElementById('q-hint').style.display = 'none';
+    document.getElementById('q-next').style.display = 'none';
+  }
+  function selectAnswer(i) {
+    if (answered) return;
+    answered = true;
+    const q = quizData[current];
+    const btns = document.querySelectorAll('.q-opt');
+    btns.forEach((btn, idx) => {
+      btn.disabled = true;
+      if (idx === q.answer) btn.classList.add('correct');
+      else if (idx === i) btn.classList.add('wrong');
+    });
+    if (i === q.answer) score++;
+    const hint = document.getElementById('q-hint');
+    hint.textContent = '\u{1F4A1} ' + q.hint;
+    hint.style.display = 'block';
+    hint.className = 'q-hint ' + (i === q.answer ? 'correct-hint' : 'wrong-hint');
+    document.getElementById('q-next').style.display = 'block';
+  }
+  function nextQuestion() {
+    current++;
+    if (current >= quizData.length) showResult();
+    else showQuestion();
+  }
+  function showResult() {
+    document.getElementById('quiz-body').style.display = 'none';
+    document.getElementById('quiz-result').style.display = 'block';
+    const pct = Math.round((score / quizData.length) * 100);
+    const msg = pct === 100 ? '\u{1F3C6} 満点！形容詞・副詞マスター！' :
+                pct >= 70  ? '\u{1F389} よくできました！' :
+                pct >= 40  ? '\u{1F4D6} もう一度解説を読もう！' :
+                             '\u{1F4AA} 復習してから再チャレンジ！';
+    document.getElementById('result-score').textContent = score + ' / ' + quizData.length;
+    document.getElementById('result-pct').textContent = pct + '点';
+    document.getElementById('result-msg').textContent = msg;
+  }
+</script>
+
+<script data-goatcounter="https://ueno-english.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
