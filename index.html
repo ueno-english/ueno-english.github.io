@@ -208,6 +208,32 @@
       line-height: 2;
     }
 
+    /* ─── 学期の区切り ─── */
+    .semester-divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 32px 0 18px;
+    }
+    .semester-divider::before,
+    .semester-divider::after {
+      content: "";
+      flex: 1;
+      height: 2px;
+      background: var(--border);
+    }
+    .semester-divider .semester-badge {
+      background: linear-gradient(135deg, #7b003d 0%, var(--blue2) 100%);
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding: 7px 20px;
+      border-radius: 20px;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(123,0,61,0.25);
+    }
+
     /* ─── フッター ─── */
     footer {
       text-align: center;
@@ -240,6 +266,9 @@
   <div class="notice">
     📢 <strong>使い方</strong>：読みたいページをタップ → 文法の説明と練習問題の答えが確認できます。テスト前の復習に活用しよう！
   </div>
+
+  <!-- ─── 2学期：Sirius ─── -->
+  <div class="semester-divider"><span class="semester-badge">📘 2学期：Sirius（文法別問題集）</span></div>
 
   <!-- ═══════════════════════════════ -->
   <!-- Sirius Unit 1 -->
@@ -595,6 +624,9 @@
 
     </div>
   </div>
+
+  <!-- ─── 1学期：New Treasure ─── -->
+  <div class="semester-divider"><span class="semester-badge">📗 1学期：New Treasure（教科書）</span></div>
 
   <!-- ═══════════════════════════════ -->
   <!-- Lesson 11 -->
