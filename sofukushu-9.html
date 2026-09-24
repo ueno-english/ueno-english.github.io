@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sirius Unit 9 受動態｜上野作 英語復習活用ホームページ</title>
+  <style>
+    :root {
+      --blue:  #b5006e;
+      --red:   #c0392b;
+      --green: #1a7a1a;
+      --gold:  #d4700a;
+      --bg:    #fff0f6;
+      --card:  #ffffff;
+      --border:#f5c6df;
+      --text:  #222;
+      --sub:   #555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Hiragino Sans", "Meiryo", sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; }
+    header { background: linear-gradient(135deg, #7b003d 0%, #e91e8c 100%); color: white; padding: 20px 16px 16px; text-align: center; }
+    header .lesson-label { font-size: 12px; letter-spacing: 2px; opacity: 0.85; margin-bottom: 4px; }
+    header h1 { font-size: 20px; font-weight: bold; margin-bottom: 6px; }
+    header .topics { font-size: 12px; opacity: 0.9; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 4px 14px; display: inline-block; }
+    nav { display: flex; overflow-x: auto; gap: 8px; padding: 12px 16px; background: white; border-bottom: 1px solid var(--border); }
+    nav a { white-space: nowrap; text-decoration: none; background: var(--blue); color: white; padding: 6px 14px; border-radius: 20px; font-size: 13px; }
+    nav a:hover { opacity: 0.85; }
+    main { padding: 16px; max-width: 720px; margin: 0 auto; }
+    .section { background: var(--card); border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    .section-header { background: var(--blue); color: white; padding: 12px 16px; font-weight: bold; font-size: 15px; }
+    .section-body { padding: 16px; }
+    .point-box { background: #eef4fb; border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0; padding: 12px 14px; margin-bottom: 14px; }
+    .point-box .emoji-title { font-weight: bold; font-size: 14px; margin-bottom: 6px; }
+    .r { color: var(--red); font-weight: bold; }
+    .g { color: var(--green); font-weight: bold; }
+    .b { color: var(--blue); font-weight: bold; }
+    .warn { background: #fff0f0; border: 1px solid #f5b8b8; border-radius: 8px; padding: 10px 14px; font-size: 13.5px; margin: 10px 0; }
+    .warn strong { color: var(--red); }
+    .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+    .comp-table th { background: var(--blue); color: white; padding: 8px 10px; text-align: center; }
+    .comp-table td { padding: 8px 10px; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+    .comp-table tr:nth-child(even) td { background: #f9f4f8; }
+    .kp-box { background: #fff0f6; border: 2px solid var(--blue); border-radius: 10px; padding: 14px 16px; margin: 12px 0; font-size: 13.5px; }
+    .kp-box .kp-title { font-weight: bold; color: var(--blue); font-size: 14px; margin-bottom: 10px; }
+    .formula-box { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-family: monospace; font-size: 13.5px; line-height: 2; }
+    .ex-line { font-family: Georgia, "Times New Roman", serif; font-size: 14px; margin: 8px 0 3px; }
+    .ex-jp { font-size: 12.5px; color: var(--sub); margin-bottom: 6px; }
+    .ex-title { font-weight: bold; font-size: 14px; color: var(--blue); border-bottom: 2px solid var(--blue); padding-bottom: 4px; margin-bottom: 12px; }
+    footer { text-align: center; padding: 20px; font-size: 12px; color: var(--sub); border-top: 1px solid var(--border); margin-top: 10px; }
+    .quiz-section { background: var(--card); border: 2px solid var(--blue); border-radius: 12px; margin: 20px 0 30px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.08); }
+    .quiz-section-header { background: linear-gradient(135deg, #7b003d 0%, #e91e8c 100%); color: white; padding: 14px 16px; font-size: 16px; font-weight: bold; text-align: center; }
+    .quiz-section-body { padding: 16px; }
+    #quiz-start { text-align: center; padding: 10px 0 6px; }
+    .start-btn { background: var(--blue); color: white; border: none; border-radius: 30px; padding: 14px 40px; font-size: 16px; font-weight: bold; cursor: pointer; letter-spacing: 1px; }
+    .start-btn:hover { opacity: 0.88; }
+    #quiz-body { display: none; }
+    .q-progress-wrap { background: #e8edf2; border-radius: 10px; height: 6px; margin-bottom: 12px; overflow: hidden; }
+    #q-progress { height: 100%; background: var(--blue); border-radius: 10px; transition: width 0.4s; width: 0%; }
+    #q-num { font-size: 12px; color: var(--sub); text-align: right; margin-bottom: 8px; }
+    #q-text { font-size: 15px; font-weight: bold; margin-bottom: 14px; line-height: 1.6; white-space: pre-line; }
+    #q-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+    .q-opt { background: #f4f7fa; border: 2px solid var(--border); border-radius: 10px; padding: 11px 14px; font-size: 14px; text-align: left; cursor: pointer; transition: background 0.15s, border-color 0.15s; line-height: 1.5; }
+    .q-opt:hover:not(:disabled) { background: #fff0f6; border-color: var(--blue); }
+    .q-opt.correct { background: #e8f8e8; border-color: var(--green); color: var(--green); font-weight: bold; }
+    .q-opt.wrong   { background: #fdecea; border-color: var(--red); color: var(--red); font-weight: bold; }
+    .q-opt:disabled { cursor: default; }
+    .q-hint { font-size: 13px; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; display: none; line-height: 1.6; }
+    .correct-hint { background: #e8f8e8; color: var(--green); border-left: 3px solid var(--green); }
+    .wrong-hint   { background: #fdecea; color: var(--red); border-left: 3px solid var(--red); }
+    #q-next { display: none; width: 100%; background: var(--blue); color: white; border: none; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: bold; cursor: pointer; }
+    #q-next:hover { opacity: 0.88; }
+    #quiz-result { display: none; text-align: center; padding: 10px 0 6px; }
+    .result-circle { width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), #e91e8c); margin: 0 auto 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; }
+    #result-score { font-size: 22px; font-weight: bold; }
+    #result-pct   { font-size: 13px; opacity: 0.85; }
+    #result-msg   { font-size: 16px; font-weight: bold; margin: 10px 0 16px; }
+    .retry-btn { background: none; border: 2px solid var(--blue); color: var(--blue); border-radius: 30px; padding: 10px 30px; font-size: 14px; font-weight: bold; cursor: pointer; }
+    .retry-btn:hover { background: #fff0f6; }
+  </style>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+  <div class="lesson-label">中学英語 Sirius Unit 9</div>
+  <h1>Sirius Unit 9 受動態</h1>
+  <div class="topics">受動態の形と意味／現在・過去の否定文・疑問文</div>
+</header>
+
+<nav>
+  <a href="#kp1">&#128161; 受動態の形</a>
+  <a href="#kp2">&#10060; 現在の否定・疑問</a>
+  <a href="#kp3">&#128336; 過去の受動態</a>
+  <a href="#quiz">&#9999; 確認クイズ</a>
+</nav>
+
+<main>
+
+<div class="section" id="kp1">
+<div class="section-header">&#128161; Key Point 1　受動態の形と意味</div>
+<div class="section-body">
+  <div class="formula-box">〈is[am/are] ＋ 過去分詞〉＝「〜されます、〜されています」</div>
+  <div class="ex-line">The classrooms <span class="b">are cleaned</span> after school.</div>
+  <div class="ex-jp">教室は放課後にそうじされます。</div>
+  <div class="ex-line">This computer <span class="b">is used</span> every day.</div>
+  <div class="ex-jp">このコンピュータは毎日、使われています。</div>
+  <div class="warn">&#9888;&#65039; is, am, are は<strong>主語の人称・数</strong>によって使い分ける。</div>
+  <div class="kp-box">
+    <div class="kp-title">過去分詞の作り方</div>
+    <table class="comp-table">
+      <tr><th>型</th><th>例（原形－過去形－過去分詞）</th></tr>
+      <tr><td>規則動詞</td><td>原形の語尾に(e)dをつける。過去形と同じ形</td></tr>
+      <tr><td>A-B-B型</td><td>make-made-made, hold-held-held</td></tr>
+      <tr><td>A-B-C型</td><td>see-saw-seen, speak-spoke-spoken</td></tr>
+      <tr><td>A-A-A型</td><td>cut-cut-cut, read-read-read（発音は過去形と同じ [red]）</td></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<div class="section" id="kp2">
+<div class="section-header">&#10060; Key Point 2　現在の受動態の否定文・疑問文</div>
+<div class="section-body">
+  <div class="formula-box">否定文：〈主語 ＋ is[am/are] not ＋ 過去分詞〜.〉<br>疑問文：〈Is[Am/Are] ＋ 主語 ＋ 過去分詞〜?〉</div>
+  <div class="ex-line">Apples <span class="r">are not</span> grown around here.</div>
+  <div class="ex-jp">このあたりではリンゴは栽培されていません。</div>
+  <div class="ex-line"><span class="b">Is</span> French taught at your school?</div>
+  <div class="ex-jp">あなたの学校ではフランス語が教えられていますか。</div>
+  <div class="warn">&#9888;&#65039; 答え方：Yes, ＋主語＋is[am/are]. / No, ＋主語＋isn't[am not/aren't].</div>
+</div>
+</div>
+
+<div class="section" id="kp3">
+<div class="section-header">&#128336; Key Point 3　過去の受動態</div>
+<div class="section-body">
+  <div class="formula-box">〈was[were] ＋ 過去分詞〉＝「〜されました、〜されていました」</div>
+  <div class="ex-line">The door <span class="b">was closed</span> then.</div>
+  <div class="ex-jp">そのドアはそのとき、閉じられていました。</div>
+  <div class="kp-box">
+    <div class="kp-title">否定文・疑問文</div>
+    否定文：〈主語 ＋ was[were] not ＋ 過去分詞〜.〉<br>
+    疑問文：〈Was[Were] ＋ 主語 ＋ 過去分詞〜?〉
+    <div class="ex-line" style="margin-top:6px;">The clock <span class="r">was not</span> put on the wall.</div>
+    <div class="ex-jp">その時計は壁にとりつけられませんでした。</div>
+    <div class="ex-line">Were these fish caught in the river?</div>
+    <div class="ex-jp">これらの魚はその川でつかまえられたのですか。</div>
+  </div>
+  <div class="warn">&#9888;&#65039; 答え方：Yes, ＋主語＋was[were]. / No, ＋主語＋wasn't[weren't].</div>
+</div>
+</div>
+
+</main>
+
+<div style="max-width:720px; margin:0 auto; padding:0 16px;">
+<div class="quiz-section" id="quiz">
+  <div class="quiz-section-header">&#9999;&#65039; 確認クイズ　Sirius Unit 9 受動態（全10問）</div>
+  <div class="quiz-section-body">
+    <div id="quiz-start">
+      <p style="font-size:13.5px; color:var(--sub); margin-bottom:14px;">解説を読んだら腕試し！受動態の基本形を確認しよう &#127919;</p>
+      <button class="start-btn" onclick="startQuiz()">&#128640; クイズをスタート！</button>
+    </div>
+    <div id="quiz-body">
+      <div id="q-num"></div>
+      <div class="q-progress-wrap"><div id="q-progress"></div></div>
+      <div id="q-text"></div>
+      <div id="q-options"></div>
+      <div id="q-hint" class="q-hint"></div>
+      <button id="q-next" onclick="nextQuestion()">次の問題へ →</button>
+    </div>
+    <div id="quiz-result">
+      <div class="result-circle">
+        <div id="result-score"></div>
+        <div id="result-pct"></div>
+      </div>
+      <div id="result-msg"></div>
+      <button class="retry-btn" onclick="startQuiz()">&#128260; もう一度チャレンジ</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>上野作　英語復習活用ホームページ｜Sirius Unit 9 受動態</footer>
+
+<script>
+  const quizData = [
+    { q: "The classrooms ___ after school.（そうじされる）", options: ["clean", "cleans", "are cleaned", "cleaned"], answer: 2, hint: "受動態の基本形 is/am/are＋過去分詞。classroomsは複数なのでare。" },
+    { q: "This computer ___ every day.（使われている）", options: ["use", "is used", "used", "uses"], answer: 1, hint: "主語が単数（this computer）なのでis used。" },
+    { q: "Apples ___ grown around here.（栽培されていない）", options: ["don't", "aren't", "isn't", "doesn't"], answer: 1, hint: "受動態の否定はbe動詞のあとにnot。applesは複数なのでaren't。" },
+    { q: "___ French taught at your school?（教えられていますか）", options: ["Do", "Does", "Is", "Are"], answer: 2, hint: "受動態の疑問文はbe動詞を主語の前に。Frenchは単数扱い。" },
+    { q: "This book is ___ all over the world.（世界中で読まれている）", options: ["reads", "reading", "read", "readed"], answer: 2, hint: "readはA-A-A型の不規則動詞。原形・過去形・過去分詞すべてread（発音だけ変わる）。" },
+    { q: "The door ___ then.（閉じられていた）", options: ["closes", "closed", "was closed", "close"], answer: 2, hint: "過去の受動態はwas/were＋過去分詞。" },
+    { q: "The clock ___ not put on the wall.（取りつけられなかった）", options: ["is", "was", "did", "does"], answer: 1, hint: "過去の受動態の否定はwas/were not＋過去分詞。" },
+    { q: "___ these fish caught in the river?（つかまえられたのですか）", options: ["Did", "Do", "Was", "Were"], answer: 3, hint: "these fishは複数扱いなのでWere。" },
+    { q: "\"Was the door locked?\" \"Yes, ___.\"", options: ["it did", "it was", "it is", "it does"], answer: 1, hint: "Was〜?への答えはYes, 主語+was." },
+    { q: "make の過去分詞は？", options: ["maked", "made", "making", "makes"], answer: 1, hint: "makeはA-B-B型の不規則動詞：make-made-made。" }
+  ];
+
+  let current = 0, score = 0, answered = false;
+  function startQuiz() {
+    current = 0; score = 0; answered = false;
+    document.getElementById('quiz-start').style.display = 'none';
+    document.getElementById('quiz-body').style.display = 'block';
+    document.getElementById('quiz-result').style.display = 'none';
+    showQuestion();
+  }
+  function showQuestion() {
+    answered = false;
+    const q = quizData[current];
+    document.getElementById('q-num').textContent = 'Q' + (current + 1) + ' / ' + quizData.length;
+    document.getElementById('q-progress').style.width = ((current / quizData.length) * 100) + '%';
+    document.getElementById('q-text').textContent = q.q;
+    const opts = document.getElementById('q-options');
+    opts.innerHTML = '';
+    q.options.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'q-opt';
+      btn.textContent = opt;
+      btn.onclick = () => selectAnswer(i);
+      opts.appendChild(btn);
+    });
+    document.getElementById('q-hint').style.display = 'none';
+    document.getElementById('q-next').style.display = 'none';
+  }
+  function selectAnswer(i) {
+    if (answered) return;
+    answered = true;
+    const q = quizData[current];
+    const btns = document.querySelectorAll('.q-opt');
+    btns.forEach((btn, idx) => {
+      btn.disabled = true;
+      if (idx === q.answer) btn.classList.add('correct');
+      else if (idx === i) btn.classList.add('wrong');
+    });
+    if (i === q.answer) score++;
+    const hint = document.getElementById('q-hint');
+    hint.textContent = '\u{1F4A1} ' + q.hint;
+    hint.style.display = 'block';
+    hint.className = 'q-hint ' + (i === q.answer ? 'correct-hint' : 'wrong-hint');
+    document.getElementById('q-next').style.display = 'block';
+  }
+  function nextQuestion() {
+    current++;
+    if (current >= quizData.length) showResult();
+    else showQuestion();
+  }
+  function showResult() {
+    document.getElementById('quiz-body').style.display = 'none';
+    document.getElementById('quiz-result').style.display = 'block';
+    const pct = Math.round((score / quizData.length) * 100);
+    const msg = pct === 100 ? '\u{1F3C6} 満点！受動態マスター！' :
+                pct >= 70  ? '\u{1F389} よくできました！' :
+                pct >= 40  ? '\u{1F4D6} もう一度解説を読もう！' :
+                             '\u{1F4AA} 復習してから再チャレンジ！';
+    document.getElementById('result-score').textContent = score + ' / ' + quizData.length;
+    document.getElementById('result-pct').textContent = pct + '点';
+    document.getElementById('result-msg').textContent = msg;
+  }
+</script>
+
+<script data-goatcounter="https://ueno-english.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

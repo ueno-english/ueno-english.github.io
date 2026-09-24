@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sirius Unit 12 目的語と補語｜上野作 英語復習活用ホームページ</title>
+  <style>
+    :root {
+      --blue:  #b5006e;
+      --red:   #c0392b;
+      --green: #1a7a1a;
+      --gold:  #d4700a;
+      --bg:    #fff0f6;
+      --card:  #ffffff;
+      --border:#f5c6df;
+      --text:  #222;
+      --sub:   #555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Hiragino Sans", "Meiryo", sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; }
+    header { background: linear-gradient(135deg, #7b003d 0%, #e91e8c 100%); color: white; padding: 20px 16px 16px; text-align: center; }
+    header .lesson-label { font-size: 12px; letter-spacing: 2px; opacity: 0.85; margin-bottom: 4px; }
+    header h1 { font-size: 20px; font-weight: bold; margin-bottom: 6px; }
+    header .topics { font-size: 12px; opacity: 0.9; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 4px 14px; display: inline-block; }
+    nav { display: flex; overflow-x: auto; gap: 8px; padding: 12px 16px; background: white; border-bottom: 1px solid var(--border); }
+    nav a { white-space: nowrap; text-decoration: none; background: var(--blue); color: white; padding: 6px 14px; border-radius: 20px; font-size: 13px; }
+    nav a:hover { opacity: 0.85; }
+    main { padding: 16px; max-width: 720px; margin: 0 auto; }
+    .section { background: var(--card); border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    .section-header { background: var(--blue); color: white; padding: 12px 16px; font-weight: bold; font-size: 15px; }
+    .section-body { padding: 16px; }
+    .point-box { background: #eef4fb; border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0; padding: 12px 14px; margin-bottom: 14px; }
+    .point-box .emoji-title { font-weight: bold; font-size: 14px; margin-bottom: 6px; }
+    .r { color: var(--red); font-weight: bold; }
+    .g { color: var(--green); font-weight: bold; }
+    .b { color: var(--blue); font-weight: bold; }
+    .warn { background: #fff0f0; border: 1px solid #f5b8b8; border-radius: 8px; padding: 10px 14px; font-size: 13.5px; margin: 10px 0; }
+    .warn strong { color: var(--red); }
+    .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+    .comp-table th { background: var(--blue); color: white; padding: 8px 10px; text-align: center; }
+    .comp-table td { padding: 8px 10px; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+    .comp-table tr:nth-child(even) td { background: #f9f4f8; }
+    .kp-box { background: #fff0f6; border: 2px solid var(--blue); border-radius: 10px; padding: 14px 16px; margin: 12px 0; font-size: 13.5px; }
+    .kp-box .kp-title { font-weight: bold; color: var(--blue); font-size: 14px; margin-bottom: 10px; }
+    .formula-box { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-family: monospace; font-size: 13.5px; line-height: 2; }
+    .ex-line { font-family: Georgia, "Times New Roman", serif; font-size: 14px; margin: 8px 0 3px; }
+    .ex-jp { font-size: 12.5px; color: var(--sub); margin-bottom: 6px; }
+    .ex-title { font-weight: bold; font-size: 14px; color: var(--blue); border-bottom: 2px solid var(--blue); padding-bottom: 4px; margin-bottom: 12px; }
+    footer { text-align: center; padding: 20px; font-size: 12px; color: var(--sub); border-top: 1px solid var(--border); margin-top: 10px; }
+    .quiz-section { background: var(--card); border: 2px solid var(--blue); border-radius: 12px; margin: 20px 0 30px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.08); }
+    .quiz-section-header { background: linear-gradient(135deg, #7b003d 0%, #e91e8c 100%); color: white; padding: 14px 16px; font-size: 16px; font-weight: bold; text-align: center; }
+    .quiz-section-body { padding: 16px; }
+    #quiz-start { text-align: center; padding: 10px 0 6px; }
+    .start-btn { background: var(--blue); color: white; border: none; border-radius: 30px; padding: 14px 40px; font-size: 16px; font-weight: bold; cursor: pointer; letter-spacing: 1px; }
+    .start-btn:hover { opacity: 0.88; }
+    #quiz-body { display: none; }
+    .q-progress-wrap { background: #e8edf2; border-radius: 10px; height: 6px; margin-bottom: 12px; overflow: hidden; }
+    #q-progress { height: 100%; background: var(--blue); border-radius: 10px; transition: width 0.4s; width: 0%; }
+    #q-num { font-size: 12px; color: var(--sub); text-align: right; margin-bottom: 8px; }
+    #q-text { font-size: 15px; font-weight: bold; margin-bottom: 14px; line-height: 1.6; white-space: pre-line; }
+    #q-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+    .q-opt { background: #f4f7fa; border: 2px solid var(--border); border-radius: 10px; padding: 11px 14px; font-size: 14px; text-align: left; cursor: pointer; transition: background 0.15s, border-color 0.15s; line-height: 1.5; }
+    .q-opt:hover:not(:disabled) { background: #fff0f6; border-color: var(--blue); }
+    .q-opt.correct { background: #e8f8e8; border-color: var(--green); color: var(--green); font-weight: bold; }
+    .q-opt.wrong   { background: #fdecea; border-color: var(--red); color: var(--red); font-weight: bold; }
+    .q-opt:disabled { cursor: default; }
+    .q-hint { font-size: 13px; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; display: none; line-height: 1.6; }
+    .correct-hint { background: #e8f8e8; color: var(--green); border-left: 3px solid var(--green); }
+    .wrong-hint   { background: #fdecea; color: var(--red); border-left: 3px solid var(--red); }
+    #q-next { display: none; width: 100%; background: var(--blue); color: white; border: none; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: bold; cursor: pointer; }
+    #q-next:hover { opacity: 0.88; }
+    #quiz-result { display: none; text-align: center; padding: 10px 0 6px; }
+    .result-circle { width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), #e91e8c); margin: 0 auto 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; }
+    #result-score { font-size: 22px; font-weight: bold; }
+    #result-pct   { font-size: 13px; opacity: 0.85; }
+    #result-msg   { font-size: 16px; font-weight: bold; margin: 10px 0 16px; }
+    .retry-btn { background: none; border: 2px solid var(--blue); color: var(--blue); border-radius: 30px; padding: 10px 30px; font-size: 14px; font-weight: bold; cursor: pointer; }
+    .retry-btn:hover { background: #fff0f6; }
+  </style>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+  <div class="lesson-label">中学英語 Sirius Unit 12</div>
+  <h1>Sirius Unit 12 目的語と補語</h1>
+  <div class="topics">目的語を2つとる動詞（SVOO）／補語をとる動詞（SVC・SVOC）</div>
+</header>
+
+<nav>
+  <a href="#kp1">&#128161; 目的語を2つとる動詞</a>
+  <a href="#kp2">&#128260; 前置詞を用いた書きかえ</a>
+  <a href="#kp3">&#10060; 受動態への書きかえ①</a>
+  <a href="#kp4">&#128172; 補語をとる動詞</a>
+  <a href="#kp5">&#127919; 目的語と補語をとる動詞</a>
+  <a href="#quiz">&#9999; 確認クイズ</a>
+</nav>
+
+<main>
+
+<div class="section" id="kp1">
+<div class="section-header">&#128161; Key Point 1　目的語を2つとる動詞（SVOO）　〈動詞＋目的語A＋目的語B〉</div>
+<div class="section-body">
+  <div class="formula-box">〈動詞 ＋ 目的語A（人）＋ 目的語B（もの）〉＝「Aに Bを 〜します」</div>
+  <div class="ex-line">Mr. Brown <span class="b">teaches them</span> <span class="g">American history</span>.</div>
+  <div class="ex-jp">ブラウン先生は彼らにアメリカの歴史を教えます。</div>
+  <div class="ex-line">I will <span class="b">tell you</span> <span class="g">an interesting story</span>.</div>
+  <div class="ex-jp">あなたにおもしろい話をしましょう。</div>
+  <div class="point-box">
+    <div class="emoji-title">&#128204; 目的語を2つとる動詞</div>
+    show, tell, teach, give, send, bring, write, lend, leave, take, buy, make, cook, get, ask
+  </div>
+</div>
+</div>
+
+<div class="section" id="kp2">
+<div class="section-header">&#128260; Key Point 2　前置詞を用いた書きかえ</div>
+<div class="section-body">
+  <div class="kp-box">
+    <div class="kp-title">&#9312; to を用いる場合　〈動詞＋目的語B＋to＋目的語A〉</div>
+    I send <b>my friends</b> New Year's cards. &#8594; I send New Year's cards <b>to my friends</b>.
+    <div class="ex-jp">わたしは友人たちに年賀状を送ります。</div>
+  </div>
+  <div class="kp-box">
+    <div class="kp-title">&#9313; for を用いる場合　〈動詞＋目的語B＋for＋目的語A〉</div>
+    My father bought <b>me</b> a computer. &#8594; My father bought a computer <b>for me</b>.
+    <div class="ex-jp">父はわたしのためにコンピュータを買いました。</div>
+  </div>
+  <div class="warn">&#9888;&#65039; 多くの動詞は <strong>to</strong> を用いる。<strong>buy, make, cook, get は for</strong> を用いる。bring や leave のように、意味の違いによって to／for を使い分けるものもある。</div>
+</div>
+</div>
+
+<div class="section" id="kp3">
+<div class="section-header">&#10060; Key Point 3　SVOOの受動態への書きかえ</div>
+<div class="section-body">
+  <div class="kp-box">
+    <div class="kp-title">&#9312; 目的語Aを主語にして</div>
+    My father gave <b>me</b> a watch. &#8594; <b>I</b> was given a watch by my father.
+    <div class="ex-jp">わたしは父によって腕時計を与えられました。</div>
+  </div>
+  <div class="kp-box">
+    <div class="kp-title">&#9313; 目的語Bを主語にして</div>
+    The typhoon brought us <b>a lot of rain</b>. &#8594; <b>A lot of rain</b> was brought (to) us by the typhoon.
+    <div class="ex-jp">多くの雨が台風によってわたしたちにもたらされました。</div>
+  </div>
+  <div class="warn">&#9888;&#65039; 目的語Aと目的語Bのどちらも受動態の文の主語になれる動詞：<strong>show, tell, teach, give, lend</strong> など。<br>
+  一方、<strong>buy, make, cook などfor型の動詞は、ふつう目的語A（人）を主語にした受動態にしない</strong>（"I was bought a computer." とは言わない）。受動態にかえたとき動詞のあとに残る目的語には to または for がつくことが多い。</div>
+</div>
+</div>
+
+<div class="section" id="kp4">
+<div class="section-header">&#128172; Key Point 4　補語をとる動詞（SVC）　〈動詞＋補語〉</div>
+<div class="section-body">
+  <div class="ex-line">He <span class="b">became</span> <span class="g">a college student</span> this spring.</div>
+  <div class="ex-jp">彼はこの春、大学生になりました。</div>
+  <table class="comp-table">
+    <tr><th>動詞</th><th>とる補語</th><th>意味</th></tr>
+    <tr><td>look</td><td>形容詞／like＋名詞</td><td>…に見える</td></tr>
+    <tr><td>sound</td><td>形容詞／like＋名詞</td><td>…に聞こえる</td></tr>
+    <tr><td>feel</td><td>形容詞／like＋名詞</td><td>…と感じる</td></tr>
+    <tr><td>become</td><td>形容詞［名詞］</td><td>…になる</td></tr>
+    <tr><td>get / turn</td><td>形容詞</td><td>…になる</td></tr>
+  </table>
+</div>
+</div>
+
+<div class="section" id="kp5">
+<div class="section-header">&#127919; Key Point 5　目的語と補語をとる動詞（SVOC）　〈動詞＋目的語A＋補語B〉</div>
+<div class="section-body">
+  <div class="point-box">
+    <div class="emoji-title">&#128204; 目的語と補語をとる動詞</div>
+    call（AをBと呼ぶ）, make（AをBにする）, name（AをBと名づける）, keep（AをBにしておく）, paint（AをB（の色）に塗る）
+  </div>
+  <div class="ex-line">We <span class="b">call</span> <span class="g">the shop</span> <span class="r">Mom's Café</span>.</div>
+  <div class="ex-jp">わたしたちはその店をマムズカフェと呼びます。（the shop＝Mom's Caféの関係）</div>
+  <div class="ex-line">His words <span class="b">made</span> <span class="g">us</span> <span class="r">happy</span>.</div>
+  <div class="ex-jp">彼の言葉にわたしたちは喜びました。（us＝happyの関係）</div>
+  <div class="warn">&#9888;&#65039; この単元で扱う call と name は<strong>名詞</strong>を補語にとる用法（call は形容詞を補語にとる使い方もある）。make は<strong>形容詞と名詞のどちらも</strong>補語にとることができる。</div>
+  <div class="kp-box">
+    <div class="kp-title">受動態への書きかえ</div>
+    We call <b>him</b> <b>Ben</b>. &#8594; <b>He</b> is called <b>Ben</b> (by us).
+    <div class="ex-jp">彼は（わたしたちによって）ベンと呼ばれています。</div>
+  </div>
+</div>
+</div>
+
+</main>
+
+<div style="max-width:720px; margin:0 auto; padding:0 16px;">
+<div class="quiz-section" id="quiz">
+  <div class="quiz-section-header">&#9999;&#65039; 確認クイズ　Sirius Unit 12 目的語と補語（全10問）</div>
+  <div class="quiz-section-body">
+    <div id="quiz-start">
+      <p style="font-size:13.5px; color:var(--sub); margin-bottom:14px;">解説を読んだら腕試し！SVOOとSVOCを整理しよう &#127919;</p>
+      <button class="start-btn" onclick="startQuiz()">&#128640; クイズをスタート！</button>
+    </div>
+    <div id="quiz-body">
+      <div id="q-num"></div>
+      <div class="q-progress-wrap"><div id="q-progress"></div></div>
+      <div id="q-text"></div>
+      <div id="q-options"></div>
+      <div id="q-hint" class="q-hint"></div>
+      <button id="q-next" onclick="nextQuestion()">次の問題へ →</button>
+    </div>
+    <div id="quiz-result">
+      <div class="result-circle">
+        <div id="result-score"></div>
+        <div id="result-pct"></div>
+      </div>
+      <div id="result-msg"></div>
+      <button class="retry-btn" onclick="startQuiz()">&#128260; もう一度チャレンジ</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>上野作　英語復習活用ホームページ｜Sirius Unit 12 目的語と補語</footer>
+
+<script>
+  const quizData = [
+    { q: "I send New Year's cards ___ my friends.（友人たちに）", options: ["to", "for", "of", "at"], answer: 0, hint: "sendはto型の動詞。" },
+    { q: "My father bought a computer ___ me.（わたしのために）", options: ["to", "for", "of", "at"], answer: 1, hint: "buyはfor型の動詞。" },
+    { q: "My father gave me a watch. を「I」を主語にした受動態にすると？", options: ["I was given a watch by my father.", "I was gave a watch by my father.", "I gave a watch by my father.", "A watch was given I by my father."], answer: 0, hint: "目的語Aを主語にして、動詞はbe動詞+過去分詞。" },
+    { q: "This soup ___ delicious.（おいしそうに見える）", options: ["looks", "looks like", "sees", "watches"], answer: 0, hint: "look+形容詞「〜に見える」。" },
+    { q: "That ___ a good idea.（よい考えのように聞こえる）", options: ["sounds", "sounds like", "hears", "listens"], answer: 1, hint: "a good ideaは名詞句なので、sound like＋名詞の形にする（soundだけなら形容詞が続く）。" },
+    { q: "He ___ a doctor five years ago.（医者になった）", options: ["became", "became to", "got to", "turned to"], answer: 0, hint: "become+名詞「〜になる」。" },
+    { q: "We ___ the shop Mom's Café.（その店をマムズカフェと呼ぶ）", options: ["call", "say", "speak", "talk"], answer: 0, hint: "call+O+C（名詞）「OをCと呼ぶ」。" },
+    { q: "His words made ___ happy.", options: ["we", "us", "our", "ours"], answer: 1, hint: "動詞のあとの目的語は目的格（us）。" },
+    { q: "They named their daughter ___.", options: ["Mary", "as Mary", "to Mary", "for Mary"], answer: 0, hint: "nameは名詞だけを補語にとる（前置詞不要）。" },
+    { q: "We call him Ben. を受動態にすると？", options: ["He is called Ben.", "He is called by Ben.", "Ben is called him.", "He calls Ben."], answer: 0, hint: "目的語Aを主語に、補語Bはそのまま。行為者（by us）は省略できる。" }
+  ];
+
+  let current = 0, score = 0, answered = false;
+  function startQuiz() {
+    current = 0; score = 0; answered = false;
+    document.getElementById('quiz-start').style.display = 'none';
+    document.getElementById('quiz-body').style.display = 'block';
+    document.getElementById('quiz-result').style.display = 'none';
+    showQuestion();
+  }
+  function showQuestion() {
+    answered = false;
+    const q = quizData[current];
+    document.getElementById('q-num').textContent = 'Q' + (current + 1) + ' / ' + quizData.length;
+    document.getElementById('q-progress').style.width = ((current / quizData.length) * 100) + '%';
+    document.getElementById('q-text').textContent = q.q;
+    const opts = document.getElementById('q-options');
+    opts.innerHTML = '';
+    q.options.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'q-opt';
+      btn.textContent = opt;
+      btn.onclick = () => selectAnswer(i);
+      opts.appendChild(btn);
+    });
+    document.getElementById('q-hint').style.display = 'none';
+    document.getElementById('q-next').style.display = 'none';
+  }
+  function selectAnswer(i) {
+    if (answered) return;
+    answered = true;
+    const q = quizData[current];
+    const btns = document.querySelectorAll('.q-opt');
+    btns.forEach((btn, idx) => {
+      btn.disabled = true;
+      if (idx === q.answer) btn.classList.add('correct');
+      else if (idx === i) btn.classList.add('wrong');
+    });
+    if (i === q.answer) score++;
+    const hint = document.getElementById('q-hint');
+    hint.textContent = '\u{1F4A1} ' + q.hint;
+    hint.style.display = 'block';
+    hint.className = 'q-hint ' + (i === q.answer ? 'correct-hint' : 'wrong-hint');
+    document.getElementById('q-next').style.display = 'block';
+  }
+  function nextQuestion() {
+    current++;
+    if (current >= quizData.length) showResult();
+    else showQuestion();
+  }
+  function showResult() {
+    document.getElementById('quiz-body').style.display = 'none';
+    document.getElementById('quiz-result').style.display = 'block';
+    const pct = Math.round((score / quizData.length) * 100);
+    const msg = pct === 100 ? '\u{1F3C6} 満点！目的語と補語マスター！' :
+                pct >= 70  ? '\u{1F389} よくできました！' :
+                pct >= 40  ? '\u{1F4D6} もう一度解説を読もう！' :
+                             '\u{1F4AA} 復習してから再チャレンジ！';
+    document.getElementById('result-score').textContent = score + ' / ' + quizData.length;
+    document.getElementById('result-pct').textContent = pct + '点';
+    document.getElementById('result-msg').textContent = msg;
+  }
+</script>
+
+<script data-goatcounter="https://ueno-english.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

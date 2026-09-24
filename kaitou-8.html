@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解答解説⑧ 比較｜上野作 英語復習活用ホームページ</title>
+<style>
+:root{--blue:#b5006e;--red:#c0392b;--green:#1a7a1a;--gold:#d4700a;--bg:#fff0f6;--card:#fff;--border:#f5c6df;--text:#222;--sub:#555;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Hiragino Sans","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;}
+header{background:linear-gradient(135deg,#7b003d 0%,#e91e8c 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
+header .lesson-label{font-size:12px;letter-spacing:2px;opacity:.85;margin-bottom:4px;}
+header h1{font-size:20px;font-weight:bold;margin-bottom:6px;}
+header .topics{font-size:12px;opacity:.9;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;display:inline-block;}
+nav{display:flex;overflow-x:auto;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--border);}
+nav a{white-space:nowrap;text-decoration:none;background:var(--blue);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;}
+main{padding:16px;max-width:720px;margin:0 auto;}
+.section{background:var(--card);border-radius:12px;border:1px solid var(--border);margin-bottom:20px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+.section-header{background:var(--blue);color:#fff;padding:12px 16px;font-weight:bold;font-size:15px;}
+.section-body{padding:16px;}
+.grp{background:#f9fbfd;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;}
+.grp-title{font-weight:bold;color:var(--blue);font-size:13.5px;margin-bottom:8px;}
+.prob-list{padding-left:20px;font-size:13.5px;margin-bottom:8px;}
+.prob-list li{margin-bottom:5px;font-family:Georgia,"Times New Roman",serif;}
+.answer-toggle{background:none;border:1px solid var(--red);color:var(--red);border-radius:20px;padding:4px 14px;font-size:12px;cursor:pointer;}
+.answer-toggle:hover{background:#fff0f0;}
+.answer-box{display:none;margin-top:8px;background:#fff8f8;border-left:3px solid var(--red);padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;}
+.answer-box.open{display:block;}
+.ans-list{list-style:none;}
+.ans-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--border);}
+.ans-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ans-item .ans{color:var(--red);font-weight:bold;font-family:Georgia,serif;display:block;}
+.ans-item .jp{color:var(--sub);font-weight:normal;font-family:"Hiragino Sans","Meiryo",sans-serif;font-size:12px;display:block;}
+.ans-item .note{font-size:11.5px;color:#8a5a00;margin-top:2px;display:block;}
+.pending{background:#fff8e8;border:1px solid #f0d080;border-radius:8px;padding:10px 14px;font-size:12.5px;margin-bottom:10px;}
+.show-all-btn{display:block;width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;cursor:pointer;margin-bottom:14px;}
+.show-all-btn:hover{opacity:.88;}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);margin-top:10px;}
+</style>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+<div class="lesson-label">中学英語 Sirius Unit 8</div>
+<h1>解答解説⑧ 比較</h1>
+<div class="topics">確認問題・練成問題の解答＋1問ごとの解説</div>
+</header>
+
+<nav>
+<a href="sofukushu-8.html">📖 文法解説ページへ</a>
+<a href="#kakunin">確認問題</a>
+<a href="#rensei">練成問題</a>
+</nav>
+
+<main>
+
+<div class="section" id="kakunin">
+<div class="section-header">確認問題（教科書 p.42-43）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　●原級●　日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>わたしのえんぴつはこのえんぴつと同じくらいの長さです。 My pencil is ___ ___ this one.</li>
+<li>わたしは兄と同じくらい速く走ることができます。 I can run ___ ___ my brother.</li>
+<li>きょうはきのうほど暖かくありません。 It's ___ ___ ___ today ___ yesterday.</li>
+<li>鳥は飛行機ほど高く飛べません。 Birds ___ fly ___ ___ ___ planes.</li>
+<li>アンはメアリーほどゆっくり話しません。 Ann ___ speak ___ ___ ___ Mary.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">as long as</span><span class="note">💡 as+原級+as「…と同じくらい」。</span></li>
+<li class="ans-item"><span class="ans">as fast as</span></li>
+<li class="ans-item"><span class="ans">not as [so] warm as</span><span class="note">💡 not as+原級+as「…ほど〜でない」。</span></li>
+<li class="ans-item"><span class="ans">can't [cannot], as high as</span></li>
+<li class="ans-item"><span class="ans">doesn't, as slowly as</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　●-er型の比較級●　日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>わたしの兄は父よりも背が高い。 My brother is ___ my father.</li>
+<li>カナダはオーストラリアよりも広い。 Canada is ___ Australia.</li>
+<li>9月は6月よりも暑い。 September is ___ June.</li>
+<li>この車はあの車よりも速く走ることができます。 This car can run ___ that one.</li>
+<li>わたしの姉はわたしよりも長くテレビを見ます。 My sister watches TV ___ I do.</li>
+<li>わたしはたいてい兄よりも早く家を出ます。 I usually leave home ___ my brother does.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">taller than</span></li>
+<li class="ans-item"><span class="ans">larger than</span></li>
+<li class="ans-item"><span class="ans">hotter than</span><span class="note">💡 短母音+子音字はhot→hotter。</span></li>
+<li class="ans-item"><span class="ans">faster than</span></li>
+<li class="ans-item"><span class="ans">longer than</span></li>
+<li class="ans-item"><span class="ans">earlier than</span><span class="note">💡 子音字+yはy→i。early→earlier。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　●-est型の最上級●　例にならって、あとの文を書きかえる（例：My brother is tall.（in my family）→ My brother is the tallest in my family.）</div>
+<ol class="prob-list">
+<li>The hotel is nice.（in this town）</li>
+<li>August is hot.（of all months）</li>
+<li>Mt. Fuji is a high mountain.（in Japan）</li>
+<li>Yumi studies English hard.（in her class）</li>
+<li>This morning Taro came into the classroom late.（of us all）</li>
+<li>My mother gets up early.（in my family）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">The hotel is the nicest in this town.</span></li>
+<li class="ans-item"><span class="ans">August is the hottest of all months.</span></li>
+<li class="ans-item"><span class="ans">Mt. Fuji is the highest mountain in Japan.</span><span class="note">💡 名詞（mountain）を伴う最上級はthe+最上級+名詞。</span></li>
+<li class="ans-item"><span class="ans">Yumi studies English (the) hardest in her class.</span><span class="note">💡 副詞の最上級はtheを省略できることが多い。</span></li>
+<li class="ans-item"><span class="ans">This morning Taro came into the classroom (the) latest of us all.</span></li>
+<li class="ans-item"><span class="ans">My mother gets up (the) earliest in my family.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　●不規則変化型●　あとの日本語の内容を加えた文にするとき、＿に適する語を書く</div>
+<ol class="prob-list">
+<li>Your dictionary is good. → ①わたしのよりもよい。 Your dictionary is ___ ___. ②3冊の中で最もよい。 Your dictionary is ___ ___ the three.</li>
+<li>Mike swims well. → ①わたしよりもじょうずに泳ぐ。 Mike swims ___ ___ I do. ②クラスで最もじょうずに泳ぐ。 Mike swims ___ ___ his class.</li>
+<li>She has a lot of CDs. → ①彼よりも多く持っている。 She has ___ CDs ___ he does. ②全員の中で最も多く持っている。 She has ___ CDs ___ all.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">① better than mine　② the best of</span><span class="note">💡 good→better→best（不規則）。</span></li>
+<li class="ans-item"><span class="ans">① better than　② the best in</span><span class="note">💡 well→better→best（不規則）。</span></li>
+<li class="ans-item"><span class="ans">① more, than　② the most, of</span><span class="note">💡 many/much→more→most（不規則）。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　●more・most型●　次の英文を日本語に直す</div>
+<ol class="prob-list">
+<li>His picture is more beautiful than mine.</li>
+<li>Soccer is the most exciting sport to my brother.</li>
+<li>You can use this computer much more easily than that one.</li>
+<li>My father thinks the most carefully in my family.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="jp">彼の絵[写真]はわたしのよりも美しい。</span></li>
+<li class="ans-item"><span class="jp">サッカーはわたしの兄[弟]にとって最も興奮するスポーツです。</span></li>
+<li class="ans-item"><span class="jp">あのコンピュータよりもこのコンピュータの方がずっと簡単に使えますよ。</span><span class="note">💡 muchが比較級easilyを強調（ずっと）。</span></li>
+<li class="ans-item"><span class="jp">わたしの父は家族の中で最も注意深く考えます。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">6　●比較の慣用表現●　日本文に合う英文になるように語句を並べかえ</div>
+<ol class="prob-list">
+<li>わたしは5教科の中で国語が一番好きです。 I（Japanese / like / of / the best / the five subjects）.</li>
+<li>あなたとお父さんのとでは、どちらのコンピュータの方が古いですか。 Which（is / or / older / yours / computer / your father's / ,）?</li>
+<li>琵琶湖は日本の他のどの湖よりも大きい。 Lake Biwa is（any / lake / larger / other / than / in Japan）.</li>
+<li>これは最も重要な問題の中の1つです。 This is（important / most / of / one / problems / the）.</li>
+<li>地球はますます温かくなってきています。（and / getting / is / the earth / warmer / warmer）.</li>
+<li>その電車はふだんより10分遅く駅を出発しました。（left / later / usual / the train / than / ten minutes / the station）.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">I like Japanese the best of the five subjects.</span></li>
+<li class="ans-item"><span class="ans">Which computer is older, yours or your father's?</span></li>
+<li class="ans-item"><span class="ans">Lake Biwa is larger than any other lake in Japan.</span></li>
+<li class="ans-item"><span class="ans">This is one of the most important problems.</span></li>
+<li class="ans-item"><span class="ans">The earth is getting warmer and warmer.</span></li>
+<li class="ans-item"><span class="ans">The train left the station ten minutes later than usual.</span><span class="note">💡 差の表現：数字＋比較級＋than。</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+<div class="section" id="rensei">
+<div class="section-header">練成問題（教科書 p.44-45）</div>
+<div class="section-body">
+<div class="pending">📸 この見開きの一部の設問は、写真の文字がかすれていて原文を正確に再現しきれていません。答えは解答冊子で確認済みのものだけを載せています。</div>
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　次の日本文を、指定された比較表現（原級・比較級・最上級）を使って英語に直す</div>
+<ol class="prob-list">
+<li>①わたしは真理子と同じくらいの背の高さです。（原級） ②わたしは母よりも背が高い。（比較級） ③わたしはクラスの中で一番背が高い女の子です。（最上級）</li>
+<li>①わたしはたいてい母と同じくらい早く起きます。（原級） ②きのう、わたしは母よりも早く起きました。（比較級） ③きのう、わたしは家族の中で一番早く起きました。（最上級）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">① I am as tall as Mariko. ② I am taller than my mother. ③ I am the tallest girl in my class.</span><span class="note">💡 同じ「背の高さ」を原級・比較級・最上級の3段階で表す基本パターン。</span></li>
+<li class="ans-item"><span class="ans">① I usually get up as early as my mother. ② Yesterday I got up earlier than my mother. ③ Yesterday I got up (the) earliest in my family.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　（　）内の語を必要に応じて適する形に直して書く</div>
+<ol class="prob-list">
+<li>This question is ___ than that one.（difficult）</li>
+<li>The Shinano is the ___ river in Japan.（long）</li>
+<li>Please keep this room as ___ as you can.（clean）</li>
+<li>My mother is ___ than my father.（busy）</li>
+<li>Today is the ___ day of this summer.（hot）</li>
+<li>Of the three, he speaks ___.（slowly）</li>
+<li>This bike is ___ than that one.（good）</li>
+<li>I usually get up ___ than my sister.（early）</li>
+<li>We need ___ time to finish this.（much）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">more difficult</span><span class="note">💡 difficultはmore・most型。</span></li>
+<li class="ans-item"><span class="ans">longest</span></li>
+<li class="ans-item"><span class="ans">clean</span><span class="note">💡 as...as の中は原級のまま変化させない。</span></li>
+<li class="ans-item"><span class="ans">busier</span></li>
+<li class="ans-item"><span class="ans">hottest</span></li>
+<li class="ans-item"><span class="ans">most slowly</span><span class="note">💡 slowlyはmore・most型。</span></li>
+<li class="ans-item"><span class="ans">better</span><span class="note">💡 good→better（不規則）。</span></li>
+<li class="ans-item"><span class="ans">earlier</span></li>
+<li class="ans-item"><span class="ans">more</span><span class="note">💡 much→more（不規則）。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　＿に適する語を書く</div>
+<ol class="prob-list">
+<li>This car is ___ mine.（new・比較級で）</li>
+<li>Health is ___ money.（important・muchで強調した比較級で）</li>
+<li>This is ___ book I have ever read.（interesting・最上級で）</li>
+<li>He studies ___ his class.（hard・最上級で）</li>
+<li>She is ___ singer ___ all.（good・最上級で）</li>
+<li>___, you or your sister?（tall・比較級の疑問文で）</li>
+<li>I am ___ my father.（tall, half・倍数表現で）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">newer than</span></li>
+<li class="ans-item"><span class="ans">much more important than</span></li>
+<li class="ans-item"><span class="ans">the most interesting</span></li>
+<li class="ans-item"><span class="ans">(the) hardest in</span></li>
+<li class="ans-item"><span class="ans">(the) best of</span></li>
+<li class="ans-item"><span class="ans">Who [Which] is taller</span></li>
+<li class="ans-item"><span class="ans">half as tall as</span><span class="note">💡 half as … as「…の半分」も倍数表現の仲間。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　ほぼ同じ内容になるように書きかえる（原級での否定＝比較級での表現）</div>
+<ol class="prob-list">
+<li>（1語ずつ空所を埋める書きかえ）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">(1) not, long ／ longer than　(2) more, than ／ not, easy　(3) earlier than ／ later than　(4) higher, other ／ higher</span><span class="note">💡 「…ほど〜でない（not as … as）」と「…より〜だ（比較級 than）」は同じ内容を反対方向から表せる。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　次の日本文を英語に直す</div>
+<ol class="prob-list">
+<li>彼はわたしよりも英語をじょうずに話します。</li>
+<li>もう少しゆっくり歩いてくれますか。</li>
+<li>これは最も忙しい通りの1つです。</li>
+<li>彼は毎月2冊より多くの本を読みます。</li>
+<li>この新しい明かりは古いものの3倍明るい。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">He speaks English better than I do.</span></li>
+<li class="ans-item"><span class="ans">Will you walk a little more slowly?</span><span class="note">💡 a littleが比較級を弱める（少し）。</span></li>
+<li class="ans-item"><span class="ans">This is one of the busiest streets.</span></li>
+<li class="ans-item"><span class="ans">He reads more than two books every month.</span></li>
+<li class="ans-item"><span class="ans">This new light is three times as bright as the old one.</span><span class="note">💡 3倍は three times as … as。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">6　次の日本文を英語に直す</div>
+<ol class="prob-list">
+<li>ケンはクラスの中で一番速く走ることができます。</li>
+<li>あなたは野球とサッカーではどちらが好きですか。—わたしはサッカーの方が好きです。でも、すべてのスポーツの中ではテニスが一番好きです。</li>
+<li>5人の中でだれが一番人気がありますか。—ユウジです。彼はクラスの他のどの生徒よりも人気があります。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Ken can run (the) fastest in his class.</span></li>
+<li class="ans-item"><span class="ans">Which do you like better, baseball or soccer? — I like soccer better. But I like tennis (the) best of all (the) sports.</span></li>
+<li class="ans-item"><span class="ans">Who is the most popular student of the five? または Who is the most popular of the five students? — Yuji is. He is more popular than any other student in his class.</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+</main>
+
+<footer>上野作　英語復習活用ホームページ｜解答解説⑧ 比較</footer>
+
+<script>
+function toggle(btn){var box=btn.nextElementSibling;box.classList.toggle('open');btn.textContent=box.classList.contains('open')?'答えを隠す':'答えを見る';}
+function showAll(){document.querySelectorAll('.answer-box').forEach(function(b){b.classList.add('open');});document.querySelectorAll('.answer-toggle').forEach(function(b){b.textContent='答えを隠す';});}
+</script>
+<script data-goatcounter="https://ueno-english.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sirius Unit 8 比較｜上野作 英語復習活用ホームページ</title>
+  <style>
+    :root {
+      --blue:  #b5006e;
+      --red:   #c0392b;
+      --green: #1a7a1a;
+      --gold:  #d4700a;
+      --bg:    #fff0f6;
+      --card:  #ffffff;
+      --border:#f5c6df;
+      --text:  #222;
+      --sub:   #555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Hiragino Sans", "Meiryo", sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; }
+    header { background: linear-gradient(135deg, #7b003d 0%, #e91e8c 100%); color: white; padding: 20px 16px 16px; text-align: center; }
+    header .lesson-label { font-size: 12px; letter-spacing: 2px; opacity: 0.85; margin-bottom: 4px; }
+    header h1 { font-size: 20px; font-weight: bold; margin-bottom: 6px; }
+    header .topics { font-size: 12px; opacity: 0.9; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 4px 14px; display: inline-block; }
+    nav { display: flex; overflow-x: auto; gap: 8px; padding: 12px 16px; background: white; border-bottom: 1px solid var(--border); }
+    nav a { white-space: nowrap; text-decoration: none; background: var(--blue); color: white; padding: 6px 14px; border-radius: 20px; font-size: 13px; }
+    nav a:hover { opacity: 0.85; }
+    main { padding: 16px; max-width: 720px; margin: 0 auto; }
+    .section { background: var(--card); border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    .section-header { background: var(--blue); color: white; padding: 12px 16px; font-weight: bold; font-size: 15px; }
+    .section-body { padding: 16px; }
+    .point-box { background: #eef4fb; border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0; padding: 12px 14px; margin-bottom: 14px; }
+    .point-box .emoji-title { font-weight: bold; font-size: 14px; margin-bottom: 6px; }
+    .r { color: var(--red); font-weight: bold; }
+    .g { color: var(--green); font-weight: bold; }
+    .b { color: var(--blue); font-weight: bold; }
+    .warn { background: #fff0f0; border: 1px solid #f5b8b8; border-radius: 8px; padding: 10px 14px; font-size: 13.5px; margin: 10px 0; }
+    .warn strong { color: var(--red); }
+    .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+    .comp-table th { background: var(--blue); color: white; padding: 8px 10px; text-align: center; }
+    .comp-table td { padding: 8px 10px; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+    .comp-table tr:nth-child(even) td { background: #f9f4f8; }
+    .kp-box { background: #fff0f6; border: 2px solid var(--blue); border-radius: 10px; padding: 14px 16px; margin: 12px 0; font-size: 13.5px; }
+    .kp-box .kp-title { font-weight: bold; color: var(--blue); font-size: 14px; margin-bottom: 10px; }
+    .formula-box { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-family: monospace; font-size: 13.5px; line-height: 2; }
+    .ex-line { font-family: Georgia, "Times New Roman", serif; font-size: 14px; margin: 8px 0 3px; }
+    .ex-jp { font-size: 12.5px; color: var(--sub); margin-bottom: 6px; }
+    .ex-title { font-weight: bold; font-size: 14px; color: var(--blue); border-bottom: 2px solid var(--blue); padding-bottom: 4px; margin-bottom: 12px; }
+    footer { text-align: center; padding: 20px; font-size: 12px; color: var(--sub); border-top: 1px solid var(--border); margin-top: 10px; }
+    /* クイズ */
+    .quiz-section { background: var(--card); border: 2px solid var(--blue); border-radius: 12px; margin: 20px 0 30px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.08); }
+    .quiz-section-header { background: linear-gradient(135deg, #7b003d 0%, #e91e8c 100%); color: white; padding: 14px 16px; font-size: 16px; font-weight: bold; text-align: center; }
+    .quiz-section-body { padding: 16px; }
+    #quiz-start { text-align: center; padding: 10px 0 6px; }
+    .start-btn { background: var(--blue); color: white; border: none; border-radius: 30px; padding: 14px 40px; font-size: 16px; font-weight: bold; cursor: pointer; letter-spacing: 1px; }
+    .start-btn:hover { opacity: 0.88; }
+    #quiz-body { display: none; }
+    .q-progress-wrap { background: #e8edf2; border-radius: 10px; height: 6px; margin-bottom: 12px; overflow: hidden; }
+    #q-progress { height: 100%; background: var(--blue); border-radius: 10px; transition: width 0.4s; width: 0%; }
+    #q-num { font-size: 12px; color: var(--sub); text-align: right; margin-bottom: 8px; }
+    #q-text { font-size: 15px; font-weight: bold; margin-bottom: 14px; line-height: 1.6; white-space: pre-line; }
+    #q-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+    .q-opt { background: #f4f7fa; border: 2px solid var(--border); border-radius: 10px; padding: 11px 14px; font-size: 14px; text-align: left; cursor: pointer; transition: background 0.15s, border-color 0.15s; line-height: 1.5; }
+    .q-opt:hover:not(:disabled) { background: #fff0f6; border-color: var(--blue); }
+    .q-opt.correct { background: #e8f8e8; border-color: var(--green); color: var(--green); font-weight: bold; }
+    .q-opt.wrong   { background: #fdecea; border-color: var(--red); color: var(--red); font-weight: bold; }
+    .q-opt:disabled { cursor: default; }
+    .q-hint { font-size: 13px; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; display: none; line-height: 1.6; }
+    .correct-hint { background: #e8f8e8; color: var(--green); border-left: 3px solid var(--green); }
+    .wrong-hint   { background: #fdecea; color: var(--red); border-left: 3px solid var(--red); }
+    #q-next { display: none; width: 100%; background: var(--blue); color: white; border: none; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: bold; cursor: pointer; }
+    #q-next:hover { opacity: 0.88; }
+    #quiz-result { display: none; text-align: center; padding: 10px 0 6px; }
+    .result-circle { width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), #e91e8c); margin: 0 auto 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; }
+    #result-score { font-size: 22px; font-weight: bold; }
+    #result-pct   { font-size: 13px; opacity: 0.85; }
+    #result-msg   { font-size: 16px; font-weight: bold; margin: 10px 0 16px; }
+    .retry-btn { background: none; border: 2px solid var(--blue); color: var(--blue); border-radius: 30px; padding: 10px 30px; font-size: 14px; font-weight: bold; cursor: pointer; }
+    .retry-btn:hover { background: #fff0f6; }
+  </style>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+  <div class="lesson-label">中学英語 Sirius Unit 8</div>
+  <h1>Sirius Unit 8 比較</h1>
+  <div class="topics">原級／比較級／最上級／不規則変化・more・most型／比較の慣用表現</div>
+</header>
+
+<nav>
+  <a href="#kp1">&#128161; 原級</a>
+  <a href="#kp2">&#128200; 比較級</a>
+  <a href="#kp3">&#127942; 最上級</a>
+  <a href="#kp4">&#128260; 不規則変化</a>
+  <a href="#kp5">&#128218; more・most型</a>
+  <a href="#kp6">&#128172; 慣用表現</a>
+  <a href="#quiz">&#9999; 確認クイズ</a>
+</nav>
+
+<main>
+
+<div class="section" id="kp1">
+<div class="section-header">&#128161; Key Point 1　原級を用いた比較表現　〈as ＋ 原級 ＋ as …〉</div>
+<div class="section-body">
+  <div class="formula-box">〈as ＋ 原級 ＋ as …〉＝「…と同じくらい〜」</div>
+  <div class="ex-line">My cell phone is new. → My cell phone is <span class="b">as new as</span> yours.（形容詞）</div>
+  <div class="ex-line">I got up early. → I got up <span class="b">as early as</span> my mother.（副詞）</div>
+  <div class="warn">&#9888;&#65039; <strong>〈not as ＋ 原級 ＋ as〉</strong>は「…ほど〜でない」という意味。</div>
+</div>
+</div>
+
+<div class="section" id="kp2">
+<div class="section-header">&#128200; Key Point 2　比較級を用いた比較表現（-er型）　〈比較級 ＋ than〉</div>
+<div class="section-body">
+  <div class="formula-box">〈比較級 ＋ than …〉＝「…よりも〜」</div>
+  <div class="ex-line">This dog is big. → This dog is <span class="b">bigger than</span> mine.（形容詞）</div>
+  <div class="ex-line">Ken runs fast. → Ken runs <span class="b">faster than</span> I (do).（副詞）</div>
+  <div class="warn">&#9888;&#65039; 「…よりずっと[少し]〜」は比較級の前に <strong>much [a little]</strong> を置く。</div>
+</div>
+</div>
+
+<div class="section" id="kp3">
+<div class="section-header">&#127942; Key Point 3　最上級を用いた比較表現（-est型）　〈the ＋ 最上級 ＋ in[of] …〉</div>
+<div class="section-body">
+  <div class="formula-box">〈the ＋ 最上級 ＋ in[of] …〉＝「…（の中）で最も〜」</div>
+  <div class="ex-line">This story is short. → This story is <span class="b">the shortest</span> of the three.（形容詞）</div>
+  <div class="ex-line">My sister sleeps long. → My sister sleeps <span class="b">(the) longest</span> in my family.（副詞）</div>
+  <div class="warn">&#9888;&#65039; 「…（の中）で」は <strong>in ＋ 場所や範囲</strong>（in my family）、<strong>of ＋ 複数内容</strong>（of the three）で表す。</div>
+  <div class="kp-box">
+    <div class="kp-title">-er・-est型の作り方</div>
+    <table class="comp-table">
+      <tr><th>語尾</th><th>つけ方</th><th>例</th></tr>
+      <tr><td>ふつう</td><td>er・est</td><td>old - older - oldest</td></tr>
+      <tr><td>e で終わる</td><td>r・st だけ</td><td>large - larger - largest</td></tr>
+      <tr><td>短母音＋1子音字</td><td>子音字を重ねて er・est</td><td>big - bigger - biggest</td></tr>
+      <tr><td>子音字＋y</td><td>y を i にかえて er・est</td><td>busy - busier - busiest</td></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<div class="section" id="kp4">
+<div class="section-header">&#128260; Key Point 4　不規則変化型の比較変化</div>
+<div class="section-body">
+  <div class="ex-line">Mary sings well. → Mary sings <span class="b">better than</span> I (do). → Mary sings <span class="b">(the) best</span> of the three.</div>
+  <table class="comp-table">
+    <tr><th>原級</th><th>比較級</th><th>最上級</th></tr>
+    <tr><td>good（よい、じょうずな）</td><td rowspan="2">better</td><td rowspan="2">best</td></tr>
+    <tr><td>well（よく、じょうずに）</td></tr>
+    <tr><td>many（多数の）</td><td rowspan="2">more</td><td rowspan="2">most</td></tr>
+    <tr><td>much（多量の、多く）</td></tr>
+  </table>
+</div>
+</div>
+
+<div class="section" id="kp5">
+<div class="section-header">&#128218; Key Point 5　more・most型の比較変化</div>
+<div class="section-body">
+  <div class="ex-line">My father is careful. → My father is <span class="b">more careful than</span> my mother. → My father is <span class="b">the most careful</span> in my family.</div>
+  <div class="point-box">
+    <div class="emoji-title">&#128204; more・most型の形容詞・副詞</div>
+    beautiful, careful, carefully, difficult, easily, exciting, famous, important, interesting, popular, quickly, slowly, useful など（つづりの長い語に多い）
+  </div>
+</div>
+</div>
+
+<div class="section" id="kp6">
+<div class="section-header">&#128172; Key Point 6　比較の慣用表現</div>
+<div class="section-body">
+  <table class="comp-table">
+    <tr><td>like A better than B</td><td>BよりもAの方が好き</td></tr>
+    <tr><td>like A (the) best</td><td>Aが一番好き</td></tr>
+    <tr><td>Which[Who] ＋ 比較級 〜, A or B?</td><td>AとBではどちらの方が〜か</td></tr>
+    <tr><td>What[Who/Which] ＋ the ＋ 最上級 〜?</td><td>一番〜なのは何[だれ/どれ]か</td></tr>
+    <tr><td>比較級 ＋ than any other ＋ 単数名詞</td><td>他のどの…よりも〜</td></tr>
+    <tr><td>one of the ＋ 最上級 ＋ 複数名詞</td><td>最も〜の中の1つ</td></tr>
+    <tr><td>more than</td><td>…より多く（のもの）</td></tr>
+    <tr><td>比較級 ＋ and ＋ 比較級</td><td>だんだん[ますます]〜</td></tr>
+    <tr><td>倍数表現（twice as … as など）</td><td>AはBの〜倍…だ</td></tr>
+    <tr><td>差の表現（数字 ＋ 比較級 ＋ than）</td><td>AはBよりも〜（だけ）…だ</td></tr>
+  </table>
+  <div class="ex-line">Yumi likes cats <span class="b">better than</span> dogs.</div>
+  <div class="ex-line">Mt. Everest is higher than <span class="b">any other mountain</span> in the world.</div>
+  <div class="ex-line">Fukuoka is <span class="b">one of the biggest cities</span> in Japan.</div>
+  <div class="ex-line">We need <span class="b">more than</span> ten volunteers.（10人より多く＝11人以上）</div>
+  <div class="ex-line">It is getting <span class="b">darker and darker</span> outside.</div>
+  <div class="ex-line">This bridge is <span class="b">twice as long as</span> that one.</div>
+  <div class="ex-line">My brother is <span class="b">two years younger than</span> Mike.</div>
+</div>
+</div>
+
+</main>
+
+<div style="max-width:720px; margin:0 auto; padding:0 16px;">
+<div class="quiz-section" id="quiz">
+  <div class="quiz-section-header">&#9999;&#65039; 確認クイズ　Sirius Unit 8 比較（全10問）</div>
+  <div class="quiz-section-body">
+    <div id="quiz-start">
+      <p style="font-size:13.5px; color:var(--sub); margin-bottom:14px;">解説を読んだら腕試し！比較の3段階と慣用表現を確認しよう &#127919;</p>
+      <button class="start-btn" onclick="startQuiz()">&#128640; クイズをスタート！</button>
+    </div>
+    <div id="quiz-body">
+      <div id="q-num"></div>
+      <div class="q-progress-wrap"><div id="q-progress"></div></div>
+      <div id="q-text"></div>
+      <div id="q-options"></div>
+      <div id="q-hint" class="q-hint"></div>
+      <button id="q-next" onclick="nextQuestion()">次の問題へ →</button>
+    </div>
+    <div id="quiz-result">
+      <div class="result-circle">
+        <div id="result-score"></div>
+        <div id="result-pct"></div>
+      </div>
+      <div id="result-msg"></div>
+      <button class="retry-btn" onclick="startQuiz()">&#128260; もう一度チャレンジ</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>上野作　英語復習活用ホームページ｜Sirius Unit 8 比較</footer>
+
+<script>
+  const quizData = [
+    { q: "My cell phone is ___ as new as yours.", options: ["", "as", "than", "the"], answer: 1, hint: "〈as+原級+as〉「…と同じくらい」。" },
+    { q: "This dog is ___ than mine.（bigの比較級）", options: ["big", "bigger", "biggest", "more big"], answer: 1, hint: "短母音＋子音字は子音字を重ねてer。big→bigger。" },
+    { q: "This story is the ___ of the three.（shortの最上級）", options: ["short", "shorter", "shortest", "more short"], answer: 2, hint: "the+最上級+of the three。" },
+    { q: "Mary sings ___ than I do.（wellの比較級）", options: ["weller", "more well", "better", "best"], answer: 2, hint: "well の比較級は不規則変化で better。" },
+    { q: "My father is ___ careful than my mother.", options: ["careful", "carefuller", "more", "most"], answer: 2, hint: "careful は more・most 型。more careful than。" },
+    { q: "___ do you like better, tea or coffee?", options: ["What", "Which", "How", "Why"], answer: 1, hint: "2つのうちどちらか、を聞くのはWhich。" },
+    { q: "Mt. Everest is higher than ___ mountain in the world.（他のどの山よりも）", options: ["any other", "some other", "the other", "another"], answer: 0, hint: "比較級+than any other+単数名詞「他のどの…よりも」。" },
+    { q: "This is ___ the most important problems.（最も重要な問題の1つ）", options: ["one in", "one of", "one for", "one at"], answer: 1, hint: "one of the+最上級+複数名詞。" },
+    { q: "It is getting ___ and darker outside.", options: ["dark", "darker", "darkest", "more dark"], answer: 1, hint: "比較級+and+比較級「だんだん〜」。" },
+    { q: "This bridge is twice ___ long as that one.", options: ["as", "than", "so", "for"], answer: 0, hint: "倍数表現：twice as … as「…の2倍〜」。" }
+  ];
+
+  let current = 0, score = 0, answered = false;
+  function startQuiz() {
+    current = 0; score = 0; answered = false;
+    document.getElementById('quiz-start').style.display = 'none';
+    document.getElementById('quiz-body').style.display = 'block';
+    document.getElementById('quiz-result').style.display = 'none';
+    showQuestion();
+  }
+  function showQuestion() {
+    answered = false;
+    const q = quizData[current];
+    document.getElementById('q-num').textContent = 'Q' + (current + 1) + ' / ' + quizData.length;
+    document.getElementById('q-progress').style.width = ((current / quizData.length) * 100) + '%';
+    document.getElementById('q-text').textContent = q.q;
+    const opts = document.getElementById('q-options');
+    opts.innerHTML = '';
+    q.options.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'q-opt';
+      btn.textContent = opt;
+      btn.onclick = () => selectAnswer(i);
+      opts.appendChild(btn);
+    });
+    document.getElementById('q-hint').style.display = 'none';
+    document.getElementById('q-next').style.display = 'none';
+  }
+  function selectAnswer(i) {
+    if (answered) return;
+    answered = true;
+    const q = quizData[current];
+    const btns = document.querySelectorAll('.q-opt');
+    btns.forEach((btn, idx) => {
+      btn.disabled = true;
+      if (idx === q.answer) btn.classList.add('correct');
+      else if (idx === i) btn.classList.add('wrong');
+    });
+    if (i === q.answer) score++;
+    const hint = document.getElementById('q-hint');
+    hint.textContent = '\u{1F4A1} ' + q.hint;
+    hint.style.display = 'block';
+    hint.className = 'q-hint ' + (i === q.answer ? 'correct-hint' : 'wrong-hint');
+    document.getElementById('q-next').style.display = 'block';
+  }
+  function nextQuestion() {
+    current++;
+    if (current >= quizData.length) showResult();
+    else showQuestion();
+  }
+  function showResult() {
+    document.getElementById('quiz-body').style.display = 'none';
+    document.getElementById('quiz-result').style.display = 'block';
+    const pct = Math.round((score / quizData.length) * 100);
+    const msg = pct === 100 ? '\u{1F3C6} 満点！比較マスター！' :
+                pct >= 70  ? '\u{1F389} よくできました！' :
+                pct >= 40  ? '\u{1F4D6} もう一度解説を読もう！' :
+                             '\u{1F4AA} 復習してから再チャレンジ！';
+    document.getElementById('result-score').textContent = score + ' / ' + quizData.length;
+    document.getElementById('result-pct').textContent = pct + '点';
+    document.getElementById('result-msg').textContent = msg;
+  }
+</script>
+
+<script data-goatcounter="https://ueno-english.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
