@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解答解説⑨ 受動態｜上野作 英語復習活用ホームページ</title>
+<style>
+:root{--blue:#b5006e;--red:#c0392b;--green:#1a7a1a;--gold:#d4700a;--bg:#fff0f6;--card:#fff;--border:#f5c6df;--text:#222;--sub:#555;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Hiragino Sans","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;}
+header{background:linear-gradient(135deg,#7b003d 0%,#e91e8c 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
+header .lesson-label{font-size:12px;letter-spacing:2px;opacity:.85;margin-bottom:4px;}
+header h1{font-size:20px;font-weight:bold;margin-bottom:6px;}
+header .topics{font-size:12px;opacity:.9;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;display:inline-block;}
+nav{display:flex;overflow-x:auto;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--border);}
+nav a{white-space:nowrap;text-decoration:none;background:var(--blue);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;}
+main{padding:16px;max-width:720px;margin:0 auto;}
+.section{background:var(--card);border-radius:12px;border:1px solid var(--border);margin-bottom:20px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+.section-header{background:var(--blue);color:#fff;padding:12px 16px;font-weight:bold;font-size:15px;}
+.section-body{padding:16px;}
+.grp{background:#f9fbfd;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;}
+.grp-title{font-weight:bold;color:var(--blue);font-size:13.5px;margin-bottom:8px;}
+.prob-list{padding-left:20px;font-size:13.5px;margin-bottom:8px;}
+.prob-list li{margin-bottom:5px;font-family:Georgia,"Times New Roman",serif;}
+.answer-toggle{background:none;border:1px solid var(--red);color:var(--red);border-radius:20px;padding:4px 14px;font-size:12px;cursor:pointer;}
+.answer-toggle:hover{background:#fff0f0;}
+.answer-box{display:none;margin-top:8px;background:#fff8f8;border-left:3px solid var(--red);padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;}
+.answer-box.open{display:block;}
+.ans-list{list-style:none;}
+.ans-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--border);}
+.ans-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ans-item .ans{color:var(--red);font-weight:bold;font-family:Georgia,serif;display:block;}
+.ans-item .jp{color:var(--sub);font-weight:normal;font-family:"Hiragino Sans","Meiryo",sans-serif;font-size:12px;display:block;}
+.ans-item .note{font-size:11.5px;color:#8a5a00;margin-top:2px;display:block;}
+.show-all-btn{display:block;width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;cursor:pointer;margin-bottom:14px;}
+.show-all-btn:hover{opacity:.88;}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);margin-top:10px;}
+</style>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+<div class="lesson-label">中学英語 Sirius Unit 9</div>
+<h1>解答解説⑨ 受動態</h1>
+<div class="topics">ポイント問題・確認問題・練成問題の解答＋1問ごとの解説</div>
+</header>
+
+<nav>
+<a href="sofukushu-9.html">📖 文法解説ページへ</a>
+<a href="#point">ポイント問題</a>
+<a href="#kakunin">確認問題</a>
+<a href="#rensei">練成問題</a>
+</nav>
+
+<main>
+
+<div class="section" id="point">
+<div class="section-header">ポイント問題（教科書 p.49）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　次の英文を、下線部に注意して日本語に直す</div>
+<ol class="prob-list">
+<li>Computers <u>are used</u> all over the world.</li>
+<li>The Olympics <u>are held</u> every four years.</li>
+<li>A lot of trees <u>are cut down</u> in the country.</li>
+<li>A lot of tall buildings <u>are seen</u> in Tokyo.</li>
+<li>English <u>is spoken</u> in many countries.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="jp">コンピュータは世界中で使われています。</span></li>
+<li class="ans-item"><span class="jp">オリンピックは4年ごとに開催されます。</span></li>
+<li class="ans-item"><span class="jp">その国ではたくさんの木が切り倒されます。</span></li>
+<li class="ans-item"><span class="jp">東京では高い建物がたくさん見られます。</span></li>
+<li class="ans-item"><span class="jp">英語は多くの国で話されています。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　The park is cleaned every morning. を参考に、日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>The park ___ ___ yesterday morning, too.「きのうの朝もそうじされました」</li>
+<li>The park ___ ___ ___ this morning.「けさはそうじされませんでした」</li>
+<li>___ the park ___ two days ago?「2日前はそうじされましたか」— Yes, ___.</li>
+<li>___ ___ the park ___?「いつそうじされましたか」— ___ early in the morning.「朝早くにそうじされました」</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">was cleaned</span></li>
+<li class="ans-item"><span class="ans">was not cleaned</span></li>
+<li class="ans-item"><span class="ans">Was, cleaned — it was</span></li>
+<li class="ans-item"><span class="ans">When was, cleaned — It was cleaned</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+<div class="section" id="kakunin">
+<div class="section-header">確認問題（教科書 p.50-51）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　●受動態の形●　日本文に合う英文になるように＿に適する語を書く（語を文中での適する形に直す）</div>
+<ol class="prob-list">
+<li>その店は7時に閉められます。 The shop ___ at seven.（close）</li>
+<li>この工場ではテーブルが作られています。 Tables ___ at this factory.（make）</li>
+<li>電話ですよ。 You ___ on the phone.（want）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">is closed</span></li>
+<li class="ans-item"><span class="ans">are made</span></li>
+<li class="ans-item"><span class="ans">are wanted</span><span class="note">💡「電話ですよ」＝「あなたは電話で求められています」。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　●過去分詞の作り方●　＿に、あとの（　）内の語を必要に応じて文中での適する形に直して書く</div>
+<ol class="prob-list">
+<li>Football is ___ in fall.（play）</li>
+<li>A "chawan" is ___ when you eat rice.（use）</li>
+<li>Oil is ___ by tanker.（carry）</li>
+<li>The meetings are ___ every Monday.（hold）</li>
+<li>Many kinds of fish are ___ at the store.（sell）</li>
+<li>Stars are ___ at night.（see）</li>
+<li>These books are ___ all over the world.（read）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">played</span></li>
+<li class="ans-item"><span class="ans">used</span></li>
+<li class="ans-item"><span class="ans">carried</span><span class="note">💡 carry→carried（子音字+yはyをiに）。</span></li>
+<li class="ans-item"><span class="ans">held</span><span class="note">💡 hold-held-held（不規則）。</span></li>
+<li class="ans-item"><span class="ans">sold</span><span class="note">💡 sell-sold-sold（不規則）。</span></li>
+<li class="ans-item"><span class="ans">seen</span><span class="note">💡 see-saw-seen（不規則）。</span></li>
+<li class="ans-item"><span class="ans">read</span><span class="note">💡 readは原形・過去形・過去分詞すべて同じつづり（発音は変わる）。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　●現在の受動態の否定文●　次の文を否定文に書きかえ、日本語に直す</div>
+<ol class="prob-list">
+<li>I am invited to the party.</li>
+<li>Japanese is taught at this school.</li>
+<li>Oranges are grown around here.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">I am [I'm] not invited to the party.</span><span class="jp">わたしはそのパーティーに招待されていません。</span></li>
+<li class="ans-item"><span class="ans">Japanese is not [isn't] taught at this school.</span><span class="jp">この学校では日本語は教えられていません。</span></li>
+<li class="ans-item"><span class="ans">Oranges are not [aren't] grown around here.</span><span class="jp">このあたりではオレンジは栽培されていません。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　●現在の受動態の疑問文●　次の文を疑問文に書きかえ、（　）内の語を使って答えの文を書く</div>
+<ol class="prob-list">
+<li>The car is washed every week.（yes）</li>
+<li>Maps are sold at bookstores.（yes）</li>
+<li>English is spoken in your country.（no）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Is the car washed every week? — Yes, it is.</span></li>
+<li class="ans-item"><span class="ans">Are maps sold at bookstores? — Yes, they are.</span></li>
+<li class="ans-item"><span class="ans">Is English spoken in your country? — No, it isn't [is not]. または No, it's not.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　●過去の受動態の意味●　次の英文を日本語に直す</div>
+<ol class="prob-list">
+<li>Many people were killed during the war.</li>
+<li>I was introduced to some students in another class.</li>
+<li>These pictures were taken in Okinawa.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="jp">その戦争中に多くの人が殺されました。</span></li>
+<li class="ans-item"><span class="jp">わたしは別のクラスの生徒数人に紹介されました。</span></li>
+<li class="ans-item"><span class="jp">これらの写真は沖縄で撮影されました。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">6　●過去の受動態の形●　（　）内の日本語を英語に直して、全文を書く</div>
+<ol class="prob-list">
+<li>The shop（開かれました）a year ago.</li>
+<li>The first Olympics（開かれました）in Athens.</li>
+<li>A lot of fish（つれました）in the lake last winter.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">The shop was opened a year ago.</span></li>
+<li class="ans-item"><span class="ans">The first Olympics were held in Athens.</span><span class="note">💡 Olympicsは複数扱い。</span></li>
+<li class="ans-item"><span class="ans">A lot of fish were caught in the lake last winter.</span><span class="note">💡 a lot of fishは複数扱い。catch-caught-caught。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">7　●過去の受動態の否定文●　日本文に合う英文になるように、（　）内の語句を並べかえる</div>
+<ol class="prob-list">
+<li>わたしは夕食に招待されませんでした。 I（invited / not / to dinner / was）.</li>
+<li>それらの窓は夜じゅう閉じられませんでした。 The windows（were / through the night / closed / not）.</li>
+<li>そのペンはこの教室では見つかりませんでした。 The pen（not / was / in this classroom / found）.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">I was not invited to dinner.</span></li>
+<li class="ans-item"><span class="ans">The windows were not closed through the night.</span></li>
+<li class="ans-item"><span class="ans">The pen was not found in this classroom.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">8　●過去の受動態の疑問文●　日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>あなたはベンの家族に紹介されましたか。—はい、紹介されました。 ___ you ___ to Ben's family? — Yes, ___.</li>
+<li>あなたの国では去年、たくさんの木が切り倒されましたか。—いいえ、切り倒されませんでした。 ___ many trees ___ down in your country last year? — No, ___.</li>
+<li>これらの写真はどこで撮影されましたか。—それらは北海道で撮影されました。 ___ these pictures ___? — They ___ in Hokkaido.</li>
+<li>江戸城（Edo Castle）はいつ建てられましたか。—それは1457年に建てられました。 ___ Edo Castle ___? — It ___ in 1457.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Were, introduced — I was</span></li>
+<li class="ans-item"><span class="ans">Were, cut — they weren't</span></li>
+<li class="ans-item"><span class="ans">Where were, taken — were taken</span></li>
+<li class="ans-item"><span class="ans">When was, built — was built</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+<div class="section" id="rensei">
+<div class="section-header">練成問題（教科書 p.52-53）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　次の動詞の、①3単現の(e)sのついた形、②過去形、③過去分詞、④ing形を書く</div>
+<ol class="prob-list">
+<li>play</li><li>close</li><li>catch</li><li>run</li><li>grow</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">① plays ② played ③ played ④ playing</span></li>
+<li class="ans-item"><span class="ans">① closes ② closed ③ closed ④ closing</span></li>
+<li class="ans-item"><span class="ans">① catches ② caught ③ caught ④ catching</span><span class="note">💡 catch-caught-caught（不規則）。</span></li>
+<li class="ans-item"><span class="ans">① runs ② ran ③ run ④ running</span><span class="note">💡 run-ran-run（不規則、A-B-A型）。</span></li>
+<li class="ans-item"><span class="ans">① grows ② grew ③ grown ④ growing</span><span class="note">💡 grow-grew-grown（不規則）。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　次の各組の文の＿に、あとの（　）内の語を必要に応じて文中での適する形に直して書く</div>
+<ol class="prob-list">
+<li>① I usually ___ this computer on Saturdays.（use） ② I am ___ this computer now.（use） ③ This kind of computer is ___ all over the world.（use）</li>
+<li>① I ___ a letter to my uncle yesterday.（write） ② I was ___ a letter to my uncle then.（write） ③ This letter was ___ last Sunday.（write）</li>
+<li>① He ___ English every day.（study） ② He is ___ English now.（study） ③ English and French are ___ at his school.（study）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">① use ② using ③ used</span><span class="note">💡 ①は一般動詞の現在形（主語I）、②は進行形、③は受動態。</span></li>
+<li class="ans-item"><span class="ans">① wrote ② writing ③ written</span></li>
+<li class="ans-item"><span class="ans">① studies ② studying ③ studied</span><span class="note">💡 ①は3単現のsがつく（studies）。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>卵は朝食のときによく食べられます。 Eggs ___ often ___ at breakfast.</li>
+<li>この本は世界中で読まれています。 This book ___ ___ all over the world.</li>
+<li>わたしの学校ではスペイン語は教えられていません。 Spanish ___ ___ at my school.</li>
+<li>彼の部屋はけさ、そうじされませんでした。 His room ___ ___ this morning.</li>
+<li>あなたはそのパーティーに招待されていますか。—はい、招待されています。 ___ ___ ___ to the party? — Yes, ___.</li>
+<li>これらの箱はきのう、この部屋に運び込まれたのですか。—いいえ。それらはけさ、この部屋に運び込まれました。 ___ these boxes ___ into this room yesterday? — No. They ___ into this room this morning.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">are, eaten</span></li>
+<li class="ans-item"><span class="ans">is read</span></li>
+<li class="ans-item"><span class="ans">isn't taught</span></li>
+<li class="ans-item"><span class="ans">wasn't cleaned</span></li>
+<li class="ans-item"><span class="ans">Are you invited — I am</span></li>
+<li class="ans-item"><span class="ans">Were, carried [brought] — were carried [brought]</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　日本文に合う英文になるように、（　）内の語句を並べかえる</div>
+<ol class="prob-list">
+<li>そのノートはこの教室で見つけられました。（this classroom / in / was / notebook / found / the）.</li>
+<li>激しい雨のあと、何軒かの古い家が倒壊しました。（broken down / houses / old / some / were）after the heavy rain.</li>
+<li>このあたりでは野生動物は見られません。（are / around here / not / seen / wild animals）.</li>
+<li>あなたの国では何語が話されていますか。（in your country / is / language / spoken / what）?</li>
+<li>彼の車は日本製ではありません。（car / his / in / is / Japan / made / not）.</li>
+<li>あなたの部屋から夜、星がたくさん見えますか。（are / at / from / many / night / seen / stars）your room?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">The notebook was found in this classroom.</span></li>
+<li class="ans-item"><span class="ans">Some old houses were broken down after the heavy rain.</span></li>
+<li class="ans-item"><span class="ans">Wild animals are not seen around here.</span></li>
+<li class="ans-item"><span class="ans">What language is spoken in your country?</span></li>
+<li class="ans-item"><span class="ans">His car is not made in Japan.</span></li>
+<li class="ans-item"><span class="ans">Are many stars seen at night from your room?</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　次の日本文を、与えられた語に続けて英語に直す</div>
+<ol class="prob-list">
+<li>日本の車は多くの国で使われています。 Japanese ___</li>
+<li>この本はやさしい英語で書かれています。 This ___</li>
+<li>わたしたちの学校は50年前に建てられました。 Our ___</li>
+<li>①それらの魚は昨夜、料理されましたか。②はい。それらは夕食用に料理されました。 ①Were ___? ②Yes. ___.</li>
+<li>①そのレストランは何時に閉店しますか。②たいてい10時ごろに閉店します。 ①What ___? ②It ___.</li>
+<li>①あなたの家はいつ建てられましたか。②わたしの祖父によって40年前に建てられました。 ①When ___? ②It ___.</li>
+<li>①これらの写真はどこで撮られたのですか。②それらはオーストラリアで撮られました。 ①Where ___? ②They ___.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Japanese cars are used in many countries.</span></li>
+<li class="ans-item"><span class="ans">This book is written in easy English.</span></li>
+<li class="ans-item"><span class="ans">Our school was built fifty years ago.</span></li>
+<li class="ans-item"><span class="ans">① Were those [the] fish cooked last night? ② Yes. They were cooked for dinner.</span></li>
+<li class="ans-item"><span class="ans">① What time is the restaurant closed? ② It is usually closed (at) about ten (o'clock).</span></li>
+<li class="ans-item"><span class="ans">① When was your house built? ② It was built by my grandfather forty years ago.</span></li>
+<li class="ans-item"><span class="ans">① Where were these pictures [photos] taken? ② They were taken in Australia.</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+</main>
+
+<footer>上野作　英語復習活用ホームページ｜解答解説⑨ 受動態</footer>
+
+<script>
+function toggle(btn){var box=btn.nextElementSibling;box.classList.toggle('open');btn.textContent=box.classList.contains('open')?'答えを隠す':'答えを見る';}
+function showAll(){document.querySelectorAll('.answer-box').forEach(function(b){b.classList.add('open');});document.querySelectorAll('.answer-toggle').forEach(function(b){b.textContent='答えを隠す';});}
+</script>
+<script data-goatcounter="https://ueno-english.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

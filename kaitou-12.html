@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解答解説⑫ 目的語と補語｜上野作 英語復習活用ホームページ</title>
+<style>
+:root{--blue:#b5006e;--red:#c0392b;--green:#1a7a1a;--gold:#d4700a;--bg:#fff0f6;--card:#fff;--border:#f5c6df;--text:#222;--sub:#555;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Hiragino Sans","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;}
+header{background:linear-gradient(135deg,#7b003d 0%,#e91e8c 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
+header .lesson-label{font-size:12px;letter-spacing:2px;opacity:.85;margin-bottom:4px;}
+header h1{font-size:20px;font-weight:bold;margin-bottom:6px;}
+header .topics{font-size:12px;opacity:.9;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;display:inline-block;}
+nav{display:flex;overflow-x:auto;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--border);}
+nav a{white-space:nowrap;text-decoration:none;background:var(--blue);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;}
+main{padding:16px;max-width:720px;margin:0 auto;}
+.section{background:var(--card);border-radius:12px;border:1px solid var(--border);margin-bottom:20px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+.section-header{background:var(--blue);color:#fff;padding:12px 16px;font-weight:bold;font-size:15px;}
+.section-body{padding:16px;}
+.grp{background:#f9fbfd;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;}
+.grp-title{font-weight:bold;color:var(--blue);font-size:13.5px;margin-bottom:8px;}
+.prob-list{padding-left:20px;font-size:13.5px;margin-bottom:8px;}
+.prob-list li{margin-bottom:5px;font-family:Georgia,"Times New Roman",serif;}
+.answer-toggle{background:none;border:1px solid var(--red);color:var(--red);border-radius:20px;padding:4px 14px;font-size:12px;cursor:pointer;}
+.answer-toggle:hover{background:#fff0f0;}
+.answer-box{display:none;margin-top:8px;background:#fff8f8;border-left:3px solid var(--red);padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;}
+.answer-box.open{display:block;}
+.ans-list{list-style:none;}
+.ans-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--border);}
+.ans-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ans-item .ans{color:var(--red);font-weight:bold;font-family:Georgia,serif;display:block;}
+.ans-item .jp{color:var(--sub);font-weight:normal;font-family:"Hiragino Sans","Meiryo",sans-serif;font-size:12px;display:block;}
+.ans-item .note{font-size:11.5px;color:#8a5a00;margin-top:2px;display:block;}
+.show-all-btn{display:block;width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;cursor:pointer;margin-bottom:14px;}
+.show-all-btn:hover{opacity:.88;}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);margin-top:10px;}
+</style>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+<div class="lesson-label">中学英語 Sirius Unit 12</div>
+<h1>解答解説⑫ 目的語と補語</h1>
+<div class="topics">確認問題・練成問題の解答＋1問ごとの解説</div>
+</header>
+
+<nav>
+<a href="#kakunin">確認問題</a>
+<a href="#rensei">練成問題</a>
+</nav>
+
+<main>
+
+<div class="section" id="kakunin">
+<div class="section-header">確認問題（教科書 p.68-69）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　●目的語を2つとる動詞●　（　）内の語（句）を適当なところに入れて全文を書き、日本語に直す</div>
+<ol class="prob-list">
+<li>I will give a nice pen.（you）</li>
+<li>Will you lend your book?（me）</li>
+<li>Her uncle sent her.（a birthday present）</li>
+<li>Tom asked them.（a lot of questions）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">I will give you a nice pen.</span><span class="jp">わたしがあなたにいいペンをあげましょう。</span></li>
+<li class="ans-item"><span class="ans">Will you lend me your book?</span><span class="jp">わたしにあなたの本を貸してくれませんか。</span></li>
+<li class="ans-item"><span class="ans">Her uncle sent her a birthday present.</span><span class="jp">彼女のおじさんは彼女に誕生日プレゼントを送りました。</span></li>
+<li class="ans-item"><span class="ans">Tom asked them a lot of questions.</span><span class="jp">トムは彼らにたくさんの質問をしました。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　●前置詞を用いた書きかえ●　各組の文がほぼ同じ内容になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>(a) Ms. Green teaches us English. (b) Ms. Green teaches ___ to ___.</li>
+<li>(a) Please bring this child some water. (b) Please bring ___ for ___.</li>
+<li>(a) I told them my phone number. (b) I told my phone number ___.</li>
+<li>(a) She made her daughter a pretty bag. (b) She made a pretty bag ___.</li>
+<li>(a) My father cooked me breakfast. (b) My father cooked breakfast ___.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">English, us</span><span class="note">💡 Ms. Green teaches English to us.</span></li>
+<li class="ans-item"><span class="ans">some water, this child</span><span class="note">💡 Please bring some water for this child.</span></li>
+<li class="ans-item"><span class="ans">to them</span></li>
+<li class="ans-item"><span class="ans">for her daughter</span></li>
+<li class="ans-item"><span class="ans">for me</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　●受動態への書きかえ●　下線部を主語にして受動態の文に書きかえるとき＿に適する語を書く</div>
+<ol class="prob-list">
+<li>He showed <u>①me</u> <u>②some pictures</u>. ① I ___ some pictures by him. ② Some pictures ___ by him.</li>
+<li>Mr. Smith teaches <u>①us</u> <u>②English</u>. ① We ___ English by Mr. Smith. ② English ___ to ___ by Mr. Smith.</li>
+<li>He wrote me <u>a long letter</u>. A long letter ___ ___ by him.</li>
+<li>My father bought me <u>two CDs</u>. Two CDs ___ ___ for ___ by my father.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">① was shown ② were shown</span><span class="note">💡 ① I was shown some pictures by him. ② Some pictures were shown (to) me by him.</span></li>
+<li class="ans-item"><span class="ans">① are taught ② is taught, us</span><span class="note">💡 ① We are taught English by Mr. Smith. ② English is taught to us by Mr. Smith.</span></li>
+<li class="ans-item"><span class="ans">was written</span><span class="note">💡 A long letter was written (to) me by him。目的語Bを主語にするとき、残る人にはtoがつくことが多い。</span></li>
+<li class="ans-item"><span class="ans">were bought, me</span><span class="note">💡 Two CDs were bought for me by my father.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　●補語をとる動詞●　日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>わたしは先週、とても忙しかった。 I ___ very ___ last week.</li>
+<li>このぼうしはわたしには少し大きすぎるように見えます。 This hat ___ a little too ___ for me.</li>
+<li>ユミは将来、医者になりたいと思っています。 Yumi would like to ___ a ___ in the future.</li>
+<li>毎年この時期は6時前に暗くなります。 It ___ before six o'clock at this time of the year.</li>
+<li>彼はときどき信号が青になる前に通りをわたり始めます。 He sometimes begins to cross the street before the light ___.</li>
+<li>わたしは川へつりに行くところです。— それは楽しそうですね。 I'm going fishing at the river. — That ___ fun.</li>
+<li>気分はどうですか。— とても良いです。 ___ are you ___? — I'm ___ very ___.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">was, busy</span></li>
+<li class="ans-item"><span class="ans">looks, big [large]</span></li>
+<li class="ans-item"><span class="ans">be [become], doctor</span></li>
+<li class="ans-item"><span class="ans">gets dark</span></li>
+<li class="ans-item"><span class="ans">turns green</span><span class="note">💡 信号が「青になる」はturn green（信号の青はgreenで表す）。</span></li>
+<li class="ans-item"><span class="ans">sounds like</span><span class="note">💡 名詞（fun）が続くのでsound like。</span></li>
+<li class="ans-item"><span class="ans">How, feeling — feeling, good</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　●目的語と補語をとる動詞●　日本文に合う英文になるように（　）内の語句を並べかえる</div>
+<ol class="prob-list">
+<li>わたしたちはその少女をナナと呼びます。（call / we / Nana / the girl）.</li>
+<li>彼らはその犬をポチと名づけました。（the dog / they / Pochi / named）.</li>
+<li>その映画で彼はスターになりました。（him / made / a star / the movie）.</li>
+<li>わたしはこの歌を聴くと楽しくなります。（this song / makes / happy / me）.</li>
+<li>あなたの部屋をきれいにしておきなさい。（your / clean / keep / room）.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">We call the girl Nana.</span></li>
+<li class="ans-item"><span class="ans">They named the dog Pochi.</span></li>
+<li class="ans-item"><span class="ans">The movie made him a star.</span></li>
+<li class="ans-item"><span class="ans">This song makes me happy.</span></li>
+<li class="ans-item"><span class="ans">Keep your room clean.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">6　●受動態への書きかえ●　下線部を主語にして受動態の文に書きかえ、日本語に直す</div>
+<ol class="prob-list">
+<li>My friends call <u>me</u> Jun. I ___ ___ Jun ___ my friends.</li>
+<li>We call <u>this flower</u> "bara" in Japanese. This flower ___ ___ "bara" in Japanese.</li>
+<li>What do you call <u>this fish</u> in English? What ___ this fish ___ in English?</li>
+<li>The movie made <u>us</u> happy. We ___ ___ ___ the movie.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">am called, by</span><span class="jp">わたしは友達にジュンと呼ばれています。</span></li>
+<li class="ans-item"><span class="ans">is called</span><span class="jp">この花は日本語で「バラ」と呼ばれています。</span></li>
+<li class="ans-item"><span class="ans">is, called</span><span class="jp">この魚は英語で何と呼ばれていますか。</span></li>
+<li class="ans-item"><span class="ans">were made, by</span><span class="jp">わたしたちはその映画で幸せになりました。</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+<div class="section" id="rensei">
+<div class="section-header">練成問題（教科書 p.70-71）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　次の各組の英文を下線部に注意して日本語に直す</div>
+<ol class="prob-list">
+<li>① Can I <u>call</u> you this evening? — Sure. ② We <u>call</u> this flower "bara" in Japanese. ③ Listen! Someone is <u>calling</u> your name.</li>
+<li>① She often <u>makes</u> coffee for us. ② He <u>made</u> the song famous. ③ My father <u>made</u> me a chair.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="jp">① 今晩、あなたに電話をかけてもいいですか。— もちろん。 ② わたしたちはこの花を日本語で「バラ」と呼びます。 ③ ほら！ だれかがあなたの名前を呼んでいます。</span><span class="note">💡 callは「電話する」「呼ぶ」の両方の意味で使われる。文脈で判断する。</span></li>
+<li class="ans-item"><span class="jp">① 彼女はしばしばわたしたちにコーヒーをいれてくれます。 ② 彼はその歌を有名にしました。 ③ わたしの父はわたしにいすを作ってくれました。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>その野球の試合は11時に始まりました。 The baseball game ___ at eleven.</li>
+<li>外はもうすぐ暗くなるでしょう。 It will ___ ___ outside soon.</li>
+<li>わたしはきのう、その店で本を何冊か買いました。 I ___ some ___ at the shop yesterday.</li>
+<li>わたしの姉はわたしに辞書をくれました。 My sister ___ a ___ ___ me.</li>
+<li>わたしに駅へ行く道を教えていただけませんか。 Could you ___ the ___ to the station?</li>
+<li>その子どもたちは両親を幸せにしました。 The children ___ their ___.</li>
+<li>そのドアを開けたままにしておいてください。 Please ___ the ___.</li>
+<li>わたしたちはその箱を白く塗りました。 We ___ the ___.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">started [began]</span></li>
+<li class="ans-item"><span class="ans">get dark</span></li>
+<li class="ans-item"><span class="ans">bought [got], books</span></li>
+<li class="ans-item"><span class="ans">gave, dictionary to</span></li>
+<li class="ans-item"><span class="ans">tell [show] me, way</span></li>
+<li class="ans-item"><span class="ans">made, parents happy [glad]</span></li>
+<li class="ans-item"><span class="ans">keep [leave], door open</span></li>
+<li class="ans-item"><span class="ans">painted, box white</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　（　）内から適する語（句）を選び、記号で答える</div>
+<ol class="prob-list">
+<li>My mother（ア looks　イ looks at　ウ looks like）busy now.</li>
+<li>We（ア got　イ got to　ウ arrived）the station at eleven.</li>
+<li>I（ア went　イ came　ウ visited）Kyoto last month.</li>
+<li>He（ア became　イ got　ウ looked）an English teacher two years ago.</li>
+<li>Please（ア see　イ show　ウ watch）me your notebooks.</li>
+<li>My father bought a bike（ア to　イ for　ウ at）me for my birthday.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">ア（looks）</span><span class="note">💡 lookは形容詞を補語にとる。looks atやlooks likeのあとには名詞（句）が必要。</span></li>
+<li class="ans-item"><span class="ans">ウ（arrived）</span><span class="note">💡 arrive atで「（場所）に着く」。got toも同じ意味だが（イ）は前置詞toが重複するので不可。get to the stationならOK。</span></li>
+<li class="ans-item"><span class="ans">ウ（visited）</span><span class="note">💡 visitは他動詞なので前置詞なしで目的語をとる。went to Kyotoならア可だが単独のwentは不可。</span></li>
+<li class="ans-item"><span class="ans">ア（became）</span></li>
+<li class="ans-item"><span class="ans">イ（show）</span><span class="note">💡 show A Bで「AにBを見せる」の形。</span></li>
+<li class="ans-item"><span class="ans">イ（for）</span><span class="note">💡 buyは前置詞forを使う（材料型ではなく「〜のために」の意味）。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　日本文に合う英文になるように＿に適する語を書く（(1)は3通り、(2)は2通りの表現で）</div>
+<ol class="prob-list">
+<li>彼女はその子どもたちにおもしろい話をしました。 ① She ___ ___ ___ an interesting story. ② The children ___ ___ an interesting story ___ her. ③ An interesting story ___ ___ to the children ___ her.</li>
+<li>あなたは友達に何と呼ばれていますか。— タクと呼ばれています。 ① What ___ your friends ___ you? — They ___ ___ Taku. ② What ___ you ___ ___ your friends? — I ___ ___ Taku.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">① told the children ② were told, by ③ was told, by</span><span class="note">💡 ①She told the children an interesting story. ②The children were told an interesting story by her. ③An interesting story was told to the children by her.</span></li>
+<li class="ans-item"><span class="ans">① do, call you — call me ② are, called by — am called Taku</span><span class="note">💡 ①What do your friends call you? — They call me Taku. ②What are you called by your friends? — I am called Taku.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　各組の文がほぼ同じ内容になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>(a) Who is your English teacher? (b) Who teaches ___ ___?</li>
+<li>(a) The sun gives us heat and light. (b) Heat and light are ___ ___ by the sun.</li>
+<li>(a) Why were you so tired? (b) What ___ you so tired?</li>
+<li>(a) How do you say this animal in English? (b) What ___ this animal ___ in English?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">you English</span><span class="note">💡 Who teaches you English?</span></li>
+<li class="ans-item"><span class="ans">given us</span></li>
+<li class="ans-item"><span class="ans">made</span><span class="note">💡 What made you so tired?「何があなたをそんなに疲れさせたのですか。」</span></li>
+<li class="ans-item"><span class="ans">is, called</span><span class="note">💡 What is this animal called in English?</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">6　日本文に合う英文になるように（　）内の語句を並べかえる</div>
+<ol class="prob-list">
+<li>祖父はわたしたちにこの家を残してくれました。（us / left / my grandfather / this house）.</li>
+<li>彼はその店で妹にCDを買いました。（a CD / at the shop / for / got / he / his sister）.</li>
+<li>その試合に彼らはとても興奮しました。（excited / made / very / the game / them）.</li>
+<li>彼は娘を祖母にちなんでサラと名づけました。（after / he / his daughter / his grandmother / named / Sarah）.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">My grandfather left us this house.</span></li>
+<li class="ans-item"><span class="ans">He got a CD at the shop for his sister. または He got a CD for his sister at the shop.</span></li>
+<li class="ans-item"><span class="ans">The game made them very excited.</span></li>
+<li class="ans-item"><span class="ans">He named his daughter Sarah after his grandmother.</span><span class="note">💡 name A B after C「CにちなんでAをBと名づける」。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">7　次の日本文を英語に直す</div>
+<ol class="prob-list">
+<li>彼はわたしに美しい写真を何枚か見せてくれました。</li>
+<li>それは大きな箱に見えましたが、テーブルでした。</li>
+<li>わたしの名前は健太郎です。ケンと呼んでください。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">He showed me some beautiful pictures. または He showed some beautiful pictures to me.</span></li>
+<li class="ans-item"><span class="ans">That [It] looked like a big [large] box, but it was a table.</span></li>
+<li class="ans-item"><span class="ans">My name is Kentaro. (Please) Call me Ken.</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+</main>
+
+<footer>上野作　英語復習活用ホームページ｜解答解説⑫ 目的語と補語</footer>
+
+<script>
+function toggle(btn){var box=btn.nextElementSibling;box.classList.toggle('open');btn.textContent=box.classList.contains('open')?'答えを隠す':'答えを見る';}
+function showAll(){document.querySelectorAll('.answer-box').forEach(function(b){b.classList.add('open');});document.querySelectorAll('.answer-toggle').forEach(function(b){b.textContent='答えを隠す';});}
+</script>
+<script data-goatcounter="https://ueno-english.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
