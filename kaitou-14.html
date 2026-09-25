@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解答解説⑭ 現在完了（経験）｜上野作 英語復習活用ホームページ</title>
+<style>
+:root{--blue:#b5006e;--red:#c0392b;--green:#1a7a1a;--gold:#d4700a;--bg:#fff0f6;--card:#fff;--border:#f5c6df;--text:#222;--sub:#555;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Hiragino Sans","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;}
+header{background:linear-gradient(135deg,#7b003d 0%,#e91e8c 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
+header .lesson-label{font-size:12px;letter-spacing:2px;opacity:.85;margin-bottom:4px;}
+header h1{font-size:20px;font-weight:bold;margin-bottom:6px;}
+header .topics{font-size:12px;opacity:.9;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;display:inline-block;}
+nav{display:flex;overflow-x:auto;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--border);}
+nav a{white-space:nowrap;text-decoration:none;background:var(--blue);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;}
+main{padding:16px;max-width:720px;margin:0 auto;}
+.section{background:var(--card);border-radius:12px;border:1px solid var(--border);margin-bottom:20px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+.section-header{background:var(--blue);color:#fff;padding:12px 16px;font-weight:bold;font-size:15px;}
+.section-body{padding:16px;}
+.grp{background:#f9fbfd;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;}
+.grp-title{font-weight:bold;color:var(--blue);font-size:13.5px;margin-bottom:8px;}
+.prob-list{padding-left:20px;font-size:13.5px;margin-bottom:8px;}
+.prob-list li{margin-bottom:5px;font-family:Georgia,"Times New Roman",serif;}
+.answer-toggle{background:none;border:1px solid var(--red);color:var(--red);border-radius:20px;padding:4px 14px;font-size:12px;cursor:pointer;}
+.answer-toggle:hover{background:#fff0f0;}
+.answer-box{display:none;margin-top:8px;background:#fff8f8;border-left:3px solid var(--red);padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;}
+.answer-box.open{display:block;}
+.ans-list{list-style:none;}
+.ans-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--border);}
+.ans-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ans-item .ans{color:var(--red);font-weight:bold;font-family:Georgia,serif;display:block;}
+.ans-item .jp{color:var(--sub);font-weight:normal;font-family:"Hiragino Sans","Meiryo",sans-serif;font-size:12px;display:block;}
+.ans-item .note{font-size:11.5px;color:#8a5a00;margin-top:2px;display:block;}
+.show-all-btn{display:block;width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;cursor:pointer;margin-bottom:14px;}
+.show-all-btn:hover{opacity:.88;}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);margin-top:10px;}
+</style>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+<div class="lesson-label">中学英語 Sirius Unit 14</div>
+<h1>解答解説⑭ 現在完了（経験）</h1>
+<div class="topics">確認問題・練成問題の解答＋1問ごとの解説</div>
+</header>
+
+<nav>
+<a href="#kakunin">確認問題</a>
+<a href="#rensei">練成問題</a>
+</nav>
+
+<main>
+
+<div class="section" id="kakunin">
+<div class="section-header">確認問題（教科書 p.77）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　●現在完了の経験用法の意味●　次の各組の英文を、下線部に注意して日本語に直す</div>
+<ol class="prob-list">
+<li>① I sometimes <u>play</u> tennis with my father. ② I <u>have played</u> tennis with my father once.</li>
+<li>① My sister <u>made</u> breakfast this morning. ② My sister <u>has made</u> breakfast three times.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="jp">① わたしはときどき父とテニスをします。② わたしは1度、父とテニスをしたことがあります。</span><span class="note">💡 sometimes（ときどき）は現在の習慣。onceのような回数を表す語があると経験用法の現在完了。</span></li>
+<li class="ans-item"><span class="jp">① わたしの姉［妹］はけさ、朝食を作りました。② わたしの姉［妹］は3度、朝食を作ったことがあります。</span><span class="note">💡 this morningのみなら過去の一時点。three timesという回数があると経験を表す現在完了。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　●現在完了の形●　次の文を、（　）内の語句を加えて現在完了の文に書きかえるとき＿に適する語を書く</div>
+<ol class="prob-list">
+<li>We help an old woman.（once） → We ___ ___ an old woman once.</li>
+<li>I study French.（before） → I ___ ___ French before.</li>
+<li>Jane cooks sukiyaki.（two times） → Jane ___ ___ sukiyaki two times.</li>
+<li>My mother sees the movie.（many times） → My mother ___ ___ the movie many times.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">have helped</span></li>
+<li class="ans-item"><span class="ans">have studied</span></li>
+<li class="ans-item"><span class="ans">has cooked</span><span class="note">💡 Janeは3人称単数なのでhas。</span></li>
+<li class="ans-item"><span class="ans">has seen</span><span class="note">💡 see-saw-seenの不規則変化。My motherは3人称単数なのでhas。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　●否定文●　次の文を、neverを使って否定文に書きかえる</div>
+<ol class="prob-list">
+<li>I have heard of the plan.</li>
+<li>We have sung this song.</li>
+<li>Mike has written a letter in Japanese.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">I have never heard of the plan.</span><span class="note">💡 neverはhave/hasのすぐあとに置く。</span></li>
+<li class="ans-item"><span class="ans">We have never sung this song.</span></li>
+<li class="ans-item"><span class="ans">Mike has never written a letter in Japanese.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　●疑問文●　次の文を、〔　〕内の指示に従って書きかえる</div>
+<ol class="prob-list">
+<li>They have read the book before.〔everを使って疑問文に書きかえ、yesで答える〕</li>
+<li>He has been to Kamakura.〔everを使って疑問文に書きかえ、noで答える〕</li>
+<li>They have cleaned the park <u>six times</u>.〔下線部が答えの中心となる疑問文に〕</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Have they ever read the book before? — Yes, they have.</span><span class="note">💡 everは疑問文でHave/Hasのあとに置く「今までに」。</span></li>
+<li class="ans-item"><span class="ans">Has he ever been to Kamakura? — No, he has not [hasn't].</span></li>
+<li class="ans-item"><span class="ans">How many times have they cleaned the park?</span><span class="note">💡 回数をたずねる疑問文はHow many times have[has]+主語+過去分詞〜?。</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+<div class="section" id="rensei">
+<div class="section-header">練成問題（教科書 p.78-79）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　＿に、あとの（　）内の語を必要に応じて文中での適する形に直して書く</div>
+<ol class="prob-list">
+<li>I ___ the man yesterday.（see）</li>
+<li>I have ___ the man once.（see）</li>
+<li>Taro ___ his uncle last week.（visit）</li>
+<li>Taro has ___ his uncle many times.（visit）</li>
+<li>I am ___ to Kyoto now.（go）</li>
+<li>I have ___ to Kyoto three times.（be）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">saw</span><span class="note">💡 yesterday（過去の一時点）なので過去形。see-saw-seen。</span></li>
+<li class="ans-item"><span class="ans">seen</span><span class="note">💡 have ___（現在完了）なので過去分詞seen。</span></li>
+<li class="ans-item"><span class="ans">visited</span><span class="note">💡 last week（過去の一時点）なので過去形。</span></li>
+<li class="ans-item"><span class="ans">visited</span><span class="note">💡 has ___（現在完了）。visitは規則動詞なので過去分詞も同形visited。</span></li>
+<li class="ans-item"><span class="ans">going</span><span class="note">💡 am ___ing（現在進行形）。</span></li>
+<li class="ans-item"><span class="ans">been</span><span class="note">💡 have been to 〜「〜へ行ったことがある」。be動詞の過去分詞はbeen。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　例にならって、あとの文を、下線部を（　）内の語（句）にかえて、現在完了の文に書きかえる（例：I climbed Mt. Fuji last summer.（once） → I have climbed Mt. Fuji once.）</div>
+<ol class="prob-list">
+<li>We stayed at the hotel <u>two years ago</u>.（once）</li>
+<li>He hit two home runs in a game <u>yesterday</u>.（before）</li>
+<li>They went to Taiwan <u>last month</u>.（three times）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">We have stayed at the hotel once.</span></li>
+<li class="ans-item"><span class="ans">He has hit two home runs in a game before.</span><span class="note">💡 hit-hit-hit（A-A-A型の不規則変化）。</span></li>
+<li class="ans-item"><span class="ans">They have been to Taiwan three times.</span><span class="note">💡 「行った」の経験はhave been to 〜で表す（wentのままにしない）。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　次の文を、〔　〕内の指示に従って書きかえる</div>
+<ol class="prob-list">
+<li>I have eaten sukiyaki.〔neverを使って否定文に〕</li>
+<li>He goes to the library every Saturday.〔疑問文に書きかえ、noで答える〕</li>
+<li>Yumi took pictures here last Saturday.〔否定文に〕</li>
+<li>He has come here <u>three times</u>.〔下線部が答えの中心となる疑問文に〕</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">I have never eaten sukiyaki.</span></li>
+<li class="ans-item"><span class="ans">Does he go to the library every Saturday? — No, he does not [doesn't].</span><span class="note">💡 every Saturday（習慣）は現在完了ではなく一般動詞の現在形の疑問文。</span></li>
+<li class="ans-item"><span class="ans">Yumi did not [didn't] take pictures here last Saturday.</span><span class="note">💡 last Saturday（過去の一時点）なので一般動詞の過去の否定文。</span></li>
+<li class="ans-item"><span class="ans">How many times has he come here?</span><span class="note">💡 come-came-comeの不規則変化（A-B-A型）。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　次の各組がAとBとの対話になるように＿に適する語をあとから選ぶ（ever / times / many / before / never）</div>
+<ol class="prob-list">
+<li>A: Have you ___ seen this animal? B: No, I've ___ seen it. Have you? A: I have seen it ___. But I don't remember when.</li>
+<li>A: How many ___ have you climbed Mt. Fuji? B: I have climbed it ___ times.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">A: ever　B: never　A: before</span><span class="note">💡 疑問文でever「今までに」、否定文でnever「1度も〜ない」、「以前」の意味でbefore。</span></li>
+<li class="ans-item"><span class="ans">A: times　B: many</span><span class="note">💡 How many times「何度」とたずね、many times「何度も」と答える。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　次の日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>わたしは以前、彼の家を訪れたことがあります。 I ___ ___ his house ___.</li>
+<li>姉が1度わたしをコンサートに連れていってくれたことがあります。 My sister ___ ___ me to a concert ___.</li>
+<li>わたしは1度も両親に手紙を書いたことがありません。 I ___ ___ ___ a letter to my parents.</li>
+<li>あなたは今までに彼女のお兄さんに会ったことがありますか。— はい、あります。 ___ you ___ ___ her brother? — Yes, I ___.</li>
+<li>わたしたちは4回そのホテルに泊まったことがあります。 We ___ ___ at the hotel ___ ___.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">have visited, before</span><span class="note">💡 I have visited his house before.</span></li>
+<li class="ans-item"><span class="ans">has taken, once</span><span class="note">💡 My sister has taken me to a concert once。「連れていく」はtake。3人称単数なのでhas。</span></li>
+<li class="ans-item"><span class="ans">have never written</span><span class="note">💡 write-wrote-writtenの不規則変化。</span></li>
+<li class="ans-item"><span class="ans">Have, ever seen[met] — have</span><span class="note">💡 Have you ever seen[met] her brother? — Yes, I have.</span></li>
+<li class="ans-item"><span class="ans">have stayed, four times</span><span class="note">💡 We have stayed at the hotel four times.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">6　日本文に合う英文になるように（　）内の語句を並べかえる</div>
+<ol class="prob-list">
+<li>健は何度も北海道を訪れたことがあります。（times / visited / many / Ken / Hokkaido / has）.</li>
+<li>わたしは以前その店のことを耳にしたことがあります。（before / have / I / of / heard / the shop）.</li>
+<li>わたしは1度も馬に乗ったことがありません。（a horse / have / I / ridden / never）.</li>
+<li>彼は今までに日本に行ったことがありますか。（been / ever / he / has / Japan / to）?</li>
+<li>あなたは何度、家族の夕食を作ったことがありますか。（how / you / have / many / cooked / times / dinner）for your family?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Ken has visited Hokkaido many times.</span></li>
+<li class="ans-item"><span class="ans">I have heard of the shop before.</span><span class="note">💡 hear of 〜「〜のことを耳にする」。hear-heard-heard。</span></li>
+<li class="ans-item"><span class="ans">I have never ridden a horse.</span><span class="note">💡 ride-rode-riddenの不規則変化。</span></li>
+<li class="ans-item"><span class="ans">Has he ever been to Japan?</span></li>
+<li class="ans-item"><span class="ans">How many times have you cooked dinner for your family?</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">7　次の日本文を英語に直す</div>
+<ol class="prob-list">
+<li>わたしは何度もコンピュータを使ったことがあります。</li>
+<li>わたしの兄は1度もピアノをひいたことがありません。</li>
+<li>あなたは今までに外国の人々と英語で話したことがありますか。— はい、あります。</li>
+<li>あなたは何回沖縄へ行ったことがありますか。— わたしは1回だけそこへ行ったことがあります。それは3年前でした。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">I have [I've] used a computer many times.</span></li>
+<li class="ans-item"><span class="ans">My brother has never played the piano.</span></li>
+<li class="ans-item"><span class="ans">Have you ever talked [spoken] with [to] foreign people in English? — Yes, I have.</span></li>
+<li class="ans-item"><span class="ans">How many times have you been to Okinawa? — I have been there only once. It was three years ago.</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+</main>
+
+<footer>上野作　英語復習活用ホームページ｜解答解説⑭ 現在完了（経験）</footer>
+
+<script>
+function toggle(btn){var box=btn.nextElementSibling;box.classList.toggle('open');btn.textContent=box.classList.contains('open')?'答えを隠す':'答えを見る';}
+function showAll(){document.querySelectorAll('.answer-box').forEach(function(b){b.classList.add('open');});document.querySelectorAll('.answer-toggle').forEach(function(b){b.textContent='答えを隠す';});}
+</script>
+<script data-goatcounter="https://ueno-english.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
