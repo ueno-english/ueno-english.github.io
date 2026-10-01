@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解答解説 現在完了進行形｜上野作 英語復習活用ホームページ</title>
+<style>
+:root{--blue:#b5006e;--red:#c0392b;--green:#1a7a1a;--gold:#d4700a;--bg:#fff0f6;--card:#fff;--border:#f5c6df;--text:#222;--sub:#555;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Hiragino Sans","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;}
+header{background:linear-gradient(135deg,#7b003d 0%,#e91e8c 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
+header .lesson-label{font-size:12px;letter-spacing:2px;opacity:.85;margin-bottom:4px;}
+header h1{font-size:20px;font-weight:bold;margin-bottom:6px;}
+header .topics{font-size:12px;opacity:.9;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;display:inline-block;}
+nav{display:flex;overflow-x:auto;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--border);}
+nav a{white-space:nowrap;text-decoration:none;background:var(--blue);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;}
+main{padding:16px;max-width:720px;margin:0 auto;}
+.section{background:var(--card);border-radius:12px;border:1px solid var(--border);margin-bottom:20px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+.section-header{background:var(--blue);color:#fff;padding:12px 16px;font-weight:bold;font-size:15px;}
+.section-body{padding:16px;}
+.grp{background:#f9fbfd;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;}
+.grp-title{font-weight:bold;color:var(--blue);font-size:13.5px;margin-bottom:8px;}
+.prob-list{padding-left:20px;font-size:13.5px;margin-bottom:8px;}
+.prob-list li{margin-bottom:5px;font-family:Georgia,"Times New Roman",serif;}
+.answer-toggle{background:none;border:1px solid var(--red);color:var(--red);border-radius:20px;padding:4px 14px;font-size:12px;cursor:pointer;}
+.answer-toggle:hover{background:#fff0f0;}
+.answer-box{display:none;margin-top:8px;background:#fff8f8;border-left:3px solid var(--red);padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;}
+.answer-box.open{display:block;}
+.ans-list{list-style:none;}
+.ans-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--border);}
+.ans-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ans-item .ans{color:var(--red);font-weight:bold;font-family:Georgia,serif;display:block;}
+.ans-item .jp{color:var(--sub);font-weight:normal;font-family:"Hiragino Sans","Meiryo",sans-serif;font-size:12px;display:block;}
+.ans-item .note{font-size:11.5px;color:#8a5a00;margin-top:2px;display:block;}
+.show-all-btn{display:block;width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;cursor:pointer;margin-bottom:14px;}
+.show-all-btn:hover{opacity:.88;}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);margin-top:10px;}
+</style>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+<div class="lesson-label">中学英語 Sirius</div>
+<h1>解答解説 現在完了進行形</h1>
+<div class="topics">確認問題・練成問題の解答＋1問ごとの解説</div>
+</header>
+
+<nav>
+<a href="#kakunin">確認問題</a>
+<a href="#rensei">練成問題</a>
+</nav>
+
+<main>
+
+<div class="section" id="kakunin">
+<div class="section-header">確認問題（教科書 p.85）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　●現在完了進行形の形と意味●　次の英文を日本語に直す</div>
+<ol class="prob-list">
+<li>My father has been a math teacher since 2000.</li>
+<li>We have been cooking in the kitchen for an [one] hour.</li>
+<li>I have had an old Japanese doll for ten years.</li>
+<li>The girl has been taking care of the dog since last night.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="jp">わたしの父は2000年からずっと数学教師です。</span><span class="note">💡 be（状態動詞）は現在完了（継続）で表し、進行形にはしない。has been。</span></li>
+<li class="ans-item"><span class="jp">わたしたちは1時間ずっと台所で料理をしています。</span><span class="note">💡 cook（動作動詞）はhave been ～ing（現在完了進行形）で「ずっと〜し続けている」。</span></li>
+<li class="ans-item"><span class="jp">わたしは10年間ずっと古い日本人形を持っています。</span><span class="note">💡 have（持っている、状態動詞）は進行形にしない。have had（現在完了）で表す。</span></li>
+<li class="ans-item"><span class="jp">その少女は昨夜からずっとその犬の世話をしています。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　●状態動詞と動作動詞●　次の動詞を日本語に直し、状態を表す動詞であればア、動作を表す動詞であればイを書く</div>
+<ol class="prob-list">
+<li>(1) read　(2) know　(3) be　(4) dance　(5) write　(6) make　(7) live　(8) like　(9) run　(10) want</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">(1) 読む：イ　(2) 知っている：ア　(3) …である、いる：ア　(4) 踊る：イ　(5) 書く：イ</span></li>
+<li class="ans-item"><span class="ans">(6) 作る：イ　(7) 住んでいる：ア　(8) 好きである：ア　(9) 走る：イ　(10) ほしい：ア</span><span class="note">💡 know・be・live・like・wantのような「気持ちや状態」を表す動詞は進行形にしない。read・dance・write・make・runは「動作」を表す動詞。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　●否定文、疑問文、疑問詞を用いた疑問文●　次の文を、〔　〕内の指示に従って書きかえる</div>
+<ol class="prob-list">
+<li>Mary has been talking with her mother for ten minutes.〔否定文に〕</li>
+<li>Those boys have been swimming in the sea for two hours.〔否定文に〕</li>
+<li>Kent has been using his dictionary since this morning.〔疑問文に〕</li>
+<li>Ben and Jun have been doing their homework for an hour.〔疑問文に〕</li>
+<li>Jack has been playing the game <u>in his room</u>.〔下線部が答えの中心となる疑問文に〕</li>
+<li>They have been practicing <i>kendo</i> <u>for two hours</u>.〔下線部が答えの中心となる疑問文に〕</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Mary hasn't [has not] been talking with her mother for ten minutes.</span></li>
+<li class="ans-item"><span class="ans">Those boys haven't [have not] been swimming in the sea for two hours.</span></li>
+<li class="ans-item"><span class="ans">Has Kent been using his dictionary since this morning?</span></li>
+<li class="ans-item"><span class="ans">Have Ben and Jun been doing their homework for an hour?</span></li>
+<li class="ans-item"><span class="ans">Where has Jack been playing the game?</span><span class="note">💡 場所をたずねるのでWhere。</span></li>
+<li class="ans-item"><span class="ans">How long have they been practicing kendo?</span><span class="note">💡 期間をたずねるのでHow long。</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+<div class="section" id="rensei">
+<div class="section-header">練成問題（教科書 p.86-87）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　次の（　）に入る最も適当な語（句）をあとから選び、記号で答える</div>
+<ol class="prob-list">
+<li>I（ア know　イ knew　ウ knowing　エ have known）Tom since we were students.</li>
+<li>That girl has been（ア dance　イ dances　ウ danced　エ dancing）over there for one hour.</li>
+<li>We（ア are　イ been　ウ have been　エ have being）good friends for a long time.</li>
+<li>Have you（ア watching　イ watches　ウ been watched　エ been watching）the movie for three hours?</li>
+<li>Judy hasn't（ア looks　イ looking　ウ been looking　エ been looked）for the cat for a long time.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">エ（have known）</span><span class="note">💡 since（起点）があるので現在完了。knowは状態動詞なので進行形にしない。</span></li>
+<li class="ans-item"><span class="ans">エ（dancing）</span><span class="note">💡 has been ___ing（現在完了進行形）。danceは動作動詞。</span></li>
+<li class="ans-item"><span class="ans">ウ（have been）</span><span class="note">💡 for a long time（期間）があるので現在完了。be動詞の過去分詞はbeen。</span></li>
+<li class="ans-item"><span class="ans">エ（been watching）</span><span class="note">💡 Have you been ___ing（現在完了進行形の疑問文）。</span></li>
+<li class="ans-item"><span class="ans">ウ（been looking）</span><span class="note">💡 look for「探す」は動作動詞なので進行形にできる。hasn't been ___ing。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　次の日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>わたしは9時からここにいます。 I ___ ___ here ___ nine o'clock.</li>
+<li>この前の水曜日からずっととても寒いです。 It ___ ___ very cold ___ last Wednesday.</li>
+<li>1週間ずっと雨が降っています。 It ___ ___ ___ a week.</li>
+<li>ジムは1時間ずっとその問題について考えています。 Jim ___ ___ ___ about the problem ___ one hour.</li>
+<li>わたしの妹は2時間前からずっとフランス語を勉強しています。 My sister ___ ___ ___ French ___ two hours.</li>
+<li>あなたはけさからずっとそのCDを聞いているのですか。 ___ you ___ ___ to the CD ___ this morning?</li>
+<li>わたしたちは長い間の知り合いというわけではありません。 We ___ ___ each other ___ a long time.</li>
+<li>あなたはいつから星を見ているのですか。 How long ___ you ___ ___ at the stars?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">have been, since</span><span class="note">💡 beは状態動詞なので進行形にせずhave been。</span></li>
+<li class="ans-item"><span class="ans">has been, since</span></li>
+<li class="ans-item"><span class="ans">has been raining for</span><span class="note">💡 rainは動作動詞なので現在完了進行形has been raining。</span></li>
+<li class="ans-item"><span class="ans">has been thinking, for</span></li>
+<li class="ans-item"><span class="ans">has been studying, for</span></li>
+<li class="ans-item"><span class="ans">Have, been listening, since</span></li>
+<li class="ans-item"><span class="ans">haven't known, for</span><span class="note">💡 knowは状態動詞なので進行形にせずhaven't known。</span></li>
+<li class="ans-item"><span class="ans">have, been looking</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　次の英文を日本語に直す</div>
+<ol class="prob-list">
+<li>We have been very busy since last month.</li>
+<li>I have been washing the dishes for thirty minutes.</li>
+<li>Has that baby been crying for a long time?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="jp">わたしたちは先月からずっととても忙しい。</span></li>
+<li class="ans-item"><span class="jp">わたしは30分間ずっと皿を洗っています。</span></li>
+<li class="ans-item"><span class="jp">あの赤ん坊は長い間ずっと泣いているのですか。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　次の文を、〔　〕内の指示に従って書きかえる</div>
+<ol class="prob-list">
+<li>Judy has been talking on the phone for fifteen minutes.〔否定文に〕</li>
+<li>That boy has been studying in the library since ten o'clock.〔疑問文に書きかえ、yesで答える〕</li>
+<li>Ms. Sato has been practicing the piano <u>for two hours</u>.〔下線部が答えの中心となる疑問文に〕</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Judy hasn't [has not] been talking on the phone for fifteen minutes.</span></li>
+<li class="ans-item"><span class="ans">Has that boy been studying in the library since ten o'clock? — Yes, he has.</span></li>
+<li class="ans-item"><span class="ans">How long has Ms. Sato been practicing the piano?</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　日本文に合う英文になるように（　）内の語句を並べかえる</div>
+<ol class="prob-list">
+<li>わたしたちは3週間ずっと北海道にいます。（have / Hokkaido / we / for / in / three weeks / been）.</li>
+<li>彼は昨夜からずっとそのコンピュータを使っています。（using / since / the computer / has / last night / he / been）.</li>
+<li>わたしは2010年から福岡で暮らしています。（Fukuoka / in / 2010 / lived / since / have / I）.</li>
+<li>あの男性は1時間以上ずっと話しています。（been / for / speaking / more / an hour / that man / than / has）.</li>
+<li>あなたは去年から自転車を買いたいと思っているのですか。（wanted / since / have / last year / to / a bike / buy / you）?</li>
+<li>いつから雪が降っているのですか。（long / it / snowing / how / been / has）?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">We have been in Hokkaido for three weeks.</span></li>
+<li class="ans-item"><span class="ans">He has been using the computer since last night.</span></li>
+<li class="ans-item"><span class="ans">I have lived in Fukuoka since 2010.</span><span class="note">💡 liveは状態動詞なので進行形にせずhave lived。</span></li>
+<li class="ans-item"><span class="ans">That man has been speaking for more than an hour.</span></li>
+<li class="ans-item"><span class="ans">Have you wanted to buy a bike since last year?</span><span class="note">💡 wantは状態動詞なので進行形にせずhave wanted。</span></li>
+<li class="ans-item"><span class="ans">How long has it been snowing?</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">6　次の日本文を英語に直す</div>
+<ol class="prob-list">
+<li>わたしたちは20分間ずっとバスを待っています。</li>
+<li>彼女は正午からずっとカギを探しています。</li>
+<li>彼らは午前6時からずっとその部屋をそうじしています。</li>
+<li>あなたはそのときからずっとサッカーが好きなのですか。</li>
+<li>あの犬はいつからいすの上で眠っているのですか。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">We have been waiting for the [a] bus for twenty minutes.</span></li>
+<li class="ans-item"><span class="ans">She has been looking for the [her / a] key since noon.</span></li>
+<li class="ans-item"><span class="ans">They have been cleaning the room since six (o'clock) in the morning.</span></li>
+<li class="ans-item"><span class="ans">Have you liked soccer since then [that time]?</span><span class="note">💡 likeは状態動詞なので進行形にせずhave liked。</span></li>
+<li class="ans-item"><span class="ans">How long has that dog been sleeping on the chair?</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+</main>
+
+<footer>上野作　英語復習活用ホームページ｜解答解説 現在完了進行形</footer>
+
+<script>
+function toggle(btn){var box=btn.nextElementSibling;box.classList.toggle('open');btn.textContent=box.classList.contains('open')?'答えを隠す':'答えを見る';}
+function showAll(){document.querySelectorAll('.answer-box').forEach(function(b){b.classList.add('open');});document.querySelectorAll('.answer-toggle').forEach(function(b){b.textContent='答えを隠す';});}
+</script>
+<script data-goatcounter="https://ueno-english.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

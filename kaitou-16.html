@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解答解説⑯ 文法演習(2) 現在完了・現在完了進行形｜上野作 英語復習活用ホームページ</title>
+<style>
+:root{--blue:#b5006e;--red:#c0392b;--green:#1a7a1a;--gold:#d4700a;--bg:#fff0f6;--card:#fff;--border:#f5c6df;--text:#222;--sub:#555;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Hiragino Sans","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;}
+header{background:linear-gradient(135deg,#7b003d 0%,#e91e8c 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
+header .lesson-label{font-size:12px;letter-spacing:2px;opacity:.85;margin-bottom:4px;}
+header h1{font-size:20px;font-weight:bold;margin-bottom:6px;}
+header .topics{font-size:12px;opacity:.9;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;display:inline-block;}
+nav{display:flex;overflow-x:auto;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--border);}
+nav a{white-space:nowrap;text-decoration:none;background:var(--blue);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;}
+main{padding:16px;max-width:720px;margin:0 auto;}
+.section{background:var(--card);border-radius:12px;border:1px solid var(--border);margin-bottom:20px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+.section-header{background:var(--blue);color:#fff;padding:12px 16px;font-weight:bold;font-size:15px;}
+.section-body{padding:16px;}
+.grp{background:#f9fbfd;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;}
+.grp-title{font-weight:bold;color:var(--blue);font-size:13.5px;margin-bottom:8px;}
+.prob-list{padding-left:20px;font-size:13.5px;margin-bottom:8px;}
+.prob-list li{margin-bottom:5px;font-family:Georgia,"Times New Roman",serif;}
+.answer-toggle{background:none;border:1px solid var(--red);color:var(--red);border-radius:20px;padding:4px 14px;font-size:12px;cursor:pointer;}
+.answer-toggle:hover{background:#fff0f0;}
+.answer-box{display:none;margin-top:8px;background:#fff8f8;border-left:3px solid var(--red);padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;}
+.answer-box.open{display:block;}
+.ans-list{list-style:none;}
+.ans-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--border);}
+.ans-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ans-item .ans{color:var(--red);font-weight:bold;font-family:Georgia,serif;display:block;}
+.ans-item .jp{color:var(--sub);font-weight:normal;font-family:"Hiragino Sans","Meiryo",sans-serif;font-size:12px;display:block;}
+.ans-item .note{font-size:11.5px;color:#8a5a00;margin-top:2px;display:block;}
+.show-all-btn{display:block;width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;cursor:pointer;margin-bottom:14px;}
+.show-all-btn:hover{opacity:.88;}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);margin-top:10px;}
+</style>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+<div class="lesson-label">中学英語 Sirius</div>
+<h1>解答解説⑯ 文法演習(2) 現在完了・現在完了進行形</h1>
+<div class="topics">演習問題の解答＋1問ごとの解説</div>
+</header>
+
+<nav>
+<a href="kaitou-14.html">Unit14の解答解説へ</a>
+<a href="kaitou-15.html">Unit15の解答解説へ</a>
+<a href="kaitou-kanryoshinko.html">現在完了進行形の解答解説へ</a>
+</nav>
+
+<main>
+
+<div class="section" id="enshu">
+<div class="section-header">演習問題（教科書 p.89-91）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　次の英文を、下線部に注意して日本語に直す</div>
+<ol class="prob-list">
+<li>We have studied English <u>for three years</u>.</li>
+<li>We have <u>already</u> studied Lesson 2.</li>
+<li>We have <u>just</u> started studying Lesson 3.</li>
+<li>We have studied about the history of our town <u>before</u>.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="jp">わたしたちは3年間ずっと英語を勉強しています。</span><span class="note">💡 for three years（期間）があるので継続用法の現在完了。</span></li>
+<li class="ans-item"><span class="jp">わたしたちはすでにレッスン2を勉強してしまいました。</span><span class="note">💡 すでに（already）があるので完了用法。</span></li>
+<li class="ans-item"><span class="jp">わたしたちはちょうどレッスン3を勉強し始めたところです。</span><span class="note">💡 ちょうど（just）があるので完了用法。start ～ingの形。</span></li>
+<li class="ans-item"><span class="jp">わたしたちは以前わたしたちの町の歴史について勉強したことがあります。</span><span class="note">💡 以前（before）があるので経験用法。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　●継続用法と完了用法●　次の2つの文を、現在完了を用いて1つの文に書きかえるとき＿に適する語を書く</div>
+<ol class="prob-list">
+<li>We moved to this town five years ago. We still live here. → We ___ ___ in this town for five years.</li>
+<li>My sister got sick last night. She is still sick. → My sister ___ ___ sick since last night.</li>
+<li>I lost my pen. And I don't have it now. → I ___ ___ my pen.</li>
+<li>My mother went shopping. So she isn't here now. → My mother ___ ___ shopping.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">have lived</span></li>
+<li class="ans-item"><span class="ans">has been</span><span class="note">💡 get-got-gotで「病気になる」、その状態が続くのはbe sick。has been sick。</span></li>
+<li class="ans-item"><span class="ans">have lost</span><span class="note">💡 「なくして今も持っていない」は完了用法のhave lost。</span></li>
+<li class="ans-item"><span class="ans">has gone</span><span class="note">💡 「行ってしまって今ここにいない」はhas gone shopping。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　●経験用法●　次の文を、下線部を（　）内の語句にかえて、現在完了の文に書きかえる</div>
+<ol class="prob-list">
+<li>I played shogi with my grandfather <u>a few years ago</u>.（before）</li>
+<li>My brother made me a chair <u>last month</u>.（once）</li>
+<li>We saw the man at the station <u>this morning</u>.（many times）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">I have [I've] played shogi with my grandfather before.</span></li>
+<li class="ans-item"><span class="ans">My brother has made me a chair once.</span></li>
+<li class="ans-item"><span class="ans">We have [We've] seen the man at the station many times.</span><span class="note">💡 see-saw-seenの不規則変化。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　次の日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>彼らはけさからずっと図書館にいます。 They ___ in the library since this morning.</li>
+<li>兄はちょうど部屋をそうじしたところです。 My brother ___ just ___ his room.</li>
+<li>わたしはもう母の日のプレゼントを買ってあります。 I ___ already ___ a present for Mother's Day.</li>
+<li>おばは2度パリに行ったことがあります。 My aunt ___ to Paris twice.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">have been [stayed]</span></li>
+<li class="ans-item"><span class="ans">has, cleaned</span></li>
+<li class="ans-item"><span class="ans">have, bought [got / gotten]</span></li>
+<li class="ans-item"><span class="ans">has been</span><span class="note">💡 「行ったことがある」はhave been to 〜。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　次の文を、〔　〕内の指示に従って否定文に書きかえる</div>
+<ol class="prob-list">
+<li>I have called Ken.〔since thenを加えて〕</li>
+<li>It has rained.〔for a monthを加えて〕</li>
+<li>Ken has finished his homework.〔yetを加えて〕</li>
+<li>I have ridden a horse.〔neverを用いて〕</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">I have not [haven't] called Ken since then.</span></li>
+<li class="ans-item"><span class="ans">It has not [hasn't] rained for a month.</span></li>
+<li class="ans-item"><span class="ans">Ken has not [hasn't] finished his homework yet.</span></li>
+<li class="ans-item"><span class="ans">I have [I've] never ridden a horse.</span><span class="note">💡 ride-rode-riddenの不規則変化。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">6　次の文を、〔　〕内の指示に従って書きかえる</div>
+<ol class="prob-list">
+<li>They have stayed in Izu every summer.〔since 2000を加えて疑問文に書きかえ、yesで答える〕</li>
+<li>They have sent e-mails to each other <u>for a year</u>.〔下線部を「どのくらいの間」とたずねる文に〕</li>
+<li>Mr. Sato has taken his children to the zoo <u>three times</u>.〔下線部を「何度」とたずねる文に〕</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Have they stayed in Izu every summer since 2000? — Yes, they have.</span></li>
+<li class="ans-item"><span class="ans">How long have they sent e-mails to each other?</span></li>
+<li class="ans-item"><span class="ans">How many times has Mr. Sato taken his children to the zoo?</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">7　●現在完了でよく使われる語（句）●　次の英文が「　」内の日本語の意味を表すように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>I have played the piano ___ ten years.「10年間ずっと弾いています」</li>
+<li>He has used the computer ___ this spring.「今年の春から使っています」</li>
+<li>My sister has ___ got up.「ちょうど起きたところです」</li>
+<li>I ___ done my work ___.「まだやっていません」</li>
+<li>My father has ___ left home.「もう家を出てしまいました」</li>
+<li>Has the rain stopped ___?「もうやみましたか」</li>
+<li>Have you ___ helped other people?「今までに助けたことがありますか」</li>
+<li>I have visited the museum ___.「1度、訪れたことがあります」</li>
+<li>I have ___ caught a fish in the river.「1度もつったことがありません」</li>
+<li>We've eaten at the restaurant ___.「何度も食事をしたことがあります」</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">for</span></li>
+<li class="ans-item"><span class="ans">since</span></li>
+<li class="ans-item"><span class="ans">just</span></li>
+<li class="ans-item"><span class="ans">haven't, yet</span></li>
+<li class="ans-item"><span class="ans">already</span></li>
+<li class="ans-item"><span class="ans">yet</span></li>
+<li class="ans-item"><span class="ans">ever</span></li>
+<li class="ans-item"><span class="ans">once</span></li>
+<li class="ans-item"><span class="ans">never</span></li>
+<li class="ans-item"><span class="ans">many times</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">8　●現在完了進行形●　次の日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>弟は2時間ずっと本を読んでいます。 My brother ___ a book for two hours.</li>
+<li>彼らは3時からずっと電話で話しています。 They ___ on the phone since three o'clock.</li>
+<li>どのくらいの間、雪が降っているのですか。 How long ___ it ___?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">has been reading</span></li>
+<li class="ans-item"><span class="ans">have been talking</span></li>
+<li class="ans-item"><span class="ans">has, been snowing</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">9　日本文に合う英文になるように（　）内の語句を並べかえる（下線部の語は必要に応じて適する形に直す）</div>
+<ol class="prob-list">
+<li>わたしたちはちょうど昼食を食べたところです。（we / lunch / <u>eat</u> / have / just）.</li>
+<li>あの男の子は長い間ずっと泣いているのですか。（that boy / long / crying / has / time / for / <u>be</u> / a）?</li>
+<li>兄はまだ帰宅していません。（<u>come</u> / has / home / my brother / not / yet）.</li>
+<li>3か月間、彼女から便りがありません。 I（for / from / have / <u>hear</u> / her / months / not / three）.</li>
+<li>あなたは今までに英語で物語を読んだことがありますか。（a story / ever / have / in English / <u>read</u> / you）?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">We have just eaten lunch.</span><span class="note">💡 eat-ate-eatenの不規則変化。</span></li>
+<li class="ans-item"><span class="ans">Has that boy been crying for a long time?</span></li>
+<li class="ans-item"><span class="ans">My brother has not come home yet.</span></li>
+<li class="ans-item"><span class="ans">I have not heard from her for three months.</span><span class="note">💡 hear-heard-heardの不規則変化。hear from 〜「〜から便りがある」。</span></li>
+<li class="ans-item"><span class="ans">Have you ever read a story in English?</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">10　次の日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>1週間ずっと暑い日が続いています。 It ___ hot ___ a week.</li>
+<li>父が以前わたしをパーティーに連れていってくれたことがあります。 My father ___ me to a party ___.</li>
+<li>あなたはなぜ古いカップを使っているのですか。— 新しいカップを割ってしまったからです。 Why are you ___ your old cup? — Because I ___ ___ my new cup.</li>
+<li>わたしは1度も家族のために朝食を作ったことがありません。 I ___ breakfast for my family.</li>
+<li>あなたは今までにファンレターを書いたことがありますか。— はい、あります。 ___ you ___ a fan letter? — Yes, I ___.</li>
+<li>彼らはいつからギターをひいていますか。— けさからです。 How ___ they ___ playing the guitar? — ___ this morning.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">has been, for</span></li>
+<li class="ans-item"><span class="ans">has taken, before</span></li>
+<li class="ans-item"><span class="ans">using — have broken</span><span class="note">💡 break-broke-brokenの不規則変化。</span></li>
+<li class="ans-item"><span class="ans">have never made [cooked]</span></li>
+<li class="ans-item"><span class="ans">Have, ever written — have</span><span class="note">💡 write-wrote-writtenの不規則変化。</span></li>
+<li class="ans-item"><span class="ans">long have, been — Since</span><span class="note">💡 How long have they been playing the guitar? — Since this morning.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">11　次の日本文を英語に直す</div>
+<ol class="prob-list">
+<li>わたしは1度も英語で手紙を書いたことがありません。</li>
+<li>あなたはもう夕食を食べてしまいましたか。— はい、食べてしまいました。でも、父はまだ食べていません。</li>
+<li>あなたは今までに中国へ行ったことがありますか。— いいえ、ありません。でも、母は1度行ったことがあります。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">I have [I've] never written a letter [(any) letters] in English.</span></li>
+<li class="ans-item"><span class="ans">Have you eaten [had] dinner yet? — Yes, I have. But my father has not [hasn't] eaten [had] it yet. または Have you finished (eating [having]) dinner yet? — Yes, I have. But my father has not [hasn't] finished (eating [having]) it yet.</span></li>
+<li class="ans-item"><span class="ans">Have you ever been to China? — No, I have not [haven't]. But my mother has been there once. または Have you ever visited China? — No, I have not [haven't]. But my mother has visited it [there] once.</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+</main>
+
+<footer>上野作　英語復習活用ホームページ｜解答解説⑯ 文法演習(2) 現在完了・現在完了進行形</footer>
+
+<script>
+function toggle(btn){var box=btn.nextElementSibling;box.classList.toggle('open');btn.textContent=box.classList.contains('open')?'答えを隠す':'答えを見る';}
+function showAll(){document.querySelectorAll('.answer-box').forEach(function(b){b.classList.add('open');});document.querySelectorAll('.answer-toggle').forEach(function(b){b.textContent='答えを隠す';});}
+</script>
+<script data-goatcounter="https://ueno-english.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
