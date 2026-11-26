@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解答解説㉙ 関係代名詞（目的格）｜上野作 英語復習活用ホームページ</title>
+<style>
+:root{--blue:#b5006e;--red:#c0392b;--green:#1a7a1a;--gold:#d4700a;--bg:#fff0f6;--card:#fff;--border:#f5c6df;--text:#222;--sub:#555;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Hiragino Sans","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;}
+header{background:linear-gradient(135deg,#7b003d 0%,#e91e8c 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
+header .lesson-label{font-size:12px;letter-spacing:2px;opacity:.85;margin-bottom:4px;}
+header h1{font-size:20px;font-weight:bold;margin-bottom:6px;}
+header .topics{font-size:12px;opacity:.9;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;display:inline-block;}
+nav{display:flex;overflow-x:auto;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--border);}
+nav a{white-space:nowrap;text-decoration:none;background:var(--blue);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;}
+main{padding:16px;max-width:720px;margin:0 auto;}
+.section{background:var(--card);border-radius:12px;border:1px solid var(--border);margin-bottom:20px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+.section-header{background:var(--blue);color:#fff;padding:12px 16px;font-weight:bold;font-size:15px;}
+.section-body{padding:16px;}
+.grp{background:#f9fbfd;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;}
+.grp-title{font-weight:bold;color:var(--blue);font-size:13.5px;margin-bottom:8px;}
+.prob-list{padding-left:20px;font-size:13.5px;margin-bottom:8px;}
+.prob-list li{margin-bottom:5px;font-family:Georgia,"Times New Roman",serif;}
+.answer-toggle{background:none;border:1px solid var(--red);color:var(--red);border-radius:20px;padding:4px 14px;font-size:12px;cursor:pointer;}
+.answer-toggle:hover{background:#fff0f0;}
+.answer-box{display:none;margin-top:8px;background:#fff8f8;border-left:3px solid var(--red);padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;}
+.answer-box.open{display:block;}
+.ans-list{list-style:none;}
+.ans-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--border);}
+.ans-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ans-item .ans{color:var(--red);font-weight:bold;font-family:Georgia,serif;display:block;}
+.ans-item .jp{color:var(--sub);font-weight:normal;font-family:"Hiragino Sans","Meiryo",sans-serif;font-size:12px;display:block;}
+.ans-item .note{font-size:11.5px;color:#8a5a00;margin-top:2px;display:block;}
+.show-all-btn{display:block;width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;cursor:pointer;margin-bottom:14px;}
+.show-all-btn:hover{opacity:.88;}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);margin-top:10px;}
+</style>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+<div class="lesson-label">中学英語 Sirius</div>
+<h1>解答解説㉙ 関係代名詞（目的格）</h1>
+<div class="topics">ポイント問題・確認問題・練成問題の解答＋1問ごとの解説</div>
+</header>
+
+<nav>
+<a href="kaitou-28.html">Unit28の解答解説へ</a>
+<a href="kaitou-30.html">Unit30の解答解説へ</a>
+</nav>
+
+<main>
+
+<div class="section" id="enshu">
+<div class="section-header">ポイント問題・確認問題（教科書 p.146-147）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">ポイント問題　次の＿に、whichかthatのうち適する方（どちらでもよい場合はwhich）を書く。また、できた文を日本語に直す</div>
+<ol class="prob-list">
+<li>(1) This is the bag ___ I bought yesterday.</li>
+<li>(2) She is a girl ___ I sometimes see on the bus.</li>
+<li>(3) The cup ___ my brother broke was mine.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">which　これはわたしがきのう買ったかばんです。</span><span class="note">💡 先行詞が物でbought の目的語がない。目的格のwhich。</span></li>
+<li class="ans-item"><span class="ans">that　彼女はわたしがバスの中でときどき見かける女の子です。</span><span class="note">💡 先行詞が人（a girl）なので that。（目的格の whom は発展研究で学ぶ）</span></li>
+<li class="ans-item"><span class="ans">which　わたしの兄［弟］が割ったカップはわたしのでした。</span><span class="note">💡 目的格の関係代名詞は省略できる。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">1　●目的格の関係代名詞 which●　例にならって、あとの2つの文をwhichを使って1つの文に書きかえる（例：I like the camera. My uncle gave it to me. → I like the camera which my uncle gave to me.）</div>
+<ol class="prob-list">
+<li>I like the picture. Yumi painted it for me.</li>
+<li>I'm reading a book. I borrowed it from the library.</li>
+<li>These are roses. My grandmother takes care of them.</li>
+<li>The watch was really beautiful. Jane's grandmother gave it to Jane.</li>
+<li>The fish were all small. My brother caught them in the river.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">I like the picture which Yumi painted for me.</span><span class="note">💡 2文目の目的語 it が消えて、which が文頭に出る。</span></li>
+<li class="ans-item"><span class="ans">I'm reading a book which I borrowed from the library.</span></li>
+<li class="ans-item"><span class="ans">These are roses which my grandmother takes care of.</span><span class="note">💡 take care of 〜 の of が最後に残る。</span></li>
+<li class="ans-item"><span class="ans">The watch which Jane's grandmother gave to Jane was really beautiful.</span><span class="note">💡 主語を修飾するので文の中に入る。</span></li>
+<li class="ans-item"><span class="ans">The fish which my brother caught in the river were all small.</span><span class="note">💡 The fish が複数扱いなので were。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　●目的格の関係代名詞 that●　例にならって、あとの2つの文をthatを使って1つの文に書きかえる（例：Mary is a girl. Mike introduced her to me. → Mary is a girl that Mike introduced to me.）</div>
+<ol class="prob-list">
+<li>Mike is the boy. I teach him Japanese.</li>
+<li>These are students. Mr. Sato taught them last year.</li>
+<li>The child was Mr. Brown's son. I helped him yesterday.</li>
+<li>The girls are my sisters. Mr. Brown is talking to them.</li>
+<li>Ken's mother will buy him a DVD. He wants it.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Mike is the boy that I teach Japanese.</span><span class="note">💡 him が消える。teach 人 物 の「人」が先行詞。</span></li>
+<li class="ans-item"><span class="ans">These are students that Mr. Sato taught last year.</span></li>
+<li class="ans-item"><span class="ans">The child that I helped yesterday was Mr. Brown's son.</span></li>
+<li class="ans-item"><span class="ans">The girls that Mr. Brown is talking to are my sisters.</span><span class="note">💡 talk to 〜 の to が最後に残る。</span></li>
+<li class="ans-item"><span class="ans">Ken's mother will buy him a DVD that he wants.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　●関係代名詞の省略●　次の文には関係代名詞が省略されている。その位置を記号で答える</div>
+<ol class="prob-list">
+<li>This is ア a letter イ I ウ received エ yesterday.</li>
+<li>The woman ア I イ asked ウ the way エ was オ very kind.</li>
+<li>I like ア these pictures イ my mother ウ took エ in Hawaii.</li>
+<li>I'll tell ア you イ everything ウ I エ know.</li>
+<li>All ア you イ have to do now ウ is エ to call her.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">イ</span><span class="note">💡 a letter [that] I received yesterday。目的格の関係代名詞は《名詞＋主語》の間に入る。</span></li>
+<li class="ans-item"><span class="ans">ア</span><span class="note">💡 The woman [that] I asked the way。</span></li>
+<li class="ans-item"><span class="ans">イ</span><span class="note">💡 these pictures [which] my mother took。</span></li>
+<li class="ans-item"><span class="ans">ウ</span><span class="note">💡 everything [that] I know。</span></li>
+<li class="ans-item"><span class="ans">ア</span><span class="note">💡 All [that] you have to do now。</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+<div class="section" id="kakunin">
+<div class="section-header">練成問題（教科書 p.148-149）</div>
+<div class="section-body">
+<div class="grp">
+<div class="grp-title">1　例にならって、あとの2つの文をwhichかthat（どちらでもよい場合はwhich）を使って1つの文に書きかえる（例：I live in a house. My grandfather built it. → I live in a house which my grandfather built.）</div>
+<ol class="prob-list">
+<li>I know a boy. Ann likes him.</li>
+<li>This is the sweater. I bought it last Sunday.</li>
+<li>The baseball game was really exciting. We watched it on TV.</li>
+<li>The woman was very kind. I asked her the way to the station.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">I know a boy that Ann likes.</span><span class="note">💡 先行詞が人なのでthat。</span></li>
+<li class="ans-item"><span class="ans">This is the sweater which I bought last Sunday.</span></li>
+<li class="ans-item"><span class="ans">The baseball game which we watched on TV was really exciting.</span></li>
+<li class="ans-item"><span class="ans">The woman that I asked the way to the station was very kind.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　次の日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>これは彼が好きな歌です。 This is a song ___ he ___.</li>
+<li>わたしが訪れたい都市はローマです。 The city ___ I want to ___ is Rome.</li>
+<li>わたしはきのう、あなたがよく知っている女性に会いました。 Yesterday I saw a woman ___ you ___ well.</li>
+<li>わたしはシェークスピアが書いた本を読んでいます。 I'm reading a ___ ___ Shakespeare ___.</li>
+<li>メアリーがパーティーに連れてきた男の子は彼女の弟でした。 The ___ ___ Mary ___ to the party was her brother.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">which [that], likes</span><span class="note">💡 主語heに合わせてlikes。</span></li>
+<li class="ans-item"><span class="ans">which [that], visit</span></li>
+<li class="ans-item"><span class="ans">that, know</span><span class="note">💡 先行詞が人なのでthat。</span></li>
+<li class="ans-item"><span class="ans">book which [that], wrote</span></li>
+<li class="ans-item"><span class="ans">boy that, brought</span><span class="note">💡 bring-brought-brought。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　次の各組の文がほぼ同じ内容になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>(1) a This is a CD. My brother got it yesterday. b This is a CD ___ ___ ___ ___ yesterday.</li>
+<li>(2) a The woman wasn't at home. I wanted to see her. b The woman ___ ___ ___ to see wasn't at home.</li>
+<li>(3) a Mary bought a nice racket last week. b The racket ___ ___ ___ last week was nice.</li>
+<li>(4) a Who is your favorite baseball player? b Who is the baseball player ___ ___ ___ the best?</li>
+<li>(5) a This is a picture taken by my father last Sunday. b This is a picture ___ ___ ___ ___ last Sunday.</li>
+<li>(6) a I have never seen such a beautiful flower. b This is the ___ beautiful flower ___ ___ ___ ever seen.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">which [that] my brother got</span></li>
+<li class="ans-item"><span class="ans">that I wanted</span><span class="note">💡 先行詞が人。</span></li>
+<li class="ans-item"><span class="ans">which [that] Mary bought</span></li>
+<li class="ans-item"><span class="ans">that you like</span><span class="note">💡 「最も好きな選手」＝「あなたが最も好きな選手」。</span></li>
+<li class="ans-item"><span class="ans">which [that] my father took</span><span class="note">💡 taken by my father ＝ my father took。</span></li>
+<li class="ans-item"><span class="ans">most, that [which] I have</span><span class="note">💡 最上級（most）があるときは that が好まれる。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　次の日本文に合う英文になるように、（　）内の語句を並べかえる</div>
+<ol class="prob-list">
+<li>これらはわたしたちが作った料理です。（are / cooked / which / these / the dishes / we）</li>
+<li>あなたが道を教えた男性はわたしのおじでした。（was / that / told / you / my uncle / the man / the way）</li>
+<li>弟は借りたビデオを見ているところです。（a video / he / is / my brother / rented / watching / which）</li>
+<li>わたしはきのう買ったCDをもう聞いてしまいました。 I have（I / to / bought / listened / that / yesterday / already / the CD）.</li>
+<li>彼女がわたしたちにたずねた質問はとても難しかった。（asked / difficult / she / the questions / us / very / were）</li>
+<li>何かわたしにできることはありますか。（anything / do / I / is / that / can / there）?</li>
+<li>あなたが貸してくれた本はとてもおもしろかった。（you / which / was / very / to me / the book / lent / interesting）</li>
+<li>彼がきのう連れてきた少女は英語をとてもじょうずに話しました。（yesterday / well / he / English / very / the girl / brought / spoke / that）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">These are the dishes which we cooked.</span></li>
+<li class="ans-item"><span class="ans">The man that you told the way was my uncle.</span><span class="note">💡 told the way「道を教えた」。</span></li>
+<li class="ans-item"><span class="ans">My brother is watching a video which he rented.</span></li>
+<li class="ans-item"><span class="ans">I have already listened to the CD that I bought yesterday.</span><span class="note">💡 listen to 〜。不足語 to。</span></li>
+<li class="ans-item"><span class="ans">The questions she asked us were very difficult.</span><span class="note">💡 関係代名詞を使わず省略した形。</span></li>
+<li class="ans-item"><span class="ans">Is there anything that I can do?</span><span class="note">💡 anything のあとは that が好まれる。</span></li>
+<li class="ans-item"><span class="ans">The book which you lent to me was very interesting.</span></li>
+<li class="ans-item"><span class="ans">The girl that he brought yesterday spoke English very well.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　次の日本文を、thatを使って英語に直す</div>
+<ol class="prob-list">
+<li>これは父が作ったいすです。</li>
+<li>彼女はわたしがきのうここで会った女の子です。</li>
+<li>わたしたちの知らないことがたくさんあります。</li>
+<li>わたしは彼が1週間前に書いた手紙を読んでいるところです。</li>
+<li>これはわたしが公園へ行くために使った自転車です。</li>
+<li>わたしがきのうつった魚は父によって料理されました。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">This is a [the] chair that my father made.</span></li>
+<li class="ans-item"><span class="ans">She is a [the] girl that I saw [met] here yesterday.</span></li>
+<li class="ans-item"><span class="ans">There are many [a lot of] things that we do not [don't] know.</span><span class="note">💡 things を先行詞に。</span></li>
+<li class="ans-item"><span class="ans">I am [I'm] reading a [the] letter that he wrote a week ago.</span></li>
+<li class="ans-item"><span class="ans">This is a [the] bike [bicycle] that I used to go to the park.</span><span class="note">💡 「〜するために使った」＝ used to go（目的の不定詞）。</span></li>
+<li class="ans-item"><span class="ans">A [The] fish that I caught yesterday was cooked by my father.</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+</main>
+
+<footer>上野作　英語復習活用ホームページ｜解答解説㉙ 関係代名詞（目的格）</footer>
+
+<script>
+function toggle(btn){var box=btn.nextElementSibling;box.classList.toggle('open');btn.textContent=box.classList.contains('open')?'答えを隠す':'答えを見る';}
+function showAll(){document.querySelectorAll('.answer-box').forEach(function(b){b.classList.add('open');});document.querySelectorAll('.answer-toggle').forEach(function(b){b.textContent='答えを隠す';});}
+</script>
+<script data-goatcounter="https://ueno-english.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

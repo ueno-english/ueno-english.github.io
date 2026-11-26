@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解答解説 発展研究 関係代名詞（whom, whose）｜上野作 英語復習活用ホームページ</title>
+<style>
+:root{--blue:#b5006e;--red:#c0392b;--green:#1a7a1a;--gold:#d4700a;--bg:#fff0f6;--card:#fff;--border:#f5c6df;--text:#222;--sub:#555;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Hiragino Sans","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;}
+header{background:linear-gradient(135deg,#7b003d 0%,#e91e8c 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
+header .lesson-label{font-size:12px;letter-spacing:2px;opacity:.85;margin-bottom:4px;}
+header h1{font-size:20px;font-weight:bold;margin-bottom:6px;}
+header .topics{font-size:12px;opacity:.9;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;display:inline-block;}
+nav{display:flex;overflow-x:auto;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--border);}
+nav a{white-space:nowrap;text-decoration:none;background:var(--blue);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;}
+main{padding:16px;max-width:720px;margin:0 auto;}
+.section{background:var(--card);border-radius:12px;border:1px solid var(--border);margin-bottom:20px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+.section-header{background:var(--blue);color:#fff;padding:12px 16px;font-weight:bold;font-size:15px;}
+.section-body{padding:16px;}
+.grp{background:#f9fbfd;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;}
+.grp-title{font-weight:bold;color:var(--blue);font-size:13.5px;margin-bottom:8px;}
+.prob-list{padding-left:20px;font-size:13.5px;margin-bottom:8px;}
+.prob-list li{margin-bottom:5px;font-family:Georgia,"Times New Roman",serif;}
+.answer-toggle{background:none;border:1px solid var(--red);color:var(--red);border-radius:20px;padding:4px 14px;font-size:12px;cursor:pointer;}
+.answer-toggle:hover{background:#fff0f0;}
+.answer-box{display:none;margin-top:8px;background:#fff8f8;border-left:3px solid var(--red);padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;}
+.answer-box.open{display:block;}
+.ans-list{list-style:none;}
+.ans-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--border);}
+.ans-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ans-item .ans{color:var(--red);font-weight:bold;font-family:Georgia,serif;display:block;}
+.ans-item .jp{color:var(--sub);font-weight:normal;font-family:"Hiragino Sans","Meiryo",sans-serif;font-size:12px;display:block;}
+.ans-item .note{font-size:11.5px;color:#8a5a00;margin-top:2px;display:block;}
+.show-all-btn{display:block;width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;cursor:pointer;margin-bottom:14px;}
+.show-all-btn:hover{opacity:.88;}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);margin-top:10px;}
+</style>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+<div class="lesson-label">中学英語 Sirius</div>
+<h1>解答解説 発展研究 関係代名詞（whom, whose）</h1>
+<div class="topics">確認問題・練成問題の解答＋1問ごとの解説</div>
+</header>
+
+<nav>
+<a href="kaitou-31.html">Unit31の解答解説へ</a>
+</nav>
+
+<main>
+
+<div class="section" id="enshu">
+<div class="section-header">確認問題（教科書 p.161）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　●whomの用法●　例にならって、あとの2つの文をwhomを使って1つの文に書きかえる。また、できた文を日本語に直す（例：She is the girl. I met her in the park. → She is the girl whom I met in the park.）</div>
+<ol class="prob-list">
+<li>Ken is the boy. I lent him a CD.</li>
+<li>My mother has some friends. She often invites them to tea.</li>
+<li>The boy was very tall. My brother introduced him to me.</li>
+<li>The people spoke Japanese only a little. I told them the way.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Ken is the boy whom I lent a CD.<br>ケンはわたしがCDを貸した少年です。</span><span class="note">💡 人を表す目的格の関係代名詞は whom。him が消えて whom が前に出る。</span></li>
+<li class="ans-item"><span class="ans">My mother has some friends whom she often invites to tea.<br>わたしの母にはしばしばお茶に招待する友達が何人かいます。</span><span class="note">💡 invite 人 to 〜「（人）を〜に招待する」。</span></li>
+<li class="ans-item"><span class="ans">The boy whom my brother introduced to me was very tall.<br>わたしの兄［弟］がわたしに紹介してくれた少年はとても背が高かった。</span><span class="note">💡 主語を修飾するので文の中に入る。</span></li>
+<li class="ans-item"><span class="ans">The people whom I told the way spoke Japanese only a little.<br>わたしが道を教えた人たちは日本語をほんの少しだけ話しました。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　●whoseの用法●　次の日本文に合う英文になるように、（　）内の語句を並べかえる</div>
+<ol class="prob-list">
+<li>サラは目の青い女の子です。 Sarah is（a girl / are / blue / eyes / whose）.</li>
+<li>わたしは毛が長くて白いネコをさがしています。 I'm looking for（is / hair / whose / a cat / long and white）.</li>
+<li>彼は表紙の美しい英語の本を読んでいました。 He was reading（beautiful / cover / whose / is / an English book）.</li>
+<li>わたしには鈴木一郎という名前の友達がいます。 I have（is / a friend / name / whose / Suzuki Ichiro）.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Sarah is a girl whose eyes are blue.</span><span class="note">💡 《名詞＋whose＋名詞＋動詞》「（その人の）〜が…である（名詞）」。whoseは所有格の働き。</span></li>
+<li class="ans-item"><span class="ans">I'm looking for a cat whose hair is long and white.</span></li>
+<li class="ans-item"><span class="ans">He was reading an English book whose cover is beautiful.</span><span class="note">💡 物（book）にもwhoseを使える。</span></li>
+<li class="ans-item"><span class="ans">I have a friend whose name is Suzuki Ichiro.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　●関係代名詞の使い分け●　次の＿に、who, which, whom, whoseのうち適する語を書く</div>
+<ol class="prob-list">
+<li>(1) I know a girl ___ sister is a famous pianist.</li>
+<li>(2) This is the man ___ came to see you last night.</li>
+<li>(3) This is the train ___ goes to Ogaki.</li>
+<li>(4) She is the singer ___ I like the best.</li>
+<li>(5) This is the chair ___ my brother made last month.</li>
+<li>(6) The boy ___ broke this window is Jiro.</li>
+<li>(7) Look at that house ___ roof is red.</li>
+<li>(8) They have a dog ___ can swim.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">whose</span><span class="note">💡 「その子の姉」所有格。</span></li>
+<li class="ans-item"><span class="ans">who</span><span class="note">💡 人＋主格。</span></li>
+<li class="ans-item"><span class="ans">which</span><span class="note">💡 物＋主格。</span></li>
+<li class="ans-item"><span class="ans">whom</span><span class="note">💡 人＋目的格（likeの目的語）。</span></li>
+<li class="ans-item"><span class="ans">which</span><span class="note">💡 物＋目的格。</span></li>
+<li class="ans-item"><span class="ans">who</span><span class="note">💡 人＋主格。</span></li>
+<li class="ans-item"><span class="ans">whose</span><span class="note">💡 「その家の屋根」所有格。</span></li>
+<li class="ans-item"><span class="ans">which</span><span class="note">💡 物＋主格。</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+<div class="section" id="kakunin">
+<div class="section-header">練成問題（教科書 p.162-163）</div>
+<div class="section-body">
+<div class="grp">
+<div class="grp-title">1　次の英文を日本語に直す</div>
+<ol class="prob-list">
+<li>I enjoyed talking with the boy whom Helen brought to the party.</li>
+<li>I have a friend whose father is a doctor.</li>
+<li>The woman whom you helped at the station was my grandmother.</li>
+<li>That house whose door is open is mine.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">わたしはヘレンがパーティーに連れてきた少年と話をして楽しみました。</span></li>
+<li class="ans-item"><span class="ans">わたしにはお父さんが医者の友達がいます。</span><span class="note">💡 whose father「その友達のお父さん」。</span></li>
+<li class="ans-item"><span class="ans">あなたが駅で助けた女性はわたしの祖母でした。</span></li>
+<li class="ans-item"><span class="ans">ドア［玄関］が開いているあの家がわたしの家です。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　次の日本文に合う英文になるように＿に適する語を書く（(8)と(9)はそれぞれ2通りの表現で表す）</div>
+<ol class="prob-list">
+<li>(1) わたしが会いたかった人は不在でした。 The person ___ ___ ___ to see was away.</li>
+<li>(2) あなたはわたしたちがバスの中で見かけたお年寄りを覚えていますか。 Do you remember the old man ___ ___ ___ on the bus?</li>
+<li>(3) あなたがとてもよく知っている人が何人かパーティーに来ています。 There are some people ___ ___ ___ very well at the party.</li>
+<li>(4) 恵子はわたしが最もよく電話をかける友達です。 Keiko is the ___ ___ I ___ the most often.</li>
+<li>(5) マイクが道を教えた女の子はメアリーのいとこでした。 The ___ ___ Mike ___ the way was Mary's cousin.</li>
+<li>(6) スミスさんは庭の広い家をさがしています。 Mr. Smith is looking for a house ___ garden ___ large.</li>
+<li>(7) わたしには切手収集が趣味の兄がいます。 I have a ___ ___ ___ is collecting stamps.</li>
+<li>(8) ハリーは目が緑色の少年です。 ① Harry is a boy ___ has green ___. ② Harry is a boy ___ ___ are green.</li>
+<li>(9) わたしは毛の短い小型犬がほしい。 ① I want a small dog ___ has short ___. ② I want a small dog ___ ___ is short.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">whom [that] I wanted</span><span class="note">💡 目的格のwhomまたはthat。</span></li>
+<li class="ans-item"><span class="ans">whom [that] we saw</span></li>
+<li class="ans-item"><span class="ans">whom [that] you know</span></li>
+<li class="ans-item"><span class="ans">friend whom [that], call</span></li>
+<li class="ans-item"><span class="ans">girl whom [that], told [showed]</span><span class="note">💡 tell 人 the way「道を教える」。</span></li>
+<li class="ans-item"><span class="ans">whose, is</span><span class="note">💡 a house whose garden is large。</span></li>
+<li class="ans-item"><span class="ans">brother whose hobby</span><span class="note">💡 whose hobby is collecting stamps。</span></li>
+<li class="ans-item"><span class="ans">① who [that], eyes　② whose eyes</span><span class="note">💡 ① 主格＋has（持っている）、② whose＋名詞。</span></li>
+<li class="ans-item"><span class="ans">① which [that], hair　② whose hair</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　次の各組の文がほぼ同じ内容になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>(1) a The woman was John's mother. I helped her at the station. b The woman ___ ___ ___ at the station was John's mother.</li>
+<li>(2) a She is a famous singer. Everyone knows her. b She is a famous singer ___ ___ ___.</li>
+<li>(3) a Do you know the boy? Yumi is talking with him. b Do you know the ___ ___ Yumi is ___ with?</li>
+<li>(4) a Mt. Fuji is that mountain. Its top is covered with snow. b Mt. Fuji is that mountain ___ ___ is covered with snow.</li>
+<li>(5) a An elephant is a very large gray animal with a very long nose. b ...a very large gray animal ___ ___ a very long nose. c ...a very large gray animal ___ ___ is very long.</li>
+<li>(6) a That's the boy called Jun. b That's the boy ___ ___ called Jun. c That's the boy ___ ___ is Jun.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">whom [that] I helped</span></li>
+<li class="ans-item"><span class="ans">whom [that] everyone knows</span></li>
+<li class="ans-item"><span class="ans">boy whom [that], talking</span><span class="note">💡 Yumi is talking with のwithが最後に残る。</span></li>
+<li class="ans-item"><span class="ans">whose top</span><span class="note">💡 Its top → whose top。</span></li>
+<li class="ans-item"><span class="ans">b which [that] has　c whose nose</span><span class="note">💡 b は主格＋has、c は whose＋名詞。</span></li>
+<li class="ans-item"><span class="ans">b who [that] is　c whose, name [nickname]</span><span class="note">💡 c は「名前がJunである少年」。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　次の日本文に合う英文になるように、（　）内の語句を並べかえる</div>
+<ol class="prob-list">
+<li>彼はだれもが知っている偉大な科学者です。 He is（a / everyone / great / knows / scientist / whom）.</li>
+<li>わたしは、会えなかった人に電子メールを送るつもりです。 I'm going to send e-mails（I / to / see / whom / the people / couldn't）.</li>
+<li>この本には意味のわからない単語がたくさんあります。 In this book there are（don't / I / know / many words / meanings / whose）.</li>
+<li>向こうに屋根の見える家がわたしの家です。（can / roof / see / whose / you / over there / the house）is mine.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">He is a great scientist whom everyone knows.</span></li>
+<li class="ans-item"><span class="ans">I'm going to send e-mails to the people whom I couldn't see.</span></li>
+<li class="ans-item"><span class="ans">In this book there are many words whose meanings I don't know.</span><span class="note">💡 whose meanings I don't know「その意味をわたしが知らない」。</span></li>
+<li class="ans-item"><span class="ans">The house whose roof you can see over there is mine.</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　次の日本文を、whomかwhoseを使って英語に直す</div>
+<ol class="prob-list">
+<li>彼らはわたしの父が2年前に教えた生徒です。</li>
+<li>あなたが毎朝会うその子どもはこの近くに住んでいます。</li>
+<li>わたしにはお父さんが医者の友達が何人かいます。</li>
+<li>あなたは髪の長いあの女性を知っていますか。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">They are [They're] (the) students whom my father taught two years ago.</span></li>
+<li class="ans-item"><span class="ans">The child whom you see [meet] every morning lives near here.</span></li>
+<li class="ans-item"><span class="ans">I have some friends whose fathers are doctors.</span><span class="note">💡 friendsが複数なのでfathers、動詞はare。</span></li>
+<li class="ans-item"><span class="ans">Do you know that woman whose hair is long?</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+</main>
+
+<footer>上野作　英語復習活用ホームページ｜解答解説 発展研究 関係代名詞（whom, whose）</footer>
+
+<script>
+function toggle(btn){var box=btn.nextElementSibling;box.classList.toggle('open');btn.textContent=box.classList.contains('open')?'答えを隠す':'答えを見る';}
+function showAll(){document.querySelectorAll('.answer-box').forEach(function(b){b.classList.add('open');});document.querySelectorAll('.answer-toggle').forEach(function(b){b.textContent='答えを隠す';});}
+</script>
+<script data-goatcounter="https://ueno-english.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

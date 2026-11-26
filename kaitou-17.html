@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解答解説⑰ 文法演習(3) 時制｜上野作 英語復習活用ホームページ</title>
+<style>
+:root{--blue:#b5006e;--red:#c0392b;--green:#1a7a1a;--gold:#d4700a;--bg:#fff0f6;--card:#fff;--border:#f5c6df;--text:#222;--sub:#555;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Hiragino Sans","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;}
+header{background:linear-gradient(135deg,#7b003d 0%,#e91e8c 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
+header .lesson-label{font-size:12px;letter-spacing:2px;opacity:.85;margin-bottom:4px;}
+header h1{font-size:20px;font-weight:bold;margin-bottom:6px;}
+header .topics{font-size:12px;opacity:.9;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;display:inline-block;}
+nav{display:flex;overflow-x:auto;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--border);}
+nav a{white-space:nowrap;text-decoration:none;background:var(--blue);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;}
+main{padding:16px;max-width:720px;margin:0 auto;}
+.section{background:var(--card);border-radius:12px;border:1px solid var(--border);margin-bottom:20px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+.section-header{background:var(--blue);color:#fff;padding:12px 16px;font-weight:bold;font-size:15px;}
+.section-body{padding:16px;}
+.grp{background:#f9fbfd;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;}
+.grp-title{font-weight:bold;color:var(--blue);font-size:13.5px;margin-bottom:8px;}
+.prob-list{padding-left:20px;font-size:13.5px;margin-bottom:8px;}
+.prob-list li{margin-bottom:5px;font-family:Georgia,"Times New Roman",serif;}
+.answer-toggle{background:none;border:1px solid var(--red);color:var(--red);border-radius:20px;padding:4px 14px;font-size:12px;cursor:pointer;}
+.answer-toggle:hover{background:#fff0f0;}
+.answer-box{display:none;margin-top:8px;background:#fff8f8;border-left:3px solid var(--red);padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;}
+.answer-box.open{display:block;}
+.ans-list{list-style:none;}
+.ans-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--border);}
+.ans-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ans-item .ans{color:var(--red);font-weight:bold;font-family:Georgia,serif;display:block;}
+.ans-item .jp{color:var(--sub);font-weight:normal;font-family:"Hiragino Sans","Meiryo",sans-serif;font-size:12px;display:block;}
+.ans-item .note{font-size:11.5px;color:#8a5a00;margin-top:2px;display:block;}
+.show-all-btn{display:block;width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;cursor:pointer;margin-bottom:14px;}
+.show-all-btn:hover{opacity:.88;}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);margin-top:10px;}
+</style>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+<div class="lesson-label">中学英語 Sirius</div>
+<h1>解答解説⑰ 文法演習(3) 時制</h1>
+<div class="topics">演習問題・探究問題(2) 英作文の解答＋1問ごとの解説</div>
+</header>
+
+<nav>
+<a href="kaitou-16.html">Unit16の解答解説へ</a>
+<a href="kaitou-18.html">Unit18の解答解説へ</a>
+</nav>
+
+<main>
+
+<div class="section" id="enshu">
+<div class="section-header">演習問題（教科書 p.93-95）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　●基本時制●　次の英文が「　」内の日本語の意味を表すように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>I ___ a junior high school student.「中学生です」</li>
+<li>My father ___ math at high school.「数学を教えています」</li>
+<li>We ___ busy last week.「忙しかった」</li>
+<li>The car ___ at a red light.「赤信号で止まりました」</li>
+<li>I ___ up at seven this morning.「7時に起きました」</li>
+<li>It ___ ___ sunny tomorrow.「晴れるでしょう」</li>
+<li>Yumi ___ going to ___ a new dictionary.「新しい辞書を買うつもりです」</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">am</span><span class="note">💡 主語がIなのでbe動詞はam。</span></li>
+<li class="ans-item"><span class="ans">teaches</span><span class="note">💡 主語が3人称単数なのでteach＋es。</span></li>
+<li class="ans-item"><span class="ans">were</span><span class="note">💡 last weekがあるので過去。主語weなのでwere。</span></li>
+<li class="ans-item"><span class="ans">stopped</span><span class="note">💡 過去の文。stopはpを重ねてstopped。</span></li>
+<li class="ans-item"><span class="ans">got</span><span class="note">💡 get up「起きる」の過去形はgot up。</span></li>
+<li class="ans-item"><span class="ans">will be</span><span class="note">💡 未来の文。will＋be動詞の原形。</span></li>
+<li class="ans-item"><span class="ans">is, buy [get]</span><span class="note">💡 be going to ＋ 動詞の原形。主語がYumiなのでis。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　●基本時制の否定文・疑問文●　次の文を、〔　〕内の指示に従って書きかえる</div>
+<ol class="prob-list">
+<li>My mother drives a car.〔否定文に〕</li>
+<li>Mary will help me with my homework.〔否定文に〕</li>
+<li>Ken was with you then.〔疑問文に〕</li>
+<li>You went to the movies last Friday.〔疑問文に〕</li>
+<li>They are going to clean the park next Sunday.〔疑問文に〕</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">My mother does not [doesn't] drive a car.</span><span class="note">💡 一般動詞の現在の否定文は do[does] not＋原形。3人称単数なのでdoes not。drivesがdriveに戻る。</span></li>
+<li class="ans-item"><span class="ans">Mary will not [won't] help me with my homework.</span><span class="note">💡 willのあとにnotを置く。</span></li>
+<li class="ans-item"><span class="ans">Was Ken with you then?</span><span class="note">💡 be動詞の疑問文は be動詞を主語の前に出す。</span></li>
+<li class="ans-item"><span class="ans">Did you go to the movies last Friday?</span><span class="note">💡 過去の一般動詞の疑問文は Did＋主語＋原形。wentがgoに戻る。</span></li>
+<li class="ans-item"><span class="ans">Are they going to clean the park next Sunday?</span><span class="note">💡 be going to の疑問文はbe動詞を主語の前に出す。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　●進行形●　次の文を、文末に①now、②thenを加えて、進行形の文に書きかえる（(2)は1文目の文末にそれぞれ加える）</div>
+<ol class="prob-list">
+<li>She writes a letter.</li>
+<li>Does he swim in the river? — No, he doesn't.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">① She is writing a letter now.<br>② She was writing a letter then.</span><span class="note">💡 nowなら現在進行形（is＋ing）、thenなら過去進行形（was＋ing）。</span></li>
+<li class="ans-item"><span class="ans">① Is he swimming in the river now? — No, he is not [isn't].<br>② Was he swimming in the river then? — No, he was not [wasn't].</span><span class="note">💡 swimはmを重ねてswimming。答えの文もbe動詞で答える。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　●現在完了・現在完了進行形●　次の文を、下線部を（　）内の語句にかえて、現在完了または現在完了進行形の文に書きかえる</div>
+<ol class="prob-list">
+<li>They are out shopping <u>now</u>.（since early this morning）</li>
+<li>I <u>sometimes</u> make lunch.（just）</li>
+<li>My father climbed Mt. Fuji <u>twenty years ago</u>.（once）</li>
+<li>Those students are running in the park <u>now</u>.（for more than thirty minutes）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">They have been out shopping since early this morning.</span><span class="note">💡 けさからずっと外出中＝継続。be動詞の過去分詞はbeen。</span></li>
+<li class="ans-item"><span class="ans">I have just made lunch.</span><span class="note">💡 justは完了用法。make-made-madeの不規則変化。</span></li>
+<li class="ans-item"><span class="ans">My father has climbed Mt. Fuji once.</span><span class="note">💡 onceは経験用法。</span></li>
+<li class="ans-item"><span class="ans">Those students have been running in the park for more than thirty minutes.</span><span class="note">💡 「ずっと走っている」動作の継続は現在完了進行形（have been＋ing）。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　次の（　）に入る最も適当な語（句）を選ぶ</div>
+<ol class="prob-list">
+<li>Look. There ( ) a little dog behind the tree. ア be イ is ウ was エ will be</li>
+<li>I ( ) the boy in the park yesterday. ア see イ saw ウ have seen エ will see</li>
+<li>Ken ( ) judo next year. ア learn イ learned ウ has learned エ will learn</li>
+<li>They have ( ) soccer since this morning. ア play イ playing ウ been playing エ been played</li>
+<li>This is Tom. We ( ) good friends for five years. ア be イ are ウ have been エ will be</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">イ</span><span class="note">💡 Look.（いま見て）なので現在。a little dogは単数だからis。</span></li>
+<li class="ans-item"><span class="ans">イ</span><span class="note">💡 yesterdayがあるので過去形saw。</span></li>
+<li class="ans-item"><span class="ans">エ</span><span class="note">💡 next yearがあるので未来。will learn。</span></li>
+<li class="ans-item"><span class="ans">ウ</span><span class="note">💡 sinceがあり動作が続いているので現在完了進行形 have been playing。</span></li>
+<li class="ans-item"><span class="ans">ウ</span><span class="note">💡 for five years（5年間）は継続用法。be動詞の継続は have been。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">6　次の日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>あなたはいつも朝食にパンを食べるのですか。— けさはパンでしたが、たいていはごはんです。 ___ you always ___ bread for breakfast? — I ___ bread this morning, but usually I ___ rice.</li>
+<li>あなたはどこでこの写真を撮ったのですか。— 長野で撮りました。 Where ___ you ___ this picture? — I ___ it in Nagano.</li>
+<li>ジムは病気なのですか。— はい、そうです。彼は1週間ずっと寝ています。 ___ Jim sick? — Yes, he ___. He's ___ in bed for a week.</li>
+<li>お母さんは今、ご在宅ですか。— いいえ、おりません。すでに仕事に出てしまいました。 ___ your mother at home now? — No, she ___. She ___ already ___ for work.</li>
+<li>あなたはもうその本を読みましたか。— いいえ、まだです。来週、読むつもりです。 ___ you ___ the book yet? — No, I ___. I ___ going to ___ it next week.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Do, eat [have] — ate [had], eat [have]</span><span class="note">💡 「いつも」は習慣なので現在形。「けさ食べた」は過去形（eat-ate）。</span></li>
+<li class="ans-item"><span class="ans">did, take — took</span><span class="note">💡 「いつ・どこで撮った」と過去の1点を聞くので過去形。take-took。</span></li>
+<li class="ans-item"><span class="ans">Is, is — been</span><span class="note">💡 「ずっと寝ている」は継続用法の現在完了。He's＝He has。be動詞の過去分詞はbeen。</span></li>
+<li class="ans-item"><span class="ans">Is, isn't, has, left</span><span class="note">💡 「すでに出てしまった」は完了用法の現在完了。leave-left-left。</span></li>
+<li class="ans-item"><span class="ans">Have, read, haven't, am, read<br>または Did, read, didn't, am, read</span><span class="note">💡 yetがあるので現在完了の疑問文。readの過去分詞もreadで、発音は［red］。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">7　次の各組がAとBとの対話になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>(1) A: ___ Taro play baseball every day? B: Yes, he ___. He's in the school baseball club and practices it every day.</li>
+<li>(2) A: ___ your sister take you to the concert last Saturday? B: Yes, she ___. The concert ___ really exciting.</li>
+<li>(3) A: ___ it be rainy tomorrow? B: No, it ___. It ___ ___ sunny and warm.</li>
+<li>(4) A: ___ you got a present for Mary yet? B: No, I ___. I ___ going to get her something next Sunday.</li>
+<li>(5) A: How long ___ you in Kamikochi last summer? B: I ___ there for a week.</li>
+<li>(6) A: How many times have you ___ to Okinawa? B: Only once. I ___ there last spring.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">A: Does — B: does</span><span class="note">💡 every dayは習慣。主語がTaroなのでDoes。答えもdoes。</span></li>
+<li class="ans-item"><span class="ans">A: Did — B: did, was</span><span class="note">💡 last Saturdayがあるので過去。コンサートの様子は過去のbe動詞was。</span></li>
+<li class="ans-item"><span class="ans">A: Will — B: won't, will be</span><span class="note">💡 tomorrowがあるので未来。won'tはwill notの短縮。</span></li>
+<li class="ans-item"><span class="ans">A: Have — B: haven't, am</span><span class="note">💡 yetがある現在完了の疑問文。次の文はam going to。</span></li>
+<li class="ans-item"><span class="ans">A: were — B: was</span><span class="note">💡 last summerがあるので過去。How longでも過去のことなら過去形。</span></li>
+<li class="ans-item"><span class="ans">A: been — B: went</span><span class="note">💡 「何度行ったことがある」は have been to。last springは過去なのでwent。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">8　次の日本文に合う英文になるように、（　）内の語句を並べかえる（下線部の語は必要に応じて形をかえる）</div>
+<ol class="prob-list">
+<li>弟は昨夜わたしのカップを割ってしまいました。（<u>break</u> / last / my brother / my cup / night）</li>
+<li>その歌は世界中で歌われるでしょう。（be / will / <u>sing</u> / the song / all over the world）</li>
+<li>わたしが電話をかけたとき、あなたは何をしていましたか。 What（were / called / <u>do</u> / I / when / you / you）?</li>
+<li>あなたがたはいつから知り合いですか。（each other / have / how / <u>know</u> / long / you）?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">My brother broke my cup last night.</span><span class="note">💡 last nightがあるのでbreakは過去形broke。</span></li>
+<li class="ans-item"><span class="ans">The song will be sung all over the world.</span><span class="note">💡 未来の受動態は will be＋過去分詞。sing-sang-sung。</span></li>
+<li class="ans-item"><span class="ans">What were you doing when I called you?</span><span class="note">💡 「そのとき何をしていましたか」は過去進行形。doはdoingに。</span></li>
+<li class="ans-item"><span class="ans">How long have you known each other?</span><span class="note">💡 「いつから」は継続の現在完了（How long ～?）。know-knew-known。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">9　次の日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>あなたたちは長い間ずっとここで音楽を聞いているのですか。 ___ you ___ ___ ___ music here for a long time?</li>
+<li>あなたは誕生日にお父さんから腕時計がもらえるでしょう。 You ___ ___ ___ a watch ___ your father on your birthday.</li>
+<li>これがわたしにとって初めての中国訪問です。わたしはこれまで1度もこの国に来たことがありません。 This ___ my first ___ to China. I ___ ___ ___ to this country before.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Have, been listening to</span><span class="note">💡 「ずっと聞いている」は現在完了進行形。疑問文はHaveを主語の前に。</span></li>
+<li class="ans-item"><span class="ans">will be given, by</span><span class="note">💡 「もらえるでしょう」は未来の受動態。「お父さんから（によって）」はby。</span></li>
+<li class="ans-item"><span class="ans">is, visit, have never been</span><span class="note">💡 「初めての訪問」＝This is my first visit。「1度も来たことがない」は have never been to 〜。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">10　次の日本文を英語に直す</div>
+<ol class="prob-list">
+<li>あなたの犬は何歳ですか。— 2歳です。来月3歳になります。</li>
+<li>あなたはたいてい何時に寝ますか。— たいていは10時ごろですが、昨夜は11時過ぎに寝ました。</li>
+<li>あなたはきのうの午後、家にいましたか。— はい、いました。自分の部屋で友達に手紙を書いていました。</li>
+<li>あなたはあした、何をするつもりですか。— 晴れたら、公園でテニスをするつもりです。</li>
+<li>あなたはもう宿題を終えてしまいましたか。— いいえ、まだです。今やっているところです。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">How old is your dog? — It is [It's] two years old. It will [It'll] be three (years old) next month.</span><span class="note">💡 「来月3歳になる」は未来なのでwill be。</span></li>
+<li class="ans-item"><span class="ans">What time do you usually go to bed? — I usually go to bed (at) about ten (o'clock), but I went to bed after eleven (o'clock) last night.</span><span class="note">💡 usually＝現在形（習慣）、last night＝過去形。「～過ぎに」はafter。</span></li>
+<li class="ans-item"><span class="ans">Were you (at) home yesterday afternoon? — Yes, I was. I was writing a letter to my friend in my room.<br>または Did you stay (at) home yesterday afternoon? — Yes, I did. I was writing a letter to a friend (of mine) in my room.</span><span class="note">💡 「そのとき〜していた」は過去進行形。</span></li>
+<li class="ans-item"><span class="ans">What are you going to do tomorrow? または What will you do tomorrow?<br>— If it is [it's] sunny, I will [I'll] play tennis in the park.<br>または I will [I'll] play tennis at a park if it is [it's] sunny.</span><span class="note">💡 if節の中は未来のことでも現在形。</span></li>
+<li class="ans-item"><span class="ans">Have you finished (doing) your homework yet? — No, I have not [haven't]. または No, not yet. I am [I'm] doing it now.</span><span class="note">💡 yetがある現在完了の疑問文。「今やっているところ」は現在進行形。</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+<div class="section" id="kakunin">
+<div class="section-header">探究問題(2) 英作文（現在完了・現在完了進行形・時制）（教科書 p.96-97）</div>
+<div class="section-body">
+<div class="grp">
+<div class="grp-title">1　あなた自身のことについて、次の問いに英語で答える</div>
+<ol class="prob-list">
+<li>Have you ever seen a koala?</li>
+<li>What are you going to do next weekend?</li>
+<li>How long have you studied English?</li>
+<li>Where were you three hours ago?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">(例) Yes, I have. / No, I haven't [have not].</span><span class="note">💡 問いは「今までにコアラを見たことがありますか」。Have you 〜? にはYes, I have. かNo, I haven't. で答える。</span></li>
+<li class="ans-item"><span class="ans">(例) I am going to visit Yokohama.</span><span class="note">💡 問いは「今度の週末何をするつもりですか」。be going to 〜 を使って答える。</span></li>
+<li class="ans-item"><span class="ans">(例) I have studied it for three years.</span><span class="note">💡 How long（どのくらいの間）には for 〜 で答える。I have studied it since 2017. のようにsinceを使ってもよい。</span></li>
+<li class="ans-item"><span class="ans">(例) I was in the library.</span><span class="note">💡 問いは「3時間前どこにいましたか」。《I was＋場所.》で答える。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　次のような場合、英語で何と言うか答える</div>
+<ol class="prob-list">
+<li>妹は本を読んでいるところだと言うとき。</li>
+<li>電車はもう駅を出てしまったかたずねるとき。</li>
+<li>相手にいつアメリカを訪れたかたずねるとき。</li>
+<li>自分はけさからずっとテレビを見ていると言うとき。</li>
+<li>自分は何度も中華料理を食べたことがあると言うとき。</li>
+<li>自分たちは5年前から知り合いだと言うとき。</li>
+<li>相手に何回富士山に登ったことがあるかたずねるとき。</li>
+<li>自分はまだ広島へ行ったことがないと言うとき。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">(例) My sister is reading a book.</span><span class="note">💡 現在進行形（is[am, are]＋ing）で表す。</span></li>
+<li class="ans-item"><span class="ans">(例) Has the train left the station yet?</span><span class="note">💡 「もう〜してしまいましたか」は Have[Has]＋主語＋過去分詞〜 yet?。leaveの過去分詞はleft。</span></li>
+<li class="ans-item"><span class="ans">(例) When did you visit America?</span><span class="note">💡 「いつ〜」とたずねるときはwhenで始める。whenは現在完了の文では使えないので注意。</span></li>
+<li class="ans-item"><span class="ans">(例) I have been watching TV since this morning.</span><span class="note">💡 動作の継続は現在完了進行形（have[has] been＋ing）。</span></li>
+<li class="ans-item"><span class="ans">(例) I have eaten Chinese food many times.</span><span class="note">💡 経験用法の現在完了。eatの過去分詞はeaten。</span></li>
+<li class="ans-item"><span class="ans">(例) We have known each other for five years.</span><span class="note">💡 「（ずっと）知り合いである」は継続用法。knowの過去分詞はknown。「5年前から」＝「5年間」for five years。</span></li>
+<li class="ans-item"><span class="ans">(例) How many times have you climbed Mt. Fuji?</span><span class="note">💡 「何回〜」は How many times 〜?。経験用法の疑問文。</span></li>
+<li class="ans-item"><span class="ans">(例) I have never been to Hiroshima.</span><span class="note">💡 「…へ行ったことがない」は have[has] never been to …。visitを使ってI have never visited Hiroshima. でもよい。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　正子さんになったつもりで、メアリーさんを紹介する文を、最初の文に続けて書く（最初の文：I'll introduce Mary to you.）</div>
+<ol class="prob-list">
+<li>(1) 日本語を学んで6年になる。</li>
+<li>(2) 日本語をじょうずに話すことができる。</li>
+<li>(3) 来月、富山に来る予定である。</li>
+<li>(4) 長い間、日本に興味がある。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">(例) She has studied Japanese for six years.</span><span class="note">💡 「ずっと〜している」を《have[has]＋過去分詞》で表す。「〜の間」はfor。</span></li>
+<li class="ans-item"><span class="ans">(例) She can [is able to] speak Japanese well.</span><span class="note">💡 「〜できる」はcanかbe able to。She is good at speaking Japanese. でもよい。</span></li>
+<li class="ans-item"><span class="ans">(例) She is going to come to Toyama next month.</span><span class="note">💡 「〜する予定だ」はbe going to を使う。</span></li>
+<li class="ans-item"><span class="ans">(例) She has been interested in Japan for a long time.</span><span class="note">💡 「…に興味がある」はbe interested in …。「（ずっと）興味がある」はbeをbeenにして have[has] been interested in …。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　次の対話が成り立つように、□に入る文を完成させる</div>
+<ol class="prob-list">
+<li>(1) Kate: How ___ rainy? / Mother: Since last night. I hear it will be sunny this afternoon.</li>
+<li>(2) Tom: Have you read this book yet, Miho? / Miho: ① ___ It was very interesting. Do you want to read it? / Tom: ② ___ / Miho: OK. I'll lend it to you.</li>
+<li>(3) Yuka: ① ___ / Mark: I'm listening to music. Well, it's noon and I feel hungry. Have you eaten lunch yet? / Yuka: ② ___ Let's eat together.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">(例) How long has it been rainy?</span><span class="note">💡 Since last night. から、継続用法の現在完了の疑問文にすると流れに合う。</span></li>
+<li class="ans-item"><span class="ans">① (例) Yes, I have.<br>② (例) Yes, I do.</span><span class="note">💡 ①はHave you 〜? の答え。直後に It was very interesting. とあるので、美穂は本を読んでしまった。②はDo you 〜? に対する答えで、Yes, I do. かNo, I don't[do not]. と答える。</span></li>
+<li class="ans-item"><span class="ans">① (例) What are you doing?<br>② (例) No, I haven't [have not].</span><span class="note">💡 ①マークがI'm listening to 〜 と答えているので、whatで始まる現在進行形の疑問文。②由香は直後でLet's eat together. と言っているので、まだ昼食を食べていないことがわかる。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　宿題をしているジュンに、帰宅したばかりの母親が話しかけている。絵の中の（　）に入る英文を、それぞれ3語以上の1文で書く</div>
+<ol class="prob-list">
+<li>(1) 母親：（ ① ）? ジュン：No, I haven't finished it yet. It's very difficult.</li>
+<li>(2) 母親：Let's have a break. I bought some cake. （ ② ）? ジュン：Tea, please. Thank you.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">(例) Have you finished your homework yet?</span><span class="note">💡 ジュンが「いいえ、ぼくはまだそれを終えていません」と言っているので、母親は「もう宿題を終えましたか」と言ったと考えられる。「もう〜しましたか」は《Have[Has]＋主語＋過去分詞〜 yet?》。Have you done your homework (yet)? などでもよい。</span></li>
+<li class="ans-item"><span class="ans">(例) What do you want to drink?</span><span class="note">💡 ジュンが「お茶をお願いします」と言っているので、母親は「何が飲みたいですか」などと言ったと考えられる。Would you like something to drink? や Shall I bring you some drink? などでもよい。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">6　来週アメリカ人のトムさんが家に滞在する。愛用の自転車を紹介する。自転車の情報メモ(1)〜(3)について、最初の文（This is my bike.）に続けて英文を1文ずつ書く</div>
+<ol class="prob-list">
+<li>(1) 通学に使っている。</li>
+<li>(2) 使って3年になる。</li>
+<li>(3) 祖父（grandfather）がプレゼントしてくれた。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">(例) I go to school by bike.</span><span class="note">💡 「わたしは自転車で学校に通っています。」という意味。I ride this bike to go to school. や I use the bike when I go to school. などでもよい。「通学する」go to school、「自転車で」by bike。</span></li>
+<li class="ans-item"><span class="ans">(例) I have used it for three years.</span><span class="note">💡 「ずっと使っている」という状態の継続を示すためには現在完了（継続用法）を使うのがベスト。</span></li>
+<li class="ans-item"><span class="ans">(例) My grandfather gave it to me.</span><span class="note">💡 It is a present from my grandfather. / I got it from my grandfather. / It was given to me by my grandfather. などでもよい。</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+</main>
+
+<footer>上野作　英語復習活用ホームページ｜解答解説⑰ 文法演習(3) 時制</footer>
+
+<script>
+function toggle(btn){var box=btn.nextElementSibling;box.classList.toggle('open');btn.textContent=box.classList.contains('open')?'答えを隠す':'答えを見る';}
+function showAll(){document.querySelectorAll('.answer-box').forEach(function(b){b.classList.add('open');});document.querySelectorAll('.answer-toggle').forEach(function(b){b.textContent='答えを隠す';});}
+</script>
+<script data-goatcounter="https://ueno-english.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
