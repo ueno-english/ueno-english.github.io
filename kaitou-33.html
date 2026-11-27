@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解答解説㉝ 付加疑問文・否定疑問文｜上野作 英語復習活用ホームページ</title>
+<style>
+:root{--blue:#b5006e;--red:#c0392b;--green:#1a7a1a;--gold:#d4700a;--bg:#fff0f6;--card:#fff;--border:#f5c6df;--text:#222;--sub:#555;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Hiragino Sans","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;}
+header{background:linear-gradient(135deg,#7b003d 0%,#e91e8c 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
+header .lesson-label{font-size:12px;letter-spacing:2px;opacity:.85;margin-bottom:4px;}
+header h1{font-size:20px;font-weight:bold;margin-bottom:6px;}
+header .topics{font-size:12px;opacity:.9;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;display:inline-block;}
+nav{display:flex;overflow-x:auto;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--border);}
+nav a{white-space:nowrap;text-decoration:none;background:var(--blue);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;}
+main{padding:16px;max-width:720px;margin:0 auto;}
+.section{background:var(--card);border-radius:12px;border:1px solid var(--border);margin-bottom:20px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+.section-header{background:var(--blue);color:#fff;padding:12px 16px;font-weight:bold;font-size:15px;}
+.section-body{padding:16px;}
+.grp{background:#f9fbfd;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;}
+.grp-title{font-weight:bold;color:var(--blue);font-size:13.5px;margin-bottom:8px;}
+.prob-list{padding-left:20px;font-size:13.5px;margin-bottom:8px;}
+.prob-list li{margin-bottom:5px;font-family:Georgia,"Times New Roman",serif;}
+.answer-toggle{background:none;border:1px solid var(--red);color:var(--red);border-radius:20px;padding:4px 14px;font-size:12px;cursor:pointer;}
+.answer-toggle:hover{background:#fff0f0;}
+.answer-box{display:none;margin-top:8px;background:#fff8f8;border-left:3px solid var(--red);padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;}
+.answer-box.open{display:block;}
+.ans-list{list-style:none;}
+.ans-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--border);}
+.ans-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ans-item .ans{color:var(--red);font-weight:bold;font-family:Georgia,serif;display:block;}
+.ans-item .jp{color:var(--sub);font-weight:normal;font-family:"Hiragino Sans","Meiryo",sans-serif;font-size:12px;display:block;}
+.ans-item .note{font-size:11.5px;color:#8a5a00;margin-top:2px;display:block;}
+.show-all-btn{display:block;width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;cursor:pointer;margin-bottom:14px;}
+.show-all-btn:hover{opacity:.88;}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);margin-top:10px;}
+</style>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+<div class="lesson-label">中学英語 Sirius</div>
+<h1>解答解説㉝ 付加疑問文・否定疑問文</h1>
+<div class="topics">確認問題・練成問題の解答＋1問ごとの解説</div>
+</header>
+
+<nav>
+<a href="kaitou-hatten-kateihou.html">発展研究（仮定法）の解答解説へ</a>
+<a href="kaitou-34.html">Unit34の解答解説へ</a>
+</nav>
+
+<main>
+
+<div class="section" id="enshu">
+<div class="section-header">確認問題（教科書 p.173）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　●付加疑問文●　次の＿に適する語を補って、付加疑問文を完成させる。また、できた文を日本語に直す</div>
+<ol class="prob-list">
+<li>You were in the library yesterday afternoon, ___ ___?</li>
+<li>The baseball game wasn't very exciting, ___ ___?</li>
+<li>Your sister plays the piano, ___ ___?</li>
+<li>Mr. Brown didn't give us homework last week, ___ ___?</li>
+<li>You have been to Kyoto many times, ___ ___?</li>
+<li>Open this box, ___ ___?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">weren't you　あなたはきのうの午後、図書館にいましたね。</span><span class="note">💡 肯定文には否定形の付加疑問（were → weren't）、主語は代名詞に。</span></li>
+<li class="ans-item"><span class="ans">was it　その野球の試合はあまり興奮するものではありませんでしたね。</span><span class="note">💡 否定文には肯定形の付加疑問。</span></li>
+<li class="ans-item"><span class="ans">doesn't she　あなたのお姉さん[妹さん]はピアノをひきますよね。</span><span class="note">💡 plays は一般動詞（3人称単数）なので doesn't she。</span></li>
+<li class="ans-item"><span class="ans">did he　ブラウン先生は先週、わたしたちに宿題を出しませんでしたね。</span><span class="note">💡 didn't の否定文なので did he。</span></li>
+<li class="ans-item"><span class="ans">haven't you　あなたは何度も京都へ行ったことがありますよね。</span><span class="note">💡 現在完了の文は have を使った付加疑問。</span></li>
+<li class="ans-item"><span class="ans">will you　この箱を開けてくださいね。</span><span class="note">💡 命令文には will you? をつける。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　●否定疑問文●　次の文を否定疑問文に書きかえる</div>
+<ol class="prob-list">
+<li>This isn't your bag.</li>
+<li>You aren't afraid of making mistakes.</li>
+<li>You don't watch TV.</li>
+<li>Your parents didn't buy you anything for your birthday.</li>
+<li>I shouldn't go out today.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">Isn't this your bag?</span><span class="note">💡 否定文の語順を、疑問文の語順に（Isn't ＋ 主語）。</span></li>
+<li class="ans-item"><span class="ans">Aren't you afraid of making mistakes?</span></li>
+<li class="ans-item"><span class="ans">Don't you watch TV?</span></li>
+<li class="ans-item"><span class="ans">Didn't your parents buy you anything for your birthday?</span></li>
+<li class="ans-item"><span class="ans">Shouldn't I go out today?</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　●答え方●　次の日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>あなたは日本人ですね。— はい、そうです。 You ___ Japanese, ___ you? — ___, I ___.</li>
+<li>あなたはサッカーをしますね。— いいえ、しません。 You ___ soccer, ___ you? — ___, I ___.</li>
+<li>きのうは雨が降りませんでしたね。— ええ、降りませんでした。 It ___ rain yesterday, ___ it? — ___, it ___.</li>
+<li>あなたのお姉さんは大学生ではないのですか。— いいえ、大学生です。 ___ your sister a college student? — ___, she ___.</li>
+<li>あなたは読書が好きではないのですか。— ええ、好きではありません。 ___ you ___ reading books? — ___, I ___.</li>
+<li>彼は英語が理解できないのですか。— いいえ、理解できます。 ___ he ___ English? — ___, he ___.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">are, aren't, Yes, am</span><span class="note">💡 答えは、日本語の「はい／いいえ」ではなく、内容が合っていれば Yes、ちがえば No。</span></li>
+<li class="ans-item"><span class="ans">play, don't, No, don't</span><span class="note">💡 「しません」は No, I don't.</span></li>
+<li class="ans-item"><span class="ans">didn't, did, No, didn't</span><span class="note">💡 「降りませんでした」は No, it didn't.</span></li>
+<li class="ans-item"><span class="ans">Isn't, Yes, is</span><span class="note">💡 「大学生です」は Yes, she is. 日本語の「いいえ」に引きずられない。</span></li>
+<li class="ans-item"><span class="ans">Don't, like, No, don't</span><span class="note">💡 「好きではありません」は No, I don't.</span></li>
+<li class="ans-item"><span class="ans">Can't, understand, Yes, can</span><span class="note">💡 「理解できます」は Yes, he can.</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+<div class="section" id="kakunin">
+<div class="section-header">練成問題（教科書 p.174-175）</div>
+<div class="section-body">
+<div class="grp">
+<div class="grp-title">1　次の文を、〔　〕内の指示に従って書きかえる</div>
+<ol class="prob-list">
+<li>That girl is wearing a nice dress.〔付加疑問文に〕</li>
+<li>Your uncle gave you a guitar.〔付加疑問文に〕</li>
+<li>Let's go to the movies.〔付加疑問文に〕</li>
+<li>Your brother can't swim.〔付加疑問文に〕</li>
+<li>Open the window.〔付加疑問文に〕</li>
+<li>You were absent from school yesterday.〔否定疑問文に〕</li>
+<li>Your sister helps you with your homework.〔否定疑問文に〕</li>
+<li>You have been to America.〔否定疑問文に〕</li>
+<li>He will come here tomorrow evening.〔否定疑問文に〕</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">That girl is wearing a nice dress, isn't she?</span></li>
+<li class="ans-item"><span class="ans">Your uncle gave you a guitar, didn't he?</span><span class="note">💡 gave の過去形 → didn't he。</span></li>
+<li class="ans-item"><span class="ans">Let's go to the movies, shall we?</span><span class="note">💡 Let's ～ には shall we?。</span></li>
+<li class="ans-item"><span class="ans">Your brother can't swim, can he?</span><span class="note">💡 can't の否定 → can he。</span></li>
+<li class="ans-item"><span class="ans">Open the window, will you?</span></li>
+<li class="ans-item"><span class="ans">Weren't you absent from school yesterday?</span></li>
+<li class="ans-item"><span class="ans">Doesn't your sister help you with your homework?</span></li>
+<li class="ans-item"><span class="ans">Haven't you been to America?</span></li>
+<li class="ans-item"><span class="ans">Won't he come here tomorrow evening?</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　次の日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>あなたの新しい自転車は明るいブルーですよね。— はい、そうです。 Your new bike ___ light blue, ___ ___? — ___, it ___.</li>
+<li>あなたはまだこの本を読んでいませんね。— いいえ、読んでしまいました。 You ___ ___ this book yet, ___ ___? — ___, I ___.</li>
+<li>グリーン先生は授業中、日本語を話さないのですか。— はい、話しません。 ___ Ms. Green ___ Japanese in her class? — ___, she ___.</li>
+<li>あなたは結局そのかばんを買わなかったのですか。— ええ、買いませんでした。わたしには少し高すぎますから。あなたはそう思いませんか。 ___ you ___ the bag after all? — ___, I ___. It is a little too expensive for me. ___ you ___ so?</li>
+<li>この部屋、寒くない？— うん、寒くないよ。セーターを着たらどう？ ___ it cold in this room? — ___, it ___. ___ ___ you put on a sweater?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">is, isn't it, Yes, is</span></li>
+<li class="ans-item"><span class="ans">haven't read, have you, Yes, have</span><span class="note">💡 「まだ読んでいませんね」→ 付加疑問は have you。「読んでしまいました」は Yes, I have.</span></li>
+<li class="ans-item"><span class="ans">Doesn't, speak, No, doesn't</span><span class="note">💡 「話さない」→ No, she doesn't.</span></li>
+<li class="ans-item"><span class="ans">Didn't, buy [get], No, didn't, Don't, think</span><span class="note">💡 最後の Don't you think so? は「そう思いませんか」。</span></li>
+<li class="ans-item"><span class="ans">Isn't, No, isn't, Why don't</span><span class="note">💡 Why don't you 〜?「〜してはどうですか」。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　次の日本文に合う英文になるように、（　）内の語句を並べかえる（それぞれ1語ずつ不足している語がある）</div>
+<ol class="prob-list">
+<li>彼はかさを持っていきましたよね。（he / he / him / his / with / took / umbrella /，）?</li>
+<li>きょうはいい天気ですね。（a / it / it's / day / fine /，）?</li>
+<li>彼女はきのう、皿洗いをしなかったのですよね。（yesterday / she / dishes / she / the / wash / didn't /，）?</li>
+<li>この部屋は今、使われていないのですか。（now / this / used / room）?</li>
+<li>あなたはまだ宿題を終えていないのですか。（yet / you / your homework / finished）?</li>
+<li>そのとき、彼は何も言わなかったのですか。（anything / at / say / that / he）time?</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">He took his umbrella with him, didn't he?</span><span class="note">💡 不足語は didn't。</span></li>
+<li class="ans-item"><span class="ans">It's a fine day, isn't it?</span><span class="note">💡 不足語は isn't。</span></li>
+<li class="ans-item"><span class="ans">She didn't wash the dishes yesterday, did she?</span><span class="note">💡 不足語は did。</span></li>
+<li class="ans-item"><span class="ans">Isn't this room used now?</span><span class="note">💡 不足語は Isn't。受動態の否定疑問文。</span></li>
+<li class="ans-item"><span class="ans">Haven't you finished your homework yet?</span><span class="note">💡 不足語は Haven't。</span></li>
+<li class="ans-item"><span class="ans">Didn't he say anything at that time?</span><span class="note">💡 不足語は Didn't。at that time「そのとき」。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　次の日本文を、（　）内の語句を使って英語に直す</div>
+<ol class="prob-list">
+<li>あなたは紅茶をたくさん飲みますね。（a lot of / don't）— はい、飲みます。</li>
+<li>あなたのお母さんはきのう、わたしたちの学校へ来ましたよね。（didn't / came）— いいえ、来ていません。</li>
+<li>彼はその教室にはいないのですか。（isn't / in）— はい、いません。</li>
+<li>あなたは料理がじょうずではないのですか。（don't / well）— いいえ、じょうずです。</li>
+<li>あしたつりに行きませんか。（why / we）</li>
+<li>ここにあなたの名前を書いてくださいね。（you / will）</li>
+<li>次の日曜日にテニスをしようね。（let's / shall）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">You drink [have] a lot of tea, don't you? — Yes, I do.</span></li>
+<li class="ans-item"><span class="ans">Your mother came to our school yesterday, didn't she? — No, she did not [didn't].</span></li>
+<li class="ans-item"><span class="ans">Isn't he in the classroom? — No, he is not [isn't].</span><span class="note">💡 日本語の「はい、いません」は、英語では No。</span></li>
+<li class="ans-item"><span class="ans">Don't you cook well? — Yes, I do.</span><span class="note">💡 日本語の「いいえ、じょうずです」は、英語では Yes。</span></li>
+<li class="ans-item"><span class="ans">Why don't we go fishing tomorrow?</span><span class="note">💡 Why don't we 〜? は「〜しませんか」という誘い。</span></li>
+<li class="ans-item"><span class="ans">Write your name here, will you?</span></li>
+<li class="ans-item"><span class="ans">Let's play tennis next Sunday, shall we?</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+</main>
+
+<footer>上野作　英語復習活用ホームページ｜解答解説㉝ 付加疑問文・否定疑問文</footer>
+
+<script>
+function toggle(btn){var box=btn.nextElementSibling;box.classList.toggle('open');btn.textContent=box.classList.contains('open')?'答えを隠す':'答えを見る';}
+function showAll(){document.querySelectorAll('.answer-box').forEach(function(b){b.classList.add('open');});document.querySelectorAll('.answer-toggle').forEach(function(b){b.textContent='答えを隠す';});}
+</script>
+<script data-goatcounter="https://ueno-english.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

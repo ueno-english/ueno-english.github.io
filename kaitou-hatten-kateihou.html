@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解答解説 発展研究 仮定法｜上野作 英語復習活用ホームページ</title>
+<style>
+:root{--blue:#b5006e;--red:#c0392b;--green:#1a7a1a;--gold:#d4700a;--bg:#fff0f6;--card:#fff;--border:#f5c6df;--text:#222;--sub:#555;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Hiragino Sans","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;}
+header{background:linear-gradient(135deg,#7b003d 0%,#e91e8c 100%);color:#fff;padding:20px 16px 16px;text-align:center;}
+header .lesson-label{font-size:12px;letter-spacing:2px;opacity:.85;margin-bottom:4px;}
+header h1{font-size:20px;font-weight:bold;margin-bottom:6px;}
+header .topics{font-size:12px;opacity:.9;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;display:inline-block;}
+nav{display:flex;overflow-x:auto;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--border);}
+nav a{white-space:nowrap;text-decoration:none;background:var(--blue);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;}
+main{padding:16px;max-width:720px;margin:0 auto;}
+.section{background:var(--card);border-radius:12px;border:1px solid var(--border);margin-bottom:20px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+.section-header{background:var(--blue);color:#fff;padding:12px 16px;font-weight:bold;font-size:15px;}
+.section-body{padding:16px;}
+.grp{background:#f9fbfd;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;}
+.grp-title{font-weight:bold;color:var(--blue);font-size:13.5px;margin-bottom:8px;}
+.prob-list{padding-left:20px;font-size:13.5px;margin-bottom:8px;}
+.prob-list li{margin-bottom:5px;font-family:Georgia,"Times New Roman",serif;}
+.answer-toggle{background:none;border:1px solid var(--red);color:var(--red);border-radius:20px;padding:4px 14px;font-size:12px;cursor:pointer;}
+.answer-toggle:hover{background:#fff0f0;}
+.answer-box{display:none;margin-top:8px;background:#fff8f8;border-left:3px solid var(--red);padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;}
+.answer-box.open{display:block;}
+.ans-list{list-style:none;}
+.ans-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--border);}
+.ans-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ans-item .ans{color:var(--red);font-weight:bold;font-family:Georgia,serif;display:block;}
+.ans-item .jp{color:var(--sub);font-weight:normal;font-family:"Hiragino Sans","Meiryo",sans-serif;font-size:12px;display:block;}
+.ans-item .note{font-size:11.5px;color:#8a5a00;margin-top:2px;display:block;}
+.show-all-btn{display:block;width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;cursor:pointer;margin-bottom:14px;}
+.show-all-btn:hover{opacity:.88;}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);margin-top:10px;}
+</style>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *.goatcounter.com; frame-ancestors 'none';">
+</head>
+<body>
+
+<header>
+<div class="lesson-label">中学英語 Sirius</div>
+<h1>解答解説 発展研究 仮定法</h1>
+<div class="topics">確認問題・練成問題の解答＋1問ごとの解説</div>
+</header>
+
+<nav>
+<a href="kaitou-32.html">Unit32の解答解説へ</a>
+<a href="kaitou-33.html">Unit33の解答解説へ</a>
+</nav>
+
+<main>
+
+<div class="section" id="enshu">
+<div class="section-header">確認問題（教科書 p.169）</div>
+<div class="section-body">
+<button class="show-all-btn" onclick="showAll()">📂 全問の答えを一括表示</button>
+
+<div class="grp">
+<div class="grp-title">1　●直説法と仮定法●　次の英文を、下線部に注意して日本語に直す</div>
+<ol class="prob-list">
+<li>If you <u>are</u> not busy, please help me.</li>
+<li>If you <u>had</u> a brother, what <u>would</u> you like to do with him?</li>
+<li>If I <u>were</u> this man, I <u>would</u> run away.</li>
+<li>If I <u>didn't have</u> a lot of homework, I <u>could</u> go fishing with you.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">もしあなたが忙しくなければ、わたしを手伝ってください。</span><span class="note">💡 現在形（are）は「本当にそうかもしれない」直説法。仮定法ではない。</span></li>
+<li class="ans-item"><span class="ans">もしあなたにお兄[弟]さんがいれば、あなたは彼と何をしたいですか。</span><span class="note">💡 had（過去形）＋ would。「実際にはいない」ことを表す仮定法過去。</span></li>
+<li class="ans-item"><span class="ans">もしわたしがこの男なら、逃げるでしょう。</span><span class="note">💡 If I were 〜, I would 〜。be動詞はwere。</span></li>
+<li class="ans-item"><span class="ans">もしわたしにたくさん宿題がなければ、あなたといっしょに魚つりに行けるのですが。</span><span class="note">💡 「実際は宿題がたくさんあるので行けない」という現在の事実と反対のことを表す。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　●仮定法過去●　次の各問いに答える</div>
+<ol class="prob-list">
+<li>(1) 次の（　）に入る最も適当な語をア〜エから選ぶ。 ① If he had enough money, he（　）buy that car. ア can イ could ウ will エ may　② If they（　）not sick, they would visit us. ア are イ were ウ have エ been</li>
+<li>(2) 次の文をあとの日本文に合う文に書きかえる。 As I am not free, I cannot read this book.（もしわたしがひまなら、この本を読むことができるのですが。）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">① イ　② イ</span><span class="note">💡 ① If 〜 had（過去形）のとき、主節は助動詞の過去形（could）。② If 〜 were not（過去形）。</span></li>
+<li class="ans-item"><span class="ans">If I were [was] free, I could read this book.</span><span class="note">💡 「ひまではない」現実を、If I were free（仮定法過去）、could read で表す。くだけた会話では was も使われる。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　●仮定法過去完了●　次の各問いに答える</div>
+<ol class="prob-list">
+<li>(1) 次の（　）に入る最も適当な語（句）をア〜エから選ぶ。 ① If we had been free, I（　）have gone shopping. ア can イ could ウ will エ may　② If he（　）with me, he would have helped me. ア am イ are ウ has been エ had been</li>
+<li>(2) 次の文をあとの日本文に合う文に書きかえる。 I couldn't see Mary because I was late.（もしわたしが遅れていなかったら、メアリーに会えたのですが。）</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">① イ　② エ</span><span class="note">💡 仮定法過去完了は《If＋主語＋had＋過去分詞…, 主語＋助動詞の過去形＋have＋過去分詞〜》。</span></li>
+<li class="ans-item"><span class="ans">If I hadn't [had not] been late, I could have seen Mary.</span><span class="note">💡 「遅れた」→「遅れていなかったら」＝ If I had not been late。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　●I wish ～.の文●　次の日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>わたしがお金持ちならいいのに。 I ___ I ___ rich.</li>
+<li>わたしが家にいればよかったのにと思います。 I wish I ___ ___ at home.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">wish, were [was]</span><span class="note">💡 現在の事実と反対の願望は《I wish＋主語＋過去形》。</span></li>
+<li class="ans-item"><span class="ans">had been</span><span class="note">💡 過去の事実と反対の願望は《I wish＋主語＋had＋過去分詞》。</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+<div class="section" id="kakunin">
+<div class="section-header">練成問題（教科書 p.170-171）</div>
+<div class="section-body">
+<div class="grp">
+<div class="grp-title">1　次の英文を日本語に直す</div>
+<ol class="prob-list">
+<li>Let's go swimming if it is sunny next Sunday.</li>
+<li>If we were not busy, we would go to see you.</li>
+<li>If we had not been busy, we would have gone to see you.</li>
+<li>I wish I lived in France.</li>
+<li>I wish I had lived in France.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">もし次の日曜日晴れたら、泳ぎに行きましょう。</span><span class="note">💡 if節の中の現在形は直説法（実際に起こるかもしれないこと）。</span></li>
+<li class="ans-item"><span class="ans">もしわたしたちが忙しくなければ、あなたに会いに行くのですが。</span><span class="note">💡 仮定法過去。「今は忙しいので行けない」。</span></li>
+<li class="ans-item"><span class="ans">もしわたしたちが忙しくなかったら、あなたに会いに行ったのですが。</span><span class="note">💡 仮定法過去完了。「あのとき忙しかったので行けなかった」。</span></li>
+<li class="ans-item"><span class="ans">わたしがフランスに住んでいればいいのに。</span><span class="note">💡 I wish＋過去形＝現在の願望。</span></li>
+<li class="ans-item"><span class="ans">わたしがフランスに住んでいたらよかったのに。</span><span class="note">💡 I wish＋had＋過去分詞＝過去についての願望。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">2　次の（　）に入る最も適当な語（句）を、それぞれ1つずつ選ぶ</div>
+<ol class="prob-list">
+<li>If you visit your aunt, she（　）very happy. ア is イ was ウ will be エ has been</li>
+<li>If there were no water on the earth, we（　）not live. ア can イ will ウ may エ could</li>
+<li>I wish my grandfather（　）here with me now. ア be イ is ウ were エ has been</li>
+<li>If I had been with you, I（　）things like those. ア didn't do イ haven't done ウ won't do エ wouldn't have done</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">ウ</span><span class="note">💡 visit（現在形）は直説法。主節は未来のwill be。</span></li>
+<li class="ans-item"><span class="ans">エ</span><span class="note">💡 If there were（過去形）なので、主節は could。</span></li>
+<li class="ans-item"><span class="ans">ウ</span><span class="note">💡 I wish ＋ 主語 ＋ were（過去形）。</span></li>
+<li class="ans-item"><span class="ans">エ</span><span class="note">💡 had been（過去完了）なので、主節は wouldn't have done。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">3　次の日本文に合う英文になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>疲れているなら、あなたは今夜早く寝るべきです。 ___ you ___ ___, you should go to bed early tonight.</li>
+<li>あした雨が降ったら、一日中家にいましょう。 Let's stay home all day ___ ___ ___ tomorrow.</li>
+<li>もしわたしが道を知っていれば、あなたをそこへ連れていくことができるのに。 ___ I ___ the way, I ___ ___ you there.</li>
+<li>もしもっと若かったら、あなたは何をしたいですか。 If you ___ ___, what ___ you like to do?</li>
+<li>もし携帯電話をなくさなかったら、わたしはあなたに会えたでしょう。 If I ___ ___ my cell phone, I ___ ___ seen you.</li>
+<li>中国語を話せたらいいのになあ。 I ___ I ___ speak Chinese.</li>
+<li>あなたにわたしの家への道順を話しておけばよかったです。 I wish I ___ ___ ___ the way to my house.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">If, are tired</span><span class="note">💡 「疲れているなら」は現実にありうる条件＝直説法（現在形）。</span></li>
+<li class="ans-item"><span class="ans">if it's rainy または if it rains</span><span class="note">💡 未来のことでも if節の中は現在形。</span></li>
+<li class="ans-item"><span class="ans">If, knew, could take</span><span class="note">💡 現在の事実と反対＝仮定法過去。</span></li>
+<li class="ans-item"><span class="ans">were younger, would</span><span class="note">💡 If you were younger, what would you like to do?</span></li>
+<li class="ans-item"><span class="ans">hadn't lost, could have</span><span class="note">💡 過去の事実と反対＝仮定法過去完了。</span></li>
+<li class="ans-item"><span class="ans">wish, could</span><span class="note">💡 I wish I could 〜「〜できたらいいのに」。</span></li>
+<li class="ans-item"><span class="ans">had told you</span><span class="note">💡 過去についての願望。told you the way「あなたに道順を話す」。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">4　次の各組の文がほぼ同じ内容になるように＿に適する語を書く</div>
+<ol class="prob-list">
+<li>(1) a I can't buy this bag because I don't have enough money. b ___ I ___ enough money, I ___ ___ this bag.</li>
+<li>(2) a Take the first train, and you will get to the airport before 7:00. b ___ you ___ the first train, you will get to the airport before 7:00.</li>
+<li>(3) a I'm sorry I can't help you now. b I ___ I ___ ___ you now.</li>
+<li>(4) a I was late for school because I didn't take the train. b If I had taken the train, I ___ ___ ___ late for school.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">If, had, could buy</span><span class="note">💡 現在の事実（買えない）と反対＝仮定法過去。</span></li>
+<li class="ans-item"><span class="ans">If, take</span><span class="note">💡 「〜しなさい、そうすれば…」は If you 〜, … で書きかえられる（直説法）。</span></li>
+<li class="ans-item"><span class="ans">wish, could help</span><span class="note">💡 「助けられなくて残念」＝「助けられたらいいのに」。</span></li>
+<li class="ans-item"><span class="ans">wouldn't have been</span><span class="note">💡 過去完了のif節 → wouldn't have been。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">5　次の日本文に合う英文になるように、（　）内の語句を並べかえる</div>
+<ol class="prob-list">
+<li>もし辞書が必要なら、わたしのを使ってもいいですよ。（can / if / a dictionary / use / need / you / you /，）mine.</li>
+<li>あしたひまなら、いっしょに映画に行きませんか。（we / go / you / the movies / are / why / to / free / if / don't）tomorrow?</li>
+<li>もしわたしが大都市で暮らしていれば、車は必要ないだろうに。（lived / I / not / a car / a big city / would / need / if / in / I /，）.</li>
+<li>わたしが料理が得意だといいのですが。（were / at / wish / good / cooking / I / I）.</li>
+<li>あなたといっしょにそのコンサートに行けばよかった。（the concert / I / with / wish / you / gone / I / to / had）.</li>
+<li>もしわたしがそこにいたら、そのお年寄りの男性を助けていたでしょう。（have / been / the old man / I / helped / if / I / had / would）there.</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">If you need a dictionary, you can use mine.</span><span class="note">💡 現在形のif節は直説法。</span></li>
+<li class="ans-item"><span class="ans">Why don't we go to the movies if you are free tomorrow?</span><span class="note">💡 Why don't we 〜?「〜しませんか」。</span></li>
+<li class="ans-item"><span class="ans">If I lived in a big city, I would not need a car.</span><span class="note">💡 仮定法過去。</span></li>
+<li class="ans-item"><span class="ans">I wish I were good at cooking.</span><span class="note">💡 be good at 〜ing「〜が得意」。</span></li>
+<li class="ans-item"><span class="ans">I wish I had gone to the concert with you.</span><span class="note">💡 I wish＋had＋過去分詞。</span></li>
+<li class="ans-item"><span class="ans">I would have helped the old man if I had been there.</span><span class="note">💡 仮定法過去完了。主節 would have helped、if節 had been。</span></li>
+</ol></div>
+</div>
+
+<div class="grp">
+<div class="grp-title">6　次の日本文を英語に直す</div>
+<ol class="prob-list">
+<li>もし彼の住所を知っているなら、教えてくれませんか。</li>
+<li>もし妹がいれば、彼女といっしょに料理をして楽しむのに。</li>
+<li>もしあなたがわたしなら、今、何ができますか。</li>
+<li>わたしが10歳若かったらいいのになあ。</li>
+<li>もし先週病気でなかったら、友達と買い物に行ったのに。</li>
+</ol>
+<button class="answer-toggle" onclick="toggle(this)">答えを見る</button>
+<div class="answer-box"><ol class="ans-list">
+<li class="ans-item"><span class="ans">If you know his address, will [can] you tell it to me?</span><span class="note">💡 「知っているなら」は現実の条件なので現在形。</span></li>
+<li class="ans-item"><span class="ans">If I had a sister, I would enjoy cooking with her.</span><span class="note">💡 仮定法過去。</span></li>
+<li class="ans-item"><span class="ans">If you were me, what could you do now?</span><span class="note">💡 If you were me「もしあなたがわたしなら」。</span></li>
+<li class="ans-item"><span class="ans">I wish I were [was] ten years younger.</span><span class="note">💡 10歳若い＝ten years younger。</span></li>
+<li class="ans-item"><span class="ans">If I hadn't [had not] been sick last week, I would have gone shopping with my friend(s).</span><span class="note">💡 last week＝過去のことなので仮定法過去完了。</span></li>
+</ol></div>
+</div>
+
+</div>
+</div>
+
+</main>
+
+<footer>上野作　英語復習活用ホームページ｜解答解説 発展研究 仮定法</footer>
+
+<script>
+function toggle(btn){var box=btn.nextElementSibling;box.classList.toggle('open');btn.textContent=box.classList.contains('open')?'答えを隠す':'答えを見る';}
+function showAll(){document.querySelectorAll('.answer-box').forEach(function(b){b.classList.add('open');});document.querySelectorAll('.answer-toggle').forEach(function(b){b.textContent='答えを隠す';});}
+</script>
+<script data-goatcounter="https://ueno-english.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
